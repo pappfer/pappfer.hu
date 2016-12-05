@@ -233,9 +233,10 @@
                         <p><a class="btn btn-lg btn-border ripple" target="_blank"
                               href="http://dev.novembit.com/rs_card/wp-content/uploads/2015/11/test-1.pdf"><?= _('Download Resume') ?></a></p>
             
-                        <p>Hello! I'm Robert Smith. Senior Web Developer specializing in front end development. Experienced with all
-                            stages of the development cycle for dynamic web projects. Well-versed in numerous programming languages
-                            including JavaScript, SQL, and C. Stng background in project management and customer relations.</p>
+                        <p><?= _("I'm a professional PHP developer with 10 years of experience. Prefer to use Yii framework.
+                            I also enjoy building front-end where I'm using responsive design and continuously following the newest technologies and trends. I'm running my own websites on a VPS what I manage so I have some experience with Linux servers along with Apache and Nginx web servers.
+                            I also develop Wordpress plugins, platform independent mobile apps and I'm good at SEO.
+                            I'm a good team-player and have experience in using Git/SVN.") ?></p>
                     </div>
                 </div>
             </section>
