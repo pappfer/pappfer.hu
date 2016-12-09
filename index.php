@@ -196,16 +196,12 @@
                                             <span class="cont"><a href="mailto:pappfer@pappfer.hu">pappfer@pappfer.hu</a></span>
                                         </li>
                                         <li class="clearfix">
-                                            <strong class="title"><?= _('Phone') ?></strong>
-                                            <span class="cont"><a href="tel:"><?= _('-- not public --') ?></a></span>
+                                            <strong class="title">LinkedIn</strong>
+                                            <span class="cont"><a href="https://www.linkedin.com/in/pappfer">linkedin.com/in/pappfer</a></span>
                                         </li>
                                         <li class="clearfix">
-                                            <strong class="title">Freelance</strong>
-                                            <span class="cont">till April 15, 2016</span>
-                                        </li>
-                                        <li class="clearfix">
-                                            <strong class="title"><span class="button">On Vacation</span></strong>
-                                            <span class="cont"><i class="rsicon rsicon-calendar"></i>till March 25, 2016</span>
+                                            <strong class="title"><span class="button" style="background: #d9534f"><?= _('Unavailable') ?></span></strong>
+                                            <span class="cont"><i class="rsicon rsicon-calendar"></i><?= _('currently employed at Fathom Minds' ) ?></span>
                                         </li>
                                     </ul>
                                 </div>
@@ -213,18 +209,14 @@
                         </div>
                         <div class="profile-social">
                             <ul class="social">
-                                <li><a class="ripple-centered" href="https://www.facebook.com" target="_blank"><i
-                                        class="rsicon rsicon-facebook"></i></a></li>
-                                <li><a class="ripple-centered" href="https://twitter.com" target="_blank"><i
+                                <li><a class="ripple-centered" href="https://twitter.com/pappfer" target="_blank"><i
                                         class="rsicon rsicon-twitter"></i></a></li>
-                                <li><a class="ripple-centered" href="https://www.linkedin.com" target="_blank"><i
+                                <li><a class="ripple-centered" href="https://www.linkedin.com/in/pappfer" target="_blank"><i
                                         class="rsicon rsicon-linkedin"></i></a></li>
-                                <li><a class="ripple-centered" href="https://plus.google.com" target="_blank"><i
-                                        class="rsicon rsicon-google-plus"></i></a></li>
-                                <li><a class="ripple-centered" href="https://dribbble.com" target="_blank"><i
-                                        class="rsicon rsicon-dribbble"></i></a></li>
-                                <li><a class="ripple-centered" href="https://www.instagram.com" target="_blank"><i
-                                        class="rsicon rsicon-instagram"></i></a></li>
+                                <li><a class="ripple-centered" href="https://github.com/pappfer" target="_blank"><i
+                                        class="rsicon rsicon-github"></i></a></li>
+                                <li><a class="ripple-centered" href="http://stackoverflow.com/users/3736962/pappfer" target="_blank"><i
+                                        class="rsicon rsicon-stack-overflow"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -244,18 +236,18 @@
             
             <section id="skills" class="section section-skills">
                 <div class="animate-up">
-                    <h2 class="section-title"><?= _('Professional Skills') ?>Professional Skills</h2>
+                    <h2 class="section-title"><?= _('Professional Skills') ?></h2>
             
                     <div class="section-box">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="progress-bar">
                                     <div class="bar-data">
-                                        <span class="bar-title">Wordpress</span>
-                                        <span class="bar-value">80%</span>
+                                        <span class="bar-title">PHP & MySQL</span>
+                                        <span class="bar-value">89%</span>
                                     </div>
                                     <div class="bar-line">
-                                        <span class="bar-fill" data-width="51%"></span>
+                                        <span class="bar-fill" data-width="89%"></span>
                                     </div>
                                 </div>
                             </div>
@@ -263,11 +255,11 @@
                             <div class="col-sm-6">
                                 <div class="progress-bar">
                                     <div class="bar-data">
-                                        <span class="bar-title">JavaScript</span>
-                                        <span class="bar-value">52%</span>
+                                        <span class="bar-title">Yii2 framework</span>
+                                        <span class="bar-value">85%</span>
                                     </div>
                                     <div class="bar-line">
-                                        <span class="bar-fill" data-width="67%"></span>
+                                        <span class="bar-fill" data-width="85%"></span>
                                     </div>
                                 </div>
                             </div>
@@ -277,11 +269,11 @@
                             <div class="col-sm-6">
                                 <div class="progress-bar">
                                     <div class="bar-data">
-                                        <span class="bar-title">Drupal</span>
-                                        <span class="bar-value">61%</span>
+                                        <span class="bar-title">JavaScript</span>
+                                        <span class="bar-value">80%</span>
                                     </div>
                                     <div class="bar-line">
-                                        <span class="bar-fill" data-width="79%"></span>
+                                        <span class="bar-fill" data-width="80%"></span>
                                     </div>
                                 </div>
                             </div>
@@ -293,7 +285,7 @@
                                         <span class="bar-value">89%</span>
                                     </div>
                                     <div class="bar-line">
-                                        <span class="bar-fill" data-width="67%"></span>
+                                        <span class="bar-fill" data-width="89%"></span>
                                     </div>
                                 </div>
                             </div>
@@ -303,11 +295,11 @@
                             <div class="col-sm-6">
                                 <div class="progress-bar">
                                     <div class="bar-data">
-                                        <span class="bar-title">PHP & MySQL</span>
-                                        <span class="bar-value">99%</span>
+                                        <span class="bar-title">Wordpress</span>
+                                        <span class="bar-value">75%</span>
                                     </div>
                                     <div class="bar-line">
-                                        <span class="bar-fill" data-width="54%"></span>
+                                        <span class="bar-fill" data-width="75%"></span>
                                     </div>
                                 </div>
                             </div>
@@ -315,11 +307,11 @@
                             <div class="col-sm-6">
                                 <div class="progress-bar">
                                     <div class="bar-data">
-                                        <span class="bar-title">Photoshop</span>
-                                        <span class="bar-value">97%</span>
+                                        <span class="bar-title">Phonegap / Cordova</span>
+                                        <span class="bar-value">70%</span>
                                     </div>
                                     <div class="bar-line">
-                                        <span class="bar-fill" data-width="80%"></span>
+                                        <span class="bar-fill" data-width="70%"></span>
                                     </div>
                                 </div>
                             </div>
@@ -331,14 +323,14 @@
             
             <section id="portfolio" class="section section-portfolio">
             <div class="animate-up">
-            <h2 class="section-title">Portfolio</h2>
+            <h2 class="section-title"><?= _('Portfolio') ?></h2>
             
             <div class="filter">
                 <div class="filter-inner">
                     <div class="filter-btn-group">
-                        <button data-filter="*">All</button>
-                        <button data-filter=".photography">Photography</button>
-                        <button data-filter=".nature">Nature</button>
+                        <button data-filter="*"><?= _('All') ?></button>
+                        <button data-filter=".photography"><?= _('Own websites') ?></button>
+                        <button data-filter=".nature"><?= _('Company') ?></button>
                     </div>
                     <div class="filter-bar">
                         <span class="filter-bar-line"></span>
@@ -546,7 +538,7 @@
             
             <section id="experience" class="section section-experience">
                 <div class="animate-up">
-                    <h2 class="section-title">Work Experience</h2>
+                    <h2 class="section-title"><?= _('Work Experience') ?></h2>
             
                     <div class="timeline">
                         <div class="timeline-bar"></div>
@@ -557,13 +549,13 @@
                                 <div class="timeline-box-inner animate-right">
                                     <span class="arrow"></span>
             
-                                    <div class="date">2014 - 2016</div>
-                                    <h3>PINEAPPLE</h3>
-                                    <h4>Full Stack developer</h4>
+                                    <div class="date">2014 - <?= _('present') ?></div>
+                                    <h3>Fathom Minds</h3>
+                                    <h4><?= _('Senior PHP developer') ?></h4>
             
-                                    <p>Worked as part of a multi-disciplinary team, carrying out ad-hoc tasks as requested by the IT
-                                        Manager. Had a specific brief to ensure the websites build for customer’s precisely matched
-                                        their requirements.developers and marketers.</p>
+                                    <p><?= _('Currently working at Fathom Minds as a senior developer. I mainly use Yii2 framework 
+                                    for developing websites, web APIs but I also had the chance to set up the company\'s Git environment
+                                    and work on our own Flow project.') ?></p>
                                 </div>
                             </div>
             
@@ -573,12 +565,12 @@
                                 <div class="timeline-box-inner animate-left">
                                     <span class="arrow"></span>
             
-                                    <div class="date">2011 - 2014</div>
-                                    <h3>MACROSOOFT</h3>
-                                    <h4>Web Developer</h4>
+                                    <div class="date">2014 - 2015</div>
+                                    <h3><?= _('Oktafone') ?></h3>
+                                    <h4><?= _('Frontend developer') ?></h4>
             
-                                    <p>I was responsible for working on a range of projects, designing appealing websites and
-                                        interacting on a daily basis with graphic designers, back-end developers and marketers.</p>
+                                    <p><?= _('I was working on a web application for a startup company. I used AngularJS, 
+                                    JavaScript, HTML5 and CSS3 technologies.') ?></p>
                                 </div>
                             </div>
             
@@ -588,13 +580,20 @@
                                 <div class="timeline-box-inner animate-right">
                                     <span class="arrow"></span>
             
-                                    <div class="date">2003 - 2006</div>
-                                    <h3>JOOJLE</h3>
-                                    <h4>Systems Analyst / Web Developer</h4>
+                                    <div class="date">2012 - 2014</div>
+                                    <h3>pappfer.hu</h3>
+                                    <h4><?= _('Freelancer PHP developer') ?></h4>
             
-                                    <p>Rebuilt and enhanced existing ASP B2C site with ASP.NET 2.0 Framework and tools. Technology
-                                        consists of ASP.NET 2.0 (C#), IIS, Microsoft SQL Server 2005, Stored Procedures & PayPal
-                                        Instant Payment Notification.</p>
+                                    <p><?= _('I developed websites for both individuals and companies. I get most of my work 
+                                    through freelancer websites. I prefer to use Yii framework for new projects but I also 
+                                    had to use plain PHP or other frameworks. Used technologies:') ?></p>
+                                    <ul>
+                                        <li>PHP, Yii framework, Wordpress</li>
+                                        <li>HTML5, CSS3, JavaScript, jQuery, AngularJS</li>
+                                        <li>Twitter Bootstrap, Zurb Foundation</li>
+                                        <li>Facebook, LinkedIn, Box.com, Stripe integration</li>
+                                        <li>Yii console application (scheduled e-mails with cronjob)</li>
+                                    </ul>
                                 </div>
                             </div>
             
@@ -604,12 +603,13 @@
                                 <div class="timeline-box-inner animate-left">
                                     <span class="arrow"></span>
             
-                                    <div class="date">2004 - 2008</div>
-                                    <h3>IBBBM</h3>
-                                    <h4>Webmaster / Web Developer</h4>
+                                    <div class="date">2011 - 2012</div>
+                                    <h3>British Telecom</h3>
+                                    <h4><?= _('Network administrator') ?></h4>
             
-                                    <p>Developed, managed, operated and promoted an Internet business.Handled customer support
-                                        issues.Planned and managed business finances.</p>
+                                    <p><?= _('I was configuring network tools such as routers, switches. We supported many 
+                                    networks all over the world. I spoke English with customers all over the world and also 
+                                    achieved soft skill certificates.') ?></p>
                                 </div>
                             </div>
             
@@ -619,12 +619,21 @@
                                 <div class="timeline-box-inner animate-right">
                                     <span class="arrow"></span>
             
-                                    <div class="date">2003 - 2004</div>
-                                    <h3>HEADBOOK</h3>
-                                    <h4>Intern</h4>
+                                    <div class="date">2010 - 2011</div>
+                                    <h3>IT Services</h3>
+                                    <h4><?= _('System administrator') ?></h4>
             
-                                    <p>This was beginning of my career. Developed, managed, operated and promoted an Internet
-                                        business.Handled customer support issues.</p>
+                                    <p><?= _('I was maintaining Linux and Windows servers and I was also administering 
+                                    Avaya IP phones. During my working hours I had a possibility to develop PHP application 
+                                    as well. With one of my mates we created a PHP script which automated many monotonous task. 
+                                    With the result of this we saved about 3 hours a day for all of my colleagues. 
+                                    Later I got great recognition for this job. Apart from this we also created a 
+                                    Greasemonkey script to make our colleagues life easier.') ?></p>
+                                    <ul>
+                                        <li><?= _('IT Services innovation award for the PHP script what me and my mate has created') ?></li>
+                                        <li><?= _('Learning German (basic level)') ?></li>
+                                        <li><?= _('Soft skill certificates') ?></li>
+                                    </ul>
                                 </div>
                             </div>
             
@@ -634,13 +643,13 @@
                                 <div class="timeline-box-inner animate-left">
                                     <span class="arrow"></span>
             
-                                    <div class="date">2000 - 2003</div>
-                                    <h3>UBEAR</h3>
-                                    <h4>Taxi Driver</h4>
+                                    <div class="date">2009 - 2010</div>
+                                    <h3>Concept Solutions</h3>
+                                    <h4><?= _('PHP developer') ?></h4>
             
-                                    <p>Driving from point A to point B and if necessary to point C and sometimes even to point R and
-                                        point S. I was known as experienced driver. Once my passenger who was a web developer told
-                                        me about his job and I have made my decision at that moment to became a developer.</p>
+                                    <p><?= _('I was doing remote work. We used PHP. Most of the times I had to continue 
+                                    or fix someone else’s code so I had a chance to see many different source code and 
+                                    I gained lots of experience.') ?></p>
                                 </div>
                             </div>
                         </div>
@@ -651,7 +660,7 @@
             
             <section id="education" class="section section-education">
                 <div class="animate-up">
-                    <h2 class="section-title">Education</h2>
+                    <h2 class="section-title"><?= _('Education & Charity') ?></h2>
             
                     <div class="timeline">
                         <div class="timeline-bar"></div>
@@ -663,21 +672,9 @@
                                 <div class="timeline-box-inner animate-right">
                                     <span class="arrow"></span>
             
-                                    <div class="date"><span>2012 - 2014</span></div>
-                                    <h3>Master of Information Technology</h3>
-                                    <h4>MIT&T</h4>
-                                </div>
-                            </div>
-            
-                            <div class="timeline-box timeline-box-compact timeline-box-right">
-                                <span class="dot"></span>
-            
-                                <div class="timeline-box-inner animate-left">
-                                    <span class="arrow"></span>
-            
-                                    <div class="date"><span>2008 - 2012</span></div>
-                                    <h3>Bachelor Computer Engineering</h3>
-                                    <h4>Harwarg Universitey</h4>
+                                    <div class="date"><span>2005 - <?= _('(unfinished)') ?></span></div>
+                                    <h3><?= _('Software Engineering') ?></h3>
+                                    <h4><?= _('University of Debrecen') ?></h4>
                                 </div>
                             </div>
             
@@ -687,35 +684,24 @@
                                 <div class="timeline-box-inner animate-right">
                                     <span class="arrow"></span>
             
-                                    <div class="date"><span>2007 - 2008</span></div>
-                                    <h3>Certificate for courses of Computer Science</h3>
-                                    <h4>Stanfoorb Universitey</h4>
+                                    <div class="date"><span>2014 - 2015</span></div>
+                                    <h3><?= _('Worked in a charity shop in Edinburgh, Scotland') ?></h3>
+                                    <h4>Bethany Christian Trust</h4>
                                 </div>
                             </div>
-            
+
                             <div class="timeline-box timeline-box-compact timeline-box-right">
                                 <span class="dot"></span>
-            
+
                                 <div class="timeline-box-inner animate-left">
                                     <span class="arrow"></span>
-            
-                                    <div class="date"><span>2007 - 2008</span></div>
-                                    <h3>1 week Courses of Information Systems</h3>
-                                    <h4>Oxforz Universitey</h4>
+
+                                    <div class="date"><span>2000 - 2014</span></div>
+                                    <h3><?= _('IT specialist') ?></h3>
+                                    <h4><?= _('Reformed College of Debrecen') ?></h4>
                                 </div>
                             </div>
-            
-                            <div class="timeline-box timeline-box-compact timeline-box-left">
-                                <span class="dot"></span>
-            
-                                <div class="timeline-box-inner animate-right">
-                                    <span class="arrow"></span>
-            
-                                    <div class="date"><span>2006 - 2007</span></div>
-                                    <h3>Software Engineering</h3>
-                                    <h4>Sordonne University</h4>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -942,81 +928,6 @@
             </section>
             <!-- #prices -->
             
-            <section id="blog" class="section section-blog">
-                <div class="animate-up">
-                    <h2 class="section-title">From The Blog</h2>
-            
-                    <div class="blog-grid">
-                        <div class="grid-sizer"></div>
-                        <div class="grid-item">
-                            <article class="post-box">
-                                <div class="post-media">
-                                    <div class="post-image">
-                                        <a href="single.html"><img src="img/uploads/thumb-449x286-1.jpg" alt=""> </a>
-                                    </div>
-                                </div>
-            
-                                <div class="post-data">
-                                    <time class="post-datetime" datetime="2015-03-13T07:44:01+00:00">
-                                        <span class="day">03</span>
-                                        <span class="month">MAY</span>
-                                    </time>
-            
-                                    <div class="post-tag">
-                                        <a href="">#Photo</a>
-                                        <a href="">#Architect</a>
-                                    </div>
-            
-                                    <h3 class="post-title">
-                                        <a href="single-image.html">Image Post</a>
-                                    </h3>
-            
-                                    <div class="post-info">
-                                        <a href=""><i class="rsicon rsicon-user"></i>by admin</a>
-                                        <a href=""><i class="rsicon rsicon-comments"></i>56</a>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-            
-                        <div class="grid-item">
-                            <article class="post-box">
-                                <div class="post-media">
-                                    <div class="post-image">
-                                        <a href="single-vimeo.html">
-                                            <img src="img/uploads/thumb-449x286-5.jpg" alt="">
-                                            <span class="post-type-icon"><i class="rsicon rsicon-play"></i></span>
-                                        </a>
-                                    </div>
-                                </div>
-            
-                                <div class="post-data">
-                                    <time class="post-datetime" datetime="2015-03-13T07:44:01+00:00">
-                                        <span class="day">03</span>
-                                        <span class="month">MAY</span>
-                                    </time>
-            
-                                    <div class="post-tag">
-                                        <a href="">#Photo</a>
-                                        <a href="">#Architect</a>
-                                    </div>
-            
-                                    <h3 class="post-title">
-                                        <a href="single-vimeo.html">Vimeo Video Post</a>
-                                    </h3>
-            
-                                    <div class="post-info">
-                                        <a href=""><i class="rsicon rsicon-user"></i>by admin</a>
-                                        <a href=""><i class="rsicon rsicon-comments"></i>56</a>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- #blog -->
-            
             <section id="text-section" class="section section-text">
                 <div class="animate-up animated">
                     <h2 class="section-title">Text Section</h2>
@@ -1038,43 +949,28 @@
             
             <section id="interests" class="section section-interests">
                 <div class="animate-up">
-                    <h2 class="section-title">My Interests</h2>
+                    <h2 class="section-title"><?= _('My Interests') ?></h2>
             
                     <div class="section-box">
-                        <p>I have a keen interest in photography. I was vice-president of the photography club during my time at
-                            university,
-                            and during this period I organised a number of very successful exhibitions and events both on and off
-                            campus.
-                            <br/>I also play the piano to grade 8 standard.</p>
+                        <p><?= _('My favourite hobby is playing football but I really like any kind of sports. I like 
+                        cycling, swimming, playing squash, table tennis and bowling.') ?></p>
             
                         <ul class="interests-list">
                             <li>
                                 <i class="map-icon map-icon-bicycling"></i>
-                                <span>Bicycling</span>
-                            </li>
-                            <li>
-                                <i class="map-icon map-icon-movie-theater"></i>
-                                <span>Watch Movies</span>
-                            </li>
-                            <li>
-                                <i class="map-icon map-icon-ice-skating"></i>
-                                <span>Skating</span>
-                            </li>
-                            <li>
-                                <i class="map-icon map-icon-shopping-mall"></i>
-                                <span>Shopping</span>
-                            </li>
-                            <li>
-                                <i class="map-icon map-icon-tennis"></i>
-                                <span>Playing Tennis</span>
-                            </li>
-                            <li>
-                                <i class="map-icon map-icon-bowling-alley"></i>
-                                <span>Playing Bowling</span>
+                                <span><?= ('Bicycling') ?></span>
                             </li>
                             <li>
                                 <i class="map-icon map-icon-swimming"></i>
-                                <span>Swimming</span>
+                                <span><?= ('Swimming') ?></span>
+                            </li>
+                            <li>
+                                <i class="map-icon map-icon-horse-riding"></i>
+                                <span><?= ('Horse riding') ?></span>
+                            </li>
+                            <li>
+                                <i class="map-icon map-icon-bowling-alley"></i>
+                                <span><?= ('Playing Bowling') ?></span>
                             </li>
                         </ul>
                     </div>
@@ -1082,83 +978,42 @@
             </section>
             <!-- #interests -->
             
-            <section id="calendar" class="section section-calendar">
-                <div class="animate-up">
-                    <h2 class="section-title">Availability Calendar</h2>
-            
-                    <div id="busyCalendar" class="calendar-busy">
-                        <div class="calendar-today" style="background-image: url('img/uploads/rs-calendar-cover.jpg')">
-                            <div class="valign-outer">
-                                <div class="valign-middle">
-                                    <div class="valign-inner">
-                                        <div class="date">
-                                            <span class="day"></span>
-                                            <span class="month"></span>
-                                        </div>
-                                        <div class="week-day"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-            
-                        <div class="calendar-cont">
-                            <div class="calendar-header">
-                                <div class="calendar-nav">
-                                    <span class="active-date"><span class="active-month"></span><span
-                                            class="active-year"></span></span>
-                                    <a class="calendar-prev ripple-centered" title="Prev"><i class="rsicon rsicon-chevron_left"></i></a>
-                                    <a class="calendar-next ripple-centered" title="Next"><i
-                                            class="rsicon rsicon-chevron_right"></i></a>
-                                </div>
-                            </div>
-            
-                            <table class="calendar-body">
-                                <thead class="calendar-thead"></thead>
-                                <tbody class="calendar-tbody"></tbody>
-                            </table>
-                            <div class="calendar-busy-note">Sorry. I'm not available on those days</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- #calendar -->
-            
             <section id="contact" class="section section-contact">
                 <div class="animate-up">
-                    <h2 class="section-title">Contact Me</h2>
+                    <h2 class="section-title"><?= _('Contact Me') ?></h2>
             
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="section-box contact-form">
-                                <h3>Feel free to contact me</h3>
+                                <h3><?= _('Feel free to contact me') ?></h3>
             
                                 <form class="rsForm" action="php/mailsender.php" method="post">
                                     <div class="input-field">
-                                        <label>Name</label>
+                                        <label><?= _('Name') ?></label>
                                         <input type="text" name="rsName" value="">
                                         <span class="line"></span>
                                     </div>
             
                                     <div class="input-field">
-                                        <label>Email</label>
+                                        <label><?= _('Email') ?></label>
                                         <input type="email" name="rsEmail" value="">
                                         <span class="line"></span>
                                     </div>
             
                                     <div class="input-field">
-                                        <label>Subject</label>
+                                        <label><?= _('Subject') ?></label>
                                         <input type="text" name="rsSubject" value="">
                                         <span class="line"></span>
                                     </div>
             
                                     <div class="input-field">
-                                        <label>Message</label>
+                                        <label><?= _('Message') ?></label>
                                         <textarea rows="4" name="rsMessage"></textarea>
                                         <span class="line"></span>
                                     </div>
             
                                     <span class="btn-outer btn-primary-outer ripple">
-                                        <input class="rsFormSubmit btn btn-lg btn-primary" type="submit" value="Send">
+                                        <input class="rsFormSubmit btn btn-lg btn-primary" type="submit" value="<?= _('Send') ?>">
                                     </span>
                                 </form>
                             </div>
@@ -1168,20 +1023,20 @@
                             <div class="section-box contact-info has-map">
                                 <ul class="contact-list">
                                     <li class="clearfix">
-                                        <strong>Address</strong>
-                                        <span>Belgium, Brussels, Liutte 27, BE</span>
+                                        <strong><?= _('Address') ?></strong>
+                                        <span>Hungary, Debrecen</span>
                                     </li>
                                     <li class="clearfix">
-                                        <strong>phone</strong>
-                                        <span><a href="tel:+12562548456">+1 256 254 84 56</a></span>
+                                        <strong>LinkedIn</strong>
+                                        <span><a href="https://www.linkedin.com/in/pappfer">linkedin.com/in/pappfer</a></span>
                                     </li>
                                     <li class="clearfix">
-                                        <strong>E-mail</strong>
-                                        <span><a href="mailto:robertsmith@company.com">robertsmith@company.com</a></span>
+                                        <strong><?= _('Email') ?></strong>
+                                        <span><a href="mailto:pappfer@pappfer.hu">pappfer@pappfer.hu</a></span>
                                     </li>
                                 </ul>
             
-                                <div id="map" data-latitude="50.84592" data-longitude="4.366859999999974"></div>
+                                <div id="map" data-latitude="47.531605" data-longitude="21.627312"></div>
                             </div>
                         </div>
                     </div>
@@ -1198,12 +1053,14 @@
     <footer class="footer">
         <div class="footer-social">
             <ul class="social">
-                <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-facebook"></i></a></li>
-                <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-twitter"></i></a></li>
-                <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-linkedin"></i></a></li>
-                <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-google-plus"></i></a></li>
-                <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-dribbble"></i></a></li>
-                <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-instagram"></i></a></li>
+                <li><a class="ripple-centered" href="https://twitter.com/pappfer" target="_blank"><i
+                            class="rsicon rsicon-twitter"></i></a></li>
+                <li><a class="ripple-centered" href="https://www.linkedin.com/in/pappfer" target="_blank"><i
+                            class="rsicon rsicon-linkedin"></i></a></li>
+                <li><a class="ripple-centered" href="https://github.com/pappfer" target="_blank"><i
+                            class="rsicon rsicon-github"></i></a></li>
+                <li><a class="ripple-centered" href="http://stackoverflow.com/users/3736962/pappfer" target="_blank"><i
+                            class="rsicon rsicon-stack-overflow"></i></a></li>
             </ul>
         </div>
     </footer>
@@ -1217,7 +1074,7 @@
     <div id="overlay"></div>
     <div id="preloader">
         <div class="preload-icon"><span></span><span></span></div>
-        <div class="preload-text">Loading ...</div>
+        <div class="preload-text"><?= ('Loading...') ?></div>
     </div>
     
     <!-- Scripts -->
