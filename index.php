@@ -51,7 +51,6 @@
                     <li><a href="#portfolio"><?= _('Portfolio') ?></a></li>
                     <li><a href="#experience"><?= _('Experience') ?></a></li>
                     <li><a href="#references"><?= _('References') ?></a></li>
-                    <li><a href="#calendar"><?= _('Calendar') ?></a></li>
                     <li><a href="#contact"><?= _('Contact') ?></a></li>
                 </ul>
             </nav>
@@ -65,7 +64,7 @@
         <div class="widget-area">
             <aside class="widget widget-profile">
                 <div class="profile-photo">
-                    <img src="img/uploads/rs-photo-v2.jpg" alt="Robert Smith"/>
+                    <img src="img/uploads/pappfer.jpg" alt="<?= _('Ferenc Papp') ?>">
                 </div>
                 <div class="profile-info">
                     <h2 class="profile-title"><?= _('Ferenc Papp') ?></h2>
@@ -129,7 +128,7 @@
 
     <div class="wrapper">
         <header class="header">
-            <div class="head-bg" style="background-image: url('img/uploads/rs-cover.jpg')"></div>
+            <div class="head-bg" style="background-image: url('img/uploads/cover.jpeg')"></div>
         
             <div class="head-bar">
                 <div class="head-bar-inner">
@@ -148,7 +147,6 @@
                                         <li><a href="#portfolio"><?= _('Portfolio') ?></a></li>
                                         <li><a href="#experience"><?= _('Experience') ?></a></li>
                                         <li><a href="#references"><?= _('References') ?></a></li>
-                                        <li><a href="#calendar"><?= _('Calendar') ?></a></li>
                                         <li><a href="#contact"><?= _('Contact') ?></a></li>
                                     </ul>
                                 </nav>
@@ -174,7 +172,7 @@
                         <div class="profile">
                             <div class="row">
                                 <div class="col-xs-5">
-                                    <div class="profile-photo"><img src="img/uploads/rs-photo-v1.jpg" alt="<?= _('Ferenc Papp') ?>"/></div>
+                                    <div class="profile-photo"><img src="img/uploads/pappfer.jpg" alt="<?= _('Ferenc Papp') ?>"/></div>
                                 </div>
                                 <div class="col-xs-7">
                                     <div class="profile-info">
@@ -185,7 +183,7 @@
                                     <ul class="profile-list">
                                         <li class="clearfix">
                                             <strong class="title"><?= _('Age') ?></strong>
-                                            <span class="cont">30</span>
+                                            <span class="cont">31</span>
                                         </li>
                                         <li class="clearfix">
                                             <strong class="title"><?= _('Address') ?></strong>
