@@ -72,7 +72,7 @@ $testimonials = [
                 <ul class="clearfix">
                     <li><a href="#about"><?= _('About') ?></a></li>
                     <li><a href="#skills"><?= _('Skills') ?></a></li>
-                    <li><a href="#portfolio"><?= _('Portfolio') ?></a></li>
+                    <!--<li><a href="#portfolio"><?= _('Portfolio') ?></a></li>-->
                     <li><a href="#experience"><?= _('Experience') ?></a></li>
                     <li><a href="#references"><?= _('References') ?></a></li>
                     <li><a href="#contact"><?= _('Contact') ?></a></li>
@@ -158,8 +158,7 @@ $testimonials = [
                 <div class="head-bar-inner">
                     <div class="row">
                         <div class="col-sm-3 col-xs-6">
-                            <a class="logo" href="index.php"><span>RS</span>card</a>
-                            <!-- <a class="head-logo" href=""><img src="img/rs-logo.png" alt="RScard"/></a> -->
+                            <a class="logo" href="index.php"><span>papp</span>fer</a>
                         </div>
 
                         <div class="col-sm-9 col-xs-6">
@@ -168,7 +167,7 @@ $testimonials = [
                                     <ul class="clearfix">
                                         <li><a href="#about"><?= _('About') ?></a></li>
                                         <li><a href="#skills"><?= _('Skills') ?></a></li>
-                                        <li><a href="#portfolio"><?= _('Portfolio') ?></a></li>
+                                        <!--<li><a href="#portfolio"><?= _('Portfolio') ?></a></li>-->
                                         <li><a href="#experience"><?= _('Experience') ?></a></li>
                                         <li><a href="#references"><?= _('References') ?></a></li>
                                         <li><a href="#contact"><?= _('Contact') ?></a></li>
@@ -222,7 +221,7 @@ $testimonials = [
                                             <span class="cont"><a href="https://www.linkedin.com/in/pappfer">linkedin.com/in/pappfer</a></span>
                                         </li>
                                         <li class="clearfix">
-                                            <strong class="title"><span class="button" style="background: #d9534f"><?= _('Currently unavailable for new projects') ?></span></strong>
+                                            <span class="button" style="background: #d9534f"><?= _('Currently unavailable for new projects') ?></span>
                                         </li>
                                     </ul>
                                 </div>
@@ -368,7 +367,7 @@ $testimonials = [
             </section>
             <!-- #skills -->
 
-            <section id="portfolio" class="section section-portfolio">
+            <!--<section id="portfolio" class="section section-portfolio">
             <div class="animate-up">
             <h2 class="section-title"><?= _('Portfolio') ?></h2>
 
@@ -411,7 +410,6 @@ $testimonials = [
                             </figcaption>
                         </figure>
 
-                        <!-- Start: Portfolio Inline Boxes -->
                         <div id="portfolio1-inline1" class="fancybox-inline-box">
                             <div class="inline-embed" data-embed-type="image"
                                  data-embed-url="img/uploads/portfolio/portfolio-thumb-05-large.jpg"></div>
@@ -457,10 +455,8 @@ $testimonials = [
                                 </div>
                             </div>
                         </div>
-                        <!-- End: Portfolio Inline Boxes -->
                     </div>
                 </div>
-                <!-- .grid-item -->
 
                 <div class="grid-item size11 bridge">
                     <div class="grid-box">
@@ -481,7 +477,6 @@ $testimonials = [
                             </figcaption>
                         </figure>
 
-                        <!-- Start: Portfolio Inline Boxes -->
                         <div id="portfolio2-inline1" class="fancybox-inline-box">
                             <div class="inline-cont">
                                 <h2 class="inline-title">Suspension Bridges - Design Technology</h2>
@@ -526,10 +521,8 @@ $testimonials = [
                                 </div>
                             </div>
                         </div>
-                        <!-- End: Portfolio Inline Boxes -->
                     </div>
                 </div>
-                <!-- .grid-item -->
 
                 <div class="grid-item size11 nature photography">
                     <div class="grid-box">
@@ -554,7 +547,6 @@ $testimonials = [
                             </figcaption>
                         </figure>
 
-                        <!-- Start: Portfolio Inline Boxes -->
                         <div id="portfolio3-inline1" class="fancybox-inline-box">
                             <div class="inline-embed" data-embed-type="image"
                                  data-embed-url="img/uploads/portfolio/portfolio-thumb-08-large.jpg"></div>
@@ -569,10 +561,8 @@ $testimonials = [
                             <div class="inline-embed" data-embed-type="image"
                                  data-embed-url="img/uploads/portfolio/portfolio-thumb-02-large.jpg"></div>
                         </div>
-                        <!-- End: Portfolio Inline Boxes -->
                     </div>
                 </div>
-                <!-- .grid-item -->
             </div>
 
             <div class="grid-more">
@@ -581,7 +571,7 @@ $testimonials = [
             </div>
             </div>
             </section>
-            <!-- #portfolio -->
+            -->
 
             <section id="experience" class="section section-experience">
                 <div class="animate-up">
@@ -774,47 +764,27 @@ $testimonials = [
 
                     <div class="clients-carousel">
                         <div class="client-logo">
-                            <a href="http://market.envato.com" target="_blank"><img src="img/uploads/logos/logo-envato.png"
-                                                                                    title="envato" alt="envato"/></a>
+                            <img src="img/uploads/logos/logo-yii.png" title="Yii framework" alt="Yii2">
                         </div>
 
                         <div class="client-logo">
-                            <img src="img/uploads/logos/logo-angularjs.png" title="angular js" alt="angular js"/>
+                            <img src="img/uploads/logos/logo-angularjs.png" title="angular js" alt="angular js">
                         </div>
 
                         <div class="client-logo">
-                            <a href="https://www.omniref.com/ruby/gems/teaspoon/0.7.9" target="_blank"><img
-                                    src="img/uploads/logos/logo-teaspoon.png" title="teaspoon" alt="teaspoon"/></a>
+                            <img src="img/uploads/logos/logo-wordpress.png" title="wordpress" alt="wordpress">
                         </div>
 
                         <div class="client-logo">
-                            <a href="https://wordpress.com" target="_blank"><img src="img/uploads/logos/logo-wordpress.png"
-                                                                                 title="wordpress" alt="wordpress"/></a>
+                            <img src="img/uploads/logos/logo-bootstrap.png" title="bootstrap" alt="bootstrap">
                         </div>
 
                         <div class="client-logo">
-                            <a href="https://evernote.com" target="_blank"><img src="img/uploads/logos/logo-evernote.png"
-                                                                                title="evernote" alt="evernote"/></a>
+                            <img src="img/uploads/logos/logo-jquery.png" title="jquery" alt="jquery">
                         </div>
 
                         <div class="client-logo">
-                            <a href="http://compass-style.org" target="_blank"><img src="img/uploads/logos/logo-compass.png"
-                                                                                    title="compass" alt="compass"/></a>
-                        </div>
-
-                        <div class="client-logo">
-                            <a href="http://getbootstrap.com" target="_blank"><img src="img/uploads/logos/logo-bootstrap.png"
-                                                                                   title="bootstrap" alt="bootstrap"/></a>
-                        </div>
-
-                        <div class="client-logo">
-                            <a href="http://jasmine.github.io" target="_blank"><img src="img/uploads/logos/logo-jasmine.png"
-                                                                                    title="jasmine" alt="jasmine"/></a>
-                        </div>
-
-                        <div class="client-logo">
-                            <a href="https://jquery.com" target="_blank"><img src="img/uploads/logos/logo-jquery.png" title="jquery"
-                                                                              alt="jquery"/></a>
+                            <img src="img/uploads/logos/logo-jasmine.png" title="jasmine" alt="jasmine">
                         </div>
                     </div>
                 </div>
@@ -823,7 +793,7 @@ $testimonials = [
 
             <section id="references" class="section section-references">
                 <div class="animate-up">
-                    <h2 class="section-title">References</h2>
+                    <h2 class="section-title"><?= _('References') ?></h2>
 
                     <div class="section-box">
                         <ul class="ref-slider">
@@ -834,10 +804,8 @@ $testimonials = [
                                         <p><?= $testimonial['speech'] ?></p>
                                     </div>
                                     <div class="person-info clearfix">
-                                        <img class="person-img" src="img/uploads/rs-avatar-60x60.jpg" alt="Headshot">
-
                                         <div class="person-name-title">
-                                            <span class="person-name"><?= $testimonial['name'] ?></span>
+                                            <span class="person-name"><i class="rsicon rsicon-user"></i> <?= $testimonial['name'] ?></span>
                                             <?php if (!empty($testimonial['title'])) { ?>
                                             <span class="person-title"><?= $testimonial['title'] ?></span>
                                             <?php } ?>
@@ -856,23 +824,15 @@ $testimonials = [
             </section>
             <!-- #references -->
 
-            <section id="text-section" class="section section-text">
+            <!--<section id="text-section" class="section section-text">
                 <div class="animate-up animated">
                     <h2 class="section-title">Text Section</h2>
 
                     <div class="section-box">
-                        <p>Hello! I’m Robert Smith and this is custom editor section. You can add here any text or "Strikethrough"
-                            text and even you can add bulleted or numbered text and even you will be able to add blockquot text. You
-                            can align this text to left/right/center.
-
-                            One of the most interesting options is to divide this section to "One half" "One Third" and "One
-                            Fourth".
-
-                            You can use this for Honors or Achievments or Awards sections. You can insert images and photos right in
-                            this editor!</p>
+                        <p>More about me...</p>
                     </div>
                 </div>
-            </section>
+            </section>-->
             <!-- #text-section -->
 
             <section id="interests" class="section section-interests">
