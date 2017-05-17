@@ -735,7 +735,7 @@ $testimonials = [
                                 <div class="timeline-box-inner animate-right">
                                     <span class="arrow"></span>
 
-                                    <div class="date"><span>2014 - 2015</span></div>
+                                    <div class="date"><span>2004 - 2005</span></div>
                                     <h3><?= _('Worked in a charity shop in Edinburgh, Scotland') ?></h3>
                                     <h4>Bethany Christian Trust</h4>
                                 </div>
@@ -747,7 +747,7 @@ $testimonials = [
                                 <div class="timeline-box-inner animate-left">
                                     <span class="arrow"></span>
 
-                                    <div class="date"><span>2000 - 2014</span></div>
+                                    <div class="date"><span>2000 - 2004</span></div>
                                     <h3><?= _('IT specialist') ?></h3>
                                     <h4><?= _('Reformed College of Debrecen') ?></h4>
                                 </div>
@@ -962,7 +962,7 @@ $testimonials = [
     <div id="overlay"></div>
     <div id="preloader">
         <div class="preload-icon"><span></span><span></span></div>
-        <div class="preload-text"><?= ('Loading...') ?></div>
+        <div class="preload-text"><?= _('Loading...') ?></div>
     </div>
 
     <!-- Scripts -->
