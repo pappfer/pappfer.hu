@@ -1,0 +1,343 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: pappfer.hu\n"
+"POT-Creation-Date: 2017-05-29 16:15+0200\n"
+"PO-Revision-Date: 2017-05-29 16:59+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.1\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: index.php\n"
+
+#: index.php:40
+msgid ""
+"Excellent freelancer and very easy to work with. Great knowledge of Yii/PHP, "
+"excellent English and very good communicator, and very reliable."
+msgstr ""
+"Kiváló szabadúszó, akivel nagyon könnyű együtt dolgozni. Nagyon ért a Yii-"
+"hez és a PHP-hez, kiváló az angol tudása, jól kommunikál, és nagyon "
+"megbízható."
+
+#: index.php:45
+msgid ""
+"Ferenc is the best contractor that I met ever on Elance. He is highly "
+"talented, professional and hard worker. He did the task exactly I ask him to "
+"do. Ferenc completed the task and made sure I was completely satisfied. He "
+"was very responsive to questions and concerns. I will indeed be a repeat "
+"customer as I am very pleased with my website!"
+msgstr ""
+
+#: index.php:50
+msgid ""
+"Ferenc is a very talented PHP developer. He quickly got to grips with what "
+"was required and delivered everything (and more) that I expected of him. I "
+"would happily work with him again."
+msgstr ""
+
+#: index.php:55
+msgid ""
+"I would most definitely re-hire pappfer and I highly recommend his services."
+msgstr ""
+
+#: index.php:66
+msgid "Freelancer PHP/Yii2/JavaScript developer"
+msgstr "Szabadúszó PHP/Yii2/JavaScript fejlesztő"
+
+#: index.php:107 index.php:202
+msgid "About"
+msgstr "Rólam"
+
+#: index.php:108 index.php:203
+msgid "Skills"
+msgstr ""
+
+#: index.php:109 index.php:204 index.php:406
+msgid "Portfolio"
+msgstr "Portfólió"
+
+#: index.php:110 index.php:205
+msgid "Experience"
+msgstr ""
+
+#: index.php:111 index.php:206 index.php:830
+msgid "References"
+msgstr ""
+
+#: index.php:112 index.php:207
+msgid "Contact"
+msgstr ""
+
+#: index.php:125 index.php:128 index.php:232
+msgid "Ferenc Papp"
+msgstr ""
+
+#: index.php:130 index.php:239 index.php:625
+msgid "Full stack web developer"
+msgstr "Fullstack webfejlesztő"
+
+#: index.php:136 index.php:141 index.php:143
+msgid "Search"
+msgstr "Keresés"
+
+#: index.php:140
+msgid "Search for:"
+msgstr "Keresés erre:"
+
+#: index.php:149
+msgid "Contact me"
+msgstr "Kapcsolat"
+
+#: index.php:153 index.php:914
+msgid "Name"
+msgstr "Név"
+
+#: index.php:159 index.php:250 index.php:920 index.php:956
+msgid "Email"
+msgstr "E-mail"
+
+#: index.php:165 index.php:926
+msgid "Subject"
+msgstr "Tárgy"
+
+#: index.php:171 index.php:932
+msgid "Message"
+msgstr "Üzenet"
+
+#: index.php:177 index.php:938
+msgid "Send"
+msgstr "Küldés"
+
+#: index.php:211
+msgid "Menu"
+msgstr "Menü"
+
+#: index.php:236
+msgid "Hello"
+msgstr "Üdv"
+
+#: index.php:237
+msgid "<span>I'm</span> Ferenc Papp"
+msgstr "Papp Ferenc"
+
+#: index.php:242
+msgid "Age"
+msgstr "Életkor"
+
+#: index.php:246 index.php:948
+msgid "Address"
+msgstr "Lakcím"
+
+#: index.php:247
+msgid "Debrecen, Hungary, 4032"
+msgstr ""
+
+#: index.php:258
+msgid "Currently unavailable for new projects"
+msgstr ""
+
+#: index.php:280
+msgid "Download Resume"
+msgstr "Önéletrajz letöltése"
+
+#: index.php:282
+msgid ""
+"I'm a professional PHP developer with 10 years of experience. Prefer to use "
+"Yii framework.\n"
+"                            I also enjoy building front-end where I'm using "
+"responsive design and continuously following the newest technologies and "
+"trends. I'm running my own websites on a VPS what I manage so I have some "
+"experience with Linux servers along with Apache and Nginx web servers.\n"
+"                            I also develop Wordpress plugins, platform "
+"independent mobile apps and I'm good at SEO.\n"
+"                            I'm a good team-player and have experience in "
+"using Git/SVN."
+msgstr ""
+
+#: index.php:293
+msgid "Professional Skills"
+msgstr ""
+
+#: index.php:411
+msgid "All"
+msgstr ""
+
+#: index.php:412
+msgid "Own websites"
+msgstr ""
+
+#: index.php:413
+msgid "Company"
+msgstr ""
+
+#: index.php:612
+msgid "Work Experience"
+msgstr ""
+
+#: index.php:623
+msgid "present"
+msgstr ""
+
+#: index.php:624
+msgid "Contractor"
+msgstr ""
+
+#: index.php:627
+msgid "I am currently an entrepreneur working as a full stack web developer."
+msgstr ""
+
+#: index.php:639
+msgid "Senior PHP developer"
+msgstr ""
+
+#: index.php:641
+msgid ""
+"Currently working at Fathom Minds as a senior developer. I mainly use Yii2 "
+"framework \n"
+"                                    for developing websites, web APIs but I "
+"also had the chance to set up the company's Git environment\n"
+"                                    and work on our own Flow project."
+msgstr ""
+
+#: index.php:654
+msgid "Oktafone"
+msgstr ""
+
+#: index.php:655
+msgid "Frontend developer"
+msgstr ""
+
+#: index.php:657
+msgid ""
+"I was working on a web application for a startup company. I used "
+"AngularJS, \n"
+"                                    JavaScript, HTML5 and CSS3 technologies."
+msgstr ""
+
+#: index.php:670
+msgid "Freelancer PHP developer"
+msgstr ""
+
+#: index.php:672
+msgid ""
+"I developed websites for both individuals and companies. I get most of my "
+"work \n"
+"                                    through freelancer websites. I prefer to "
+"use Yii framework for new projects but I also \n"
+"                                    had to use plain PHP or other "
+"frameworks. Used technologies:"
+msgstr ""
+
+#: index.php:693
+msgid "Network administrator"
+msgstr ""
+
+#: index.php:695
+msgid ""
+"I was configuring network tools such as routers, switches. We supported "
+"many \n"
+"                                    networks all over the world. I spoke "
+"English with customers all over the world and also \n"
+"                                    achieved soft skill certificates."
+msgstr ""
+
+#: index.php:709
+msgid "System administrator"
+msgstr ""
+
+#: index.php:711
+msgid ""
+"I was maintaining Linux and Windows servers and I was also administering \n"
+"                                    Avaya IP phones. During my working hours "
+"I had a possibility to develop PHP application \n"
+"                                    as well. With one of my mates we created "
+"a PHP script which automated many monotonous task. \n"
+"                                    With the result of this we saved about 3 "
+"hours a day for all of my colleagues. \n"
+"                                    Later I got great recognition for this "
+"job. Apart from this we also created a \n"
+"                                    Greasemonkey script to make our "
+"colleagues life easier."
+msgstr ""
+
+#: index.php:718
+msgid ""
+"IT Services innovation award for the PHP script what me and my mate has "
+"created"
+msgstr ""
+
+#: index.php:719
+msgid "Learning German (basic level)"
+msgstr ""
+
+#: index.php:720
+msgid "Soft skill certificates"
+msgstr ""
+
+#: index.php:733
+msgid "PHP developer"
+msgstr ""
+
+#: index.php:735
+msgid ""
+"I was doing remote work. We used PHP. Most of the times I had to continue \n"
+"                                    or fix someone else’s code so I had a "
+"chance to see many different source code and \n"
+"                                    I gained lots of experience."
+msgstr ""
+
+#: index.php:748
+msgid "Education & Charity"
+msgstr ""
+
+#: index.php:760
+msgid "(unfinished)"
+msgstr ""
+
+#: index.php:761
+msgid "Software Engineering"
+msgstr ""
+
+#: index.php:762
+msgid "University of Debrecen"
+msgstr ""
+
+#: index.php:773
+msgid "Worked in a charity shop in Edinburgh, Scotland"
+msgstr ""
+
+#: index.php:785
+msgid "IT specialist"
+msgstr ""
+
+#: index.php:786
+msgid "Reformed College of Debrecen"
+msgstr ""
+
+#: index.php:874
+msgid "My Interests"
+msgstr ""
+
+#: index.php:877
+msgid ""
+"My favourite hobby is playing football but I really like any kind of sports. "
+"I like hiking,\n"
+"                        cycling, swimming, playing squash, table tennis and "
+"bowling."
+msgstr ""
+
+#: index.php:905
+msgid "Contact Me"
+msgstr ""
+
+#: index.php:910
+msgid "Feel free to contact me"
+msgstr ""
+
+#: index.php:999
+msgid "Loading..."
+msgstr ""

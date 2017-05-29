@@ -1,4 +1,38 @@
 <?php
+
+/**
+ * Verifies if the given $locale is supported in the project
+ * @param string $locale
+ * @return bool
+ */
+function valid($locale) {
+    return in_array($locale, ['hu', 'en', 'de']);
+}
+
+$lang = 'en';
+
+if (isset($_GET['lang']) && valid($_GET['lang'])) {
+    $lang = htmlspecialchars($_GET['lang']);
+    setcookie('lang', $lang);
+} elseif (isset($_COOKIE['lang']) && valid($_COOKIE['lang'])) {
+    $lang = htmlspecialchars($_COOKIE['lang']);
+} elseif (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+    $langs = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
+    array_walk($langs, function (&$lang) { $lang = strtr(strtok($lang, ';'), ['-' => '_']); });
+    foreach ($langs as $browserLang) {
+        if (valid($browserLang)) {
+            $lang = $browserLang;
+            break;
+        }
+    }
+}
+
+putenv("LANG=$lang");
+setlocale(LC_ALL, $lang);
+bindtextdomain('app', './locales');
+bind_textdomain_codeset('app', 'UTF-8');
+textdomain('app');
+
 $testimonials = [
     [
         'name' => 'Phil Guegan',
@@ -23,7 +57,7 @@ $testimonials = [
 ];
 ?>
 <!DOCTYPE html>
-<html lang="en" class="theme-color-07cb79 theme-skin-light">
+<html lang="<?= $lang ?>" class="theme-color-07cb79 theme-skin-light">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -600,7 +634,7 @@ $testimonials = [
                                 <div class="timeline-box-inner animate-right">
                                     <span class="arrow"></span>
 
-                                    <div class="date">2014 - 2017</div>
+                                    <div class="date">2015 - 2017</div>
                                     <h3>Fathom Minds</h3>
                                     <h4><?= _('Senior PHP developer') ?></h4>
 
