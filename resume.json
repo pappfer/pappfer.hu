@@ -1,0 +1,52 @@
+{
+  "basics": {
+    "name": "Ferenc Papp",
+    "label": "Full stack web developer",
+    "picture": "",
+    "email": "pappfer@gmail.com",
+    "phone": "",
+    "website": "http://pappfer.hu",
+    "summary": "A summary of John Doe...",
+    "location": {
+      "address": "",
+      "postalCode": "4032",
+      "city": "Debrecen",
+      "countryCode": "HU",
+      "region": "Hajdú-Bihar"
+    },
+    "profiles": [{
+      "network": "Twitter",
+      "username": "pappfer",
+      "url": "http://twitter.com/pappfer"
+    }]
+  },
+  "work": [{
+    "company": "Fathom Minds",
+    "position": "Full stack web developer",
+    "website": "http://fathomminds.com",
+    "startDate": "2015-02-01",
+    "endDate": "2017-03-01",
+    "summary": "",
+    "highlights": [
+      ""
+    ]
+  }],
+  "volunteer": [{
+    "organization": "Bethany Christian Trust",
+    "position": "Volunteer",
+    "website": "http://organization.com/",
+    "startDate": "2014-09-01",
+    "endDate": "2015-07-01",
+    "summary": "Description...",
+    "highlights": [
+      ""
+    ]
+  }],
+  "education": [{
+    "institution": "University of Debrecen",
+    "area": "Software Engineering",
+    "studyType": "Bachelor",
+    "startDate": "2005-09-01",
+    "endDate": "2008-09-01",
+  }]
+}

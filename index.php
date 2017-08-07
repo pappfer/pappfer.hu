@@ -1,12 +1,24 @@
 <?php
 
 /**
- * Verifies if the given $locale is supported in the project
+ * Returns the valid languages. The language code (ISO 639-1) is the array key.
+ * @return array
+ */
+function validLangs() {
+    return [
+        'de' => 'de_DE.utf8',
+        'en' => 'en_GB.utf8',
+        'hu' => 'hu_HU.utf8',
+    ];
+}
+
+/**
+ * Verifies if the given $locale is supported in the project.
  * @param string $locale
  * @return bool
  */
 function valid($locale) {
-    return in_array($locale, ['hu', 'en', 'de']);
+    return in_array($locale, array_keys(validLangs()));
 }
 
 $lang = 'en';
@@ -27,8 +39,8 @@ if (isset($_GET['lang']) && valid($_GET['lang'])) {
     }
 }
 
-putenv("LANG=$lang");
-setlocale(LC_ALL, $lang);
+putenv('LANG=' . validLangs()[$lang]);
+setlocale(LC_ALL, validLangs()[$lang]);
 bindtextdomain('app', './locales');
 bind_textdomain_codeset('app', 'UTF-8');
 textdomain('app');
