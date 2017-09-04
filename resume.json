@@ -18,6 +18,18 @@
       "network": "Twitter",
       "username": "pappfer",
       "url": "http://twitter.com/pappfer"
+    }, {
+      "network": "LinkedIn",
+      "username": "pappfer",
+      "url": "https://www.linkedin.com/in/pappfer"
+    }, {
+      "network": "GitHub",
+      "username": "pappfer",
+      "url": "https://github.com/pappfer"
+    }, {
+      "network": "StackOverflow",
+      "username": "pappfer",
+      "url": "https://stackoverflow.com/users/3736962/pappfer"
     }]
   },
   "work": [{
@@ -34,10 +46,10 @@
   "volunteer": [{
     "organization": "Bethany Christian Trust",
     "position": "Volunteer",
-    "website": "http://organization.com/",
+    "website": "http://www.bethanychristiantrust.com/",
     "startDate": "2014-09-01",
-    "endDate": "2015-07-01",
-    "summary": "Description...",
+    "endDate": "2015-08-01",
+    "summary": "",
     "highlights": [
       ""
     ]
@@ -47,6 +59,6 @@
     "area": "Software Engineering",
     "studyType": "Bachelor",
     "startDate": "2005-09-01",
-    "endDate": "2008-09-01",
+    "endDate": "2008-09-01"
   }]
 }
