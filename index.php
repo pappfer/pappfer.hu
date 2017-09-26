@@ -121,6 +121,7 @@ $testimonials = [
                     <!--<li><a href="#portfolio"><?= _('Portfolio') ?></a></li>-->
                     <li><a href="#experience"><?= _('Experience') ?></a></li>
                     <li><a href="#references"><?= _('References') ?></a></li>
+                    <li><a href="#blog"><?= _('Blog') ?></a></li>
                     <li><a href="#contact"><?= _('Contact') ?></a></li>
                 </ul>
             </nav>
@@ -216,6 +217,7 @@ $testimonials = [
                                         <!--<li><a href="#portfolio"><?= _('Portfolio') ?></a></li>-->
                                         <li><a href="#experience"><?= _('Experience') ?></a></li>
                                         <li><a href="#references"><?= _('References') ?></a></li>
+                                        <li><a href="#blog"><?= _('Blog') ?></a></li>
                                         <li><a href="#contact"><?= _('Contact') ?></a></li>
                                     </ul>
                                 </nav>
@@ -911,6 +913,18 @@ $testimonials = [
                 </div>
             </section>
             <!-- #interests -->
+
+            <section id="blog" class="section section-interests">
+                <div class="animate-up">
+                    <h2 class="section-title"><?= _('Blog') ?></h2>
+
+                    <div class="section-box">
+                        <a class="twitter-timeline" data-height="600" data-theme="light" data-link-color="#07cb79" href="https://twitter.com/pappfer">Tweets by pappfer</a>
+                        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                </div>
+            </section>
+            <!-- #blog -->
 
             <section id="contact" class="section section-contact">
                 <div class="animate-up">
