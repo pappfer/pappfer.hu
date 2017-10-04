@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Returns the valid languages. The language code (ISO 639-1) is the array key.
  * @return array
@@ -78,25 +77,32 @@ $testimonials = [
     <title><?= _('Freelancer PHP/Yii2/JavaScript developer') ?></title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/ico" href="img/favicon.png"/>
+    <link rel="shortcut icon" type="image/ico" href="/img/favicon.png">
+    <?php foreach (array_keys(validLangs()) as $langItem) {
+        if ($lang == $langItem) {
+            continue;
+        }
+        echo '<link rel="alternate" hreflang="' . $langItem . '" href="' . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'] . '/' . $langItem . '">';
+        echo "\n\t";
+    } ?>
 
     <!-- Google Fonts -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fredoka+One">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic">
 
     <!-- Icon Fonts -->
-    <link rel="stylesheet" type="text/css" href="fonts/map-icons/css/map-icons.min.css">
-    <link rel="stylesheet" type="text/css" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" type="text/css" href="/fonts/map-icons/css/map-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="/fonts/icomoon/style.css">
 
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="js/plugins/jquery.bxslider/jquery.bxslider.css">
-    <link rel="stylesheet" type="text/css" href="js/plugins/jquery.customscroll/jquery.mCustomScrollbar.min.css">
-    <link rel="stylesheet" type="text/css" href="js/plugins/jquery.mediaelement/mediaelementplayer.min.css">
-    <link rel="stylesheet" type="text/css" href="js/plugins/jquery.fancybox/jquery.fancybox.css">
-    <link rel="stylesheet" type="text/css" href="js/plugins/jquery.owlcarousel/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="js/plugins/jquery.owlcarousel/owl.theme.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="colors/green.css">
+    <link rel="stylesheet" type="text/css" href="/js/plugins/jquery.bxslider/jquery.bxslider.css">
+    <link rel="stylesheet" type="text/css" href="/js/plugins/jquery.customscroll/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" type="text/css" href="/js/plugins/jquery.mediaelement/mediaelementplayer.min.css">
+    <link rel="stylesheet" type="text/css" href="/js/plugins/jquery.fancybox/jquery.fancybox.css">
+    <link rel="stylesheet" type="text/css" href="/js/plugins/jquery.owlcarousel/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/js/plugins/jquery.owlcarousel/owl.theme.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="/colors/green.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -105,7 +111,7 @@ $testimonials = [
     <![endif]-->
 
     <!-- Modernizer for detect what features the user’s browser has to offer -->
-    <script type="text/javascript" src="js/libs/modernizr.js"></script>
+    <script type="text/javascript" src="/js/libs/modernizr.js"></script>
 </head>
 
 <body class="home header-has-img loading">
@@ -135,7 +141,7 @@ $testimonials = [
         <div class="widget-area">
             <aside class="widget widget-profile">
                 <div class="profile-photo">
-                    <img src="img/uploads/pappfer.jpg" alt="<?= _('Ferenc Papp') ?>">
+                    <img src="/img/uploads/pappfer.jpg" alt="<?= _('Ferenc Papp') ?>">
                 </div>
                 <div class="profile-info">
                     <h2 class="profile-title"><?= _('Ferenc Papp') ?></h2>
@@ -161,7 +167,7 @@ $testimonials = [
             <aside class="widget widget_contact">
                 <h2 class="widget-title"><?= _('Contact me') ?></h2>
 
-                <form class="rsForm" action="php/mailsender.php" method="post">
+                <form class="rsForm" action="/php/mailsender.php" method="post">
                     <div class="input-field">
                         <label><?= _('Name') ?></label>
                         <input type="text" name="rsName" value="">
@@ -243,7 +249,7 @@ $testimonials = [
                         <div class="profile">
                             <div class="row">
                                 <div class="col-xs-5">
-                                    <div class="profile-photo"><img src="img/uploads/pappfer.jpg" alt="<?= _('Ferenc Papp') ?>"/></div>
+                                    <div class="profile-photo"><img src="/img/uploads/pappfer.jpg" alt="<?= _('Ferenc Papp') ?>"/></div>
                                 </div>
                                 <div class="col-xs-7">
                                     <div class="profile-info">
@@ -291,7 +297,7 @@ $testimonials = [
 
                     <div class="section-txt-btn">
                         <p><a class="btn btn-lg btn-border ripple" target="_blank"
-                              href="resume.json"><?= _('Download Resume') ?></a></p>
+                              href="/resume.json"><?= _('Download Resume') ?></a></p>
 
                         <p><?= _("I'm a professional PHP developer with 10 years of experience. Prefer to use Yii framework.
                             I also enjoy building front-end where I'm using responsive design and continuously following the newest technologies and trends. I'm running my own websites on a VPS what I manage so I have some experience with Linux servers along with Apache and Nginx web servers.
@@ -438,7 +444,7 @@ $testimonials = [
                 <div class="grid-item size22 photography">
                     <div class="grid-box">
                         <figure class="portfolio-figure">
-                            <img src="img/uploads/portfolio/portfolio-thumb-05-610x600.jpg" alt=""/>
+                            <img src="/img/uploads/portfolio/portfolio-thumb-05-610x600.jpg" alt=""/>
                             <figcaption class="portfolio-caption">
                                 <div class="portfolio-caption-inner">
                                     <h3 class="portfolio-title">Street Photography</h3>
@@ -509,7 +515,7 @@ $testimonials = [
                 <div class="grid-item size11 bridge">
                     <div class="grid-box">
                         <figure class="portfolio-figure">
-                            <img src="img/uploads/portfolio/portfolio-thumb-11-289x281.jpg" alt=""/>
+                            <img src="/img/uploads/portfolio/portfolio-thumb-11-289x281.jpg" alt=""/>
                             <figcaption class="portfolio-caption">
                                 <div class="portfolio-caption-inner">
                                     <h3 class="portfolio-title">Suspension Bridge</h3>
@@ -575,7 +581,7 @@ $testimonials = [
                 <div class="grid-item size11 nature photography">
                     <div class="grid-box">
                         <figure class="portfolio-figure">
-                            <img src="img/uploads/portfolio/portfolio-thumb-08-289x281.jpg" alt=""/>
+                            <img src="/img/uploads/portfolio/portfolio-thumb-08-289x281.jpg" alt=""/>
                             <figcaption class="portfolio-caption">
                                 <div class="portfolio-caption-inner">
                                     <h3 class="portfolio-title">Rocky Mountains</h3>
@@ -652,7 +658,7 @@ $testimonials = [
                                     <h3>Fathom Minds</h3>
                                     <h4><?= _('Senior PHP developer') ?></h4>
 
-                                    <p><?= _('Currently working at Fathom Minds as a senior developer. I mainly use Yii2 framework 
+                                    <p><?= _('I was working at Fathom Minds as a senior developer. I mainly used Yii2 framework 
                                     for developing websites, web APIs but I also had the chance to set up the company\'s Git environment
                                     and work on our own Flow project.') ?></p>
                                 </div>
@@ -812,27 +818,27 @@ $testimonials = [
 
                     <div class="clients-carousel">
                         <div class="client-logo">
-                            <img src="img/uploads/logos/logo-yii.png" title="Yii framework" alt="Yii2">
+                            <img src="/img/uploads/logos/logo-yii.png" title="Yii framework" alt="Yii2">
                         </div>
 
                         <div class="client-logo">
-                            <img src="img/uploads/logos/logo-angularjs.png" title="angular js" alt="angular js">
+                            <img src="/img/uploads/logos/logo-angularjs.png" title="angular js" alt="angular js">
                         </div>
 
                         <div class="client-logo">
-                            <img src="img/uploads/logos/logo-wordpress.png" title="wordpress" alt="wordpress">
+                            <img src="/img/uploads/logos/logo-wordpress.png" title="wordpress" alt="wordpress">
                         </div>
 
                         <div class="client-logo">
-                            <img src="img/uploads/logos/logo-bootstrap.png" title="bootstrap" alt="bootstrap">
+                            <img src="/img/uploads/logos/logo-bootstrap.png" title="bootstrap" alt="bootstrap">
                         </div>
 
                         <div class="client-logo">
-                            <img src="img/uploads/logos/logo-jquery.png" title="jquery" alt="jquery">
+                            <img src="/img/uploads/logos/logo-jquery.png" title="jquery" alt="jquery">
                         </div>
 
                         <div class="client-logo">
-                            <img src="img/uploads/logos/logo-jasmine.png" title="jasmine" alt="jasmine">
+                            <img src="/img/uploads/logos/logo-jasmine.png" title="jasmine" alt="jasmine">
                         </div>
                     </div>
                 </div>
@@ -1028,19 +1034,19 @@ $testimonials = [
     <!-- Scripts -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-    <script type="text/javascript" src="fonts/map-icons/js/map-icons.min.js"></script>
-    <script type="text/javascript" src="js/plugins/jquery.mousewheel-3.0.6.pack.js"></script>
-    <script type="text/javascript" src="js/plugins/imagesloaded.pkgd.min.js"></script>
-    <script type="text/javascript" src="js/plugins/isotope.pkgd.min.js"></script>
-    <script type="text/javascript" src="js/plugins/jquery.appear.min.js"></script>
-    <script type="text/javascript" src="js/plugins/jquery.onepagenav.min.js"></script>
-    <script type="text/javascript" src="js/plugins/jquery.bxslider/jquery.bxslider.min.js"></script>
-    <script type="text/javascript" src="js/plugins/jquery.customscroll/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script type="text/javascript" src="js/plugins/jquery.mediaelement/mediaelement-and-player.min.js"></script>
-    <script type="text/javascript" src="js/plugins/jquery.fancybox/jquery.fancybox.pack.js"></script>
-    <script type="text/javascript" src="js/plugins/jquery.fancybox/helpers/jquery.fancybox-media.js"></script>
-    <script type="text/javascript" src="js/plugins/jquery.owlcarousel/owl.carousel.min.js"></script>
-	<script type="text/javascript" src="js/options.js"></script>
-    <script type="text/javascript" src="js/site.min.js"></script>
+    <script type="text/javascript" src="/fonts/map-icons/js/map-icons.min.js"></script>
+    <script type="text/javascript" src="/js/plugins/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script type="text/javascript" src="/js/plugins/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript" src="/js/plugins/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="/js/plugins/jquery.appear.min.js"></script>
+    <script type="text/javascript" src="/js/plugins/jquery.onepagenav.min.js"></script>
+    <script type="text/javascript" src="/js/plugins/jquery.bxslider/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src="/js/plugins/jquery.customscroll/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="/js/plugins/jquery.mediaelement/mediaelement-and-player.min.js"></script>
+    <script type="text/javascript" src="/js/plugins/jquery.fancybox/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="/js/plugins/jquery.fancybox/helpers/jquery.fancybox-media.js"></script>
+    <script type="text/javascript" src="/js/plugins/jquery.owlcarousel/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="/js/options.js"></script>
+    <script type="text/javascript" src="/js/site.min.js"></script>
 </body>
 </html>
