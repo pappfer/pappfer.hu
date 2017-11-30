@@ -7,8 +7,9 @@
 	var body = $('body');
     var windowW = $(window).width();
     var windowH = $(window).height();
-    var clickEventType = ((document.ontouchstart !== null) ? 'click' : 'touchstart');    
-	
+    //var clickEventType = ((document.ontouchstart !== null) ? 'click' : 'touchstart');
+    var clickEventType = 'click';
+
 	/**
      * Detect Device Type
      */

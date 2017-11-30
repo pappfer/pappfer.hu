@@ -1033,7 +1033,7 @@ $testimonials = [
     </div>
 
     <!-- Scripts -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCvBqUTr3onIEKspCX54K66tCLoT75keo"></script>
     <script type="text/javascript" src="<?= $root ?>fonts/map-icons/js/map-icons.min.js"></script>
     <script type="text/javascript" src="<?= $root ?>js/plugins/jquery.mousewheel-3.0.6.pack.js"></script>
@@ -1047,7 +1047,7 @@ $testimonials = [
     <script type="text/javascript" src="<?= $root ?>js/plugins/jquery.fancybox/jquery.fancybox.pack.js"></script>
     <script type="text/javascript" src="<?= $root ?>js/plugins/jquery.fancybox/helpers/jquery.fancybox-media.js"></script>
     <script type="text/javascript" src="<?= $root ?>js/plugins/jquery.owlcarousel/owl.carousel.min.js"></script>
-	<script type="text/javascript" src="<?= $root ?>js/options.js"></script>
+    <script type="text/javascript" src="<?= $root ?>js/options.js"></script>
     <script type="text/javascript" src="<?= $root ?>js/site.min.js"></script>
 </body>
 </html>
