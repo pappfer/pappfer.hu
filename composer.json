@@ -1,8 +1,10 @@
 {
     "name": "pappfer/pappfer.hu",
-    "description": "SzaFreelancer PHP/Yii2/JavaScript developer",
+    "license": "proprietary",
+    "description": "Freelancer PHP/Yii2/JavaScript developer",
     "require": {
-        "swiftmailer/swiftmailer": "^6.0"
+        "swiftmailer/swiftmailer": "^6.0",
+        "vlucas/phpdotenv": "^2.4"
     },
     "authors": [
         {
