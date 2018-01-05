@@ -1,0 +1,13 @@
+{
+    "name": "pappfer/pappfer.hu",
+    "description": "SzaFreelancer PHP/Yii2/JavaScript developer",
+    "require": {
+        "swiftmailer/swiftmailer": "^6.0"
+    },
+    "authors": [
+        {
+            "name": "Ferenc Papp",
+            "email": "pappfer@gmail.com"
+        }
+    ]
+}
