@@ -22,7 +22,7 @@ $options = [
 $context = stream_context_create($options);
 $result = json_decode(file_get_contents($url, false, $context));
 
-if ($result->success === 1) {
+if ($result->success === true) {
     $transport = (new Swift_SmtpTransport(getenv('SMTP_HOST'), intval(getenv('SMTP_PORT')), getenv('SMTP_SECURITY')))
         ->setUsername(getenv('SMTP_USERNAME'))
         ->setPassword(getenv('SMTP_PASSWORD'));
