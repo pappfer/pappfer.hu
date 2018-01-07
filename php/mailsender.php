@@ -20,32 +20,30 @@ $options = array(
     )
 );
 $context = stream_context_create($options);
-$result = file_get_contents($url, false, $context);
+$result = json_decode(file_get_contents($url, false, $context));
 
-var_dump($result);
-if ($result === FALSE) {
+if ($result.success) {
+    $transport = (new Swift_SmtpTransport(getenv('SMTP_HOST'), intval(getenv('SMTP_PORT')), getenv('SMTP_SECURITY')))
+        ->setUsername(getenv('SMTP_USERNAME'))
+        ->setPassword(getenv('SMTP_PASSWORD'));
 
-}
-exit();
+    $mailer = new Swift_Mailer($transport);
 
-$transport = (new Swift_SmtpTransport(getenv('SMTP_HOST'), intval(getenv('SMTP_PORT')), getenv('SMTP_SECURITY')))
-    ->setUsername(getenv('SMTP_USERNAME'))
-    ->setPassword(getenv('SMTP_PASSWORD'));
+    if (!isset($_POST['rsSubject'])) {
+        $subject = "Contact form message";
+    } else {
+        $subject = $_POST['rsSubject'];
+    }
 
-$mailer = new Swift_Mailer($transport);
+    $message = (new Swift_Message($subject))
+        ->setFrom([$_POST['rsEmail'] => $_POST['rsName']])
+        ->setTo([getenv('EMAIL')])
+        ->setReplyTo($_POST['rsEmail'])
+        ->setBody($_POST['rsMessage']);
 
-if (!isset($_POST['rsSubject'])) {
-    $subject = "Contact form message";
+    $result = $mailer->send($message);
+
+    echo json_encode((bool)$result);
 } else {
-    $subject = $_POST['rsSubject'];
+    echo json_encode(false);
 }
-
-$message = (new Swift_Message($subject))
-    ->setFrom([$_POST['rsEmail'] => $_POST['rsName']])
-    ->setTo([getenv('EMAIL')])
-    ->setReplyTo($_POST['rsEmail'])
-    ->setBody($_POST['rsMessage']);
-
-$result = $mailer->send($message);
-
-echo json_encode((bool)$result);
