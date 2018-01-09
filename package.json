@@ -1,0 +1,11 @@
+{
+  "name": "pappfer.hu",
+  "version": "1.0.0",
+  "main": "index.php",
+  "repository": "git@github.com:pappfer/pappfer.hu.git",
+  "author": "Ferenc Papp <pappfer@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cssnano": "^3.10.0"
+  }
+}

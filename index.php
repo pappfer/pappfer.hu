@@ -112,7 +112,7 @@ $testimonials = [
     <![endif]-->
 
     <!-- Modernizer for detect what features the user’s browser has to offer -->
-    <script type="text/javascript" src="<?= $root ?>js/libs/modernizr.js"></script>
+    <!-- <script type="text/javascript" src="<?= $root ?>js/libs/modernizr.js"></script>-->
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
@@ -193,6 +193,9 @@ $testimonials = [
                         <textarea rows="4" name="rsMessage"></textarea>
                         <span class="line"></span>
                     </div>
+
+                    <div class="g-recaptcha" data-sitekey="6LeOsD8UAAAAAEkzldQpFN1EAnCKw9XqekvKcHF3"></div>
+                    <br>
 
                     <span class="btn-outer btn-primary-outer ripple">
                         <input class="rsFormSubmit btn btn-lg btn-primary" type="submit" value="<?= _('Send') ?>">
@@ -837,10 +840,6 @@ $testimonials = [
 
                         <div class="client-logo">
                             <img src="<?= $root ?>img/uploads/logos/logo-jquery.png" title="jquery" alt="jquery">
-                        </div>
-
-                        <div class="client-logo">
-                            <img src="<?= $root ?>img/uploads/logos/logo-jasmine.png" title="jasmine" alt="jasmine">
                         </div>
                     </div>
                 </div>
