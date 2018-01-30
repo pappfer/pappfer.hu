@@ -113,7 +113,7 @@ $testimonials = [
 
     <!-- Modernizer for detect what features the user’s browser has to offer -->
     <!-- <script type="text/javascript" src="<?= $root ?>js/libs/modernizr.js"></script>-->
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body class="home header-has-img loading">
