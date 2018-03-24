@@ -1052,5 +1052,15 @@ $testimonials = [
     <script type="text/javascript" src="<?= $root ?>js/plugins/jquery.owlcarousel/owl.carousel.min.js"></script>
     <script type="text/javascript" src="<?= $root ?>js/options.js"></script>
     <script type="text/javascript" src="<?= $root ?>js/site.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50016491-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-50016491-1');
+    </script>
+
 </body>
 </html>
