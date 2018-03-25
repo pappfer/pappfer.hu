@@ -226,7 +226,7 @@ $testimonials = [
 
     <div class="wrapper">
         <header class="header">
-            <div class="head-bg" style="background-image: url('img/uploads/cover.jpeg')"></div>
+            <div class="head-bg" style="background-image: url('<?= $root ?>img/uploads/cover-optimized.jpeg')"></div>
 
             <div class="head-bar">
                 <div class="head-bar-inner">
