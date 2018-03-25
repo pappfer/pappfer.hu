@@ -22,6 +22,9 @@ function valid($locale) {
 
 $lang = 'en';
 $root = './';
+$url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$title = _('Freelancer PHP/Yii2/JavaScript/React developer');
+$description = _('Experienced freelancer full-stack developer. PHP/Yii2/JavaScript/React skills plus Linux knowledge.');
 
 if (isset($_GET['lang']) && valid($_GET['lang'])) {
     $lang = htmlspecialchars($_GET['lang']);
@@ -75,7 +78,7 @@ $testimonials = [
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title><?= _('Freelancer PHP/Yii2/JavaScript developer') ?></title>
+    <title><?= $title ?></title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/ico" href="<?= $root ?>img/favicon.png">
@@ -83,9 +86,22 @@ $testimonials = [
         if ($lang == $langItem) {
             continue;
         }
-        echo '<link rel="alternate" hreflang="' . $langItem . '" href="' . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'] . '/' . $langItem . '">';
+        echo '<link rel="alternate" hreflang="' . $langItem . '" href="' . $url . $langItem . '">';
         echo "\n\t";
     } ?>
+
+    <!-- SEO -->
+    <meta name="description" content="<?= $description ?>">
+    <meta property="og:locale" content="<?= !empty(validLangs()[$lang]) ? validLangs()[$lang] : $lang ?>" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<?= $title ?>" />
+    <meta property="og:description" content="<?= $description ?>">
+    <meta property="og:url" content="<?= $url . $lang ?>">
+    <meta property="og:site_name" content="pappfer.hu">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="<?= $title ?>">
+    <meta name="twitter:description" content="<?= $description ?>">
+    <meta name="twitter:site" content="@pappfer">
 
     <!-- Google Fonts -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fredoka+One">
@@ -374,7 +390,7 @@ $testimonials = [
                             <div class="col-sm-6">
                                 <div class="progress-bar">
                                     <div class="bar-data">
-                                        <span class="bar-title">Wordpress</span>
+                                        <span class="bar-title">Wordpress, Laravel, Lumen</span>
                                         <span class="bar-value">75%</span>
                                     </div>
                                     <div class="bar-line">
@@ -425,212 +441,6 @@ $testimonials = [
                 </div>
             </section>
             <!-- #skills -->
-
-            <!--<section id="portfolio" class="section section-portfolio">
-            <div class="animate-up">
-            <h2 class="section-title"><?= _('Portfolio') ?></h2>
-
-            <div class="filter">
-                <div class="filter-inner">
-                    <div class="filter-btn-group">
-                        <button data-filter="*"><?= _('All') ?></button>
-                        <button data-filter=".photography"><?= _('Own websites') ?></button>
-                        <button data-filter=".nature"><?= _('Company') ?></button>
-                    </div>
-                    <div class="filter-bar">
-                        <span class="filter-bar-line"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid">
-                <div class="grid-sizer"></div>
-
-                <div class="grid-item size22 photography">
-                    <div class="grid-box">
-                        <figure class="portfolio-figure">
-                            <img src="<?= $root ?>img/uploads/portfolio/portfolio-thumb-05-610x600.jpg" alt=""/>
-                            <figcaption class="portfolio-caption">
-                                <div class="portfolio-caption-inner">
-                                    <h3 class="portfolio-title">Street Photography</h3>
-                                    <h4 class="portfolio-cat">Photography</h4>
-
-                                    <div class="btn-group">
-                                        <a class="btn-link" href="http://bit.ly/1YtB8he" target="_blank"><i
-                                                class="rsicon rsicon-link"></i></a>
-                                        <a class="portfolioFancybox btn-zoom" data-fancybox-group="portfolioFancybox1"
-                                           href="#portfolio1-inline1"><i class="rsicon rsicon-eye"></i></a>
-                                        <a class="portfolioFancybox hidden" data-fancybox-group="portfolioFancybox1"
-                                           href="#portfolio1-inline2"></a>
-                                        <a class="portfolioFancybox hidden" data-fancybox-group="portfolioFancybox1"
-                                           href="#portfolio1-inline3"></a>
-                                    </div>
-                                </div>
-                            </figcaption>
-                        </figure>
-
-                        <div id="portfolio1-inline1" class="fancybox-inline-box">
-                            <div class="inline-embed" data-embed-type="image"
-                                 data-embed-url="img/uploads/portfolio/portfolio-thumb-05-large.jpg"></div>
-                            <div class="inline-cont">
-                                <h2 class="inline-title">Street photography is photography that features the chance
-                                    encounters and random accidents within public places.</h2>
-
-                                <div class="inline-text">
-                                    <p>Street photography does not necessitate the presence of a street or even the urban
-                                        environment. Though people usually feature directly, street photography might be
-                                        absent of people and can be an object or environment where the image projects a
-                                        decidedly human character in facsimile or aesthetic.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="portfolio1-inline2" class="fancybox-inline-box">
-                            <div class="inline-embed" data-embed-type="image"
-                                 data-embed-url="img/uploads/portfolio/portfolio-thumb-01-large.jpg"></div>
-                            <div class="inline-cont">
-                                <div class="inline-text">
-                                    <h2 class="inline-title">Framing and timing</h2>
-
-                                    <p>Framing and timing can be key aspects of the craft with the aim of some street
-                                        photography being to create images at a decisive or poignant moment. Street
-                                        photography can focus on emotions displayed, thereby also recording people's history
-                                        from an emotional point of view.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="portfolio1-inline3" class="fancybox-inline-box">
-                            <div class="inline-embed" data-embed-type="iframe"
-                                 data-embed-url="https://player.vimeo.com/video/118244244"></div>
-                            <div class="inline-cont">
-                                <div class="inline-text">
-                                    <h2 class="inline-title">A Look Into Documenting Street Fashion Photography</h2>
-
-                                    <p>HB Nam is an internationally known street fashion photographer. In this Leica Camera
-                                        Portrait, Nam explains how he started in photography and what photography means to
-                                        him. For Nam, it's about documenting what's around him and the concentration
-                                        required to achieve a good shot.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid-item size11 bridge">
-                    <div class="grid-box">
-                        <figure class="portfolio-figure">
-                            <img src="<?= $root ?>img/uploads/portfolio/portfolio-thumb-11-289x281.jpg" alt=""/>
-                            <figcaption class="portfolio-caption">
-                                <div class="portfolio-caption-inner">
-                                    <h3 class="portfolio-title">Suspension Bridge</h3>
-                                    <h4 class="portfolio-cat">Bridge</h4>
-
-                                    <div class="btn-group">
-                                        <a class="btn-link" href="http://bit.ly/1YtB8he" target="_blank"><i
-                                                class="rsicon rsicon-link"></i></a>
-                                        <a class="portfolioFancybox btn-zoom" data-fancybox-group="portfolioFancybox2"
-                                           href="#portfolio2-inline1"><i class="rsicon rsicon-eye"></i></a>
-                                    </div>
-                                </div>
-                            </figcaption>
-                        </figure>
-
-                        <div id="portfolio2-inline1" class="fancybox-inline-box">
-                            <div class="inline-cont">
-                                <h2 class="inline-title">Suspension Bridges - Design Technology</h2>
-
-                                <div class="inline-text">
-                                    <p>Suspension bridges in their simplest form were originally made from rope and wood.
-                                        Modern suspension bridges use a box section roadway supported by high tensile
-                                        strength cables.
-                                        In the early nineteenth century, suspension bridges used iron chains for cables. The
-                                        high tensile cables used in most modern suspension
-                                        bridges were introduced in the late nineteenth century.<br/>
-                                        Today, the cables are made of thousands of individual steel wires bound tightly
-                                        together. Steel, which is very strong under tension, is
-                                        an ideal material for cables; a single steel wire, only 0.1 inch thick, can support
-                                        over half a ton without breaking.</p>
-
-                                    <p>Light, and strong, suspension bridges can span distances from 2,000 to 7,000 feet far
-                                        longer than any other kind of bridge. They are
-                                        ideal for covering busy waterways.</p>
-
-                                    <p>With any bridge project the choice of materials and form usually comes down to cost.
-                                        Suspension bridges tend to be the most expensive to build. A suspension bridge
-                                        suspends the roadway from huge main cables, which extend
-                                        from one end of the bridge to the other. These cables rest on top of high towers and
-                                        have to be securely anchored into the bank at either
-                                        end of the bridge. The towers enable the main cables to be draped over long
-                                        distances. Most of the weight or load of the bridge is
-                                        transferred by the cables to the anchorage systems. These are imbedded in either
-                                        solid rock or huge concrete blocks. Inside the anchorages,
-                                        the cables are spread over a large area to evenly distribute the load and to prevent
-                                        the cables from breaking free.</p>
-
-                                    <p>The Arthashastra of Kautilya mentions the construction of dams and bridges.A Mauryan
-                                        bridge near Girnar was surveyed by James Princep.
-                                        The bridge was swept away during a flood, and later repaired by Puspagupta, the
-                                        chief architect of emperor Chandragupta I. The bridge
-                                        also fell under the care of the Yavana Tushaspa, and the Satrap Rudra Daman. The use
-                                        of stronger bridges using plaited bamboo and iron
-                                        chain was visible in India by about the 4th century. A number of bridges, both for
-                                        military and commercial purposes, were constructed by
-                                        the Mughal administration in India.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid-item size11 nature photography">
-                    <div class="grid-box">
-                        <figure class="portfolio-figure">
-                            <img src="<?= $root ?>img/uploads/portfolio/portfolio-thumb-08-289x281.jpg" alt=""/>
-                            <figcaption class="portfolio-caption">
-                                <div class="portfolio-caption-inner">
-                                    <h3 class="portfolio-title">Rocky Mountains</h3>
-                                    <h4 class="portfolio-cat">Nature, Photography</h4>
-
-                                    <div class="btn-group">
-                                        <a class="btn-link" href="http://bit.ly/1YtB8he" target="_blank"><i
-                                                class="rsicon rsicon-link"></i></a>
-                                        <a class="portfolioFancybox btn-zoom" data-fancybox-group="portfolioFancybox3"
-                                           href="#portfolio3-inline1"><i class="rsicon rsicon-eye"></i></a>
-                                        <a class="portfolioFancybox hidden" data-fancybox-group="portfolioFancybox3"
-                                           href="#portfolio3-inline2"></a>
-                                        <a class="portfolioFancybox hidden" data-fancybox-group="portfolioFancybox3"
-                                           href="#portfolio3-inline3"></a>
-                                    </div>
-                                </div>
-                            </figcaption>
-                        </figure>
-
-                        <div id="portfolio3-inline1" class="fancybox-inline-box">
-                            <div class="inline-embed" data-embed-type="image"
-                                 data-embed-url="img/uploads/portfolio/portfolio-thumb-08-large.jpg"></div>
-                        </div>
-
-                        <div id="portfolio3-inline2" class="fancybox-inline-box">
-                            <div class="inline-embed" data-embed-type="image"
-                                 data-embed-url="img/uploads/portfolio/portfolio-thumb-04-large.jpg"></div>
-                        </div>
-
-                        <div id="portfolio3-inline3" class="fancybox-inline-box">
-                            <div class="inline-embed" data-embed-type="image"
-                                 data-embed-url="img/uploads/portfolio/portfolio-thumb-02-large.jpg"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid-more">
-                <span class="ajax-loader"></span>
-                <button class="btn btn-border ripple"><i class="rsicon rsicon-add"></i></button>
-            </div>
-            </div>
-            </section>
-            -->
 
             <section id="experience" class="section section-experience">
                 <div class="animate-up">
@@ -698,7 +508,7 @@ $testimonials = [
                                     through freelancer websites. I prefer to use Yii framework for new projects but I also 
                                     had to use plain PHP or other frameworks. Used technologies:') ?></p>
                                     <ul>
-                                        <li>PHP, Yii framework, Wordpress</li>
+                                        <li>PHP, Yii framework, Wordpress, Laravel</li>
                                         <li>HTML5, CSS3, JavaScript, jQuery, AngularJS</li>
                                         <li>Twitter Bootstrap, Zurb Foundation</li>
                                         <li>Facebook, LinkedIn, Box.com, Stripe integration</li>
@@ -927,7 +737,7 @@ $testimonials = [
 
                     <div class="section-box">
                         <a class="twitter-timeline" data-height="600" data-theme="light" data-link-color="#07cb79" href="https://twitter.com/pappfer">Tweets by pappfer</a>
-                        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        <script async src="//platform.twitter.com/widgets.js"></script>
                     </div>
                 </div>
             </section>
@@ -1036,22 +846,22 @@ $testimonials = [
     </div>
 
     <!-- Scripts -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCvBqUTr3onIEKspCX54K66tCLoT75keo"></script>
-    <script type="text/javascript" src="<?= $root ?>fonts/map-icons/js/map-icons.min.js"></script>
-    <script type="text/javascript" src="<?= $root ?>js/plugins/jquery.mousewheel-3.0.6.pack.js"></script>
-    <script type="text/javascript" src="<?= $root ?>js/plugins/imagesloaded.pkgd.min.js"></script>
-    <script type="text/javascript" src="<?= $root ?>js/plugins/isotope.pkgd.min.js"></script>
-    <script type="text/javascript" src="<?= $root ?>js/plugins/jquery.appear.min.js"></script>
-    <script type="text/javascript" src="<?= $root ?>js/plugins/jquery.onepagenav.min.js"></script>
-    <script type="text/javascript" src="<?= $root ?>js/plugins/jquery.bxslider/jquery.bxslider.min.js"></script>
-    <script type="text/javascript" src="<?= $root ?>js/plugins/jquery.customscroll/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script type="text/javascript" src="<?= $root ?>js/plugins/jquery.mediaelement/mediaelement-and-player.min.js"></script>
-    <script type="text/javascript" src="<?= $root ?>js/plugins/jquery.fancybox/jquery.fancybox.pack.js"></script>
-    <script type="text/javascript" src="<?= $root ?>js/plugins/jquery.fancybox/helpers/jquery.fancybox-media.js"></script>
-    <script type="text/javascript" src="<?= $root ?>js/plugins/jquery.owlcarousel/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="<?= $root ?>js/options.js"></script>
-    <script type="text/javascript" src="<?= $root ?>js/site.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCvBqUTr3onIEKspCX54K66tCLoT75keo"></script>
+    <script src="<?= $root ?>fonts/map-icons/js/map-icons.min.js"></script>
+    <script src="<?= $root ?>js/plugins/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script src="<?= $root ?>js/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="<?= $root ?>js/plugins/isotope.pkgd.min.js"></script>
+    <script src="<?= $root ?>js/plugins/jquery.appear.min.js"></script>
+    <script src="<?= $root ?>js/plugins/jquery.onepagenav.min.js"></script>
+    <script src="<?= $root ?>js/plugins/jquery.bxslider/jquery.bxslider.min.js"></script>
+    <script src="<?= $root ?>js/plugins/jquery.customscroll/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="<?= $root ?>js/plugins/jquery.mediaelement/mediaelement-and-player.min.js"></script>
+    <script src="<?= $root ?>js/plugins/jquery.fancybox/jquery.fancybox.pack.js"></script>
+    <script src="<?= $root ?>js/plugins/jquery.fancybox/helpers/jquery.fancybox-media.js"></script>
+    <script src="<?= $root ?>js/plugins/jquery.owlcarousel/owl.carousel.min.js"></script>
+    <script src="<?= $root ?>js/options.js"></script>
+    <script src="<?= $root ?>js/site.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50016491-1"></script>
     <script>
