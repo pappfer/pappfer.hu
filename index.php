@@ -104,22 +104,22 @@ $testimonials = [
     <meta name="twitter:site" content="@pappfer">
 
     <!-- Google Fonts -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fredoka+One">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fredoka+One" media="none" onload="if(media!='all')media='all'">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic" media="none" onload="if(media!='all')media='all'">
 
     <!-- Icon Fonts -->
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>fonts/map-icons/css/map-icons.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>fonts/icomoon/style.css">
+    <link rel="stylesheet" type="text/css" href="<?= $root ?>fonts/map-icons/css/map-icons.min.css" media="none" onload="if(media!='all')media='all'">
+    <link rel="stylesheet" type="text/css" href="<?= $root ?>fonts/icomoon/style.css" media="none" onload="if(media!='all')media='all'">
 
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.bxslider/jquery.bxslider.css">
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.customscroll/jquery.mCustomScrollbar.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.mediaelement/mediaelementplayer.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.fancybox/jquery.fancybox.css">
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.owlcarousel/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.owlcarousel/owl.theme.css">
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>style.css">
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>colors/green.css">
+    <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.bxslider/jquery.bxslider.css" media="none" onload="if(media!='all')media='all'">
+    <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.customscroll/jquery.mCustomScrollbar.min.css" media="none" onload="if(media!='all')media='all'">
+    <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.mediaelement/mediaelementplayer.min.css" media="none" onload="if(media!='all')media='all'">
+    <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.fancybox/jquery.fancybox.css" media="none" onload="if(media!='all')media='all'">
+    <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.owlcarousel/owl.carousel.css" media="none" onload="if(media!='all')media='all'">
+    <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.owlcarousel/owl.theme.css" media="none" onload="if(media!='all')media='all'">
+    <link rel="stylesheet" type="text/css" href="<?= $root ?>style.css" media="none" onload="if(media!='all')media='all'">
+    <link rel="stylesheet" type="text/css" href="<?= $root ?>colors/green.css" media="none" onload="if(media!='all')media='all'">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
