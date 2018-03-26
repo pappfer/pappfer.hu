@@ -3,7 +3,8 @@
  * Returns the valid languages. The language code (ISO 639-1) is the array key.
  * @return array
  */
-function validLangs() {
+function validLangs()
+{
     return [
         'de' => 'de_DE.utf8',
         'en' => 'en_GB.utf8',
@@ -16,7 +17,8 @@ function validLangs() {
  * @param string $locale
  * @return bool
  */
-function valid($locale) {
+function valid($locale)
+{
     return in_array($locale, array_keys(validLangs()));
 }
 
@@ -33,7 +35,9 @@ if (isset($_GET['lang']) && valid($_GET['lang'])) {
     $lang = htmlspecialchars($_COOKIE['lang']);
 } elseif (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
     $langs = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
-    array_walk($langs, function (&$lang) { $lang = strtr(strtok($lang, ';'), ['-' => '_']); });
+    array_walk($langs, function (&$lang) {
+        $lang = strtr(strtok($lang, ';'), ['-' => '_']);
+    });
     foreach ($langs as $browserLang) {
         if (valid($browserLang)) {
             $lang = $browserLang;
@@ -92,9 +96,9 @@ $testimonials = [
 
     <!-- SEO -->
     <meta name="description" content="<?= $description ?>">
-    <meta property="og:locale" content="<?= !empty(validLangs()[$lang]) ? validLangs()[$lang] : $lang ?>" />
+    <meta property="og:locale" content="<?= !empty(validLangs()[$lang]) ? validLangs()[$lang] : $lang ?>"/>
     <meta property="og:type" content="website">
-    <meta property="og:title" content="<?= $title ?>" />
+    <meta property="og:title" content="<?= $title ?>"/>
     <meta property="og:description" content="<?= $description ?>">
     <meta property="og:url" content="<?= $url . $lang ?>">
     <meta property="og:site_name" content="pappfer.hu">
@@ -105,7 +109,8 @@ $testimonials = [
 
     <!-- Google Fonts -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fredoka+One">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic">
 
     <!-- Icon Fonts -->
     <link rel="stylesheet" type="text/css" href="<?= $root ?>fonts/map-icons/css/map-icons.min.css">
@@ -113,7 +118,8 @@ $testimonials = [
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.bxslider/jquery.bxslider.css">
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.customscroll/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="<?= $root ?>js/plugins/jquery.customscroll/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.mediaelement/mediaelementplayer.min.css">
     <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.fancybox/jquery.fancybox.css">
     <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.owlcarousel/owl.carousel.css">
@@ -134,134 +140,134 @@ $testimonials = [
 
 <body class="home header-has-img loading">
 
-    <div class="mobile-nav">
-        <button class="btn-mobile mobile-nav-close"><i class="rsicon rsicon-close"></i></button>
+<div class="mobile-nav">
+    <button class="btn-mobile mobile-nav-close"><i class="rsicon rsicon-close"></i></button>
 
-        <div class="mobile-nav-inner">
-            <nav id="mobile-nav" class="nav">
-                <ul class="clearfix">
-                    <li><a href="#about"><?= _('About') ?></a></li>
-                    <li><a href="#skills"><?= _('Skills') ?></a></li>
-                    <!--<li><a href="#portfolio"><?= _('Portfolio') ?></a></li>-->
-                    <li><a href="#experience"><?= _('Experience') ?></a></li>
-                    <li><a href="#references"><?= _('References') ?></a></li>
-                    <li><a href="#blog"><?= _('Blog') ?></a></li>
-                    <li><a href="#contact"><?= _('Contact') ?></a></li>
-                </ul>
-            </nav>
-        </div>
+    <div class="mobile-nav-inner">
+        <nav id="mobile-nav" class="nav">
+            <ul class="clearfix">
+                <li><a href="#about"><?= _('About') ?></a></li>
+                <li><a href="#skills"><?= _('Skills') ?></a></li>
+                <!--<li><a href="#portfolio"><?= _('Portfolio') ?></a></li>-->
+                <li><a href="#experience"><?= _('Experience') ?></a></li>
+                <li><a href="#references"><?= _('References') ?></a></li>
+                <li><a href="#blog"><?= _('Blog') ?></a></li>
+                <li><a href="#contact"><?= _('Contact') ?></a></li>
+            </ul>
+        </nav>
     </div>
-    <!-- .mobile-nav -->
+</div>
+<!-- .mobile-nav -->
 
-    <div class="sidebar sidebar-fixed">
-        <button class="btn-sidebar btn-sidebar-close"><i class="rsicon rsicon-close"></i></button>
+<div class="sidebar sidebar-fixed">
+    <button class="btn-sidebar btn-sidebar-close"><i class="rsicon rsicon-close"></i></button>
 
-        <div class="widget-area">
-            <aside class="widget widget-profile">
-                <div class="profile-photo">
-                    <img src="<?= $root ?>img/uploads/pappfer.jpg" alt="<?= _('Ferenc Papp') ?>">
+    <div class="widget-area">
+        <aside class="widget widget-profile">
+            <div class="profile-photo">
+                <img src="<?= $root ?>img/uploads/pappfer.jpg" alt="<?= _('Ferenc Papp') ?>">
+            </div>
+            <div class="profile-info">
+                <h2 class="profile-title"><?= _('Ferenc Papp') ?></h2>
+
+                <h3 class="profile-position"><?= _('Full stack web developer') ?></h3>
+            </div>
+        </aside>
+        <!-- .widget-profile -->
+
+        <aside class="widget widget_search">
+            <h2 class="widget-title"><?= _('Search') ?></h2>
+
+            <form class="search-form">
+                <label class="ripple">
+                    <span class="screen-reader-text"><?= _('Search for:') ?></span>
+                    <input class="search-field" type="search" placeholder="<?= _('Search') ?>">
+                </label>
+                <input type="submit" class="search-submit" value="<?= _('Search') ?>">
+            </form>
+        </aside>
+        <!-- .widget_search -->
+
+        <aside class="widget widget_contact">
+            <h2 class="widget-title"><?= _('Contact me') ?></h2>
+
+            <form class="rsForm" action="/php/mailsender.php" method="post">
+                <div class="input-field">
+                    <label><?= _('Name') ?></label>
+                    <input type="text" name="rsName" value="">
+                    <span class="line"></span>
                 </div>
-                <div class="profile-info">
-                    <h2 class="profile-title"><?= _('Ferenc Papp') ?></h2>
 
-                    <h3 class="profile-position"><?= _('Full stack web developer') ?></h3>
+                <div class="input-field">
+                    <label><?= _('Email') ?></label>
+                    <input type="email" name="rsEmail" value="">
+                    <span class="line"></span>
                 </div>
-            </aside>
-            <!-- .widget-profile -->
 
-            <aside class="widget widget_search">
-                <h2 class="widget-title"><?= _('Search') ?></h2>
+                <div class="input-field">
+                    <label><?= _('Subject') ?></label>
+                    <input type="text" name="rsSubject" value="">
+                    <span class="line"></span>
+                </div>
 
-                <form class="search-form">
-                    <label class="ripple">
-                        <span class="screen-reader-text"><?= _('Search for:') ?></span>
-                        <input class="search-field" type="search" placeholder="<?= _('Search') ?>">
-                    </label>
-                    <input type="submit" class="search-submit" value="<?= _('Search') ?>">
-                </form>
-            </aside>
-            <!-- .widget_search -->
+                <div class="input-field">
+                    <label><?= _('Message') ?></label>
+                    <textarea rows="4" name="rsMessage"></textarea>
+                    <span class="line"></span>
+                </div>
 
-            <aside class="widget widget_contact">
-                <h2 class="widget-title"><?= _('Contact me') ?></h2>
+                <div class="g-recaptcha" data-sitekey="6LeOsD8UAAAAAEkzldQpFN1EAnCKw9XqekvKcHF3"></div>
+                <br>
 
-                <form class="rsForm" action="/php/mailsender.php" method="post">
-                    <div class="input-field">
-                        <label><?= _('Name') ?></label>
-                        <input type="text" name="rsName" value="">
-                        <span class="line"></span>
-                    </div>
-
-                    <div class="input-field">
-                        <label><?= _('Email') ?></label>
-                        <input type="email" name="rsEmail" value="">
-                        <span class="line"></span>
-                    </div>
-
-                    <div class="input-field">
-                        <label><?= _('Subject') ?></label>
-                        <input type="text" name="rsSubject" value="">
-                        <span class="line"></span>
-                    </div>
-
-                    <div class="input-field">
-                        <label><?= _('Message') ?></label>
-                        <textarea rows="4" name="rsMessage"></textarea>
-                        <span class="line"></span>
-                    </div>
-
-                    <div class="g-recaptcha" data-sitekey="6LeOsD8UAAAAAEkzldQpFN1EAnCKw9XqekvKcHF3"></div>
-                    <br>
-
-                    <span class="btn-outer btn-primary-outer ripple">
+                <span class="btn-outer btn-primary-outer ripple">
                         <input class="rsFormSubmit btn btn-lg btn-primary" type="submit" value="<?= _('Send') ?>">
                     </span>
-                </form>
-            </aside>
-            <!-- .widget_contact -->
-        </div>
-        <!-- .widget-area -->
+            </form>
+        </aside>
+        <!-- .widget_contact -->
     </div>
-    <!-- .sidebar -->
+    <!-- .widget-area -->
+</div>
+<!-- .sidebar -->
 
-    <div class="wrapper">
-        <header class="header">
-            <div class="head-bg" style="background-image: url('<?= $root ?>img/uploads/mac-coffee-optimized.jpg')"></div>
+<div class="wrapper">
+    <header class="header">
+        <div class="head-bg" style="background-image: url('<?= $root ?>img/uploads/mac-coffee-optimized.jpg')"></div>
 
-            <div class="head-bar">
-                <div class="head-bar-inner">
-                    <div class="row">
-                        <div class="col-sm-3 col-xs-6">
-                            <a class="logo" href="index.php"><span>papp</span>fer</a>
+        <div class="head-bar">
+            <div class="head-bar-inner">
+                <div class="row">
+                    <div class="col-sm-3 col-xs-6">
+                        <a class="logo" href="index.php"><span>papp</span>fer</a>
+                    </div>
+
+                    <div class="col-sm-9 col-xs-6">
+                        <div class="nav-wrap">
+                            <nav id="nav" class="nav">
+                                <ul class="clearfix">
+                                    <li><a href="#about"><?= _('About') ?></a></li>
+                                    <li><a href="#skills"><?= _('Skills') ?></a></li>
+                                    <!--<li><a href="#portfolio"><?= _('Portfolio') ?></a></li>-->
+                                    <li><a href="#experience"><?= _('Experience') ?></a></li>
+                                    <li><a href="#references"><?= _('References') ?></a></li>
+                                    <li><a href="#blog"><?= _('Blog') ?></a></li>
+                                    <li><a href="#contact"><?= _('Contact') ?></a></li>
+                                </ul>
+                            </nav>
+
+                            <button class="btn-mobile btn-mobile-nav"><?= _('Menu') ?></button>
+                            <button class="btn-sidebar btn-sidebar-open"><i class="rsicon rsicon-menu"></i></button>
                         </div>
-
-                        <div class="col-sm-9 col-xs-6">
-                            <div class="nav-wrap">
-                                <nav id="nav" class="nav">
-                                    <ul class="clearfix">
-                                        <li><a href="#about"><?= _('About') ?></a></li>
-                                        <li><a href="#skills"><?= _('Skills') ?></a></li>
-                                        <!--<li><a href="#portfolio"><?= _('Portfolio') ?></a></li>-->
-                                        <li><a href="#experience"><?= _('Experience') ?></a></li>
-                                        <li><a href="#references"><?= _('References') ?></a></li>
-                                        <li><a href="#blog"><?= _('Blog') ?></a></li>
-                                        <li><a href="#contact"><?= _('Contact') ?></a></li>
-                                    </ul>
-                                </nav>
-
-                                <button class="btn-mobile btn-mobile-nav"><?= _('Menu') ?></button>
-                                <button class="btn-sidebar btn-sidebar-open"><i class="rsicon rsicon-menu"></i></button>
-                            </div>
-                            <!-- .nav-wrap -->
-                        </div>
+                        <!-- .nav-wrap -->
                     </div>
                 </div>
             </div>
-        </header>
-        <!-- .header -->
+        </div>
+    </header>
+    <!-- .header -->
 
-        <div class="content">
-            <div class="container">
+    <div class="content">
+        <div class="container">
 
             <!-- START: PAGE CONTENT -->
             <section id="about" class="section section-about">
@@ -270,7 +276,8 @@ $testimonials = [
                         <div class="profile">
                             <div class="row">
                                 <div class="col-xs-5">
-                                    <div class="profile-photo"><img src="<?= $root ?>img/uploads/pappfer.jpg" alt="<?= _('Ferenc Papp') ?>"/></div>
+                                    <div class="profile-photo"><img src="<?= $root ?>img/uploads/pappfer.jpg"
+                                                                    alt="<?= _('Ferenc Papp') ?>"/></div>
                                 </div>
                                 <div class="col-xs-7">
                                     <div class="profile-info">
@@ -289,14 +296,16 @@ $testimonials = [
                                         </li>
                                         <li class="clearfix">
                                             <strong class="title"><?= _('Email') ?></strong>
-                                            <span class="cont"><a href="mailto:pappfer@pappfer.hu">pappfer@pappfer.hu</a></span>
+                                            <span class="cont"><a
+                                                        href="mailto:pappfer@pappfer.hu">pappfer@pappfer.hu</a></span>
                                         </li>
                                         <li class="clearfix">
                                             <strong class="title">LinkedIn</strong>
                                             <span class="cont"><a href="https://www.linkedin.com/in/pappfer">linkedin.com/in/pappfer</a></span>
                                         </li>
                                         <li class="clearfix">
-                                            <span class="button" style="background: #d9534f"><?= _('Currently unavailable for new projects') ?></span>
+                                            <span class="button"
+                                                  style="background: #d9534f"><?= _('Currently unavailable for new projects') ?></span>
                                         </li>
                                     </ul>
                                 </div>
@@ -305,13 +314,15 @@ $testimonials = [
                         <div class="profile-social">
                             <ul class="social">
                                 <li><a class="ripple-centered" href="https://twitter.com/pappfer" target="_blank"><i
-                                        class="rsicon rsicon-twitter"></i></a></li>
-                                <li><a class="ripple-centered" href="https://www.linkedin.com/in/pappfer" target="_blank"><i
-                                        class="rsicon rsicon-linkedin"></i></a></li>
+                                                class="rsicon rsicon-twitter"></i></a></li>
+                                <li><a class="ripple-centered" href="https://www.linkedin.com/in/pappfer"
+                                       target="_blank"><i
+                                                class="rsicon rsicon-linkedin"></i></a></li>
                                 <li><a class="ripple-centered" href="https://github.com/pappfer" target="_blank"><i
-                                        class="rsicon rsicon-github"></i></a></li>
-                                <li><a class="ripple-centered" href="http://stackoverflow.com/users/3736962/pappfer" target="_blank"><i
-                                        class="rsicon rsicon-stack-overflow"></i></a></li>
+                                                class="rsicon rsicon-github"></i></a></li>
+                                <li><a class="ripple-centered" href="http://stackoverflow.com/users/3736962/pappfer"
+                                       target="_blank"><i
+                                                class="rsicon rsicon-stack-overflow"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -637,15 +648,18 @@ $testimonials = [
                         </div>
 
                         <div class="client-logo">
-                            <img src="<?= $root ?>img/uploads/logos/logo-angularjs.png" title="angular js" alt="angular js">
+                            <img src="<?= $root ?>img/uploads/logos/logo-angularjs.png" title="angular js"
+                                 alt="angular js">
                         </div>
 
                         <div class="client-logo">
-                            <img src="<?= $root ?>img/uploads/logos/logo-wordpress.png" title="wordpress" alt="wordpress">
+                            <img src="<?= $root ?>img/uploads/logos/logo-wordpress.png" title="wordpress"
+                                 alt="wordpress">
                         </div>
 
                         <div class="client-logo">
-                            <img src="<?= $root ?>img/uploads/logos/logo-bootstrap.png" title="bootstrap" alt="bootstrap">
+                            <img src="<?= $root ?>img/uploads/logos/logo-bootstrap.png" title="bootstrap"
+                                 alt="bootstrap">
                         </div>
 
                         <div class="client-logo">
@@ -663,21 +677,22 @@ $testimonials = [
                     <div class="section-box">
                         <ul class="ref-slider">
                             <?php foreach ($testimonials as $testimonial) : ?>
-                            <li>
-                                <div class="ref-box">
-                                    <div class="person-speech">
-                                        <p><?= $testimonial['speech'] ?></p>
-                                    </div>
-                                    <div class="person-info clearfix">
-                                        <div class="person-name-title">
-                                            <span class="person-name"><i class="rsicon rsicon-user"></i> <?= $testimonial['name'] ?></span>
-                                            <?php if (!empty($testimonial['title'])) { ?>
-                                            <span class="person-title"><?= $testimonial['title'] ?></span>
-                                            <?php } ?>
+                                <li>
+                                    <div class="ref-box">
+                                        <div class="person-speech">
+                                            <p><?= $testimonial['speech'] ?></p>
+                                        </div>
+                                        <div class="person-info clearfix">
+                                            <div class="person-name-title">
+                                                <span class="person-name"><i
+                                                            class="rsicon rsicon-user"></i> <?= $testimonial['name'] ?></span>
+                                                <?php if (!empty($testimonial['title'])) { ?>
+                                                    <span class="person-title"><?= $testimonial['title'] ?></span>
+                                                <?php } ?>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
+                                </li>
                             <?php endforeach; ?>
                         </ul>
                         <div class="ref-slider-nav">
@@ -736,7 +751,8 @@ $testimonials = [
                     <h2 class="section-title"><?= _('Blog') ?></h2>
 
                     <div class="section-box">
-                        <a class="twitter-timeline" data-height="600" data-theme="light" data-link-color="#07cb79" href="https://twitter.com/pappfer">Tweets by pappfer</a>
+                        <a class="twitter-timeline" data-height="600" data-theme="light" data-link-color="#07cb79"
+                           href="https://twitter.com/pappfer">Tweets by pappfer</a>
                         <script async src="//platform.twitter.com/widgets.js"></script>
                     </div>
                 </div>
@@ -777,11 +793,13 @@ $testimonials = [
                                         <span class="line"></span>
                                     </div>
 
-                                    <div class="g-recaptcha" data-sitekey="6LeOsD8UAAAAAEkzldQpFN1EAnCKw9XqekvKcHF3"></div>
+                                    <div class="g-recaptcha"
+                                         data-sitekey="6LeOsD8UAAAAAEkzldQpFN1EAnCKw9XqekvKcHF3"></div>
                                     <br>
 
                                     <span class="btn-outer btn-primary-outer ripple">
-                                        <input class="rsFormSubmit btn btn-lg btn-primary" type="submit" value="<?= _('Send') ?>">
+                                        <input class="rsFormSubmit btn btn-lg btn-primary" type="submit"
+                                               value="<?= _('Send') ?>">
                                     </span>
                                 </form>
                             </div>
@@ -822,55 +840,59 @@ $testimonials = [
         <div class="footer-social">
             <ul class="social">
                 <li><a class="ripple-centered" href="https://twitter.com/pappfer" target="_blank"><i
-                            class="rsicon rsicon-twitter"></i></a></li>
+                                class="rsicon rsicon-twitter"></i></a></li>
                 <li><a class="ripple-centered" href="https://www.linkedin.com/in/pappfer" target="_blank"><i
-                            class="rsicon rsicon-linkedin"></i></a></li>
+                                class="rsicon rsicon-linkedin"></i></a></li>
                 <li><a class="ripple-centered" href="https://github.com/pappfer" target="_blank"><i
-                            class="rsicon rsicon-github"></i></a></li>
+                                class="rsicon rsicon-github"></i></a></li>
                 <li><a class="ripple-centered" href="http://stackoverflow.com/users/3736962/pappfer" target="_blank"><i
-                            class="rsicon rsicon-stack-overflow"></i></a></li>
+                                class="rsicon rsicon-stack-overflow"></i></a></li>
             </ul>
         </div>
     </footer>
     <!-- .footer -->
 
-    </div>
-    <!-- .wrapper -->
+</div>
+<!-- .wrapper -->
 
-    <a class="btn-scroll-top" href="#"><i class="rsicon rsicon-arrow-up"></i></a>
+<a class="btn-scroll-top" href="#"><i class="rsicon rsicon-arrow-up"></i></a>
 
-    <div id="overlay"></div>
-    <div id="preloader">
-        <div class="preload-icon"><span></span><span></span></div>
-        <div class="preload-text"><?= _('Loading...') ?></div>
-    </div>
+<div id="overlay"></div>
+<div id="preloader">
+    <div class="preload-icon"><span></span><span></span></div>
+    <div class="preload-text"><?= _('Loading...') ?></div>
+</div>
 
-    <!-- Scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCvBqUTr3onIEKspCX54K66tCLoT75keo"></script>
-    <script src="<?= $root ?>fonts/map-icons/js/map-icons.min.js"></script>
-    <script src="<?= $root ?>js/plugins/jquery.mousewheel-3.0.6.pack.js"></script>
-    <script src="<?= $root ?>js/plugins/imagesloaded.pkgd.min.js"></script>
-    <script src="<?= $root ?>js/plugins/isotope.pkgd.min.js"></script>
-    <script src="<?= $root ?>js/plugins/jquery.appear.min.js"></script>
-    <script src="<?= $root ?>js/plugins/jquery.onepagenav.min.js"></script>
-    <script src="<?= $root ?>js/plugins/jquery.bxslider/jquery.bxslider.min.js"></script>
-    <script src="<?= $root ?>js/plugins/jquery.customscroll/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="<?= $root ?>js/plugins/jquery.mediaelement/mediaelement-and-player.min.js"></script>
-    <script src="<?= $root ?>js/plugins/jquery.fancybox/jquery.fancybox.pack.js"></script>
-    <script src="<?= $root ?>js/plugins/jquery.fancybox/helpers/jquery.fancybox-media.js"></script>
-    <script src="<?= $root ?>js/plugins/jquery.owlcarousel/owl.carousel.min.js"></script>
-    <script src="<?= $root ?>js/options.js"></script>
-    <script src="<?= $root ?>js/site.min.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50016491-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCvBqUTr3onIEKspCX54K66tCLoT75keo"></script>
+<script src="<?= $root ?>fonts/map-icons/js/map-icons.min.js"></script>
+<script src="<?= $root ?>js/plugins/jquery.mousewheel-3.0.6.pack.js"></script>
+<script src="<?= $root ?>js/plugins/imagesloaded.pkgd.min.js"></script>
+<script src="<?= $root ?>js/plugins/isotope.pkgd.min.js"></script>
+<script src="<?= $root ?>js/plugins/jquery.appear.min.js"></script>
+<script src="<?= $root ?>js/plugins/jquery.onepagenav.min.js"></script>
+<script src="<?= $root ?>js/plugins/jquery.bxslider/jquery.bxslider.min.js"></script>
+<script src="<?= $root ?>js/plugins/jquery.customscroll/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="<?= $root ?>js/plugins/jquery.mediaelement/mediaelement-and-player.min.js"></script>
+<script src="<?= $root ?>js/plugins/jquery.fancybox/jquery.fancybox.pack.js"></script>
+<script src="<?= $root ?>js/plugins/jquery.fancybox/helpers/jquery.fancybox-media.js"></script>
+<script src="<?= $root ?>js/plugins/jquery.owlcarousel/owl.carousel.min.js"></script>
+<script src="<?= $root ?>js/options.js"></script>
+<script src="<?= $root ?>js/site.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-50016491-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
 
-        gtag('config', 'UA-50016491-1');
-    </script>
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-50016491-1');
+</script>
 
 </body>
 </html>
