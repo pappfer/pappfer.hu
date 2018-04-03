@@ -252,8 +252,8 @@ $testimonials = [
                                     <li><a href="#references"><?= _('References') ?></a></li>
                                     <li><a href="#blog"><?= _('Blog') ?></a></li>
                                     <li><a href="#contact"><?= _('Contact') ?></a></li>
-                                    <li><a href="<?= $root ?>/en"><img src="./img/en.png" alt="<?= _('English') ?>"></a></li>
-                                    <li><a href="<?= $root ?>/hu"><img src="./img/hu.png" alt="<?= _('Hungarian') ?>"></a></li>
+                                    <li><a href="/en"><img src="<?= $root ?>img/en.png" alt="<?= _('English') ?>"></a></li>
+                                    <li><a href="/hu"><img src="<?= $root ?>img/hu.png" alt="<?= _('Hungarian') ?>"></a></li>
                                 </ul>
                             </nav>
 
