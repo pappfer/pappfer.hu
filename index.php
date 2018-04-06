@@ -252,8 +252,8 @@ $testimonials = [
                                     <li><a href="#references"><?= _('References') ?></a></li>
                                     <li><a href="#blog"><?= _('Blog') ?></a></li>
                                     <li><a href="#contact"><?= _('Contact') ?></a></li>
-                                    <li><a href="/en"><img src="<?= $root ?>img/en.png" alt="<?= _('English') ?>"></a></li>
-                                    <li><a href="/hu"><img src="<?= $root ?>img/hu.png" alt="<?= _('Hungarian') ?>"></a></li>
+                                    <li><a href="<?= $_SERVER['PHP_SELF'] . '?lang=en' ?>"><img src="<?= $root ?>img/en.png" alt="<?= _('English') ?>"></a></li>
+                                    <li><a href="<?= $_SERVER['PHP_SELF'] . '?lang=hu' ?>"><img src="<?= $root ?>img/hu.png" alt="<?= _('Hungarian') ?>"></a></li>
                                 </ul>
                             </nav>
 
@@ -322,7 +322,7 @@ $testimonials = [
                                                 class="rsicon rsicon-linkedin"></i></a></li>
                                 <li><a class="ripple-centered" href="https://github.com/pappfer" target="_blank"><i
                                                 class="rsicon rsicon-github"></i></a></li>
-                                <li><a class="ripple-centered" href="http://stackoverflow.com/users/3736962/pappfer"
+                                <li><a class="ripple-centered" href="https://stackoverflow.com/users/3736962/pappfer"
                                        target="_blank"><i
                                                 class="rsicon rsicon-stack-overflow"></i></a></li>
                             </ul>
@@ -847,7 +847,7 @@ $testimonials = [
                                 class="rsicon rsicon-linkedin"></i></a></li>
                 <li><a class="ripple-centered" href="https://github.com/pappfer" target="_blank"><i
                                 class="rsicon rsicon-github"></i></a></li>
-                <li><a class="ripple-centered" href="http://stackoverflow.com/users/3736962/pappfer" target="_blank"><i
+                <li><a class="ripple-centered" href="https://stackoverflow.com/users/3736962/pappfer" target="_blank"><i
                                 class="rsicon rsicon-stack-overflow"></i></a></li>
             </ul>
         </div>
