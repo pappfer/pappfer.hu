@@ -3,6 +3,7 @@
     "license": "proprietary",
     "description": "Freelancer PHP/Yii2/JavaScript developer",
     "require": {
+        "ext-gettext": "*",
         "swiftmailer/swiftmailer": "^6.0",
         "vlucas/phpdotenv": "^2.4"
     },

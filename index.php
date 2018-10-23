@@ -19,12 +19,12 @@ function validLangs()
  */
 function valid($locale)
 {
-    return in_array($locale, array_keys(validLangs()));
+    return array_key_exists($locale, validLangs());
 }
 
 $lang = 'en';
 $root = './';
-$url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$url = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $title = _('Freelancer PHP/Yii2/JavaScript/React developer');
 $description = _('Experienced freelancer full-stack developer. PHP/Yii2/JavaScript/React skills plus Linux knowledge.');
 
@@ -87,7 +87,7 @@ $testimonials = [
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/ico" href="<?= $root ?>img/favicon.png">
     <?php foreach (array_keys(validLangs()) as $langItem) {
-        if ($lang == $langItem) {
+        if ($lang === $langItem) {
             continue;
         }
         echo '<link rel="alternate" hreflang="' . $langItem . '" href="' . $url . $langItem . '">';
@@ -193,26 +193,26 @@ $testimonials = [
 
             <form class="rsForm" action="/php/mailsender.php" method="post">
                 <div class="input-field">
-                    <label><?= _('Name') ?></label>
-                    <input type="text" name="rsName" value="">
+                    <label for="mobile-contact-name"><?= _('Name') ?></label>
+                    <input id="mobile-contact-name" type="text" name="rsName" value="">
                     <span class="line"></span>
                 </div>
 
                 <div class="input-field">
-                    <label><?= _('Email') ?></label>
-                    <input type="email" name="rsEmail" value="">
+                    <label for="mobile-contact-email"><?= _('Email') ?></label>
+                    <input id="mobile-contact-email" type="email" name="rsEmail" value="">
                     <span class="line"></span>
                 </div>
 
                 <div class="input-field">
-                    <label><?= _('Subject') ?></label>
-                    <input type="text" name="rsSubject" value="">
+                    <label for="mobile-contact-subject"><?= _('Subject') ?></label>
+                    <input id="mobile-contact-subject" type="text" name="rsSubject" value="">
                     <span class="line"></span>
                 </div>
 
                 <div class="input-field">
-                    <label><?= _('Message') ?></label>
-                    <textarea rows="4" name="rsMessage"></textarea>
+                    <label for="mobile-contact-message"><?= _('Message') ?></label>
+                    <textarea id="mobile-contact-message" rows="4" name="rsMessage"></textarea>
                     <span class="line"></span>
                 </div>
 
@@ -772,26 +772,26 @@ $testimonials = [
 
                                 <form class="rsForm" action="php/mailsender.php" method="post">
                                     <div class="input-field">
-                                        <label><?= _('Name') ?></label>
-                                        <input type="text" name="rsName" value="">
+                                        <label for="contact-name"><?= _('Name') ?></label>
+                                        <input id="contact-name" type="text" name="rsName" value="">
                                         <span class="line"></span>
                                     </div>
 
                                     <div class="input-field">
-                                        <label><?= _('Email') ?></label>
-                                        <input type="email" name="rsEmail" value="">
+                                        <label for="contact-email"><?= _('Email') ?></label>
+                                        <input id="contact-email" type="email" name="rsEmail" value="">
                                         <span class="line"></span>
                                     </div>
 
                                     <div class="input-field">
-                                        <label><?= _('Subject') ?></label>
-                                        <input type="text" name="rsSubject" value="">
+                                        <label for="contact-subject"><?= _('Subject') ?></label>
+                                        <input id="contact-subject" type="text" name="rsSubject" value="">
                                         <span class="line"></span>
                                     </div>
 
                                     <div class="input-field">
-                                        <label><?= _('Message') ?></label>
-                                        <textarea rows="4" name="rsMessage"></textarea>
+                                        <label for="contact-message"><?= _('Message') ?></label>
+                                        <textarea id="contact-message" rows="4" name="rsMessage"></textarea>
                                         <span class="line"></span>
                                     </div>
 
