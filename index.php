@@ -290,7 +290,7 @@ $testimonials = [
                                     <ul class="profile-list">
                                         <li class="clearfix">
                                             <strong class="title"><?= _('Age') ?></strong>
-                                            <span class="cont">32</span>
+                                            <span class="cont">33</span>
                                         </li>
                                         <li class="clearfix">
                                             <strong class="title"><?= _('Address') ?></strong>
