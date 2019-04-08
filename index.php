@@ -34,11 +34,11 @@ if (isset($_GET['lang']) && valid($_GET['lang'])) {
 } elseif (isset($_COOKIE['lang']) && valid($_COOKIE['lang'])) {
     $lang = htmlspecialchars($_COOKIE['lang']);
 } elseif (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-    $langs = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
-    array_walk($langs, function (&$lang) {
+    $languages = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
+    array_walk($languages, static function (&$lang) {
         $lang = strtr(strtok($lang, ';'), ['-' => '_']);
     });
-    foreach ($langs as $browserLang) {
+    foreach ($languages as $browserLang) {
         if (valid($browserLang)) {
             $lang = $browserLang;
             break;
@@ -127,14 +127,6 @@ $testimonials = [
     <link rel="stylesheet" type="text/css" href="<?= $root ?>style.css">
     <link rel="stylesheet" type="text/css" href="<?= $root ?>colors/green.css">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Modernizer for detect what features the user’s browser has to offer -->
-    <!-- <script type="text/javascript" src="<?= $root ?>js/libs/modernizr.js"></script>-->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
@@ -252,8 +244,10 @@ $testimonials = [
                                     <li><a href="#references"><?= _('References') ?></a></li>
                                     <li><a href="#blog"><?= _('Blog') ?></a></li>
                                     <li><a href="#contact"><?= _('Contact') ?></a></li>
-                                    <li><a href="<?= $_SERVER['PHP_SELF'] . '?lang=en' ?>"><img src="<?= $root ?>img/en.png" alt="<?= _('English') ?>"></a></li>
-                                    <li><a href="<?= $_SERVER['PHP_SELF'] . '?lang=hu' ?>"><img src="<?= $root ?>img/hu.png" alt="<?= _('Hungarian') ?>"></a></li>
+                                    <li><a href="<?= $_SERVER['PHP_SELF'] . '?lang=en' ?>"><img
+                                                    src="<?= $root ?>img/en.png" alt="<?= _('English') ?>"></a></li>
+                                    <li><a href="<?= $_SERVER['PHP_SELF'] . '?lang=hu' ?>"><img
+                                                    src="<?= $root ?>img/hu.png" alt="<?= _('Hungarian') ?>"></a></li>
                                 </ul>
                             </nav>
 
@@ -646,26 +640,27 @@ $testimonials = [
 
                     <div class="clients-carousel">
                         <div class="client-logo">
-                            <img src="<?= $root ?>img/uploads/logos/logo-yii.png" title="Yii framework" alt="Yii2">
+                            <img src="<?= $root ?>img/uploads/logos/logo-yii.png" title="Yii2 framework"
+                                 alt="Yii2 framework">
                         </div>
 
                         <div class="client-logo">
-                            <img src="<?= $root ?>img/uploads/logos/logo-angularjs.png" title="angular js"
-                                 alt="angular js">
+                            <img src="<?= $root ?>img/uploads/logos/logo-vuejs.png" title="Vue JS"
+                                 alt="Vue JS">
                         </div>
 
                         <div class="client-logo">
-                            <img src="<?= $root ?>img/uploads/logos/logo-wordpress.png" title="wordpress"
-                                 alt="wordpress">
+                            <img src="<?= $root ?>img/uploads/logos/logo-wordpress.png" title="Wordpress"
+                                 alt="Wordpress">
                         </div>
 
                         <div class="client-logo">
-                            <img src="<?= $root ?>img/uploads/logos/logo-bootstrap.png" title="bootstrap"
+                            <img src="<?= $root ?>img/uploads/logos/logo-bootstrap.png" title="Bootstrap"
                                  alt="bootstrap">
                         </div>
 
                         <div class="client-logo">
-                            <img src="<?= $root ?>img/uploads/logos/logo-jquery.png" title="jquery" alt="jquery">
+                            <img src="<?= $root ?>img/uploads/logos/logo-jquery.png" title="jQuery" alt="jQuery">
                         </div>
                     </div>
                 </div>
