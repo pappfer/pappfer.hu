@@ -26,7 +26,7 @@ $lang = 'en';
 $root = './';
 $url = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $title = _('Freelancer PHP/Yii2/JavaScript/React developer');
-$description = _('Experienced freelancer full-stack developer. PHP/Yii2/JavaScript/React skills plus Linux knowledge.');
+$description = _('Experienced freelancer full-stack developer. PHP/Yii2/JavaScript/VueJS expert, Laravel, Symfony skills, fluent English, advanced Linux knowledge.');
 
 if (isset($_GET['lang']) && valid($_GET['lang'])) {
     $lang = htmlspecialchars($_GET['lang']);
@@ -244,10 +244,16 @@ $testimonials = [
                                     <li><a href="#references"><?= _('References') ?></a></li>
                                     <li><a href="#blog"><?= _('Blog') ?></a></li>
                                     <li><a href="#contact"><?= _('Contact') ?></a></li>
-                                    <li><a href="<?= $_SERVER['PHP_SELF'] . '?lang=en' ?>"><img
-                                                    src="<?= $root ?>img/en.png" alt="<?= _('English') ?>"></a></li>
-                                    <li><a href="<?= $_SERVER['PHP_SELF'] . '?lang=hu' ?>"><img
-                                                    src="<?= $root ?>img/hu.png" alt="<?= _('Hungarian') ?>"></a></li>
+                                    <li>
+                                        <a href="<?= $_SERVER['PHP_SELF'] . '?lang=en' ?>">
+                                            <img src="<?= $root ?>img/en.png" alt="<?= _('English') ?>">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= $_SERVER['PHP_SELF'] . '?lang=hu' ?>">
+                                            <img src="<?= $root ?>img/hu.png" alt="<?= _('Hungarian') ?>">
+                                        </a>
+                                    </li>
                                 </ul>
                             </nav>
 
@@ -272,8 +278,9 @@ $testimonials = [
                         <div class="profile">
                             <div class="row">
                                 <div class="col-xs-5">
-                                    <div class="profile-photo"><img src="<?= $root ?>img/uploads/pappfer.jpg"
-                                                                    alt="<?= _('Ferenc Papp') ?>"/></div>
+                                    <div class="profile-photo">
+                                        <img src="<?= $root ?>img/uploads/pappfer.jpg" alt="<?= _('Ferenc Papp') ?>">
+                                    </div>
                                 </div>
                                 <div class="col-xs-7">
                                     <div class="profile-info">
@@ -292,16 +299,20 @@ $testimonials = [
                                         </li>
                                         <li class="clearfix">
                                             <strong class="title"><?= _('Email') ?></strong>
-                                            <span class="cont"><a
-                                                        href="mailto:pappfer@pappfer.hu">pappfer@pappfer.hu</a></span>
+                                            <span class="cont">
+                                                <a href="mailto:pappfer@pappfer.hu">pappfer@pappfer.hu</a>
+                                            </span>
                                         </li>
                                         <li class="clearfix">
                                             <strong class="title">LinkedIn</strong>
-                                            <span class="cont"><a href="https://www.linkedin.com/in/pappfer">linkedin.com/in/pappfer</a></span>
+                                            <span class="cont">
+                                                <a href="https://www.linkedin.com/in/pappfer">linkedin.com/in/pappfer</a>
+                                            </span>
                                         </li>
                                         <li class="clearfix">
-                                            <span class="button"
-                                                  style="background: #d9534f"><?= _('Currently unavailable for new projects') ?></span>
+                                            <span class="button" style="background: #d9534f">
+                                                <?= _('Currently unavailable for new projects') ?>
+                                            </span>
                                         </li>
                                     </ul>
                                 </div>
@@ -309,8 +320,11 @@ $testimonials = [
                         </div>
                         <div class="profile-social">
                             <ul class="social">
-                                <li><a class="ripple-centered" href="https://twitter.com/pappfer" target="_blank"><i
-                                                class="rsicon rsicon-twitter"></i></a></li>
+                                <li>
+                                    <a class="ripple-centered" href="https://twitter.com/pappfer" target="_blank">
+                                        <i class="rsicon rsicon-twitter"></i>
+                                    </a>
+                                </li>
                                 <li><a class="ripple-centered" href="https://www.linkedin.com/in/pappfer"
                                        target="_blank"><i
                                                 class="rsicon rsicon-linkedin"></i></a></li>
@@ -397,7 +411,7 @@ $testimonials = [
                             <div class="col-sm-6">
                                 <div class="progress-bar">
                                     <div class="bar-data">
-                                        <span class="bar-title">Wordpress, Laravel, Lumen</span>
+                                        <span class="bar-title">Wordpress, Laravel, Symfony</span>
                                         <span class="bar-value">75%</span>
                                     </div>
                                     <div class="bar-line">
@@ -807,7 +821,7 @@ $testimonials = [
                                 <ul class="contact-list">
                                     <li class="clearfix">
                                         <strong><?= _('Address') ?></strong>
-                                        <span>Hungary, Debrecen</span>
+                                        <span><?= _('Hungary, Debrecen') ?></span>
                                     </li>
                                     <li class="clearfix">
                                         <strong>LinkedIn</strong>
