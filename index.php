@@ -341,10 +341,13 @@ $testimonials = [
                         <p><a class="btn btn-lg btn-border ripple" target="_blank"
                               href="<?= $root ?>resume.json"><?= _('Download Resume') ?></a></p>
 
-                        <p><?= _("I'm a professional PHP developer with 10 years of experience. Prefer to use Yii framework.
-                            I also enjoy building front-end where I'm using responsive design and continuously following the newest technologies and trends. I'm running my own websites on a VPS what I manage so I have some experience with Linux servers along with Apache and Nginx web servers.
-                            I also develop Wordpress plugins, platform independent mobile apps and I'm good at SEO.
-                            I'm a good team-player and have experience in using Git/SVN.") ?></p>
+                        <p><?= _('I\'m a professional full stack web developer with 10+ years of experience.') ?>
+                        <?= _('I develop backend projects in PHP, using Laravel, Symfony or Yii2 framework and prefer to code frontend in either VueJS or React JS.') ?>
+                        <?= _('I have advanced HTML, CSS and even SEO skills, decent Linux knowledge, and experience with using Amazon AWS.') ?>
+                        <?= _('My job is also my passion, I truly enjoy following best practices, keeping up with new technologies and trends.') ?>
+                        <?= _('I am reliable and demanding for my work but I\'m not doing well under stress.') ?>
+                        <?= _('I speak English fluently.') ?>
+                        </p>
                     </div>
                 </div>
             </section>
