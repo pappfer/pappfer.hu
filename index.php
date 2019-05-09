@@ -881,7 +881,6 @@ $testimonials = [
 
 <!-- Scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="<?= $root ?>fonts/map-icons/js/map-icons.min.js"></script>
 <script src="<?= $root ?>js/plugins/jquery.mousewheel-3.0.6.pack.js"></script>
 <script src="<?= $root ?>js/plugins/imagesloaded.pkgd.min.js"></script>
 <script src="<?= $root ?>js/plugins/isotope.pkgd.min.js"></script>
