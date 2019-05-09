@@ -821,7 +821,7 @@ $testimonials = [
                         </div>
 
                         <div class="col-sm-6">
-                            <div class="section-box contact-info has-map">
+                            <div class="section-box contact-info">
                                 <ul class="contact-list">
                                     <li class="clearfix">
                                         <strong><?= _('Address') ?></strong>
@@ -837,7 +837,8 @@ $testimonials = [
                                     </li>
                                 </ul>
 
-                                <div id="map" data-latitude="47.531605" data-longitude="21.627312"></div>
+                                <iframe style="width: 100%; height: 380px;" marginwidth="0"
+                                        src="https://www.openstreetmap.org/export/embed.html?bbox=21.5892505645752%2C47.51978018250851%2C21.645898818969727%2C47.54559702254849&amp;layer=mapnik"></iframe>
                             </div>
                         </div>
                     </div>
@@ -880,7 +881,6 @@ $testimonials = [
 
 <!-- Scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCvBqUTr3onIEKspCX54K66tCLoT75keo"></script>
 <script src="<?= $root ?>fonts/map-icons/js/map-icons.min.js"></script>
 <script src="<?= $root ?>js/plugins/jquery.mousewheel-3.0.6.pack.js"></script>
 <script src="<?= $root ?>js/plugins/imagesloaded.pkgd.min.js"></script>
