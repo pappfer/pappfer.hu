@@ -22,6 +22,9 @@ function valid($locale)
     return array_key_exists($locale, validLangs());
 }
 
+print_r($_SERVER);
+//exit();
+
 $lang = 'en';
 $root = './';
 $url = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
