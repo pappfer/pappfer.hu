@@ -22,12 +22,10 @@ function valid($locale)
     return array_key_exists($locale, validLangs());
 }
 
-print_r($_SERVER);
-//exit();
 
 $lang = 'en';
 $root = './';
-$url = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$url = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . "://$_SERVER[HTTP_HOST]";
 $title = _('Freelancer PHP/Yii2/JavaScript/React developer');
 $description = _('Experienced freelancer full-stack developer. PHP/Yii2/JavaScript/VueJS expert, Laravel, Symfony skills, fluent English, advanced Linux knowledge.');
 
@@ -93,7 +91,7 @@ $testimonials = [
         if ($lang === $langItem) {
             continue;
         }
-        echo '<link rel="alternate" hreflang="' . $langItem . '" href="' . $url . $langItem . '">';
+        echo '<link rel="alternate" hreflang="' . $langItem . '" href="' . $url . '/' . $langItem . '">';
         echo "\n\t";
     } ?>
 
@@ -103,7 +101,7 @@ $testimonials = [
     <meta property="og:type" content="website">
     <meta property="og:title" content="<?= $title ?>"/>
     <meta property="og:description" content="<?= $description ?>">
-    <meta property="og:url" content="<?= $url . $lang ?>">
+    <meta property="og:url" content="<?= $url . '/' . $lang ?>">
     <meta property="og:site_name" content="pappfer.hu">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="<?= $title ?>">
