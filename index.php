@@ -22,19 +22,21 @@ function valid($locale)
     return array_key_exists($locale, validLangs());
 }
 
-
 $lang = 'en';
 $root = './';
 $url = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . "://$_SERVER[HTTP_HOST]";
 $title = _('Freelancer PHP/Yii2/JavaScript/React developer');
 $description = _('Experienced freelancer full-stack developer. PHP/Yii2/JavaScript/VueJS expert, Laravel, Symfony skills, fluent English, advanced Linux knowledge.');
 
-if (isset($_GET['lang']) && valid($_GET['lang'])) {
+if (strlen($_SERVER['REQUEST_URI']) > 2 && valid($_SERVER['REQUEST_URI'][1] . $_SERVER['REQUEST_URI'][2])) {
+    $lang = $_SERVER['REQUEST_URI'][1] . $_SERVER['REQUEST_URI'][2];
+    setcookie('lang', $lang);
+} else if (isset($_GET['lang']) && valid($_GET['lang'])) {
     $lang = htmlspecialchars($_GET['lang']);
     setcookie('lang', $lang);
-} elseif (isset($_COOKIE['lang']) && valid($_COOKIE['lang'])) {
+} else if (isset($_COOKIE['lang']) && valid($_COOKIE['lang'])) {
     $lang = htmlspecialchars($_COOKIE['lang']);
-} elseif (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+} else if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
     $languages = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
     array_walk($languages, static function (&$lang) {
         $lang = strtr(strtok($lang, ';'), ['-' => '_']);
@@ -246,12 +248,12 @@ $testimonials = [
                                     <li><a href="#blog"><?= _('Blog') ?></a></li>
                                     <li><a href="#contact"><?= _('Contact') ?></a></li>
                                     <li>
-                                        <a href="<?= $_SERVER['PHP_SELF'] . '?lang=en' ?>">
+                                        <a href="<?= $url . '/' . 'en' ?>">
                                             <img src="<?= $root ?>img/en.png" alt="<?= _('English') ?>">
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="<?= $_SERVER['PHP_SELF'] . '?lang=hu' ?>">
+                                        <a href="<?= $url . '/' . 'hu' ?>">
                                             <img src="<?= $root ?>img/hu.png" alt="<?= _('Hungarian') ?>">
                                         </a>
                                     </li>
