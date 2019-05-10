@@ -345,11 +345,11 @@ $testimonials = [
                               href="<?= $root ?>resume.json"><?= _('Download Resume') ?></a></p>
 
                         <p><?= _('I\'m a professional full stack web developer with 10+ years of experience.') ?>
-                        <?= _('I develop backend projects in PHP, using Laravel, Symfony or Yii2 framework and prefer to code frontend in either VueJS or React JS.') ?>
-                        <?= _('I have advanced HTML, CSS and even SEO skills, decent Linux knowledge, and experience with using Amazon AWS.') ?>
-                        <?= _('My job is also my passion, I truly enjoy following best practices, keeping up with new technologies and trends.') ?>
-                        <?= _('I am reliable and demanding for my work but I\'m not doing well under stress.') ?>
-                        <?= _('I speak English fluently.') ?>
+                            <?= _('I develop backend projects in PHP, using Laravel, Symfony or Yii2 framework and prefer to code frontend in either VueJS or React JS.') ?>
+                            <?= _('I have advanced HTML, CSS and even SEO skills, decent Linux knowledge, and experience with using Amazon AWS.') ?>
+                            <?= _('My job is also my passion, I truly enjoy following best practices, keeping up with new technologies and trends.') ?>
+                            <?= _('I am reliable and demanding for my work but I\'m not doing well under stress.') ?>
+                            <?= _('I speak English fluently.') ?>
                         </p>
                     </div>
                 </div>
@@ -839,7 +839,7 @@ $testimonials = [
                                     </li>
                                 </ul>
 
-                                <iframe style="width: 100%; height: 380px;" marginwidth="0"
+                                <iframe style="width: 100%; height: 380px;"
                                         src="https://www.openstreetmap.org/export/embed.html?bbox=21.5892505645752%2C47.51978018250851%2C21.645898818969727%2C47.54559702254849&amp;layer=mapnik"></iframe>
                             </div>
                         </div>
