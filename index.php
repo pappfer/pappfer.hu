@@ -233,7 +233,7 @@ $testimonials = [
             <div class="head-bar-inner">
                 <div class="row">
                     <div class="col-sm-3 col-xs-6">
-                        <a class="logo" href="index.php"><span>papp</span>fer</a>
+                        <a class="logo" href="<?= $url . '/' . $lang ?>"><span>papp</span>fer</a>
                     </div>
 
                     <div class="col-sm-9 col-xs-6">
