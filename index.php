@@ -767,9 +767,10 @@ $testimonials = [
                     <h2 class="section-title"><?= _('Blog') ?></h2>
 
                     <div class="section-box">
-                        <a class="twitter-timeline" data-height="600" data-theme="light" data-link-color="#07cb79"
-                           href="https://twitter.com/pappfer">Tweets by pappfer</a>
-                        <script async src="//platform.twitter.com/widgets.js"></script>
+                        <a class="twitter-timeline" data-height="600" data-dnt="true" data-theme="light"
+                           data-link-color="#19CF86" href="https://twitter.com/pappfer?ref_src=twsrc%5Etfw">Tweets by
+                            pappfer</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </div>
                 </div>
             </section>
@@ -893,15 +894,15 @@ $testimonials = [
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50016491-1"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
+  window.dataLayer = window.dataLayer || []
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
+  function gtag () {
+    dataLayer.push(arguments)
+  }
 
-    gtag('js', new Date());
+  gtag('js', new Date())
 
-    gtag('config', 'UA-50016491-1');
+  gtag('config', 'UA-50016491-1')
 </script>
 
 </body>
