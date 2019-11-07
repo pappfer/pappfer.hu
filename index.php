@@ -26,7 +26,7 @@ $lang = 'en';
 $root = './';
 $url = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . "://$_SERVER[HTTP_HOST]";
 $title = _('Freelancer PHP/Yii2/JavaScript/React developer');
-$description = _('Experienced freelancer full-stack developer. PHP/Yii2/JavaScript/VueJS expert, Laravel, Symfony skills, fluent English, advanced Linux knowledge.');
+$description = _('Experienced freelancer full stack developer. PHP/Yii2/JavaScript/VueJS expert, Laravel, Symfony skills, fluent English, advanced Linux knowledge.');
 
 if (strlen($_SERVER['REQUEST_URI']) > 2 && valid($_SERVER['REQUEST_URI'][1] . $_SERVER['REQUEST_URI'][2])) {
     $lang = $_SERVER['REQUEST_URI'][1] . $_SERVER['REQUEST_URI'][2];
@@ -124,7 +124,6 @@ $testimonials = [
     <link rel="stylesheet" type="text/css"
           href="<?= $root ?>js/plugins/jquery.customscroll/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.mediaelement/mediaelementplayer.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.fancybox/jquery.fancybox.css">
     <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.owlcarousel/owl.carousel.css">
     <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.owlcarousel/owl.theme.css">
     <link rel="stylesheet" type="text/css" href="<?= $root ?>style.css">
@@ -377,7 +376,7 @@ $testimonials = [
                             <div class="col-sm-6">
                                 <div class="progress-bar">
                                     <div class="bar-data">
-                                        <span class="bar-title">Yii2 framework</span>
+                                        <span class="bar-title">Yii2 framework / Laravel</span>
                                         <span class="bar-value">85%</span>
                                     </div>
                                     <div class="bar-line">
@@ -417,7 +416,7 @@ $testimonials = [
                             <div class="col-sm-6">
                                 <div class="progress-bar">
                                     <div class="bar-data">
-                                        <span class="bar-title">Wordpress, Laravel, Symfony</span>
+                                        <span class="bar-title">Wordpress, Symfony</span>
                                         <span class="bar-value">75%</span>
                                     </div>
                                     <div class="bar-line">
@@ -839,8 +838,7 @@ $testimonials = [
                                     </li>
                                 </ul>
 
-                                <iframe style="width: 100%; height: 380px;"
-                                        src="https://www.openstreetmap.org/export/embed.html?bbox=21.5892505645752%2C47.51978018250851%2C21.645898818969727%2C47.54559702254849&amp;layer=mapnik"></iframe>
+                                <img src="<?= $root ?>img/debrecen.png" alt="Debrecen" width="455" height="410">
                             </div>
                         </div>
                     </div>
@@ -885,14 +883,10 @@ $testimonials = [
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="<?= $root ?>js/plugins/jquery.mousewheel-3.0.6.pack.js"></script>
 <script src="<?= $root ?>js/plugins/imagesloaded.pkgd.min.js"></script>
-<script src="<?= $root ?>js/plugins/isotope.pkgd.min.js"></script>
 <script src="<?= $root ?>js/plugins/jquery.appear.min.js"></script>
 <script src="<?= $root ?>js/plugins/jquery.onepagenav.min.js"></script>
 <script src="<?= $root ?>js/plugins/jquery.bxslider/jquery.bxslider.min.js"></script>
 <script src="<?= $root ?>js/plugins/jquery.customscroll/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="<?= $root ?>js/plugins/jquery.mediaelement/mediaelement-and-player.min.js"></script>
-<script src="<?= $root ?>js/plugins/jquery.fancybox/jquery.fancybox.pack.js"></script>
-<script src="<?= $root ?>js/plugins/jquery.fancybox/helpers/jquery.fancybox-media.js"></script>
 <script src="<?= $root ?>js/plugins/jquery.owlcarousel/owl.carousel.min.js"></script>
 <script src="<?= $root ?>js/options.js"></script>
 <script src="<?= $root ?>js/site.min.js"></script>

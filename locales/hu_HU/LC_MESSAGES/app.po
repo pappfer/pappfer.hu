@@ -20,7 +20,7 @@ msgstr "Szabadúszó PHP/Yii2/JavaScript/React fejlesztő"
 
 #: index.php:29
 msgid ""
-"Experienced freelancer full-stack developer. PHP/Yii2/JavaScript/VueJS "
+"Experienced freelancer full stack developer. PHP/Yii2/JavaScript/VueJS "
 "expert, Laravel, Symfony skills, fluent English, advanced Linux knowledge."
 msgstr ""
 "Tapasztalt szabadúszó fullstack fejlesztő. PHP/Yii2/JavaScript/VueJS "
