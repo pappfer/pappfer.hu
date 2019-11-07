@@ -311,11 +311,11 @@ $testimonials = [
                                                 <a href="https://www.linkedin.com/in/pappfer">linkedin.com/in/pappfer</a>
                                             </span>
                                         </li>
-                                        <li class="clearfix">
+                                        <!--<li class="clearfix">
                                             <span class="button" style="background: #d9534f">
                                                 <?= _('Currently unavailable for new projects') ?>
                                             </span>
-                                        </li>
+                                        </li>-->
                                     </ul>
                                 </div>
                             </div>
