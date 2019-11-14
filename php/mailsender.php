@@ -2,35 +2,15 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$dotenv = new Dotenv\Dotenv(__DIR__ . '/../');
-$dotenv->load();
-
-$url = 'https://www.google.com/recaptcha/api/siteverify';
-$data = [
-    'secret' => getenv('RECAPTCHA_SECRET'),
-    'response' => $_POST['g-recaptcha-response'],
-    'remoteip' => $_SERVER['REMOTE_ADDR'],
-];
-
-$options = [
-    'http' => [
-        'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-        'method' => 'POST',
-        'content' => http_build_query($data)
-    ],
-];
-$context = stream_context_create($options);
-$result = json_decode(file_get_contents($url, false, $context));
-
-if ($result->success === true) {
-    $transport = (new Swift_SmtpTransport(getenv('SMTP_HOST'), intval(getenv('SMTP_PORT')), getenv('SMTP_SECURITY')))
+if (isset($_POST['rsEmail'], $_POST['rsName'], $_POST['rsMessage'])) {
+    $transport = (new Swift_SmtpTransport(getenv('SMTP_HOST'), int(getenv('SMTP_PORT')), getenv('SMTP_SECURITY')))
         ->setUsername(getenv('SMTP_USERNAME'))
         ->setPassword(getenv('SMTP_PASSWORD'));
 
     $mailer = new Swift_Mailer($transport);
 
     if (!isset($_POST['rsSubject'])) {
-        $subject = "Contact form message";
+        $subject = 'pappfer.hu kapcsolatfelvétel';
     } else {
         $subject = $_POST['rsSubject'];
     }
