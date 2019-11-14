@@ -39,6 +39,7 @@ gulp.task('pack-js', function () {
 // concatenate and minify CSS files
 gulp.task('pack-css', function () {
   return gulp.src([
+    './fonts/fonts.css',
     './fonts/map-icons/css/map-icons.css',
     './fonts/icomoon/style.css',
     './js/plugins/jquery.bxslider/jquery.bxslider.css',
