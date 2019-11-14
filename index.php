@@ -12,6 +12,23 @@ function validLangs()
     ];
 }
 
+function assetPath($filename, $type = 'css')
+{
+    $manifestPath = './build/rev-manifest.json';
+
+    if (file_exists($manifestPath)) {
+        $manifest = json_decode(file_get_contents($manifestPath), TRUE);
+    } else {
+        $manifest = [];
+    }
+
+    if (array_key_exists($filename, $manifest)) {
+        return './build/' . $type . '/' . $manifest[$filename];
+    }
+
+    return $filename;
+}
+
 /**
  * Verifies if the given $locale is supported in the project.
  * @param string $locale
@@ -88,7 +105,7 @@ $testimonials = [
     <title><?= $title ?></title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/ico" href="<?= $root ?>img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="<?= $root ?>favicon.ico">
     <?php foreach (array_keys(validLangs()) as $langItem) {
         if ($lang === $langItem) {
             continue;
@@ -116,7 +133,7 @@ $testimonials = [
           href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic">
 
     <!-- Icon Fonts -->
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>bundle.css">
+    <link rel="stylesheet" type="text/css" href="<?= assetPath('bundle.css', 'css') ?>">
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
@@ -871,7 +888,7 @@ $testimonials = [
 
 <!-- Scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="<?= $root ?>bundle.js"></script>
+<script src="<?= assetPath('bundle.js', 'js') ?>"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50016491-1"></script>
 <script>
