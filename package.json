@@ -5,15 +5,10 @@
   "repository": "git@github.com:pappfer/pappfer.hu.git",
   "author": "Ferenc Papp <pappfer@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "cssnano": "^3.10.0"
-  },
   "devDependencies": {
-    "mini-css-extract-plugin": "^0.5.0",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0"
-  },
-  "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^3.0.2"
   }
 }

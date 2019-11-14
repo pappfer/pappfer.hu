@@ -116,18 +116,7 @@ $testimonials = [
           href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic">
 
     <!-- Icon Fonts -->
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>fonts/map-icons/css/map-icons.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>fonts/icomoon/style.css">
-
-    <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.bxslider/jquery.bxslider.css">
-    <link rel="stylesheet" type="text/css"
-          href="<?= $root ?>js/plugins/jquery.customscroll/jquery.mCustomScrollbar.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.mediaelement/mediaelementplayer.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.owlcarousel/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>js/plugins/jquery.owlcarousel/owl.theme.css">
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>style.css">
-    <link rel="stylesheet" type="text/css" href="<?= $root ?>colors/green.css">
+    <link rel="stylesheet" type="text/css" href="<?= $root ?>bundle.css">
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
@@ -882,15 +871,7 @@ $testimonials = [
 
 <!-- Scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="<?= $root ?>js/plugins/jquery.mousewheel-3.0.6.pack.js"></script>
-<script src="<?= $root ?>js/plugins/imagesloaded.pkgd.min.js"></script>
-<script src="<?= $root ?>js/plugins/jquery.appear.min.js"></script>
-<script src="<?= $root ?>js/plugins/jquery.onepagenav.min.js"></script>
-<script src="<?= $root ?>js/plugins/jquery.bxslider/jquery.bxslider.min.js"></script>
-<script src="<?= $root ?>js/plugins/jquery.customscroll/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="<?= $root ?>js/plugins/jquery.owlcarousel/owl.carousel.min.js"></script>
-<script src="<?= $root ?>js/options.js"></script>
-<script src="<?= $root ?>js/site.min.js"></script>
+<script src="<?= $root ?>bundle.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50016491-1"></script>
 <script>
