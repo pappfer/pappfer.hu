@@ -3,7 +3,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 if (isset($_POST['rsEmail'], $_POST['rsName'], $_POST['rsMessage'])) {
-    $transport = (new Swift_SmtpTransport(getenv('SMTP_HOST'), int(getenv('SMTP_PORT')), getenv('SMTP_SECURITY')))
+    $transport = (new Swift_SmtpTransport(getenv('SMTP_HOST'), (int)getenv('SMTP_PORT'), getenv('SMTP_SECURITY')))
         ->setUsername(getenv('SMTP_USERNAME'))
         ->setPassword(getenv('SMTP_PASSWORD'));
 
