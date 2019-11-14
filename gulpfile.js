@@ -17,6 +17,7 @@ gulp.task('clean', function () {
 // concatenate and minify JavaScript files
 gulp.task('pack-js', function () {
   return gulp.src([
+    './js/jquery.min.js',
     './js/plugins/jquery.mousewheel-3.0.6.pack.js',
     './js/plugins/imagesloaded.pkgd.min.js',
     './js/plugins/jquery.appear.min.js',

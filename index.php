@@ -874,7 +874,6 @@ $testimonials = [
 </div>
 
 <!-- Scripts -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="<?= assetPath('bundle.js', 'js') ?>"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50016491-1"></script>
