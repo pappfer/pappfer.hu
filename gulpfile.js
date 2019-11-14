@@ -59,7 +59,7 @@ gulp.task('pack-css', function () {
 })
 
 gulp.task('optimize-images', function(){
-  return gulp.src('./img/*')
+  return gulp.src('./img/**/*')
   .pipe(imagemin())
   .pipe(gulp.dest('img'))
 });

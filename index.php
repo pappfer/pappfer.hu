@@ -134,8 +134,6 @@ $testimonials = [
 
     <!-- Icon Fonts -->
     <link rel="stylesheet" type="text/css" href="<?= assetPath('bundle.css', 'css') ?>">
-
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body class="home header-has-img loading">
@@ -216,7 +214,6 @@ $testimonials = [
                     <span class="line"></span>
                 </div>
 
-                <div class="g-recaptcha" data-sitekey="6LeOsD8UAAAAAEkzldQpFN1EAnCKw9XqekvKcHF3"></div>
                 <br>
 
                 <span class="btn-outer btn-primary-outer ripple">
@@ -815,10 +812,6 @@ $testimonials = [
                                         <textarea id="contact-message" rows="4" name="rsMessage"></textarea>
                                         <span class="line"></span>
                                     </div>
-
-                                    <div class="g-recaptcha"
-                                         data-sitekey="6LeOsD8UAAAAAEkzldQpFN1EAnCKw9XqekvKcHF3"></div>
-                                    <br>
 
                                     <span class="btn-outer btn-primary-outer ripple">
                                         <input class="rsFormSubmit btn btn-lg btn-primary" type="submit"
