@@ -2,6 +2,9 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
+$dotenv = new Dotenv\Dotenv(__DIR__ . '/../');
+$dotenv->load();
+
 if (isset($_POST['rsEmail'], $_POST['rsName'], $_POST['rsMessage'])) {
     $transport = (new Swift_SmtpTransport(getenv('SMTP_HOST'), (int)getenv('SMTP_PORT'), getenv('SMTP_SECURITY')))
         ->setUsername(getenv('SMTP_USERNAME'))
