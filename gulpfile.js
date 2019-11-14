@@ -5,6 +5,7 @@ var cleanCss = require('gulp-clean-css')
 var rev = require('gulp-rev')
 var del = require('del');
 var git = require('gulp-git');
+var imagemin = require('gulp-imagemin');
 
 // remove old build files
 gulp.task('clean', function () {
@@ -57,10 +58,16 @@ gulp.task('pack-css', function () {
   .pipe(gulp.dest('./'))
 })
 
+gulp.task('optimize-images', function(){
+  return gulp.src('./img/*')
+  .pipe(imagemin())
+  .pipe(gulp.dest('img'))
+});
+
 gulp.task('git-add', function(){
   return gulp.src('./build/*')
   .pipe(git.add());
 });
 
 // run the above tasks after each other
-gulp.task('default', gulp.series('clean', 'pack-js', 'pack-css', 'git-add'))
+gulp.task('default', gulp.series('clean', 'pack-js', 'pack-css', 'optimize-images', 'git-add'))
