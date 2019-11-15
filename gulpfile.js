@@ -1,11 +1,12 @@
-var gulp = require('gulp')
-var concat = require('gulp-concat')
-var uglify = require('gulp-uglify')
-var cleanCss = require('gulp-clean-css')
-var rev = require('gulp-rev')
-var del = require('del');
-var git = require('gulp-git');
-var imagemin = require('gulp-imagemin');
+const gulp = require('gulp')
+const concat = require('gulp-concat')
+const uglify = require('gulp-uglify')
+const cleanCss = require('gulp-clean-css')
+const rev = require('gulp-rev')
+const del = require('del');
+const git = require('gulp-git');
+const imagemin = require('gulp-imagemin');
+const htmlmin = require('gulp-htmlmin');
 
 // remove old build files
 gulp.task('clean', function () {
@@ -66,10 +67,16 @@ gulp.task('optimize-images', function(){
   .pipe(gulp.dest('img'))
 });
 
+gulp.task('minify-html', () => {
+  return gulp.src('./index.php')
+  .pipe(htmlmin({ collapseWhitespace: true }))
+  .pipe(gulp.dest('dist'));
+});
+
 gulp.task('git-add', function(){
   return gulp.src('./build/*')
   .pipe(git.add());
 });
 
 // run the above tasks after each other
-gulp.task('default', gulp.series('clean', 'pack-js', 'pack-css', 'optimize-images', 'git-add'))
+gulp.task('default', gulp.series('clean', 'pack-js', 'pack-css', 'optimize-images', /*'minify-html',*/ 'git-add'))
