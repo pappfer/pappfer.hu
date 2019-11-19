@@ -61,18 +61,21 @@ gulp.task('pack-css', function () {
   .pipe(gulp.dest('./'))
 })
 
+// compress the images to save space
 gulp.task('optimize-images', function(){
   return gulp.src('./img/**/*')
   .pipe(imagemin())
   .pipe(gulp.dest('img'))
 });
 
+// minify HTML (it does not touch PHP code)
 gulp.task('minify-html', () => {
   return gulp.src('./index.php')
   .pipe(htmlmin({ collapseWhitespace: true }))
   .pipe(gulp.dest('dist'));
 });
 
+// add the newly created bundle files to Git
 gulp.task('git-add', function(){
   return gulp.src('./build/*')
   .pipe(git.add());
