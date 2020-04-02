@@ -835,6 +835,9 @@
 					return true;
 				} else {
 					// if no captcha - make ajax request
+
+                    rsFormResponse.html('<img src="/img/ajax-loader.gif">');
+
 					$.post( rsFormAction,
 						rsForm.serialize(),
 						function (response) {
