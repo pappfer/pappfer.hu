@@ -1,12 +1,17 @@
 <?php
 
 require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../locales/languages.php';
 
 $dotenv = new Dotenv\Dotenv(__DIR__ . '/../');
 $dotenv->load();
 
-if (isset($_POST['rsEmail'], $_POST['rsName'], $_POST['rsMessage'])) {
-    $transport = (new Swift_SmtpTransport(getenv('SMTP_HOST'), (int)getenv('SMTP_PORT'), getenv('SMTP_SECURITY')))
+$success = false;
+$message = _('There was a problem sending message.');
+
+if (!empty($_POST['rsEmail']) && !empty($_POST['rsName']) && !empty($_POST['rsMessage']) && !empty($_POST['rsQuestion'])) {
+    $transport = (new Swift_SmtpTransport(getenv('SMTP_HOST'),
+        (int)getenv('SMTP_PORT'), getenv('SMTP_SECURITY')))
         ->setUsername(getenv('SMTP_USERNAME'))
         ->setPassword(getenv('SMTP_PASSWORD'));
 
@@ -18,15 +23,29 @@ if (isset($_POST['rsEmail'], $_POST['rsName'], $_POST['rsMessage'])) {
         $subject = $_POST['rsSubject'];
     }
 
-    $message = (new Swift_Message($subject))
-        ->setFrom([$_POST['rsEmail'] => $_POST['rsName']])
-        ->setTo([getenv('EMAIL')])
-        ->setReplyTo($_POST['rsEmail'])
-        ->setBody($_POST['rsMessage']);
+    if (!in_array(trim($_POST['rsQuestion']), ['blue', 'skyblue', 'lightblue', 'darkblue',
+        'kék', 'kek', 'világoskék', 'sötétkék', 'vilagoskek', 'sotetkek'])) {
+        $success = false;
+        $message = _('The answer provided to the anti-robot question is wrong.');
+    } else {
+        $emailMessage = (new Swift_Message($subject))
+            ->setFrom([$_POST['rsEmail'] => $_POST['rsName']])
+            ->setTo([getenv('EMAIL')])
+            ->setReplyTo($_POST['rsEmail'])
+            ->setBody($_POST['rsMessage']);
 
-    $result = $mailer->send($message);
+        $result = $mailer->send($emailMessage);
+        $success = (bool)$result;
 
-    echo json_encode((bool)$result);
+        $message = $success ? _('Thank you for contacting me. I will get back to you shortly.') :
+            _('There was an error sending email.');
+    }
 } else {
-    echo json_encode(false);
+    $success = false;
+    $message = _('You need to fill in all required fields.');
 }
+
+echo json_encode([
+    'success' => $success,
+    'message' => $message,
+]);

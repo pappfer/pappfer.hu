@@ -795,8 +795,9 @@
             var rsFormName = rsForm.find("[name='rsName']");						
             var rsFormEmail = rsForm.find("[name='rsEmail']");
             var rsFormMessage = rsForm.find("[name='rsMessage']");		
-            var rsFormResponce = rsForm.find('.rsFormResponce');			
-			
+            var rsFormQuestion = rsForm.find("[name='rsQuestion']");
+            var rsFormResponse = rsForm.find(".rsFormResponse");
+
 			// Button ripple effect
 			ripple($(this).parent(), e.pageX, e.pageY);
 			
@@ -819,6 +820,11 @@
                 rsFormErrors = true;
                 rsFormMessage.parent().addClass('error');
             }
+
+            if(!rsFormQuestion.val()) {
+                rsFormErrors = true;
+                rsFormQuestion.parent().addClass('error');
+            }
 									
 			if(rsFormErrors) {
 				// if has errors - do nothing
@@ -833,11 +839,14 @@
 						rsForm.serialize(),
 						function (response) {
 							var data = jQuery.parseJSON( response );
-							if(data){								
-								rsForm.append('<div class="rsFormResponce"><strong>Congratulation!</strong><br>Your email was sent successfully!</div>');
+							if(data.success){
+                                rsFormResponse.removeClass('error').addClass('success');
+                                rsForm.slideDown();
+                                rsForm.parent().html(data.message);
 							} else {
-								rsForm.append('<div class="rsFormResponce"><strong>OOPS!</strong> Something went wrong.<br>Please try again.</div>');
-							}							
+                                rsFormResponse.removeClass('success').addClass('error');
+                                rsFormResponse.html(data.message);
+							}
 						}
 					);
 					return false;

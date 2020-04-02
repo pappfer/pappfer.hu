@@ -6652,4 +6652,12 @@ body {
     border: 1px solid #525458 !important;
 }
 
+.rsFormResponse.success {
+    color: #07cb79;
+}
+
+.rsFormResponse.error {
+    color: #c00;
+}
+
 /*# sourceMappingURL=style.css.map */

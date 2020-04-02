@@ -1,16 +1,6 @@
 <?php
-/**
- * Returns the valid languages. The language code (ISO 639-1) is the array key.
- * @return array
- */
-function validLangs()
-{
-    return [
-        'de' => 'de_DE.utf8',
-        'en' => 'en_GB.utf8',
-        'hu' => 'hu_HU.utf8',
-    ];
-}
+
+require __DIR__ . '/locales/languages.php';
 
 function assetPath($filename, $type = 'css')
 {
@@ -29,48 +19,10 @@ function assetPath($filename, $type = 'css')
     return $filename;
 }
 
-/**
- * Verifies if the given $locale is supported in the project.
- * @param string $locale
- * @return bool
- */
-function valid($locale)
-{
-    return array_key_exists($locale, validLangs());
-}
-
-$lang = 'en';
 $root = './';
 $url = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . "://$_SERVER[HTTP_HOST]";
 $title = _('Freelancer PHP/Yii2/JavaScript/React developer');
 $description = _('Experienced freelancer full stack developer. PHP/Yii2/JavaScript/VueJS expert, Laravel, Symfony skills, fluent English, advanced Linux knowledge.');
-
-if (strlen($_SERVER['REQUEST_URI']) > 2 && valid($_SERVER['REQUEST_URI'][1] . $_SERVER['REQUEST_URI'][2])) {
-    $lang = $_SERVER['REQUEST_URI'][1] . $_SERVER['REQUEST_URI'][2];
-    setcookie('lang', $lang);
-} else if (isset($_GET['lang']) && valid($_GET['lang'])) {
-    $lang = htmlspecialchars($_GET['lang']);
-    setcookie('lang', $lang);
-} else if (isset($_COOKIE['lang']) && valid($_COOKIE['lang'])) {
-    $lang = htmlspecialchars($_COOKIE['lang']);
-} else if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-    $languages = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
-    array_walk($languages, static function (&$lang) {
-        $lang = strtr(strtok($lang, ';'), ['-' => '_']);
-    });
-    foreach ($languages as $browserLang) {
-        if (valid($browserLang)) {
-            $lang = $browserLang;
-            break;
-        }
-    }
-}
-
-putenv('LANG=' . validLangs()[$lang]);
-setlocale(LC_ALL, validLangs()[$lang]);
-bindtextdomain('app', './locales');
-bind_textdomain_codeset('app', 'UTF-8');
-textdomain('app');
 
 $testimonials = [
     [
@@ -208,11 +160,19 @@ $testimonials = [
                     <span class="line"></span>
                 </div>
 
+                <div class="input-field">
+                    <label for="mobile-contact-question"><?= _('What colour is the sky?') ?></label>
+                    <input id="mobile-contact-question" type="text" name="rsQuestion">
+                    <span class="line"></span>
+                </div>
+
                 <br>
 
                 <span class="btn-outer btn-primary-outer ripple">
-                        <input class="rsFormSubmit btn btn-lg btn-primary" type="submit" value="<?= _('Send') ?>">
-                    </span>
+                    <input class="rsFormSubmit btn btn-lg btn-primary" type="submit" value="<?= _('Send') ?>">
+                </span>
+
+                <div class="rsFormResponse"></div>
             </form>
         </aside>
         <!-- .widget_contact -->
@@ -807,10 +767,18 @@ $testimonials = [
                                         <span class="line"></span>
                                     </div>
 
+                                    <div class="input-field">
+                                        <label for="contact-question"><?= _('What colour is the sky?') ?></label>
+                                        <input id="contact-question" type="text" name="rsQuestion">
+                                        <span class="line"></span>
+                                    </div>
+
                                     <span class="btn-outer btn-primary-outer ripple">
                                         <input class="rsFormSubmit btn btn-lg btn-primary" type="submit"
                                                value="<?= _('Send') ?>">
                                     </span>
+
+                                    <div class="rsFormResponse"></div>
                                 </form>
                             </div>
                         </div>
