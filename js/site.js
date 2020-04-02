@@ -839,7 +839,7 @@
 						rsForm.serialize(),
 						function (response) {
 							var data = jQuery.parseJSON( response );
-							if(data.success){
+							if (data.success){
                                 rsFormResponse.removeClass('error').addClass('success');
                                 var rsFormParent = rsForm.parent();
                                 rsForm.slideUp(400, function() {
@@ -850,7 +850,10 @@
                                 rsFormResponse.html(data.message);
 							}
 						}
-					);
+					).fail(function() {
+                        rsFormResponse.removeClass('success').addClass('error');
+                        rsFormResponse.html('Couldn\'t send email.');
+                    });
 					return false;
 				}
 			}					                         

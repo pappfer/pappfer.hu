@@ -7,7 +7,7 @@ $dotenv = new Dotenv\Dotenv(__DIR__ . '/../');
 $dotenv->load();
 
 $success = false;
-$message = _('There was a problem sending message.');
+$message = _('Error sending message.');
 
 if (!empty($_POST['rsEmail']) && !empty($_POST['rsName']) && !empty($_POST['rsMessage']) && !empty($_POST['rsQuestion'])) {
     $transport = (new Swift_SmtpTransport(getenv('SMTP_HOST'),
@@ -34,11 +34,16 @@ if (!empty($_POST['rsEmail']) && !empty($_POST['rsName']) && !empty($_POST['rsMe
             ->setReplyTo($_POST['rsEmail'])
             ->setBody($_POST['rsMessage']);
 
-        $result = $mailer->send($emailMessage);
-        $success = (bool)$result;
+        try {
+            $result = $mailer->send($emailMessage);
+            $success = (bool)$result;
+        } catch (Exception $e) {
+            $success = false;
+            $message = $e->getMessage();
+        }
 
         $message = $success ? _('Thank you for contacting me. I will get back to you shortly.') :
-            _('There was an error sending email.');
+            _('Error sending message.');
     }
 } else {
     $success = false;
