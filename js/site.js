@@ -841,8 +841,10 @@
 							var data = jQuery.parseJSON( response );
 							if(data.success){
                                 rsFormResponse.removeClass('error').addClass('success');
-                                rsForm.slideDown();
-                                rsForm.parent().html(data.message);
+                                var rsFormParent = rsForm.parent();
+                                rsForm.slideUp(400, function() {
+                                    rsFormParent.html('<span style="color: #07cb79;">' + data.message + '</span>');
+                                });
 							} else {
                                 rsFormResponse.removeClass('success').addClass('error');
                                 rsFormResponse.html(data.message);
