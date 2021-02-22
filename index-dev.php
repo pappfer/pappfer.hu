@@ -109,7 +109,7 @@ $testimonials = [
     <div class="widget-area">
         <aside class="widget widget-profile">
             <div class="profile-photo">
-                <img src="<?= $root ?>img/uploads/pappfer.jpg" alt="<?= _('Ferenc Papp') ?>" width="300" height="346">
+                <img src="<?= $root ?>img/uploads/pappfer.jpg" alt="<?= _('Ferenc Papp') ?>" width="331" height="382">
             </div>
             <div class="profile-info">
                 <h2 class="profile-title"><?= _('Ferenc Papp') ?></h2>
@@ -205,12 +205,12 @@ $testimonials = [
                                     <li><a href="#contact"><?= _('Contact') ?></a></li>
                                     <li>
                                         <a href="<?= $url . '/' . 'en' ?>">
-                                            <img src="<?= $root ?>img/en.png" alt="<?= _('English') ?>">
+                                            <img src="<?= $root ?>img/en.png" alt="<?= _('English') ?>" width="20" height="20">
                                         </a>
                                     </li>
                                     <li>
                                         <a href="<?= $url . '/' . 'hu' ?>">
-                                            <img src="<?= $root ?>img/hu.png" alt="<?= _('Hungarian') ?>">
+                                            <img src="<?= $root ?>img/hu.png" alt="<?= _('Hungarian') ?>" width="20" height="20">
                                         </a>
                                     </li>
                                 </ul>
@@ -238,7 +238,8 @@ $testimonials = [
                             <div class="row">
                                 <div class="col-xs-5">
                                     <div class="profile-photo">
-                                        <img src="<?= $root ?>img/uploads/pappfer.jpg" alt="<?= _('Ferenc Papp') ?>">
+                                        <img src="<?= $root ?>img/uploads/pappfer.jpg" alt="<?= _('Ferenc Papp') ?>"
+                                             width="299" height="345">
                                     </div>
                                 </div>
                                 <div class="col-xs-7">
