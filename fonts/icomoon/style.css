@@ -7,6 +7,7 @@
         url('/fonts/icomoon/fonts/icomoon.svg?vqltqj#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 [class^="rsicon-"], [class*=" rsicon-"] {
@@ -24,12 +25,14 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+/*
 .rsicon-bitbucket:before {
     content: "\e91d";
-}
+}*/
 .rsicon-stack-overflow:before {
     content: "\e91c";
 }
+/*
 .rsicon-odnoklassniki:before {
     content: "\e903";
 }
@@ -50,10 +53,11 @@
 }
 .rsicon-skype2:before {
     content: "\e913";
-}
+}*/
 .rsicon-envelope:before {
     content: "\e914";
 }
+/*
 .rsicon-digg:before {
     content: "\e915";
 }
@@ -84,6 +88,7 @@
 .rsicon-google-plus:before {
     content: "\e60a";
 }
+*/
 .rsicon-linkedin:before {
     content: "\e60b";
 }
@@ -96,12 +101,14 @@
 .rsicon-calendar:before {
     content: "\e60e";
 }
+/*
 .rsicon-evernote:before {
     content: "\e906";
-}
+}*/
 .rsicon-wordpress:before {
     content: "\e907";
 }
+/*
 .rsicon-vk:before {
     content: "\e908";
 }
@@ -122,10 +129,11 @@
 }
 .rsicon-vimeo:before {
     content: "\e90e";
-}
+}*/
 .rsicon-github:before {
     content: "\e90f";
 }
+/*
 .rsicon-chevron_left:before {
     content: "\e900";
 }
@@ -140,10 +148,11 @@
 }
 .rsicon-quotes:before {
     content: "\e61c";
-}
+}*/
 .rsicon-user:before {
     content: "\e61f";
 }
+/*
 .rsicon-add:before {
     content: "\e803";
 }
@@ -170,19 +179,21 @@
 }
 .rsicon-check:before {
     content: "\e612";
-}
+}*/
 .rsicon-close:before {
     content: "\e613";
 }
 .rsicon-search:before {
     content: "\e602";
 }
+/*
 .rsicon-settings:before {
     content: "\e603";
-}
+}*/
 .rsicon-menu:before {
     content: "\e604";
 }
+/*
 .rsicon-email:before {
     content: "\e902";
 }
@@ -201,4 +212,4 @@
 .rsicon-audio:before {
     content: "\e805";
 }
-
+*/
