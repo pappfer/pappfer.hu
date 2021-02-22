@@ -7,6 +7,7 @@ const del = require('del');
 const git = require('gulp-git');
 const imagemin = require('gulp-imagemin');
 const htmlmin = require('gulp-htmlmin');
+const rename = require('gulp-rename');
 
 // remove old build files
 gulp.task('clean', function () {
@@ -70,9 +71,12 @@ gulp.task('optimize-images', function(){
 
 // minify HTML (it does not touch PHP code)
 gulp.task('minify-html', () => {
-  return gulp.src('./index.php')
-  .pipe(htmlmin({ collapseWhitespace: true }))
-  .pipe(gulp.dest('dist'));
+  return gulp.src('./index-dev.php')
+  .pipe(htmlmin({ collapseWhitespace: true, removeComments: true, minifyJS: true }))
+  .pipe(rename({
+    basename: 'index'
+  }))
+  .pipe(gulp.dest('.'));
 });
 
 // add the newly created bundle files to Git
@@ -82,4 +86,4 @@ gulp.task('git-add', function(){
 });
 
 // run the above tasks after each other
-gulp.task('default', gulp.series('clean', 'pack-js', 'pack-css', 'optimize-images', /*'minify-html',*/ 'git-add'))
+gulp.task('default', gulp.series('clean', 'pack-js', 'pack-css', 'optimize-images', 'minify-html', 'git-add'))
