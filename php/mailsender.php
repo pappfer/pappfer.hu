@@ -30,9 +30,9 @@ if (!empty($_POST['rsEmail']) && !empty($_POST['rsName']) && !empty($_POST['rsMe
     } else {
         $emailBody = '<p>Üdv,</p><p>E-mail érkezett a pappfer.hu-n keresztül. Küldő adatai:</p>';
         $emailBody .= '<ul>';
-        $emailBody .= '<li>Név:' . $_POST['rsName'] .'</li>';
-        $emailBody .= '<li>E-mail:' . $_POST['rsEmail'] .'</li>';
-        $emailBody .= '<li>Tárgy' . $subject .'</li>';
+        $emailBody .= '<li>Név: ' . $_POST['rsName'] .'</li>';
+        $emailBody .= '<li>E-mail: ' . $_POST['rsEmail'] .'</li>';
+        $emailBody .= '<li>Tárgy: ' . $subject .'</li>';
         $emailBody .= '</ul>';
         $emailBody .= '<p>Üzenet:</p>';
         $emailBody .= $_POST['rsMessage'];
