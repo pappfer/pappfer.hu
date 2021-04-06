@@ -46,7 +46,14 @@ $testimonials = [
         'speech' => _('I would most definitely re-hire pappfer and I highly recommend his services.'),
     ],
 ];
+
+$date = new DateTime('1986-03-20');
+$now = new DateTime();
+$interval = $now->diff($date);
+$age = $interval->y;
+
 ?>
+
 <!DOCTYPE html>
 <html lang="<?= $lang ?>" class="theme-color-07cb79 theme-skin-light">
 <head>
@@ -254,7 +261,7 @@ $testimonials = [
                                     <ul class="profile-list">
                                         <li class="clearfix">
                                             <strong class="title"><?= _('Age') ?></strong>
-                                            <span class="cont">33</span>
+                                            <span class="cont"><?= $age ?></span>
                                         </li>
                                         <li class="clearfix">
                                             <strong class="title"><?= _('Address') ?></strong>

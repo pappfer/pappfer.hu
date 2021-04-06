@@ -28,11 +28,19 @@ if (!empty($_POST['rsEmail']) && !empty($_POST['rsName']) && !empty($_POST['rsMe
         $success = false;
         $message = _('The answer provided to the anti-robot question is wrong.');
     } else {
+        $emailBody = '<p>Üdv,</p><p>E-mail érkezett a pappfer.hu-n keresztül. Küldő adatai:</p>';
+        $emailBody .= '<ul>';
+        $emailBody .= '<li>Név:' . $_POST['rsName'] .'</li>';
+        $emailBody .= '<li>E-mail:' . $_POST['rsEmail'] .'</li>';
+        $emailBody .= '<li>Tárgy' . $subject .'</li>';
+        $emailBody .= '</ul>';
+        $emailBody .= '<p>Üzenet:</p>';
+        $emailBody .= $_POST['rsMessage'];
         $emailMessage = (new Swift_Message($subject))
             ->setFrom([$_POST['rsEmail'] => $_POST['rsName']])
             ->setTo([getenv('EMAIL')])
             ->setReplyTo($_POST['rsEmail'])
-            ->setBody($_POST['rsMessage']);
+            ->setBody($emailBody);
 
         try {
             $result = $mailer->send($emailMessage);
