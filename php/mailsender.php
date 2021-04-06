@@ -40,7 +40,7 @@ if (!empty($_POST['rsEmail']) && !empty($_POST['rsName']) && !empty($_POST['rsMe
             ->setFrom([$_POST['rsEmail'] => $_POST['rsName']])
             ->setTo([getenv('EMAIL')])
             ->setReplyTo($_POST['rsEmail'])
-            ->setBody($emailBody);
+            ->setBody($emailBody, 'text/html');
 
         try {
             $result = $mailer->send($emailMessage);
