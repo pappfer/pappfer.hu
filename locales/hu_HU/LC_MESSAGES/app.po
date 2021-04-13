@@ -441,6 +441,12 @@ msgstr "Köszönöm a megkeresést! Hamarosan válaszolok."
 msgid "You need to fill in all required fields."
 msgstr "Az összes mezőt kötelező kitölteni."
 
+msgid "Failed detecting that you are not a robot."
+msgstr "Nem sikerült megállapítani, hogy nem vagy robot."
+
+msgid "Google reCaptcha error."
+msgstr "Google reCaptcha hiba."
+
 #~ msgid "All"
 #~ msgstr "Összes"
 

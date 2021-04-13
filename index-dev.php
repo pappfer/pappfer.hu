@@ -1,6 +1,12 @@
 <?php
 
+/* @var $lang string */
+
+require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/locales/languages.php';
+
+$dotenv = new Dotenv\Dotenv(__DIR__ . '/');
+$dotenv->load();
 
 function assetPath($filename, $type = 'css')
 {
@@ -20,9 +26,9 @@ function assetPath($filename, $type = 'css')
 }
 
 $root = './';
-$url = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . "://$_SERVER[HTTP_HOST]";
+$url = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . "://{$_SERVER['HTTP_HOST']}";
 $title = _('Freelancer PHP/Yii2/JavaScript/React developer');
-$description = _('Experienced freelancer full stack developer. PHP/Yii2/JavaScript/VueJS expert, Laravel, Symfony skills, fluent English, advanced Linux knowledge.');
+$description = _('Experienced freelancer full stack web developer. PHP/Yii2/JavaScript/React expert, Laravel, Symfony skills, fluent English, advanced Linux knowledge.');
 
 $testimonials = [
     [
@@ -66,7 +72,8 @@ $age = $interval->y;
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="<?= $root ?>favicon.ico">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
+          rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <?php foreach (array_keys(validLangs()) as $langItem) {
         if ($lang === $langItem) {
@@ -146,6 +153,8 @@ $age = $interval->y;
             <h2 class="widget-title"><?= _('Contact me') ?></h2>
 
             <form class="rsForm" action="/php/mailsender.php" method="post">
+                <input type="hidden" name="g-recaptcha-response" class="g-recaptcha-response">
+
                 <div class="input-field">
                     <label for="mobile-contact-name"><?= _('Name') ?></label>
                     <input id="mobile-contact-name" type="text" name="rsName" value="">
@@ -170,16 +179,10 @@ $age = $interval->y;
                     <span class="line"></span>
                 </div>
 
-                <div class="input-field">
-                    <label for="mobile-contact-question"><?= _('What colour is the sky?') ?></label>
-                    <input id="mobile-contact-question" type="text" name="rsQuestion">
-                    <span class="line"></span>
-                </div>
-
                 <br>
 
                 <span class="btn-outer btn-primary-outer ripple">
-                    <input class="rsFormSubmit btn btn-lg btn-primary" type="submit" value="<?= _('Send') ?>">
+                    <button class="rsFormSubmit btn btn-lg btn-primary" type="submit"><?= _('Send') ?></button>
                 </span>
 
                 <div class="rsFormResponse"></div>
@@ -215,12 +218,14 @@ $age = $interval->y;
                                     <li><a href="#contact"><?= _('Contact') ?></a></li>
                                     <li>
                                         <a href="<?= $url . '/' . 'en' ?>">
-                                            <img src="<?= $root ?>img/en.png" alt="<?= _('English') ?>" width="20" height="20">
+                                            <img src="<?= $root ?>img/en.png" alt="<?= _('English') ?>" width="20"
+                                                 height="20">
                                         </a>
                                     </li>
                                     <li>
                                         <a href="<?= $url . '/' . 'hu' ?>">
-                                            <img src="<?= $root ?>img/hu.png" alt="<?= _('Hungarian') ?>" width="20" height="20">
+                                            <img src="<?= $root ?>img/hu.png" alt="<?= _('Hungarian') ?>" width="20"
+                                                 height="20">
                                         </a>
                                     </li>
                                 </ul>
@@ -755,6 +760,8 @@ $age = $interval->y;
                                 <h3><?= _('Feel free to contact me') ?></h3>
 
                                 <form class="rsForm" action="php/mailsender.php" method="post">
+                                    <input type="hidden" name="g-recaptcha-response" class="g-recaptcha-response">
+
                                     <div class="input-field">
                                         <label for="contact-name"><?= _('Name') ?></label>
                                         <input id="contact-name" type="text" name="rsName" value="">
@@ -779,15 +786,8 @@ $age = $interval->y;
                                         <span class="line"></span>
                                     </div>
 
-                                    <div class="input-field">
-                                        <label for="contact-question"><?= _('What colour is the sky?') ?></label>
-                                        <input id="contact-question" type="text" name="rsQuestion">
-                                        <span class="line"></span>
-                                    </div>
-
                                     <span class="btn-outer btn-primary-outer ripple">
-                                        <input class="rsFormSubmit btn btn-lg btn-primary" type="submit"
-                                               value="<?= _('Send') ?>">
+                                        <button class="rsFormSubmit btn btn-lg btn-primary"><?= _('Send') ?></button>
                                     </span>
 
                                     <div class="rsFormResponse"></div>
@@ -858,16 +858,18 @@ $age = $interval->y;
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50016491-1"></script>
 <script>
-  window.dataLayer = window.dataLayer || []
+  window.dataLayer = window.dataLayer || [];
 
   function gtag () {
-    dataLayer.push(arguments)
+    dataLayer.push(arguments);
   }
 
-  gtag('js', new Date())
-
-  gtag('config', 'UA-50016491-1')
+  gtag('js', new Date());
+  gtag('config', 'UA-50016491-1');
 </script>
-
+<script src="https://www.google.com/recaptcha/api.js?render=<?= getenv('RECAPTCHA_V3_SITEKEY') ?>"></script>
+<script>
+  const RECAPTCHA_V3_SITEKEY = '<?= getenv('RECAPTCHA_V3_SITEKEY') ?>';
+</script>
 </body>
 </html>

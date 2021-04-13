@@ -1,6 +1,6 @@
 const gulp = require('gulp')
 const concat = require('gulp-concat')
-const uglify = require('gulp-uglify')
+const uglify = require('gulp-uglify-es').default
 const cleanCss = require('gulp-clean-css')
 const rev = require('gulp-rev')
 const del = require('del');
