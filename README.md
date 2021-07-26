@@ -1,4 +1,4 @@
-# pappfer.github.io
+# pappfer.hu
 
 This is the personal website of Ferenc Papp full stack web developer.
 
