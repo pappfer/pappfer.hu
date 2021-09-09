@@ -28,7 +28,9 @@ if (empty($_POST['g-recaptcha-response'])) {
     curl_close($ch);
 
     $json = json_decode($output);
-    if ($json->success) {
+
+
+    if ($json->success && $json->score >= 0.5) {
         if (!empty($_POST['rsEmail']) && !empty($_POST['rsName']) && !empty($_POST['rsMessage'])) {
             $transport = (new Swift_SmtpTransport(getenv('SMTP_HOST'),
                 (int)getenv('SMTP_PORT'), getenv('SMTP_SECURITY')))
