@@ -742,7 +742,7 @@ $age = $interval->y;
 
                     <div class="section-box">
                         <a class="twitter-timeline" data-height="600" data-dnt="true" data-theme="light"
-                           data-link-color="#19CF86" href="https://twitter.com/pappfer?ref_src=twsrc%5Etfw">Tweets by
+                           href="https://twitter.com/pappfer?ref_src=twsrc%5Etfw">Tweets by
                             pappfer</a>
                         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </div>
