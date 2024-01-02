@@ -467,10 +467,11 @@ $age = $interval->y;
                     <div class="timeline">
                         <div class="timeline-bar"></div>
                         <div class="timeline-inner clearfix">
-                            <div class="timeline-box timeline-box-right">
+
+                            <div class="timeline-box timeline-box-left">
                                 <span class="dot"></span>
 
-                                <div class="timeline-box-inner animate-left">
+                                <div class="timeline-box-inner animate-right">
                                     <span class="arrow"></span>
 
                                     <div class="date">2017 - <?= _('present') ?></div>
@@ -482,10 +483,10 @@ $age = $interval->y;
                                 </div>
                             </div>
 
-                            <div class="timeline-box timeline-box-left">
+                            <div class="timeline-box timeline-box-right">
                                 <span class="dot"></span>
 
-                                <div class="timeline-box-inner animate-right">
+                                <div class="timeline-box-inner animate-left">
                                     <span class="arrow"></span>
 
                                     <div class="date">2015 - 2017</div>
@@ -497,10 +498,10 @@ $age = $interval->y;
                                 </div>
                             </div>
 
-                            <div class="timeline-box timeline-box-right">
+                            <div class="timeline-box timeline-box-left">
                                 <span class="dot"></span>
 
-                                <div class="timeline-box-inner animate-left">
+                                <div class="timeline-box-inner animate-right">
                                     <span class="arrow"></span>
 
                                     <div class="date">2014 - 2015</div>
@@ -512,10 +513,10 @@ $age = $interval->y;
                                 </div>
                             </div>
 
-                            <div class="timeline-box timeline-box-left">
+                            <div class="timeline-box timeline-box-right">
                                 <span class="dot"></span>
 
-                                <div class="timeline-box-inner animate-right">
+                                <div class="timeline-box-inner animate-left">
                                     <span class="arrow"></span>
 
                                     <div class="date">2012 - 2014</div>
@@ -536,10 +537,10 @@ $age = $interval->y;
                                 </div>
                             </div>
 
-                            <div class="timeline-box timeline-box-right">
+                             <div class="timeline-box timeline-box-left">
                                 <span class="dot"></span>
 
-                                <div class="timeline-box-inner animate-left">
+                                <div class="timeline-box-inner animate-right">
                                     <span class="arrow"></span>
 
                                     <div class="date">2011 - 2012</div>
@@ -552,10 +553,10 @@ $age = $interval->y;
                                 </div>
                             </div>
 
-                            <div class="timeline-box timeline-box-left">
+                            <div class="timeline-box timeline-box-right">
                                 <span class="dot"></span>
 
-                                <div class="timeline-box-inner animate-right">
+                                <div class="timeline-box-inner animate-left">
                                     <span class="arrow"></span>
 
                                     <div class="date">2010 - 2011</div>
@@ -576,10 +577,10 @@ $age = $interval->y;
                                 </div>
                             </div>
 
-                            <div class="timeline-box timeline-box-right">
+                            <div class="timeline-box timeline-box-left">
                                 <span class="dot"></span>
 
-                                <div class="timeline-box-inner animate-left">
+                                <div class="timeline-box-inner animate-right">
                                     <span class="arrow"></span>
 
                                     <div class="date">2009 - 2010</div>
@@ -591,6 +592,7 @@ $age = $interval->y;
                                         _('Most of the time I had to continue or fix someone else’s code so I had a chance to see many different source codes, implementations and I gained lots of experience.') ?></p>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
