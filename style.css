@@ -2345,6 +2345,17 @@ body {
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
 }
 
+.profile-photo img {
+    transition: all .2s ease-in-out;
+}
+
+.profile-photo img:hover {
+    opacity: .95;
+    text-decoration: none;
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+    transform: scale(1.1);
+}
+
 @media (max-width: 992px) {
     .section-box {
         padding: 50px 40px;
