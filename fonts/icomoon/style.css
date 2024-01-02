@@ -133,13 +133,13 @@
 .rsicon-github:before {
     content: "\e90f";
 }
-/*
 .rsicon-chevron_left:before {
     content: "\e900";
 }
 .rsicon-chevron_right:before {
     content: "\e901";
 }
+/*
 .rsicon-comments:before {
     content: "\e617";
 }
