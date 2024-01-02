@@ -1,199 +1,243 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: pappfer.hu\n"
-"POT-Creation-Date: 2020-04-02 17:03+0200\n"
-"PO-Revision-Date: 2020-04-02 17:03+0200\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2024-01-02 21:32+0100\n"
+"PO-Revision-Date: 2024-01-02 21:33+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
-"X-Poedit-Basepath: ../../..\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-SearchPath-0: .\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: index-dev.php\n"
+"X-Poedit-SearchPath-1: php/mailsender.php\n"
 
-#: index.php:24
-msgid "Freelancer PHP/Yii2/JavaScript/React developer"
-msgstr "Szabadúszó PHP/Yii2/JavaScript/React fejlesztő"
+#: index-dev.php:30
+msgid "Freelancer PHP/Laravel/Yii2/JavaScript/React developer"
+msgstr "Szabadúszó PHP/Laravel/Yii2/JavaScript/React fejlesztő"
 
-#: index.php:25
+#: index-dev.php:31
+msgid "Experienced freelancer full-stack web developer."
+msgstr "Tapasztalt szabadúszó fullstack fejlesztő."
+
+#: index-dev.php:32
 msgid ""
-"Experienced freelancer full stack developer. PHP/Yii2/JavaScript/VueJS "
-"expert, Laravel, Symfony skills, fluent English, advanced Linux knowledge."
+"PHP/Yii2/JavaScript/React expert, Laravel, Symfony skills, fluent English, "
+"advanced Linux knowledge."
 msgstr ""
-"Tapasztalt szabadúszó fullstack fejlesztő. PHP/Yii2/JavaScript/VueJS "
-"fejlesztő, Laravel, Symfony tapasztalattal, folyékony angollal, és Linux "
-"rendszerekben való jártassággal."
+"PHP/Yii2/JavaScript/React fejlesztő, Laravel, Symfony tapasztalattal, "
+"folyékony angollal, és Linux rendszerekben való jártassággal."
 
-#: index.php:31
-msgid ""
-"Excellent freelancer and very easy to work with. Great knowledge of Yii/PHP, "
-"excellent English and very good communicator, and very reliable."
-msgstr ""
-"Kiváló szabadúszó, akivel nagyon könnyű együtt dolgozni. Nagyon ért a Yii-"
-"hez és a PHP-hez, kiváló az angol tudása, jól kommunikál, és nagyon "
-"megbízható."
+#: index-dev.php:39
+msgid "Reliable and fast."
+msgstr "Megbízható és gyors."
 
-#: index.php:36
+#: index-dev.php:40
+msgid "We have been working with him for years."
+msgstr "Évek óta dolgozunk vele."
+
+#: index-dev.php:41
+msgid "He built several of our websites from scratch."
+msgstr "Nulláról épített fel több weboldalunkat."
+
+#: index-dev.php:42
+msgid "I can only recommend him."
+msgstr "Csak ajánlani tudom."
+
+#: index-dev.php:43
+msgid "I wish I could work with everyone this effectively."
+msgstr "Bárcsak mindenkivel ilyen hatékonyan lehetne együttműködni!"
+
+#: index-dev.php:48
+msgid "Excellent freelancer and very easy to work with."
+msgstr "Kiváló szabadúszó, akivel nagyon könnyű együtt dolgozni."
+
+#: index-dev.php:49
 msgid ""
-"Ferenc is the best contractor that I met ever on Elance. He is highly "
-"talented, professional and hard worker. He did the task exactly I ask him to "
-"do. Ferenc completed the task and made sure I was completely satisfied. He "
-"was very responsive to questions and concerns. I will indeed be a repeat "
-"customer as I am very pleased with my website!"
+"Great knowledge of Yii/PHP, excellent English and very good communicator, "
+"and very reliable."
 msgstr ""
-"Ferenc a legjobb vállalkozó, akivel eddig találkoztam az Elance-n. Nagyon "
-"tehetséges, profi és szorgalmas. Pontosan azt csinálta, amit kértem tőle. "
+"Nagyon ért a Yii-hez és a PHP-hez, kiváló az angol tudása, jól kommunikál, "
+"és nagyon megbízható."
+
+#: index-dev.php:54
+msgid "Ferenc is the best contractor that I met ever on Elance."
+msgstr "Ferenc a legjobb vállalkozó, akivel eddig találkoztam az Elance-n."
+
+#: index-dev.php:55
+msgid "He is highly talented, professional and hard worker."
+msgstr "Nagyon tehetséges, profi és szorgalmas."
+
+#: index-dev.php:56
+msgid "He did the task exactly I ask him to do."
+msgstr "Pontosan azt csinálta, amit kértem tőle."
+
+#: index-dev.php:57
+msgid "Ferenc completed the task and made sure I was completely satisfied."
+msgstr ""
 "Ferenc befejezte a feladatot, és meggyőződött arról, hogy elégedett vagyok "
-"vele. Gyorsan válaszolt a kérdéseimre és a felvetéseimre. Mindenféleképpen "
-"újra dolgozom majd vele, nagyon elégedett vagyok a weboldalammal!"
+"az eredménnyel."
 
-#: index.php:41
+#: index-dev.php:58
+msgid "He was very responsive to questions and concerns."
+msgstr "Gyorsan válaszolt a kérdéseimre és a felvetéseimre."
+
+#: index-dev.php:59
 msgid ""
-"Ferenc is a very talented PHP developer. He quickly got to grips with what "
-"was required and delivered everything (and more) that I expected of him. I "
-"would happily work with him again."
+"I will indeed be a repeat customer as I am very pleased with my website!"
 msgstr ""
-"Ferenc egy nagyon tehetséges PHP fejlesztő. Gyorsan megértette, hogy mire "
-"van szükség, és mindazt (sőt, még annál is többet) teljesítette, amit "
-"elvártam tőle. Örömmel dolgoznék újra vele."
+"Mindenféleképpen újra dolgozom majd vele, nagyon elégedett vagyok a "
+"weboldalammal!"
 
-#: index.php:46
+#: index-dev.php:64
+msgid "Ferenc is a very talented PHP developer."
+msgstr "Ferenc egy nagyon tehetséges PHP fejlesztő."
+
+#: index-dev.php:65
+msgid ""
+"He quickly got to grips with what was required and delivered everything (and "
+"more) that I expected of him."
+msgstr ""
+"Gyorsan megértette, hogy mire van szükség, és mindazt (sőt, még annál is "
+"többet) teljesítette, amit elvártam tőle."
+
+#: index-dev.php:66
+msgid "I would happily work with him again."
+msgstr "Örömmel dolgoznék újra vele."
+
+#: index-dev.php:71
 msgid ""
 "I would most definitely re-hire pappfer and I highly recommend his services."
 msgstr ""
 "Mindenféleképpen újra alkalmaznám pappfer-t, és jó szívvel ajánlom a "
 "szolgáltatásait."
 
-#: index.php:93 index.php:199
+#: index-dev.php:129 index-dev.php:231
 msgid "About"
 msgstr "Rólam"
 
-#: index.php:94 index.php:200
+#: index-dev.php:130 index-dev.php:232
 msgid "Skills"
 msgstr "Képességek"
 
-#: index.php:95 index.php:201
+#: index-dev.php:131 index-dev.php:233
 msgid "Portfolio"
 msgstr "Portfólió"
 
-#: index.php:96 index.php:202
+#: index-dev.php:132 index-dev.php:234
 msgid "Experience"
 msgstr "Tapasztalatok"
 
-#: index.php:97 index.php:203 index.php:648
+#: index-dev.php:133 index-dev.php:235 index-dev.php:685
 msgid "References"
 msgstr "Referenciák"
 
-#: index.php:98 index.php:204 index.php:724
+#: index-dev.php:134 index-dev.php:236 index-dev.php:761
 msgid "Blog"
 msgstr "Blog"
 
-#: index.php:99 index.php:205
+#: index-dev.php:135 index-dev.php:237
 msgid "Contact"
 msgstr "Kapcsolat"
 
-#: index.php:112 index.php:115 index.php:241
+#: index-dev.php:148 index-dev.php:151 index-dev.php:275
 msgid "Ferenc Papp"
 msgstr "Papp Ferenc"
 
-#: index.php:117 index.php:249 index.php:443
-msgid "Full stack web developer"
-msgstr "Fullstack webfejlesztő"
+#: index-dev.php:153 index-dev.php:284 index-dev.php:478
+msgid "Full-stack web developer"
+msgstr "Full-stack webfejlesztő"
 
-#: index.php:123 index.php:128 index.php:130
+#: index-dev.php:159 index-dev.php:164 index-dev.php:166
 msgid "Search"
 msgstr "Keresés"
 
-#: index.php:127
+#: index-dev.php:163
 msgid "Search for:"
 msgstr "Keresés erre:"
 
-#: index.php:136
+#: index-dev.php:172
 msgid "Contact me"
 msgstr "Kapcsolat"
 
-#: index.php:140 index.php:747
+#: index-dev.php:178 index-dev.php:786
 msgid "Name"
-msgstr "Név"
+msgstr "Kapcsolat"
 
-#: index.php:146 index.php:260 index.php:753 index.php:798
+#: index-dev.php:184 index-dev.php:295 index-dev.php:792 index-dev.php:830
 msgid "Email"
 msgstr "E-mail"
 
-#: index.php:152 index.php:759
+#: index-dev.php:190 index-dev.php:798
 msgid "Subject"
 msgstr "Tárgy"
 
-#: index.php:158 index.php:765
+#: index-dev.php:196 index-dev.php:804
 msgid "Message"
 msgstr "Üzenet"
 
-#: index.php:164 index.php:771
-msgid "What colour is the sky?"
-msgstr "Milyen színű az ég?"
-
-#: index.php:172 index.php:778
+#: index-dev.php:204 index-dev.php:810
 msgid "Send"
 msgstr "Küldés"
 
-#: index.php:208
+#: index-dev.php:240
 msgid "English"
 msgstr "Angol"
 
-#: index.php:213
+#: index-dev.php:246
 msgid "Hungarian"
 msgstr "Magyar"
 
-#: index.php:219
+#: index-dev.php:253
 msgid "Menu"
 msgstr "Menü"
 
-#: index.php:246
+#: index-dev.php:281
 msgid "Hello"
 msgstr "Üdv"
 
-#: index.php:247
+#: index-dev.php:282
 msgid "<span>I'm</span> Ferenc Papp"
 msgstr "Papp Ferenc"
 
-#: index.php:252
+#: index-dev.php:287
 msgid "Age"
 msgstr "Életkor"
 
-#: index.php:256 index.php:790
+#: index-dev.php:291 index-dev.php:822
 msgid "Address"
 msgstr "Lakcím"
 
-#: index.php:257
-msgid "Debrecen, Hungary, 4032"
-msgstr "4032 Debrecen, Magyarország"
+#: index-dev.php:292
+msgid "Debrecen, Hungary, 4033"
+msgstr "4033 Debrecen, Magyarország"
 
-#: index.php:273
+#: index-dev.php:308
 msgid "Currently unavailable for new projects"
 msgstr "Jelenleg nem tudok új projektet vállalni"
 
-#: index.php:301
-msgid "Download Resume"
+#: index-dev.php:336
+msgid "Download CV"
 msgstr "Önéletrajz letöltése"
 
-#: index.php:303
+#: index-dev.php:338
 msgid ""
-"I'm a professional full stack web developer with 10+ years of experience."
-msgstr "Profi fullstack webfejlesztő vagyok 10+ éves tapasztalattal."
+"I'm a professional full-stack web developer with 13+ years of experience."
+msgstr ""
+"Profi full-stack webfejlesztő vagyok, több mint 13 éves tapasztalattal."
 
-#: index.php:304
+#: index-dev.php:339
 msgid ""
 "I develop backend projects in PHP, using Laravel, Symfony or Yii2 framework "
-"and prefer to code frontend in either VueJS or React JS."
+"and prefer to code frontend in either React JS, Vue JS or Svelte."
 msgstr ""
 "Backend projekteket PHP-ben fejlesztek, Laravel, Symfony vagy Yii2 "
-"keretrendszerrel, frontenden pedig a VueJS-t vagy React JS-t részesítem "
-"előnyben."
+"keretrendszerrel, frontenden pedig a React JS-t, Vue JS-t, vagy Svelte-t "
+"részesítem előnyben."
 
-#: index.php:305
+#: index-dev.php:340
 msgid ""
 "I have advanced HTML, CSS and even SEO skills, decent Linux knowledge, and "
 "experience with using Amazon AWS."
@@ -201,140 +245,166 @@ msgstr ""
 "A HTML, CSS és a SEO tudásom is kiváló, Linux rendszert napi szinten "
 "használok, van tapasztalatom az Amazon AWS-sel is."
 
-#: index.php:306
+#: index-dev.php:341
 msgid ""
 "My job is also my passion, I truly enjoy following best practices, keeping "
 "up with new technologies and trends."
 msgstr ""
 "A munkám egyben a szenvedélyem is, imádom folyamatosan fejleszteni magam, a "
-"legújabb technológiákat és trendeket, valamint best practice-eket követni."
+"legújabb technológiákat és trendeket, valamint best practice-eket követni. "
 
-#: index.php:307
-msgid ""
-"I am reliable and demanding for my work but I'm not doing well under stress."
-msgstr ""
-"Megbízható, és munkájára igényes ember vagyok, de nem teljesítek jól stressz "
-"alatt."
+#: index-dev.php:342
+msgid "I am reliable and demanding for my work."
+msgstr "Megbízható, és munkájára igényes ember vagyok."
 
-#: index.php:308
+#: index-dev.php:343
 msgid "I speak English fluently."
 msgstr "Folyékonyan beszélek angolul."
 
-#: index.php:317
+#: index-dev.php:352
 msgid "Professional Skills"
 msgstr "Szakmai kompetenciák"
 
-#: index.php:430
+#: index-dev.php:465
 msgid "Work Experience"
 msgstr "Munkatapasztalat"
 
-#: index.php:441
+#: index-dev.php:476
 msgid "present"
 msgstr "jelenleg"
 
-#: index.php:442
+#: index-dev.php:477
 msgid "Contractor"
 msgstr "Vállalkozó"
 
-#: index.php:445
-msgid "I am currently an entrepreneur working as a full stack web developer."
+#: index-dev.php:480
+msgid "I am currently an entrepreneur working as a full-stack web developer."
 msgstr ""
 "Jelenleg egyéni vállakozó vagyok, full stack webfejlesztőként dolgozom."
 
-#: index.php:457
+#: index-dev.php:481
+msgid "I work for both domestic and foreign customers."
+msgstr "Hazai és külföldi ügyfeleknek egyaránt dolgozom."
+
+#: index-dev.php:493
 msgid "Senior PHP developer"
 msgstr "Szenior PHP fejlesztő"
 
-#: index.php:459
+#: index-dev.php:495
+msgid "I was working at Fathom Minds as a senior developer."
+msgstr "A Fathom Minds-nál senior PHP fejlesztőként dolgoztam."
+
+#: index-dev.php:496
 msgid ""
-"I was working at Fathom Minds as a senior developer. I mainly used Yii2 "
-"framework \n"
-"                                    for developing websites, web APIs but I "
-"also had the chance to set up the company's Git environment\n"
-"                                    and work on our own Flow project."
+"I mainly used Yii2 framework for developing websites, web APIs but I also "
+"had the chance to set up the company's Git environment and work on our own "
+"Flow project."
 msgstr ""
-"A Fathom Minds-nál senior PHP fejlesztőként dolgoztam. Legfőképpen Yii2 "
-"framework-ben fejlesztettem weboldalakat, web API-kat, ugyanakkor a cég Git "
-"környezetét is én állítottam be és a saját készítésű Flow projekten is "
-"dolgoztam."
+"Legfőképpen Yii2 framework-ben fejlesztettem weboldalakat, web API-kat, "
+"ugyanakkor a cég Git környezetét is én állítottam be és a saját készítésű "
+"Flow projekten is dolgoztam."
 
-#: index.php:472
-msgid "Oktafone"
-msgstr "Oktafone"
-
-#: index.php:473
+#: index-dev.php:508
 msgid "Frontend developer"
 msgstr "Frontend fejlesztő"
 
-#: index.php:475
-msgid ""
-"I was working on a web application for a startup company. I used "
-"AngularJS, \n"
-"                                    JavaScript, HTML5 and CSS3 technologies."
-msgstr ""
-"Egy startup cég web alkalmazásán dolgoztam. AngularJS, JavaScript, HTML5 és "
-"CSS3-at használtunk."
+#: index-dev.php:510
+msgid "I was working on a web application for a startup company."
+msgstr "Egy startup cég web alkalmazásán dolgoztam."
 
-#: index.php:488
+#: index-dev.php:511
+msgid "I used AngularJS, JavaScript, HTML5 and CSS3 technologies."
+msgstr "AngularJS, JavaScript, HTML5 és CSS3-at használtunk."
+
+#: index-dev.php:523
 msgid "Freelancer PHP developer"
 msgstr "Szabadúszó PHP fejlesztő"
 
-#: index.php:490
-msgid ""
-"I developed websites for both individuals and companies. I get most of my "
-"work \n"
-"                                    through freelancer websites. I prefer to "
-"use Yii framework for new projects but I also \n"
-"                                    had to use plain PHP or other "
-"frameworks. Used technologies:"
-msgstr ""
-"Weboldalakat fejlesztettem cégeknek, és egyéneknek egyaránt. A legtöbb "
-"munkámat szabadúszós weboldalakon keresztül szereztem. Legfőképpen Yii-ben "
-"fejlesztettem, de volt, ahol sima PHP-t, vagy más framework-öt, technológiát "
-"kellett használnom. Néhány ezek közül:"
+#: index-dev.php:525
+msgid "I developed websites for both individuals and companies."
+msgstr "Weboldalakat fejlesztettem cégeknek, és egyéneknek egyaránt."
 
-#: index.php:511
+#: index-dev.php:526
+msgid "I get most of my work through freelancer websites."
+msgstr " A legtöbb munkámat szabadúszós weboldalakon keresztül szereztem."
+
+#: index-dev.php:527
+msgid ""
+"I prefer to use Yii framework for new projects but I also had to use plain "
+"PHP or other frameworks."
+msgstr ""
+"Legfőképpen Yii-ben fejlesztettem, de volt, ahol sima PHP-t, vagy más "
+"framework-öt, technológiát kellett használnom."
+
+#: index-dev.php:528
+msgid "Used technologies:"
+msgstr "Néhány ezek közül:"
+
+#: index-dev.php:547
 msgid "Network administrator"
 msgstr "Hálózati adminisztrátor"
 
-#: index.php:513
-msgid ""
-"I was configuring network tools such as routers, switches. We supported "
-"many \n"
-"                                    networks all over the world. I spoke "
-"English with customers all over the world and also \n"
-"                                    achieved soft skill certificates."
-msgstr ""
-"Hálózat eszközök, routerek, switch-ek konfigurálásával foglalkoztam. A világ "
-"minden tájáról hálózatokat támogattunk. Angolul beszéltem az ügyfelekkel, "
-"valamint több különböző soft-skill tanusítványt szereztem."
+#: index-dev.php:549
+msgid "I was configuring network tools such as routers, switches."
+msgstr "Hálózat eszközök, routerek, switch-ek konfigurálásával foglalkoztam."
 
-#: index.php:527
+#: index-dev.php:550
+msgid "We supported many networks all over the world."
+msgstr "A világ minden tájáról hálózatokat támogattunk."
+
+#: index-dev.php:551
+msgid ""
+"I spoke English with customers all over the world and also achieved soft "
+"skill certificates."
+msgstr ""
+"Angolul beszéltem az ügyfelekkel, valamint több különböző soft-skill "
+"tanusítványt is megszereztem."
+
+#: index-dev.php:563
 msgid "System administrator"
 msgstr "Rendszeradminisztrátor"
 
-#: index.php:529
+#: index-dev.php:565
 msgid ""
-"I was maintaining Linux and Windows servers and I was also administering \n"
-"                                    Avaya IP phones. During my working hours "
-"I had a possibility to develop PHP application \n"
-"                                    as well. With one of my mates we created "
-"a PHP script which automated many monotonous task. \n"
-"                                    With the result of this we saved about 3 "
-"hours a day for all of my colleagues. \n"
-"                                    Later I got great recognition for this "
-"job. Apart from this we also created a \n"
-"                                    Greasemonkey script to make our "
-"colleagues life easier."
+"I was maintaining Linux and Windows servers and I was also administering "
+"Avaya IP phones."
 msgstr ""
 "Linux és Windows szerverek felügyeletével, valamint Avaya IP telefonok "
-"adminisztrációjával foglalkoztam. A munkaóráim alatt egy PHP alkalmazás "
-"fejlesztésében is részt vettem. Egy társammal írtunk egy mini PHP app-ot, "
-"amellyel több monoton és időigényes munkafolyamatot automatizáltunk. Ezzel "
-"kb. napi 3 órányi munkát vettünk le a vállukról. Később ezért az ötletünkért "
-"díjazásban is részesültünk."
+"adminisztrációjával foglalkoztam."
 
-#: index.php:536
+#: index-dev.php:566
+msgid ""
+"During my working hours I had the opportunity to develop PHP applications as "
+"well."
+msgstr "A munkaóráim alatt egy PHP alkalmazás fejlesztésében is részt vettem."
+
+#: index-dev.php:567
+msgid ""
+"With one of my mates we created a PHP script which automated many monotonous "
+"tasks."
+msgstr ""
+" Egy társammal írtunk egy mini PHP app-ot, amellyel több monoton és "
+"időigényes munkafolyamatot automatizáltunk."
+
+#: index-dev.php:568
+msgid ""
+"With the result of this we saved about 3 hours a day for all of my "
+"colleagues."
+msgstr "Ezzel napi kb. 3 órányi munkát vettünk le a kollégáim válláról."
+
+#: index-dev.php:569
+msgid "Later I got great recognition for this job."
+msgstr "Később ezért az ötletünkért díjazásban is részesültünk."
+
+#: index-dev.php:570
+msgid ""
+"Apart from this we also created a Greasemonkey script to make our "
+"colleagues' lives easier."
+msgstr ""
+"Ezzentúl írtunk egy böngészőbe épülő Greasemonkey script-et is, amivel "
+"megkönnyítettük a kollégáink munkavégzését."
+
+#: index-dev.php:572
 msgid ""
 "IT Services innovation award for the PHP script what me and my mate has "
 "created"
@@ -342,116 +412,116 @@ msgstr ""
 "IT Services innovációs díj egy PHP scriptért, amit egy kollégámmal "
 "készítettünk"
 
-#: index.php:537
+#: index-dev.php:573
 msgid "Learning German (basic level)"
 msgstr "Német nyelv alapszintű elsajátítása"
 
-#: index.php:538
+#: index-dev.php:574
 msgid "Soft skill certificates"
 msgstr "Soft skill képesítések"
 
-#: index.php:551
+#: index-dev.php:587
 msgid "PHP developer"
 msgstr "PHP fejlesztő"
 
-#: index.php:553
-msgid ""
-"I was doing remote work. We used PHP. Most of the times I had to continue \n"
-"                                    or fix someone else’s code so I had a "
-"chance to see many different source code and \n"
-"                                    I gained lots of experience."
-msgstr ""
-"Távmunkában dolgoztam. PHP-t használtunk. Legtöbb esetben más fejlesztők "
-"kódjait kellett folytatnom, vagy javítanom, ezáltal több különböző "
-"nézőpontot, gondolkodásmódot volt lehetőségem megismerni, sok tapasztalatot "
-"szereztem itt."
+#: index-dev.php:589
+msgid "I was doing remote work."
+msgstr "Távmunkában dolgoztam."
 
-#: index.php:566
+#: index-dev.php:590
+msgid "We used PHP."
+msgstr "PHP-t használtunk."
+
+#: index-dev.php:591
+msgid ""
+"Most of the time I had to continue or fix someone else’s code so I had a "
+"chance to see many different source codes, implementations and I gained lots "
+"of experience."
+msgstr ""
+"Legtöbb esetben más fejlesztők kódjait kellett folytatnom, vagy javítanom, "
+"ezáltal több különböző nézőpontot, gondolkodásmódot volt lehetőségem "
+"megismerni, sok tapasztalatot szereztem itt."
+
+#: index-dev.php:602
 msgid "Education & Charity"
 msgstr "Oktatás & Jótékonyság"
 
-#: index.php:578
+#: index-dev.php:614
 msgid "(unfinished)"
 msgstr "(befejezetlen)"
 
-#: index.php:579
+#: index-dev.php:615
 msgid "Software Engineering"
 msgstr "Programtervező Informatikus"
 
-#: index.php:580
+#: index-dev.php:616
 msgid "University of Debrecen"
 msgstr "Debreceni Egyetem"
 
-#: index.php:591
+#: index-dev.php:627
 msgid "Worked in a charity shop in Edinburgh, Scotland"
 msgstr "Egy jótékonysági boltban dolgoztam, Edinburgh-ban"
 
-#: index.php:603
+#: index-dev.php:639
 msgid "IT specialist"
 msgstr "Informatika"
 
-#: index.php:604
+#: index-dev.php:640
 msgid "Reformed College of Debrecen"
 msgstr "Debreceni Református Kollégium Gimnáziuma"
 
-#: index.php:693
+#: index-dev.php:730
 msgid "My Interests"
 msgstr "Hobbijaim"
 
-#: index.php:696
+#: index-dev.php:733
 msgid ""
-"My favourite hobby is playing football but I really like any kind of sports. "
-"I like hiking,\n"
-"                        cycling, swimming, playing squash, table tennis and "
-"bowling."
+"My favourite hobby is playing football but I really like any kind of sports."
+msgstr "A kedvenc hobbim a foci, de nagyon szeretek sportolni úgy általában."
+
+#: index-dev.php:734
+msgid ""
+"I like hiking, cycling, swimming, playing squash, table tennis and bowling."
 msgstr ""
-"A kedvenc hobbim a foci, de nagyon szeretek sportolni úgy általában. "
 "Szeretek túrázni, biciklizni, úszni, fallabdázni, ping-pongozni és "
 "bowlingozni is."
 
-#: index.php:738
+#: index-dev.php:775
 msgid "Contact Me"
 msgstr "Kapcsolat"
 
-#: index.php:743
+#: index-dev.php:780
 msgid "Feel free to contact me"
-msgstr "Lépj velem kapcsolatba"
+msgstr "Vedd fel velem a kapcsolatot"
 
-#: index.php:791
+#: index-dev.php:823
 msgid "Hungary, Debrecen"
 msgstr "Debrecen, Magyarország"
 
-#: index.php:841
+#: index-dev.php:873
 msgid "Loading..."
-msgstr "Betöltés..."
+msgstr "Loading..."
 
-#: php/mailsender.php:10 php/mailsender.php:46
+#: php/mailsender.php:10 php/mailsender.php:71
 msgid "Error sending message."
 msgstr "Sajnos nem sikerült elküldeni az üzenetet."
 
-#: php/mailsender.php:29
-msgid "The answer provided to the anti-robot question is wrong."
+#: php/mailsender.php:13
+msgid "Failed detecting that you are not a robot."
 msgstr "A feltett anti-robot kérdésre nem megfelelő a válasz."
 
-#: php/mailsender.php:45
-msgid "Thank you for contacting me. I will get back to you shortly."
-msgstr "Köszönöm a megkeresést! Hamarosan válaszolok."
+#: php/mailsender.php:70
+msgid "Thank you for contacting me."
+msgstr "Köszönöm a megkeresést!"
 
-#: php/mailsender.php:50
+#: php/mailsender.php:70
+msgid "I will get back to you shortly."
+msgstr "Hamarosan válaszolok."
+
+#: php/mailsender.php:74
 msgid "You need to fill in all required fields."
 msgstr "Az összes mezőt kötelező kitölteni."
 
-msgid "Failed detecting that you are not a robot."
-msgstr "Nem sikerült megállapítani, hogy nem vagy robot."
-
+#: php/mailsender.php:78
 msgid "Google reCaptcha error."
 msgstr "Google reCaptcha hiba."
-
-#~ msgid "All"
-#~ msgstr "Összes"
-
-#~ msgid "Own websites"
-#~ msgstr "Saját weboldalak"
-
-#~ msgid "Company"
-#~ msgstr "Cég"

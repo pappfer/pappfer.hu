@@ -27,24 +27,43 @@ function assetPath($filename, $type = 'css')
 
 $root = './';
 $url = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . "://{$_SERVER['HTTP_HOST']}";
-$title = _('Freelancer PHP/Yii2/JavaScript/React developer');
-$description = _('Experienced freelancer full stack web developer. PHP/Yii2/JavaScript/React expert, Laravel, Symfony skills, fluent English, advanced Linux knowledge.');
+$title = _('Freelancer PHP/Laravel/Yii2/JavaScript/React developer');
+$description = _('Experienced freelancer full-stack web developer.') . ' ' .
+    _('PHP/Yii2/JavaScript/React expert, Laravel, Symfony skills, fluent English, advanced Linux knowledge.');
+$email = 'pappfer@pappfer.hu';
 
 $testimonials = [
     [
+        'name' => 'Mészáros Tibor',
+        'title' => 'Sentonard Media',
+        'speech' => _('Reliable and fast.') . ' ' .
+            _('We have been working with him for years.') . ' ' .
+            _('He built several of our websites from scratch.') . ' ' .
+            _('I can only recommend him.') . ' ' .
+            _('I wish I could work with everyone this effectively.'),
+    ],
+    [
         'name' => 'Phil Guegan',
         'title' => 'CEO & Founder - Infogems',
-        'speech' => _('Excellent freelancer and very easy to work with. Great knowledge of Yii/PHP, excellent English and very good communicator, and very reliable.'),
+        'speech' => _('Excellent freelancer and very easy to work with.') . ' ' .
+            _('Great knowledge of Yii/PHP, excellent English and very good communicator, and very reliable.'),
     ],
     [
         'name' => 'webtechriders',
         'title' => '',
-        'speech' => _('Ferenc is the best contractor that I met ever on Elance. He is highly talented, professional and hard worker. He did the task exactly I ask him to do. Ferenc completed the task and made sure I was completely satisfied. He was very responsive to questions and concerns. I will indeed be a repeat customer as I am very pleased with my website!'),
+        'speech' => _('Ferenc is the best contractor that I met ever on Elance.') . ' ' .
+            _('He is highly talented, professional and hard worker.') . ' ' .
+            _('He did the task exactly I ask him to do.') . ' ' .
+            _('Ferenc completed the task and made sure I was completely satisfied.') . ' ' .
+            _('He was very responsive to questions and concerns.') . ' ' .
+            _('I will indeed be a repeat customer as I am very pleased with my website!'),
     ],
     [
         'name' => 'DanD',
         'title' => '',
-        'speech' => _('Ferenc is a very talented PHP developer. He quickly got to grips with what was required and delivered everything (and more) that I expected of him. I would happily work with him again.'),
+        'speech' => _('Ferenc is a very talented PHP developer.') . ' ' .
+            _('He quickly got to grips with what was required and delivered everything (and more) that I expected of him.') . ' ' .
+            _('I would happily work with him again.'),
     ],
     [
         'name' => 'kall52',
@@ -131,7 +150,7 @@ $age = $interval->y;
             <div class="profile-info">
                 <h2 class="profile-title"><?= _('Ferenc Papp') ?></h2>
 
-                <h3 class="profile-position"><?= _('Full stack web developer') ?></h3>
+                <h3 class="profile-position"><?= _('Full-stack web developer') ?></h3>
             </div>
         </aside>
         <!-- .widget-profile -->
@@ -262,7 +281,7 @@ $age = $interval->y;
                                         <div class="profile-preword"><span><?= _('Hello') ?></span></div>
                                         <h1 class="profile-title"><?= _('<span>I\'m</span> Ferenc Papp') ?></h1>
 
-                                        <h2 class="profile-position"><?= _('Full stack web developer') ?></h2></div>
+                                        <h2 class="profile-position"><?= _('Full-stack web developer') ?></h2></div>
                                     <ul class="profile-list">
                                         <li class="clearfix">
                                             <strong class="title"><?= _('Age') ?></strong>
@@ -270,12 +289,12 @@ $age = $interval->y;
                                         </li>
                                         <li class="clearfix">
                                             <strong class="title"><?= _('Address') ?></strong>
-                                            <span class="cont"><?= _('Debrecen, Hungary, 4032') ?></span>
+                                            <span class="cont"><?= _('Debrecen, Hungary, 4033') ?></span>
                                         </li>
                                         <li class="clearfix">
                                             <strong class="title"><?= _('Email') ?></strong>
                                             <span class="cont">
-                                                <a href="mailto:pappfer@pappfer.hu">pappfer@pappfer.hu</a>
+                                                <a href="mailto:<?= $email ?>"><?= $email ?></a>
                                             </span>
                                         </li>
                                         <li class="clearfix">
@@ -314,13 +333,13 @@ $age = $interval->y;
 
                     <div class="section-txt-btn">
                         <p><a class="btn btn-lg btn-border ripple" target="_blank"
-                              href="<?= $root ?>resume.json"><?= _('Download Resume') ?></a></p>
+                              href="<?= $root ?>resume.json"><?= _('Download CV') ?></a></p>
 
-                        <p><?= _('I\'m a professional full stack web developer with 10+ years of experience.') ?>
-                            <?= _('I develop backend projects in PHP, using Laravel, Symfony or Yii2 framework and prefer to code frontend in either VueJS or React JS.') ?>
+                        <p><?= _('I\'m a professional full-stack web developer with 13+ years of experience.') ?>
+                            <?= _('I develop backend projects in PHP, using Laravel, Symfony or Yii2 framework and prefer to code frontend in either React JS, Vue JS or Svelte.') ?>
                             <?= _('I have advanced HTML, CSS and even SEO skills, decent Linux knowledge, and experience with using Amazon AWS.') ?>
                             <?= _('My job is also my passion, I truly enjoy following best practices, keeping up with new technologies and trends.') ?>
-                            <?= _('I am reliable and demanding for my work but I\'m not doing well under stress.') ?>
+                            <?= _('I am reliable and demanding for my work.') ?>
                             <?= _('I speak English fluently.') ?>
                         </p>
                     </div>
@@ -456,9 +475,10 @@ $age = $interval->y;
 
                                     <div class="date">2017 - <?= _('present') ?></div>
                                     <h3><?= _('Contractor') ?></h3>
-                                    <h4><?= _('Full stack web developer') ?></h4>
+                                    <h4><?= _('Full-stack web developer') ?></h4>
 
-                                    <p><?= _('I am currently an entrepreneur working as a full stack web developer.') ?></p>
+                                    <p><?= _('I am currently an entrepreneur working as a full-stack web developer.') . ' ' .
+                                        _('I work for both domestic and foreign customers.') ?></p>
                                 </div>
                             </div>
 
@@ -472,9 +492,8 @@ $age = $interval->y;
                                     <h3>Fathom Minds</h3>
                                     <h4><?= _('Senior PHP developer') ?></h4>
 
-                                    <p><?= _('I was working at Fathom Minds as a senior developer. I mainly used Yii2 framework 
-                                    for developing websites, web APIs but I also had the chance to set up the company\'s Git environment
-                                    and work on our own Flow project.') ?></p>
+                                    <p><?= _('I was working at Fathom Minds as a senior developer.') . ' ' .
+                                        _('I mainly used Yii2 framework for developing websites, web APIs but I also had the chance to set up the company\'s Git environment and work on our own Flow project.') ?></p>
                                 </div>
                             </div>
 
@@ -485,11 +504,11 @@ $age = $interval->y;
                                     <span class="arrow"></span>
 
                                     <div class="date">2014 - 2015</div>
-                                    <h3><?= _('Oktafone') ?></h3>
+                                    <h3>Oktafone</h3>
                                     <h4><?= _('Frontend developer') ?></h4>
 
-                                    <p><?= _('I was working on a web application for a startup company. I used AngularJS, 
-                                    JavaScript, HTML5 and CSS3 technologies.') ?></p>
+                                    <p><?= _('I was working on a web application for a startup company.') . ' ' .
+                                        _('I used AngularJS, JavaScript, HTML5 and CSS3 technologies.') ?></p>
                                 </div>
                             </div>
 
@@ -503,15 +522,16 @@ $age = $interval->y;
                                     <h3>pappfer.hu</h3>
                                     <h4><?= _('Freelancer PHP developer') ?></h4>
 
-                                    <p><?= _('I developed websites for both individuals and companies. I get most of my work 
-                                    through freelancer websites. I prefer to use Yii framework for new projects but I also 
-                                    had to use plain PHP or other frameworks. Used technologies:') ?></p>
+                                    <p><?= _('I developed websites for both individuals and companies.') . ' ' .
+                                        _('I get most of my work through freelancer websites.') . ' ' .
+                                        _('I prefer to use Yii framework for new projects but I also had to use plain PHP or other frameworks.') . ' ' .
+                                        _('Used technologies:') ?></p>
                                     <ul>
-                                        <li>PHP, Yii framework, Wordpress, Laravel</li>
+                                        <li>PHP, Yii framework, WordPress, Laravel</li>
                                         <li>HTML5, CSS3, JavaScript, jQuery, AngularJS</li>
                                         <li>Twitter Bootstrap, Zurb Foundation</li>
                                         <li>Facebook, LinkedIn, Box.com, Stripe integration</li>
-                                        <li>Yii console application (scheduled e-mails with cronjob)</li>
+                                        <li>Yii console application (scheduled emails with cronjob)</li>
                                     </ul>
                                 </div>
                             </div>
@@ -526,9 +546,9 @@ $age = $interval->y;
                                     <h3>British Telecom</h3>
                                     <h4><?= _('Network administrator') ?></h4>
 
-                                    <p><?= _('I was configuring network tools such as routers, switches. We supported many 
-                                    networks all over the world. I spoke English with customers all over the world and also 
-                                    achieved soft skill certificates.') ?></p>
+                                    <p><?= _('I was configuring network tools such as routers, switches.') . ' ' .
+                                        _('We supported many networks all over the world.') . ' ' .
+                                        _('I spoke English with customers all over the world and also achieved soft skill certificates.') ?></p>
                                 </div>
                             </div>
 
@@ -542,12 +562,12 @@ $age = $interval->y;
                                     <h3>IT Services</h3>
                                     <h4><?= _('System administrator') ?></h4>
 
-                                    <p><?= _('I was maintaining Linux and Windows servers and I was also administering 
-                                    Avaya IP phones. During my working hours I had a possibility to develop PHP application 
-                                    as well. With one of my mates we created a PHP script which automated many monotonous task. 
-                                    With the result of this we saved about 3 hours a day for all of my colleagues. 
-                                    Later I got great recognition for this job. Apart from this we also created a 
-                                    Greasemonkey script to make our colleagues life easier.') ?></p>
+                                    <p><?= _('I was maintaining Linux and Windows servers and I was also administering Avaya IP phones.') . ' ' .
+                                        _('During my working hours I had the opportunity to develop PHP applications as well.') . ' ' .
+                                        _('With one of my mates we created a PHP script which automated many monotonous tasks.') . ' ' .
+                                        _('With the result of this we saved about 3 hours a day for all of my colleagues.') . ' ' .
+                                        _('Later I got great recognition for this job.') . ' ' .
+                                        _('Apart from this we also created a Greasemonkey script to make our colleagues\' lives easier.') ?></p>
                                     <ul>
                                         <li><?= _('IT Services innovation award for the PHP script what me and my mate has created') ?></li>
                                         <li><?= _('Learning German (basic level)') ?></li>
@@ -566,9 +586,9 @@ $age = $interval->y;
                                     <h3>Concept Solutions</h3>
                                     <h4><?= _('PHP developer') ?></h4>
 
-                                    <p><?= _('I was doing remote work. We used PHP. Most of the times I had to continue 
-                                    or fix someone else’s code so I had a chance to see many different source code and 
-                                    I gained lots of experience.') ?></p>
+                                    <p><?= _('I was doing remote work.') . ' ' .
+                                        _('We used PHP.') . ' ' .
+                                        _('Most of the time I had to continue or fix someone else’s code so I had a chance to see many different source codes, implementations and I gained lots of experience.') ?></p>
                                 </div>
                             </div>
                         </div>
@@ -710,8 +730,8 @@ $age = $interval->y;
                     <h2 class="section-title"><?= _('My Interests') ?></h2>
 
                     <div class="section-box">
-                        <p><?= _('My favourite hobby is playing football but I really like any kind of sports. I like hiking,
-                        cycling, swimming, playing squash, table tennis and bowling.') ?></p>
+                        <p><?= _('My favourite hobby is playing football but I really like any kind of sports.') . ' ' .
+                            _('I like hiking, cycling, swimming, playing squash, table tennis and bowling.') ?></p>
 
                         <ul class="interests-list">
                             <li>
@@ -808,7 +828,7 @@ $age = $interval->y;
                                     </li>
                                     <li class="clearfix">
                                         <strong><?= _('Email') ?></strong>
-                                        <span><a href="mailto:pappfer@pappfer.hu">pappfer@pappfer.hu</a></span>
+                                        <span><a href="mailto:<?= $email ?>"><?= $email ?></a></span>
                                     </li>
                                 </ul>
 
@@ -858,18 +878,18 @@ $age = $interval->y;
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50016491-1"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
 
-  function gtag () {
-    dataLayer.push(arguments);
-  }
+    function gtag() {
+        dataLayer.push(arguments);
+    }
 
-  gtag('js', new Date());
-  gtag('config', 'UA-50016491-1');
+    gtag('js', new Date());
+    gtag('config', 'UA-50016491-1');
 </script>
 <script src="https://www.google.com/recaptcha/api.js?render=<?= getenv('RECAPTCHA_V3_SITEKEY') ?>"></script>
 <script>
-  const RECAPTCHA_V3_SITEKEY = '<?= getenv('RECAPTCHA_V3_SITEKEY') ?>';
+    const RECAPTCHA_V3_SITEKEY = '<?= getenv('RECAPTCHA_V3_SITEKEY') ?>';
 </script>
 </body>
 </html>
