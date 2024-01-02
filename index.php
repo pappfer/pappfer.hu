@@ -51,9 +51,9 @@ $testimonials = [
     [
         'name' => 'webtechriders',
         'title' => '',
-        'speech' => _('Ferenc is the best contractor that I met ever on Elance.') . ' ' .
+        'speech' => _('Ferenc is the best contractor that I ever met on Elance.') . ' ' .
             _('He is highly talented, professional and hard worker.') . ' ' .
-            _('He did the task exactly I ask him to do.') . ' ' .
+            _('He did the task exactly I asked him to do.') . ' ' .
             _('Ferenc completed the task and made sure I was completely satisfied.') . ' ' .
             _('He was very responsive to questions and concerns.') . ' ' .
             _('I will indeed be a repeat customer as I am very pleased with my website!'),

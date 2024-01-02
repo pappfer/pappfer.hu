@@ -10,7 +10,7 @@ $success = false;
 $message = _('Error sending message.');
 
 if (empty($_POST['g-recaptcha-response'])) {
-    $message = _('Failed detecting that you are not a robot.');
+    $message = _('Failed to detect that you are not a robot.');
 } else {
     $ch = curl_init();
     curl_setopt_array($ch, [

@@ -20,7 +20,7 @@ msgstr "Szabadúszó PHP/Laravel/Yii2/JavaScript/React fejlesztő"
 
 #: index-dev.php:31
 msgid "Experienced freelancer full-stack web developer."
-msgstr "Tapasztalt szabadúszó fullstack fejlesztő."
+msgstr "Tapasztalt szabadúszó full-stack webfejlesztő."
 
 #: index-dev.php:32
 msgid ""
@@ -63,15 +63,15 @@ msgstr ""
 "és nagyon megbízható."
 
 #: index-dev.php:54
-msgid "Ferenc is the best contractor that I met ever on Elance."
-msgstr "Ferenc a legjobb vállalkozó, akivel eddig találkoztam az Elance-n."
+msgid "Ferenc is the best contractor that I ever met on Elance."
+msgstr "Ferenc a legjobb vállalkozó, akivel eddig az Elance-en találkoztam."
 
 #: index-dev.php:55
 msgid "He is highly talented, professional and hard worker."
 msgstr "Nagyon tehetséges, profi és szorgalmas."
 
 #: index-dev.php:56
-msgid "He did the task exactly I ask him to do."
+msgid "He did the task exactly I asked him to do."
 msgstr "Pontosan azt csinálta, amit kértem tőle."
 
 #: index-dev.php:57
@@ -82,7 +82,7 @@ msgstr ""
 
 #: index-dev.php:58
 msgid "He was very responsive to questions and concerns."
-msgstr "Gyorsan válaszolt a kérdéseimre és a felvetéseimre."
+msgstr "Gyorsan válaszolt a kérdéseimre, és a felvetéseimre."
 
 #: index-dev.php:59
 msgid ""
@@ -164,7 +164,7 @@ msgstr "Kapcsolat"
 
 #: index-dev.php:178 index-dev.php:786
 msgid "Name"
-msgstr "Kapcsolat"
+msgstr "Név"
 
 #: index-dev.php:184 index-dev.php:295 index-dev.php:792 index-dev.php:830
 msgid "Email"
@@ -280,7 +280,7 @@ msgstr "Vállalkozó"
 #: index-dev.php:480
 msgid "I am currently an entrepreneur working as a full-stack web developer."
 msgstr ""
-"Jelenleg egyéni vállakozó vagyok, full stack webfejlesztőként dolgozom."
+"Jelenleg egyéni vállalkozó vagyok, full-stack webfejlesztőként dolgozom."
 
 #: index-dev.php:481
 msgid "I work for both domestic and foreign customers."
@@ -288,7 +288,7 @@ msgstr "Hazai és külföldi ügyfeleknek egyaránt dolgozom."
 
 #: index-dev.php:493
 msgid "Senior PHP developer"
-msgstr "Szenior PHP fejlesztő"
+msgstr "Senior PHP fejlesztő"
 
 #: index-dev.php:495
 msgid "I was working at Fathom Minds as a senior developer."
@@ -358,7 +358,7 @@ msgid ""
 "skill certificates."
 msgstr ""
 "Angolul beszéltem az ügyfelekkel, valamint több különböző soft-skill "
-"tanusítványt is megszereztem."
+"tanúsítványt is megszereztem."
 
 #: index-dev.php:563
 msgid "System administrator"
@@ -401,7 +401,7 @@ msgid ""
 "Apart from this we also created a Greasemonkey script to make our "
 "colleagues' lives easier."
 msgstr ""
-"Ezzentúl írtunk egy böngészőbe épülő Greasemonkey script-et is, amivel "
+"Ezentúl írtunk egy böngészőbe épülő Greasemonkey script-et is, amivel "
 "megkönnyítettük a kollégáink munkavégzését."
 
 #: index-dev.php:572
@@ -483,7 +483,7 @@ msgstr "A kedvenc hobbim a foci, de nagyon szeretek sportolni úgy általában."
 msgid ""
 "I like hiking, cycling, swimming, playing squash, table tennis and bowling."
 msgstr ""
-"Szeretek túrázni, biciklizni, úszni, fallabdázni, ping-pongozni és "
+"Szeretek túrázni, biciklizni, úszni, fallabdázni, pingpongozni és "
 "bowlingozni is."
 
 #: index-dev.php:775
@@ -507,7 +507,7 @@ msgid "Error sending message."
 msgstr "Sajnos nem sikerült elküldeni az üzenetet."
 
 #: php/mailsender.php:13
-msgid "Failed detecting that you are not a robot."
+msgid "Failed to detect that you are not a robot."
 msgstr "A feltett anti-robot kérdésre nem megfelelő a válasz."
 
 #: php/mailsender.php:70
