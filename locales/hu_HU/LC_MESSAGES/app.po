@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2024-01-02 21:32+0100\n"
-"PO-Revision-Date: 2024-01-02 21:33+0100\n"
+"PO-Revision-Date: 2024-01-03 14:01+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: hu\n"
@@ -251,7 +251,7 @@ msgid ""
 "up with new technologies and trends."
 msgstr ""
 "A munkám egyben a szenvedélyem is, imádom folyamatosan fejleszteni magam, a "
-"legújabb technológiákat és trendeket, valamint best practice-eket követni. "
+"legújabb technológiákat és trendeket, valamint best practice-eket követni."
 
 #: index-dev.php:342
 msgid "I am reliable and demanding for my work."
@@ -326,7 +326,7 @@ msgstr "Weboldalakat fejlesztettem cégeknek, és egyéneknek egyaránt."
 
 #: index-dev.php:526
 msgid "I get most of my work through freelancer websites."
-msgstr " A legtöbb munkámat szabadúszós weboldalakon keresztül szereztem."
+msgstr "A legtöbb munkámat szabadúszós weboldalakon keresztül szereztem."
 
 #: index-dev.php:527
 msgid ""
@@ -383,7 +383,7 @@ msgid ""
 "With one of my mates we created a PHP script which automated many monotonous "
 "tasks."
 msgstr ""
-" Egy társammal írtunk egy mini PHP app-ot, amellyel több monoton és "
+"Egy társammal írtunk egy mini PHP app-ot, amellyel több monoton és "
 "időigényes munkafolyamatot automatizáltunk."
 
 #: index-dev.php:568
