@@ -1,5 +1,10 @@
 <?php
 
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
+use Symfony\Component\Mailer\Mailer;
+use Symfony\Component\Mailer\Transport;
+use Symfony\Component\Mime\Email;
+
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../locales/languages.php';
 
@@ -29,15 +34,12 @@ if (empty($_POST['g-recaptcha-response'])) {
 
     $json = json_decode($output);
 
-
     if ($json->success && $json->score >= 0.5) {
         if (!empty($_POST['rsEmail']) && !empty($_POST['rsName']) && !empty($_POST['rsMessage'])) {
-            $transport = (new Swift_SmtpTransport(getenv('SMTP_HOST'),
-                (int)getenv('SMTP_PORT'), getenv('SMTP_SECURITY')))
-                ->setUsername(getenv('SMTP_USERNAME'))
-                ->setPassword(getenv('SMTP_PASSWORD'));
-
-            $mailer = new Swift_Mailer($transport);
+            $dsn = 'smtp://' . getenv('SMTP_USERNAME') .':' . getenv('SMTP_PASSWORD') .
+                '@' . getenv('SMTP_HOST') . ':' . getenv('SMTP_PORT');
+            $transport = Transport::fromDsn($dsn);
+            $mailer = new Mailer($transport);
 
             if (!isset($_POST['rsSubject'])) {
                 $subject = 'pappfer.hu kapcsolatfelvétel';
@@ -53,16 +55,19 @@ if (empty($_POST['g-recaptcha-response'])) {
             $emailBody .= '</ul>';
             $emailBody .= '<p>Üzenet:</p>';
             $emailBody .= $_POST['rsMessage'];
-            $emailMessage = (new Swift_Message($subject))
-                ->setFrom([$_POST['rsEmail'] => $_POST['rsName']])
-                ->setTo([getenv('EMAIL')])
-                ->setReplyTo($_POST['rsEmail'])
-                ->setBody($emailBody, 'text/html');
+
+            $email = (new Email())
+                ->from($_POST['rsEmail'])
+                ->to(getenv('EMAIL'))
+                ->replyTo($_POST['rsEmail'])
+                ->subject($subject)
+                ->text(strip_tags($emailBody))
+                ->html($emailBody);
 
             try {
-                $result = $mailer->send($emailMessage);
-                $success = (bool)$result;
-            } catch (Exception $e) {
+                $mailer->send($email);
+                $success = true;
+            } catch (TransportExceptionInterface $e) {
                 $success = false;
                 $message = $e->getMessage();
             }
