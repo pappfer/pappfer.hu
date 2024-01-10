@@ -22,7 +22,7 @@ if (empty($_POST['g-recaptcha-response'])) {
         CURLOPT_URL => 'https://www.google.com/recaptcha/api/siteverify',
         CURLOPT_POST => true,
         CURLOPT_POSTFIELDS => [
-            'secret' => getenv('RECAPTCHA_V3_SECRET'),
+            'secret' => $_ENV['RECAPTCHA_V3_SECRET'],
             'response' => $_POST['g-recaptcha-response'],
             'remoteip' => $_SERVER['REMOTE_ADDR'],
         ],
@@ -36,8 +36,8 @@ if (empty($_POST['g-recaptcha-response'])) {
 
     if ($json->success && $json->score >= 0.5) {
         if (!empty($_POST['rsEmail']) && !empty($_POST['rsName']) && !empty($_POST['rsMessage'])) {
-            $dsn = 'smtp://' . getenv('SMTP_USERNAME') .':' . getenv('SMTP_PASSWORD') .
-                '@' . getenv('SMTP_HOST') . ':' . getenv('SMTP_PORT');
+            $dsn = 'smtp://' . $_ENV['SMTP_USERNAME'] .':' . $_ENV['SMTP_PASSWORD'] .
+                '@' . $_ENV['SMTP_HOST'] . ':' . $_ENV['SMTP_PORT'];
             $transport = Transport::fromDsn($dsn);
             $mailer = new Mailer($transport);
 
@@ -58,7 +58,7 @@ if (empty($_POST['g-recaptcha-response'])) {
 
             $email = (new Email())
                 ->from($_POST['rsEmail'])
-                ->to(getenv('EMAIL'))
+                ->to($_ENV['EMAIL'])
                 ->replyTo($_POST['rsEmail'])
                 ->subject($subject)
                 ->text(strip_tags($emailBody))

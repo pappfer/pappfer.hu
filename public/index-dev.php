@@ -891,7 +891,7 @@ $age = $interval->y;
 </script>
 <script src="https://www.google.com/recaptcha/api.js?render=<?= $_ENV['RECAPTCHA_V3_SITEKEY'] ?>"></script>
 <script>
-    const RECAPTCHA_V3_SITEKEY = '<?= getenv('RECAPTCHA_V3_SITEKEY') ?>';
+    const RECAPTCHA_V3_SITEKEY = '<?= $_ENV['RECAPTCHA_V3_SITEKEY'] ?>';
 </script>
 </body>
 </html>
