@@ -67,13 +67,11 @@ if (empty($_POST['g-recaptcha-response'])) {
             try {
                 $mailer->send($email);
                 $success = true;
+                $message = _('Thank you for contacting me.') . ' ' . _('I will get back to you shortly.');
             } catch (TransportExceptionInterface $e) {
                 $success = false;
-                $message = $e->getMessage();
+                $message = _('Error sending message.') . ' ' . $e->getMessage();
             }
-
-            $message = $success ? (_('Thank you for contacting me.') . ' ' . _('I will get back to you shortly.')) :
-                _('Error sending message.');
         } else {
             $success = false;
             $message = _('You need to fill in all required fields.');
