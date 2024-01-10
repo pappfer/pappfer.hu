@@ -2,10 +2,10 @@
 
 /* @var $lang string */
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/locales/languages.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/');
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
 function assetPath($filename, $type = 'css')

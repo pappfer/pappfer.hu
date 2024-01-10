@@ -51,10 +51,7 @@
       "position": "Contractor",
       "website": "https://pappfer.hu",
       "startDate": "2017-03-01",
-      "summary": "I am currently an entrepreneur working as a full-stack web developer. I work for both domestic and foreign customers.",
-      "highlights": [
-        ""
-      ]
+      "summary": "I am currently an entrepreneur working as a full-stack web developer. I work for both domestic and foreign customers."
     },
     {
       "company": "Fathom Minds",
@@ -62,10 +59,7 @@
       "website": "https://fathomminds.com",
       "startDate": "2015-02-01",
       "endDate": "2017-02-28",
-      "summary": "I was working at Fathom Minds as a senior developer. I mainly used Yii2 framework for developing websites, web APIs but I also had the chance to set up the company's Git environment and work on our own Flow project.",
-      "highlights": [
-        ""
-      ]
+      "summary": "I was working at Fathom Minds as a senior developer. I mainly used Yii2 framework for developing websites, web APIs but I also had the chance to set up the company's Git environment and work on our own Flow project."
     },
     {
       "company": "Oktafone",
@@ -73,10 +67,7 @@
       "website": "https://oktafone.com",
       "startDate": "2014-07-01",
       "endDate": "2015-01-31",
-      "summary": "I was working on a web application for a startup company. I used AngularJS, JavaScript, HTML5 and CSS3 technologies.",
-      "highlights": [
-        ""
-      ]
+      "summary": "I was working on a web application for a startup company. I used AngularJS, JavaScript, HTML5 and CSS3 technologies."
     },
     {
       "company": "pappfer.hu",
@@ -99,10 +90,7 @@
       "website": "https://pappfer.hu",
       "startDate": "2011-08-01",
       "endDate": "2011-11-30",
-      "summary": "I was configuring network tools such as routers, switches. We supported many networks all over the world. I spoke English with customers all over the world and also achieved soft skill certificates.",
-      "highlights": [
-        ""
-      ]
+      "summary": "I was configuring network tools such as routers, switches. We supported many networks all over the world. I spoke English with customers all over the world and also achieved soft skill certificates."
     },
     {
       "company": "IT Services Hungary",
@@ -123,10 +111,7 @@
       "website": "https://www.deutschetelekomitsolutions.hu",
       "startDate": "2009-04-01",
       "endDate": "2010-04-30",
-      "summary": "I was doing remote work. We used PHP. Most of the time I had to continue or fix someone else’s code so I had a chance to see many different source codes, implementations and I gained lots of experience.",
-      "highlights": [
-        ""
-      ]
+      "summary": "I was doing remote work. We used PHP. Most of the time I had to continue or fix someone else’s code so I had a chance to see many different source codes, implementations and I gained lots of experience."
     }
   ],
   "volunteer": [
@@ -136,10 +121,7 @@
       "website": "http://www.bethanychristiantrust.com/",
       "startDate": "2004-09-01",
       "endDate": "2005-08-01",
-      "summary": "",
-      "highlights": [
-        ""
-      ]
+      "summary": "I was working in a charity shop in Edinburgh, Scotland."
     }
   ],
   "education": [

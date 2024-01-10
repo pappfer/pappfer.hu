@@ -24,7 +24,7 @@
  * THE SOFTWARE.
  */
 
-namespace ReCaptcha;
+namespace public\php\recaptcha\ReCaptcha;
 
 /**
  * The response returned from the service.

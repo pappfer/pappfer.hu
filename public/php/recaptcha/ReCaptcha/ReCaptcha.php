@@ -24,7 +24,9 @@
  * THE SOFTWARE.
  */
 
-namespace ReCaptcha;
+namespace public\php\recaptcha\ReCaptcha;
+
+use ReCaptcha\type;
 
 /**
  * reCAPTCHA client.
@@ -70,7 +72,7 @@ class ReCaptcha
         if (!is_null($requestMethod)) {
             $this->requestMethod = $requestMethod;
         } else {
-            $this->requestMethod = new RequestMethod\Post();
+            $this->requestMethod = new \public\php\recaptcha\ReCaptcha\RequestMethod\Post();
         }
     }
 

@@ -24,10 +24,10 @@
  * THE SOFTWARE.
  */
 
-namespace ReCaptcha\RequestMethod;
+namespace public\php\recaptcha\ReCaptcha\RequestMethod;
 
-use ReCaptcha\RequestMethod;
-use ReCaptcha\RequestParameters;
+use public\php\recaptcha\ReCaptcha\RequestMethod;
+use public\php\recaptcha\ReCaptcha\RequestParameters;
 
 /**
  * Sends POST requests to the reCAPTCHA service.

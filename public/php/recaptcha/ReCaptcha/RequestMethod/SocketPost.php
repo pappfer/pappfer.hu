@@ -24,10 +24,10 @@
  * THE SOFTWARE.
  */
 
-namespace ReCaptcha\RequestMethod;
+namespace public\php\recaptcha\ReCaptcha\RequestMethod;
 
-use ReCaptcha\RequestMethod;
-use ReCaptcha\RequestParameters;
+use public\php\recaptcha\ReCaptcha\RequestMethod;
+use public\php\recaptcha\ReCaptcha\RequestParameters;
 
 /**
  * Sends a POST request to the reCAPTCHA service, but makes use of fsockopen()
@@ -66,7 +66,7 @@ class SocketPost implements RequestMethod
     /**
      * Constructor
      *
-     * @param \ReCaptcha\RequestMethod\Socket $socket optional socket, injectable for testing
+     * @param \public\php\recaptcha\ReCaptcha\RequestMethod\Socket $socket optional socket, injectable for testing
      */
     public function __construct(Socket $socket = null)
     {
