@@ -889,7 +889,7 @@ $age = $interval->y;
     gtag('js', new Date());
     gtag('config', 'UA-50016491-1');
 </script>
-<script src="https://www.google.com/recaptcha/api.js?render=<?= getenv('RECAPTCHA_V3_SITEKEY') ?>"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=<?= $_ENV['RECAPTCHA_V3_SITEKEY'] ?>"></script>
 <script>
     const RECAPTCHA_V3_SITEKEY = '<?= getenv('RECAPTCHA_V3_SITEKEY') ?>';
 </script>
