@@ -171,7 +171,7 @@ $age = $interval->y;
         <aside class="widget widget_contact">
             <h2 class="widget-title"><?= _('Contact me') ?></h2>
 
-            <form class="rsForm" action="/php/mailsender.php" method="post">
+            <form class="rsForm" action="./php/mailsender.php" method="post">
                 <input type="hidden" name="g-recaptcha-response" class="g-recaptcha-response">
 
                 <div class="input-field">

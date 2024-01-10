@@ -8,7 +8,7 @@ use Symfony\Component\Mime\Email;
 require __DIR__ . '/../../vendor/autoload.php';
 require __DIR__ . '/../locales/languages.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
 $dotenv->load();
 
 $success = false;
