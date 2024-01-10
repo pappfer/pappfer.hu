@@ -72,7 +72,7 @@ if (empty($_POST['g-recaptcha-response'])) {
                 $message = $e->getMessage();
             }
 
-            $message = $success ? _('Thank you for contacting me.') . ' ' . _('I will get back to you shortly.') :
+            $message = $success ? (_('Thank you for contacting me.') . ' ' . _('I will get back to you shortly.')) :
                 _('Error sending message.');
         } else {
             $success = false;
