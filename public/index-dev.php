@@ -869,11 +869,11 @@ $age = $interval->y;
 
 <a class="btn-scroll-top" href="#"><i class="rsicon rsicon-arrow-up"></i></a>
 
-<div id="overlay"></div>
+<!--<div id="overlay"></div>
 <div id="preloader">
     <div class="preload-icon"><span></span><span></span></div>
     <div class="preload-text"><?= _('Loading...') ?></div>
-</div>
+</div>-->
 
 <!-- Scripts -->
 <script src="<?= assetPath('bundle.js', 'js') ?>"></script>

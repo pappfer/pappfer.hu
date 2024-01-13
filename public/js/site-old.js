@@ -140,6 +140,207 @@
       $('.timeline-inner').attr('style', '');
     }
   }
+
+  /*function availabilityCalendar () {
+    var calendarHtml = $('#busyCalendar');
+
+    if (calendarHtml.length > 0) {
+      var calendarThead = calendarHtml.find('.calendar-thead');
+      var calendarTbody = calendarHtml.find('.calendar-tbody');
+
+      var calendarTodayDay = calendarHtml.find('.calendar-today .day');
+      var calendarTodayMonth = calendarHtml.find('.calendar-today .month');
+      var calendarTodayWeekday = calendarHtml.find('.calendar-today .week-day');
+
+      var calendarActiveMonth = calendarHtml.find('.active-month');
+      var calendarActiveYear = calendarHtml.find('.active-year');
+      var calendarActiveMonthAndYear = calendarActiveMonth.add(calendarActiveYear);
+
+      var calendar = new Object();
+      calendar = {
+        currentYear: new Date().getFullYear(),
+        currentMonth: new Date().getMonth(),
+        currentWeekDay: new Date().getDay(),
+        currentDay: new Date().getDate(),
+        active: {
+          month: '',
+          year: '',
+        },
+        limitUp: {
+          month: '',
+          year: '',
+        },
+        limitDown: {
+          month: '',
+          year: '',
+        },
+        busyDays: '',
+        weekStart: '',
+        weekNames: rsOptions.calendar.weekNames,
+        daysInMonth: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+        monthNames: rsOptions.calendar.monthNames,
+        init: function () {
+          this.initToday();
+          this.initWeekNames();
+          this.createMonthHtml(this.currentYear, this.currentMonth);
+        },
+        initToday: function () {
+          calendarTodayDay.html(this.currentDay);
+          calendarTodayMonth.html(this.monthNames[this.currentMonth].substring(0, 3));
+          calendarTodayWeekday.html(this.weekNames[this.currentWeekDay]);
+        },
+        initWeekNames: function () {
+          var html = '<tr>';
+
+          for (var i = 0; i < this.weekNames.length; ++i) {
+            html += '<th>' + this.weekNames[i].substring(0, 3) + '</th>';
+          }
+          html += '</tr>';
+          calendarThead.append(html);
+        },
+        getDaysInMonth: function (year, month) {
+          if ((month == 1) && (year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0))) {
+            return 29;
+          } else {
+            return this.daysInMonth[month];
+          }
+        },
+        createMonthHtml: function (year, month) {
+          var html = '';
+          var monthFirstDay = new Date(year, month, 1).getDay(); // Returns the day of a Date object (from 0-6. 0=Sunday, 1=Monday, etc.)
+          var monthBusyDays = [];
+
+          if (calendar.weekStart.toLowerCase() == 'monday') { // If calendar starts from monday
+            if (monthFirstDay == 0) { // Make sunday (0) week last day (6)
+              monthFirstDay = 6;
+            } else {
+              monthFirstDay = monthFirstDay - 1;
+            }
+          }
+
+          calendarActiveMonth.empty().html(this.monthNames[month]);
+          calendarActiveYear.empty().html(year);
+
+          // Get busy days array for active month
+          for (var i = 0; i < this.busyDays.length; i++) {
+            if (this.busyDays[i].getFullYear() == year && this.busyDays[i].getMonth() == month) {
+              monthBusyDays[i] = this.busyDays[i].getDate();
+            }
+          }
+
+          for (var j = 0; j < 42; j++) {
+            var className = '';
+
+            // Set today class
+            if (year == this.currentYear && month == this.currentMonth && (j - monthFirstDay + 1) == this.currentDay) {
+              className += 'current-day';
+            }
+
+            // Set busy day class
+            if (arrayContains(monthBusyDays, (j - monthFirstDay + 1))) {
+              className += ' busy-day';
+            }
+
+            // Create month html
+            if (j % 7 == 0) html += '<tr>';
+            if ((j < monthFirstDay) || (j >= monthFirstDay + this.getDaysInMonth(year, month))) {
+              html += '<td class="calendar-other-month"><span></span></td>';
+            } else {
+              html += '<td class="calendar-current-month"><span class="' + className + '">' + (j - monthFirstDay + 1) + '</span></td>';
+            }
+            if (j % 7 == 6) html += '</tr>';
+          }
+
+          calendarTbody.empty().append(html);
+        },
+        nextMonth: function () {
+          if (!(this.active.year == this.limitUp.year && this.active.month == this.limitUp.month)) {
+            calendarActiveMonthAndYear.addClass('moveup');
+            calendarTbody.addClass('moveright');
+
+            setTimeout(function () {
+              calendarActiveMonthAndYear.removeClass('moveup');
+              calendarActiveMonthAndYear.addClass('movedown');
+
+              calendarTbody.removeClass('moveright');
+              calendarTbody.addClass('moveleft');
+            }, 300);
+            setTimeout(function () {
+              calendarActiveMonthAndYear.removeClass('movedown');
+              calendarTbody.removeClass('moveleft');
+            }, 450);
+
+            if (this.active.month == 11) {
+              this.active.month = 0;
+              this.active.year = this.active.year + 1;
+            } else {
+              this.active.month = this.active.month + 1;
+            }
+            this.createMonthHtml(this.active.year, this.active.month);
+          } else {
+            //console.log('Calendar Limit Up');
+          }
+        },
+        prevMonth: function () {
+          if (!(this.active.year == this.limitDown.year && this.active.month == this.limitDown.month)) {
+            calendarActiveMonthAndYear.addClass('moveup');
+            calendarTbody.addClass('moveright');
+            setTimeout(function () {
+              calendarActiveMonthAndYear.removeClass('moveup');
+              calendarActiveMonthAndYear.addClass('movedown');
+
+              calendarTbody.removeClass('moveright');
+              calendarTbody.addClass('moveleft');
+            }, 300);
+            setTimeout(function () {
+              calendarActiveMonthAndYear.removeClass('movedown');
+              calendarTbody.removeClass('moveleft');
+            }, 450);
+
+            if (this.active.month == 0) {
+              this.active.month = 11;
+              this.active.year = this.active.year - 1;
+            } else {
+              this.active.month = this.active.month - 1;
+            }
+            this.createMonthHtml(this.active.year, this.active.month);
+          } else {
+            //console.log('Calendar Limit Down');
+          }
+        },
+      };
+
+      calendar.active.year = calendar.currentYear;
+      calendar.active.month = calendar.currentMonth;
+      calendar.limitUp.year = rsOptions.calendar.endYear; //calendar.currentYear + 1;
+      calendar.limitUp.month = rsOptions.calendar.endMonth; //calendar.currentMonth;
+      calendar.limitDown.year = rsOptions.calendar.startYear; //calendar.currentYear;
+      calendar.limitDown.month = rsOptions.calendar.startMonth; //calendar.currentMonth;
+      calendar.weekStart = rsOptions.calendar.weekStart;
+      calendar.busyDays = rsOptions.calendar.busyDays;
+
+      calendar.init();
+
+      calendarHtml.on(clickEventType, '.calendar-prev', function () {
+        calendar.prevMonth();
+      });
+
+      calendarHtml.on(clickEventType, '.calendar-next', function () {
+        calendar.nextMonth();
+      });
+    }
+  }*/
+
+  function filterBarLinePositioning (grid, button) {
+    var filterValue = button.attr('data-filter');
+    var buttonLeft = button.position().left;
+    var buttonWidth = button.outerWidth();
+    var filterLine = button.closest('.filter').find('.filter-bar-line');
+
+    grid.isotope({ filter: filterValue });
+    filterLine.css({ 'left': buttonLeft + 'px', 'width': buttonWidth });
+  }
+
   function windowSmoothScrollOnLoad () {
     if (window.location.hash && body.hasClass('home')) {
       $('html, body').animate({ scrollTop: ($(window.location.hash).offset().top) }, 0);
@@ -150,6 +351,81 @@
     $('#preloader').remove();
     $('body').removeClass('loading');
   }
+
+  function initialiseGoogleMap () {
+    var latlng;
+    var lat = 44.5403;
+    var lng = -78.5463;
+    var map = $('#map');
+    var mapCanvas = map.get(0);
+    var map_styles = [
+      { 'featureType': 'landscape', 'stylers': [{ 'saturation': -100 }, { 'lightness': 65 }, { 'visibility': 'on' }] },
+      {
+        'featureType': 'poi',
+        'stylers': [{ 'saturation': -100 }, { 'lightness': 51 }, { 'visibility': 'simplified' }],
+      },
+      { 'featureType': 'road.highway', 'stylers': [{ 'saturation': -100 }, { 'visibility': 'simplified' }] },
+      {
+        'featureType': 'road.arterial',
+        'stylers': [{ 'saturation': -100 }, { 'lightness': 30 }, { 'visibility': 'on' }],
+      },
+      { 'featureType': 'road.local', 'stylers': [{ 'saturation': -100 }, { 'lightness': 40 }, { 'visibility': 'on' }] },
+      { 'featureType': 'transit', 'stylers': [{ 'saturation': -100 }, { 'visibility': 'simplified' }] },
+      { 'featureType': 'administrative.province', 'stylers': [{ 'visibility': 'off' }] },
+      {
+        'featureType': 'water',
+        'elementType': 'labels',
+        'stylers': [{ 'visibility': 'on' }, { 'lightness': -25 }, { 'saturation': -100 }],
+      },
+      {
+        'featureType': 'water',
+        'elementType': 'geometry',
+        'stylers': [{ 'hue': '#ffff00' }, { 'lightness': -25 }, { 'saturation': -97 }],
+      },
+    ];
+
+    if ($('html').hasClass('theme-skin-dark')) {
+      map_styles = [
+        { 'stylers': [{ 'hue': '#ff1a00' }, { 'invert_lightness': true }, { 'saturation': -100 }, { 'lightness': 33 }, { 'gamma': 0.5 }] },
+        { 'featureType': 'water', 'elementType': 'geometry', 'stylers': [{ 'color': '#2D333C' }] },
+      ];
+    }
+
+    if (map.data('latitude')) lat = map.data('latitude');
+    if (map.data('longitude')) lng = map.data('longitude');
+
+    latlng = new google.maps.LatLng(lat, lng);
+
+    // Map Options
+    var mapOptions = {
+      zoom: 14,
+      center: latlng,
+      scrollwheel: true,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      styles: map_styles,
+    };
+
+    // Create the Map
+    map = new google.maps.Map(mapCanvas, mapOptions);
+
+    var marker = new Marker({
+      map: map,
+      position: latlng,
+      icon: {
+        path: SQUARE_PIN,
+        fillColor: '',
+        fillOpacity: 0,
+        strokeColor: '',
+        strokeWeight: 0,
+      },
+      map_icon_label: '<span class="map-icon map-icon-postal-code"></span>',
+    });
+
+    // Keep Marker in Center
+    google.maps.event.addDomListener(window, 'resize', function () {
+      map.setCenter(latlng);
+    });
+  };
 
   function lockScroll () {
     var $html = $('html');
@@ -251,6 +527,23 @@
     });
   }
 
+  /*function setPriceBoxesHeight () {
+    var priceRow = $('.price-list');
+
+    if (windowW > 767) {
+      priceRow.each(function () {
+        var priceRowHeight = 0;
+        var priceBox = $(this).find('.price-box');
+
+        priceBox.css('height', 'auto');
+        priceRowHeight = $(this).height();
+        priceBox.height(priceRowHeight);
+      });
+    } else {
+      $('.price-box').css('height', 'auto');
+    }
+  }*/
+
   /**
    * Window Resize
    */
@@ -261,6 +554,7 @@
     positioningInterestsTooltips();
     positioningTimelineElements();
     setContactSectionHeight();
+    //setPriceBoxesHeight();
   });
 
   /**
@@ -270,6 +564,8 @@
     setWindowScrollAppear();
     setProgressBarsFill();
     setContactSectionHeight();
+    //setPriceBoxesHeight();
+    //availabilityCalendar();
     positioningInterestsTooltips();
 
     // Header Navigation
@@ -398,7 +694,33 @@
       });
     });
 
+    /** Audio Player */
+    var post_audio = $('.post-media audio');
+    if (post_audio.length > 0) {
+      post_audio.mediaelementplayer({
+        loop: false,
+        audioHeight: 40,
+        startVolume: 0.7,
+      });
+    }
+
+    /** Video Player */
+    var post_video = $('.post-media video');
+    if (post_video.length > 0) {
+      post_video.mediaelementplayer({
+        loop: false,
+        defaultVideoWidth: 723,
+        defaultVideoHeight: 405,
+        videoWidth: -1,
+        videoHeight: -1,
+        startVolume: 0.7,
+        enableAutosize: true,
+        alwaysShowControls: true,
+      });
+    }
+
     /** Sidebar */
+
     // open/close sidebar
     $(document).on(clickEventType, '.btn-sidebar', function () {
       if ($('body').hasClass('sidebar-opened')) {
@@ -426,6 +748,11 @@
 
       if ($('body').hasClass('sidebar-opened')) closeSidebar();
     });
+
+    /** Google Map Initialisation */
+    if ($('#map').length > 0) {
+      initialiseGoogleMap();
+    }
 
     /** Window Scroll Top Button */
     var $btnScrollTop = $('.btn-scroll-top');
@@ -524,6 +851,173 @@
    * Window Load
    */
   $(window).load(function () {
+    /** Blog */
+    var blog_grid_selector = $('.blog-grid');
+    if (blog_grid_selector.length > 0) {
+      var blog_grid = blog_grid_selector.isotope({
+        isOriginLeft: !rsOptions.rtl,
+        itemSelector: '.blog-grid .grid-item',
+        percentPosition: true,
+        masonry: {
+          columnWidth: '.grid-sizer',
+        },
+      });
+
+      blog_grid.imagesLoaded().progress(function () {
+        blog_grid.isotope('layout');
+      });
+    }
+
+    /** Portfolio */
+    var grid_selector = $('.grid');
+    if (grid_selector.length > 0) {
+
+      // Isotope Initialization
+      var $grid = grid_selector.isotope({
+        isOriginLeft: !rsOptions.rtl,
+        itemSelector: '.grid .grid-item',
+        percentPosition: true,
+        masonry: {
+          columnWidth: '.grid-sizer',
+        },
+      });
+
+      $grid.imagesLoaded().progress(function () {
+        $grid.isotope('layout');
+      });
+
+      // Isotope Filter
+      var filter = $('.filter');
+      if (filter.length > 0) {
+        var filter_btn = filter.find('button');
+        var filter_btn_first = $('.filter-btn-group button:first-child');
+
+        filterBarLinePositioning($grid, filter_btn_first);
+        filter_btn_first.addClass('active');
+
+        filter_btn.on('click', function () {
+          filter_btn.removeClass('active');
+          $(this).addClass('active');
+          $('.grid-box').addClass('animated');
+          filterBarLinePositioning($grid, $(this));
+        });
+      }
+
+      // Isotope Append New Elements
+      var $elemTotalCount = 0;
+      var $elemLoadedCount = 0;
+      var $elemCountPerLoad = 3;
+      var $gridMore = $('.grid-more');
+      var $gridMoreBtn = $gridMore.find('.btn');
+      var $gridAjaxLoader = $gridMore.find('.ajax-loader');
+
+      $gridMoreBtn.on('click', function () {
+        $.ajax({
+          url: 'ajax/portfolio.html',
+          dataType: 'html',
+          beforeSend: function () {
+            // show ajax loader
+            $gridMoreBtn.css('display', 'none');
+            $gridAjaxLoader.css('display', 'inline-block');
+          },
+          success: function (data) {
+            $elemTotalCount = $.grep($.parseHTML(data), function (el, i) {
+              return $(el).hasClass('grid-item');
+            }).length;
+
+            if ($elemLoadedCount < $elemTotalCount) {
+              for (var i = 1; i <= $elemCountPerLoad; i++) {
+
+                var $item = $(data).filter('.grid-item:eq(' + $elemLoadedCount + ')'); // started from 0
+                grid_selector.append($item).isotope('appended', $item);
+
+                $elemLoadedCount++;
+              }
+            }
+
+            if ($elemLoadedCount >= $elemTotalCount) {
+              $gridMore.hide();
+            }
+
+            // hide ajax loader
+            $gridMoreBtn.css('display', 'inline-block');
+            $gridAjaxLoader.css('display', 'none');
+          },
+        });
+      });
+
+      // Portfolio fancybox
+      var _player;
+      $('.portfolioFancybox').fancybox({
+        padding: 0,
+        wrapCSS: 'fancybox-portfolio',
+        maxWidth: '795px',
+        maxHeight: '85%',
+        minWidth: '250px',
+        mouseWheel: 'true',
+        scrolling: 'no',
+        autoCenter: true,
+        beforeShow: function () {
+          // Get current popup
+          var currentID = $(this.element).attr('href');
+          var currentPopup = $('.fancybox-portfolio ' + currentID);
+
+          // Append current popup embed
+          var currentEmbed = currentPopup.find('.inline-embed');
+          if (currentEmbed.length > 0) {
+            var currentEmbedType = currentEmbed.data('embed-type');
+            var curentEmbedUrl = currentEmbed.data('embed-url');
+
+            switch (currentEmbedType) {
+              case 'image':
+                currentEmbed.empty();
+                currentEmbed.addClass('inline-embed-image');
+                currentEmbed.append('<img src="' + curentEmbedUrl + '" />');
+                break;
+              case 'iframe':
+                currentEmbed.empty();
+                currentEmbed.addClass('inline-embed-iframe');
+                currentEmbed.append('<iframe src="' + curentEmbedUrl + '" allowfullscreen></iframe>');
+                break;
+              case 'video':
+                _player = ''; // reset player
+                currentEmbed.addClass('inline-embed-video');
+                var currentVideo = $('' + currentID + '').find('video');
+                if (currentVideo.length > 0) {
+                  new MediaElementPlayer(currentID + ' video', { // initialize player
+                    loop: false,
+                    defaultVideoWidth: 723,
+                    defaultVideoHeight: 405,
+                    videoWidth: -1,
+                    videoHeight: -1,
+                    startVolume: 0.7,
+                    enableAutosize: true,
+                    alwaysShowControls: true,
+                    success: function (mediaElement, domObject) {
+                      _player = mediaElement;
+                      _player.load();
+                    },
+                  });
+                }
+                break;
+            }
+          }
+        },
+        afterShow: function () {
+          // Get current popup
+          var currentID = $(this.element).attr('href');
+          var currentPopup = $('.fancybox-portfolio ' + currentID);
+
+          // Make current popup visible with css
+          currentPopup.addClass('opened');
+        },
+        beforeClose: function () {
+          // reset player
+          _player = '';
+        },
+      });
+    }
+
     /** Timeline:
      *  positioning timeline elements */
     if (rsOptions.rtl) { // switch timeline box classes for RTL
@@ -555,6 +1049,28 @@
           adaptiveHeightSpeed: rsOptions.refSlider.adaptiveHeightSpeed,
           nextSelector: ref_slider_prev,
           prevSelector: ref_slider_next,
+          nextText: '<i class="rsicon rsicon-chevron_right"></i>',
+          prevText: '<i class="rsicon rsicon-chevron_left"></i>',
+        });
+      }
+    }
+
+    /** Post Slider */
+    var post_slider = $('.post-slider');
+    if (post_slider.length > 0) {
+      for (var i = 0; i < post_slider.length; i++) {
+        var prevSelector = $(post_slider[i]).closest('.post-media').find('.slider-prev');
+        var nextSelector = $(post_slider[i]).closest('.post-media').find('.slider-next');
+
+        $(post_slider[i]).bxSlider({
+          pager: false,
+          controls: true,
+          speed: rsOptions.postSlider.speed,
+          auto: rsOptions.postSlider.auto,
+          pause: rsOptions.postSlider.pause,
+          autoHover: rsOptions.postSlider.autoHover,
+          nextSelector: nextSelector,
+          prevSelector: prevSelector,
           nextText: '<i class="rsicon rsicon-chevron_right"></i>',
           prevText: '<i class="rsicon rsicon-chevron_left"></i>',
         });
