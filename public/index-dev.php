@@ -118,7 +118,7 @@ $age = $interval->y;
     <link rel="stylesheet" type="text/css" href="<?= assetPath('bundle.css', 'css') ?>">
 </head>
 
-<body class="home header-has-img loading">
+<body class="home header-has-img">
 
 <div class="mobile-nav">
     <button class="btn-mobile mobile-nav-close"><i class="rsicon rsicon-close"></i></button>
