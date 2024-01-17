@@ -121,7 +121,8 @@ $age = $interval->y;
 <body class="home header-has-img">
 
 <div class="mobile-nav">
-    <button class="btn-mobile mobile-nav-close"><i class="rsicon rsicon-close"></i></button>
+    <button class="btn-mobile mobile-nav-close" aria-label="<?= _('Close sidebar') ?>"><i
+                class="rsicon rsicon-close"></i></button>
 
     <div class="mobile-nav-inner">
         <nav id="mobile-nav" class="nav">
@@ -252,7 +253,8 @@ $age = $interval->y;
                             </nav>
 
                             <button class="btn-mobile btn-mobile-nav"><?= _('Menu') ?></button>
-                            <button class="btn-sidebar btn-sidebar-open"><i class="rsicon rsicon-menu"></i></button>
+                            <button class="btn-sidebar btn-sidebar-open" aria-label="<?= _('Open sidebar') ?>"><i
+                                        class="rsicon rsicon-menu"></i></button>
                         </div>
                         <!-- .nav-wrap -->
                     </div>
@@ -290,7 +292,7 @@ $age = $interval->y;
                                         </li>
                                         <li class="clearfix">
                                             <strong class="title"><?= _('Address') ?></strong>
-                                            <span class="cont"><?= _('Debrecen, Hungary, 4033') ?></span>
+                                            <span class="cont"><?= _('Debrecen, Hungary') ?></span>
                                         </li>
                                         <li class="clearfix">
                                             <strong class="title"><?= _('Email') ?></strong>

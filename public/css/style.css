@@ -2858,7 +2858,8 @@ body {
     }
 
     .mobile-nav .nav a {
-        color: #fff;
+        /*color: #fff;*/
+        color: #262626;
         font-size: 14px;
         font-family: "Open Sans", sans-serif;
         line-height: 1;
