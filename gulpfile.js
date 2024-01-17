@@ -27,6 +27,7 @@ gulp.task('pack-js', function () {
     './public/js/plugins/jquery.bxslider/jquery.bxslider.min.js',
     './public/js/plugins/jquery.customscroll/jquery.mCustomScrollbar.concat.min.js',
     './public/js/plugins/jquery.owlcarousel/owl.carousel.min.js',
+    './public/js/lazysizes.min.js',
     './public/js/options.js',
     './public/js/site.js',
   ]).pipe(concat('bundle.js'))

@@ -140,7 +140,8 @@ $age = $interval->y;
 <!-- .mobile-nav -->
 
 <div class="sidebar sidebar-fixed">
-    <button class="btn-sidebar btn-sidebar-close"><i class="rsicon rsicon-close"></i></button>
+    <button class="btn-sidebar btn-sidebar-close" aria-label="<?= _('Toggle sidebar') ?>"><i
+                class="rsicon rsicon-close"></i></button>
 
     <div class="widget-area">
         <aside class="widget widget-profile">
@@ -315,17 +316,18 @@ $age = $interval->y;
                         <div class="profile-social">
                             <ul class="social">
                                 <li>
-                                    <a class="ripple-centered" href="https://twitter.com/pappfer" target="_blank">
+                                    <a class="ripple-centered" href="https://twitter.com/pappfer" target="_blank"
+                                       title="Twitter" rel="nofollow">
                                         <i class="rsicon rsicon-twitter"></i>
                                     </a>
                                 </li>
                                 <li><a class="ripple-centered" href="https://www.linkedin.com/in/pappfer"
-                                       target="_blank"><i
+                                       target="_blank" title="LinkedIn" rel="nofollow"><i
                                                 class="rsicon rsicon-linkedin"></i></a></li>
-                                <li><a class="ripple-centered" href="https://github.com/pappfer" target="_blank"><i
-                                                class="rsicon rsicon-github"></i></a></li>
+                                <li><a class="ripple-centered" href="https://github.com/pappfer" target="_blank"
+                                       title="GitHub" rel="nofollow"><i class="rsicon rsicon-github"></i></a></li>
                                 <li><a class="ripple-centered" href="https://stackoverflow.com/users/3736962/pappfer"
-                                       target="_blank"><i
+                                       target="_blank" title="StackOverflow" rel="nofollow"><i
                                                 class="rsicon rsicon-stack-overflow"></i></a></li>
                             </ul>
                         </div>
@@ -537,7 +539,7 @@ $age = $interval->y;
                                 </div>
                             </div>
 
-                             <div class="timeline-box timeline-box-left">
+                            <div class="timeline-box timeline-box-left">
                                 <span class="dot"></span>
 
                                 <div class="timeline-box-inner animate-right">
@@ -660,22 +662,22 @@ $age = $interval->y;
 
                         <div class="client-logo">
                             <img src="<?= $root ?>img/uploads/logos/logo-vuejs.png" title="Vue JS"
-                                 alt="Vue JS" width="130" height="46">
+                                 alt="Vue JS" width="130" height="46" class="lazyload">
                         </div>
 
                         <div class="client-logo">
                             <img src="<?= $root ?>img/uploads/logos/logo-wordpress.png" title="Wordpress"
-                                 alt="Wordpress" width="141" height="32">
+                                 alt="Wordpress" width="141" height="32" class="lazyload">
                         </div>
 
                         <div class="client-logo">
                             <img src="<?= $root ?>img/uploads/logos/logo-bootstrap.png" title="Bootstrap"
-                                 alt="bootstrap" width="141" height="28">
+                                 alt="bootstrap" width="141" height="28" class="lazyload">
                         </div>
 
                         <div class="client-logo">
                             <img src="<?= $root ?>img/uploads/logos/logo-jquery.png" title="jQuery" alt="jQuery"
-                                 width="141" height="35">
+                                 width="141" height="35" class="lazyload">
                         </div>
                     </div>
                 </div>
@@ -763,11 +765,18 @@ $age = $interval->y;
                     <h2 class="section-title"><?= _('Blog') ?></h2>
 
                     <div class="section-box">
+
+                        <?= _('Explore my latest posts on my X (Twitter) feed:') ?>
+                        <a href="https://twitter.com/pappfer" title="Twitter">https://twitter.com/pappfer</a>
+
+                        <?php /*
                         <a class="twitter-timeline" data-height="600" data-dnt="true" data-theme="light"
                            href="https://twitter.com/pappfer?ref_src=twsrc%5Etfw">Tweets by
                             pappfer</a>
                         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        */ ?>
                     </div>
+
                 </div>
             </section>
             <!-- #blog -->
@@ -834,7 +843,8 @@ $age = $interval->y;
                                     </li>
                                 </ul>
 
-                                <img src="<?= $root ?>img/debrecen.png" alt="Debrecen" width="455" height="410">
+                                <img src="<?= $root ?>img/debrecen.png" alt="Debrecen" width="455" height="410"
+                                     class="lazyload">
                             </div>
                         </div>
                     </div>
@@ -851,14 +861,14 @@ $age = $interval->y;
     <footer class="footer">
         <div class="footer-social">
             <ul class="social">
-                <li><a class="ripple-centered" href="https://twitter.com/pappfer" target="_blank"><i
-                                class="rsicon rsicon-twitter"></i></a></li>
-                <li><a class="ripple-centered" href="https://www.linkedin.com/in/pappfer" target="_blank"><i
-                                class="rsicon rsicon-linkedin"></i></a></li>
-                <li><a class="ripple-centered" href="https://github.com/pappfer" target="_blank"><i
-                                class="rsicon rsicon-github"></i></a></li>
-                <li><a class="ripple-centered" href="https://stackoverflow.com/users/3736962/pappfer" target="_blank"><i
-                                class="rsicon rsicon-stack-overflow"></i></a></li>
+                <li><a class="ripple-centered" href="https://twitter.com/pappfer" target="_blank" title="Twitter"
+                       rel="nofollow"><i class="rsicon rsicon-twitter"></i></a></li>
+                <li><a class="ripple-centered" href="https://www.linkedin.com/in/pappfer" target="_blank"
+                       title="LinkedIn" rel="nofollow"><i class="rsicon rsicon-linkedin"></i></a></li>
+                <li><a class="ripple-centered" href="https://github.com/pappfer" target="_blank" title="GitHub"
+                       rel="nofollow"><i class="rsicon rsicon-github"></i></a></li>
+                <li><a class="ripple-centered" href="https://stackoverflow.com/users/3736962/pappfer" target="_blank"
+                       title="StackOverflow" rel="nofollow"><i class="rsicon rsicon-stack-overflow"></i></a></li>
             </ul>
         </div>
     </footer>
