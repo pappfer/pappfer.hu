@@ -48,6 +48,6 @@ if (strlen($_SERVER['REQUEST_URI']) > 2 && valid($_SERVER['REQUEST_URI'][1] . $_
 putenv('LANG=' . validLangs()[$lang]);
 setlocale(LC_ALL, validLangs()[$lang]);
 
-bindtextdomain('app', __DIR__);
+bindtextdomain('app', __DIR__ . '/locales');
 bind_textdomain_codeset('app', 'UTF-8');
 textdomain('app');
