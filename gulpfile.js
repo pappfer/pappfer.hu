@@ -87,4 +87,4 @@ gulp.task('git-add', function(){
 });
 
 // run the above tasks after each other
-gulp.task('default', gulp.series('clean', 'pack-js', 'pack-css', 'optimize-images', 'minify-html', 'git-add'))
+gulp.task('default', gulp.series('clean', 'pack-js', 'pack-css', /*'optimize-images',*/ 'minify-html', 'git-add'))
