@@ -508,7 +508,7 @@
                 },
               ).fail(function () {
                 rsFormResponse.removeClass('success').addClass('error');
-                rsFormResponse.html('Couldn\'t send email.');
+                rsFormResponse.html('Couldn\'t send email. Please try to manually send it to pappfer@gmail.com.');
               });
             });
           });

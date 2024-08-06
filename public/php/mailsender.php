@@ -57,7 +57,7 @@ if (empty($_POST['g-recaptcha-response'])) {
             $emailBody .= $_POST['rsMessage'];
 
             $email = (new Email())
-                ->from($_POST['rsEmail'])
+                ->from($_ENV['EMAIL'])
                 ->to($_ENV['EMAIL'])
                 ->replyTo($_POST['rsEmail'])
                 ->subject($subject)

@@ -792,7 +792,7 @@ $age = $interval->y;
                             <div class="section-box contact-form">
                                 <h3><?= _('Feel free to contact me') ?></h3>
 
-                                <form class="rsForm" action="php/mailsender.php" method="post">
+                                <form class="rsForm" action="./php/mailsender.php" method="post">
                                     <input type="hidden" name="g-recaptcha-response" class="g-recaptcha-response">
 
                                     <div class="input-field">
