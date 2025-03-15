@@ -318,8 +318,8 @@ $age = $interval->y;
                         <div class="profile-social">
                             <ul class="social">
                                 <li>
-                                    <a class="ripple-centered" href="https://twitter.com/pappfer" target="_blank"
-                                       title="Twitter" rel="nofollow">
+                                    <a class="ripple-centered" href="https://x.com/pappfer" target="_blank"
+                                       title="X (Twitter)" rel="nofollow">
                                         <i class="rsicon rsicon-twitter"></i>
                                     </a>
                                 </li>
@@ -769,7 +769,7 @@ $age = $interval->y;
                     <div class="section-box">
 
                         <?= _('Explore my latest posts on my X (Twitter) feed:') ?>
-                        <a href="https://twitter.com/pappfer" title="Twitter">https://twitter.com/pappfer</a>
+                        <a href="https://x.com/pappfer" title="X (Twitter)">https://x.com/pappfer</a>
 
                         <?php /*
                         <a class="twitter-timeline" data-height="600" data-dnt="true" data-theme="light"
@@ -863,7 +863,7 @@ $age = $interval->y;
     <footer class="footer">
         <div class="footer-social">
             <ul class="social">
-                <li><a class="ripple-centered" href="https://twitter.com/pappfer" target="_blank" title="Twitter"
+                <li><a class="ripple-centered" href="https://x.com/pappfer" target="_blank" title="X (Twitter)"
                        rel="nofollow"><i class="rsicon rsicon-twitter"></i></a></li>
                 <li><a class="ripple-centered" href="https://www.linkedin.com/in/pappfer" target="_blank"
                        title="LinkedIn" rel="nofollow"><i class="rsicon rsicon-linkedin"></i></a></li>
