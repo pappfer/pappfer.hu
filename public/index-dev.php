@@ -147,7 +147,7 @@ $age = $interval->y;
     <div class="widget-area">
         <aside class="widget widget-profile">
             <div class="profile-photo">
-                <img src="<?= $root ?>img/uploads/pappfer-2.jpg" alt="<?= _('Ferenc Papp') ?>" width="331" height="350">
+                <img src="<?= $root ?>img/uploads/pappfer.jpg" alt="<?= _('Ferenc Papp') ?>" width="331" height="350">
             </div>
             <div class="profile-info">
                 <h2 class="profile-title"><?= _('Ferenc Papp') ?></h2>
@@ -275,7 +275,7 @@ $age = $interval->y;
                             <div class="row">
                                 <div class="col-xs-5">
                                     <div class="profile-photo">
-                                        <img src="<?= $root ?>img/uploads/pappfer-2.jpg" alt="<?= _('Ferenc Papp') ?>"
+                                        <img src="<?= $root ?>img/uploads/pappfer.jpg" alt="<?= _('Ferenc Papp') ?>"
                                              width="299" height="317">
                                     </div>
                                 </div>
