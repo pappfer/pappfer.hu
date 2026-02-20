@@ -1,0 +1,184 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Ferenc Papp",
+    "label": "Full-Stack Developer & AI Integration Specialist",
+    "image": "https://pappfer.hu/img/pappfer.webp",
+    "email": "pappfer@pappfer.hu",
+    "url": "https://pappfer.hu",
+    "summary": "Freelance full-stack web developer and AI integration specialist with over 15 years of professional experience. I build fast, scalable web applications using PHP/Laravel, Vue.js, React, and Python, and integrate AI solutions (LLMs, RAG pipelines, vector databases) into business workflows. Based in Debrecen, Hungary, serving clients across Europe and the United States.",
+    "location": {
+      "city": "Debrecen",
+      "region": "Hajdú-Bihar",
+      "countryCode": "HU"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "pappfer",
+        "url": "https://www.linkedin.com/in/pappfer"
+      },
+      {
+        "network": "GitHub",
+        "username": "pappfer",
+        "url": "https://github.com/pappfer"
+      },
+      {
+        "network": "Stack Overflow",
+        "username": "pappfer",
+        "url": "https://stackoverflow.com/users/3736962/pappfer"
+      },
+      {
+        "network": "X",
+        "username": "pappfer",
+        "url": "https://x.com/pappfer"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Self-employed (Sole Proprietor)",
+      "position": "Full-Stack Developer & Technical Consultant",
+      "url": "https://pappfer.hu",
+      "startDate": "2017-03-01",
+      "summary": "Freelance developer building custom web applications, survey systems, and AI integrations for clients including market research companies across Europe and the US.",
+      "highlights": [
+        "Custom Laravel/Vue.js web applications for market research clients",
+        "AI integration: LLMs, RAG pipelines, vector databases, agentic workflows",
+        "Multi-tenant SaaS platforms and survey systems",
+        "Technical consulting and architecture reviews"
+      ]
+    },
+    {
+      "name": "Fathom Minds",
+      "position": "Senior PHP Developer",
+      "url": "https://fathomminds.com",
+      "startDate": "2015-02-01",
+      "endDate": "2017-03-01",
+      "summary": "Led web application and API development using Yii2 framework. Set up the company's Git infrastructure and worked on the internal Flow project.",
+      "highlights": [
+        "Web app and API development with Yii2",
+        "Set up Git infrastructure for the development team",
+        "Worked on internal Flow project"
+      ]
+    },
+    {
+      "name": "Oktafone",
+      "position": "Frontend Developer",
+      "startDate": "2014-07-01",
+      "endDate": "2015-02-01",
+      "summary": "Developed a startup web application using AngularJS, JavaScript, HTML5, and CSS3."
+    },
+    {
+      "name": "pappfer.hu (Freelancer)",
+      "position": "Full-Stack Web Developer",
+      "url": "https://pappfer.hu",
+      "startDate": "2011-12-01",
+      "endDate": "2014-07-01",
+      "summary": "Built websites for individuals and companies using PHP, Yii, Laravel, and WordPress. Acquired clients through freelancer platforms.",
+      "highlights": [
+        "PHP, Yii framework, WordPress, Laravel",
+        "Facebook, LinkedIn, Box.com, Stripe integrations",
+        "Yii console applications with scheduled tasks"
+      ]
+    },
+    {
+      "name": "British Telecom",
+      "position": "Service Desk Analyst 2nd Line",
+      "startDate": "2011-08-01",
+      "endDate": "2011-12-01",
+      "summary": "Configured network devices (routers, switches) for global network support. Communicated with clients worldwide in English."
+    },
+    {
+      "name": "IT Services Hungary",
+      "position": "Contact Center Server Administrator",
+      "url": "https://www.deutschetelekomitsolutions.hu",
+      "startDate": "2010-04-01",
+      "endDate": "2011-08-01",
+      "summary": "Maintained Linux and Windows servers, administered Avaya IP phones. Co-developed a PHP automation tool that saved 3+ hours daily for the team, receiving an innovation award.",
+      "highlights": [
+        "IT Services innovation award for PHP automation tool",
+        "Linux and Windows server administration",
+        "Avaya IP phone administration"
+      ]
+    },
+    {
+      "name": "Concept Solutions",
+      "position": "PHP Developer",
+      "startDate": "2009-04-01",
+      "endDate": "2010-04-01",
+      "summary": "Remote PHP development. Maintained and improved existing codebases, gaining experience with diverse implementation patterns and architectures."
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Bethany Christian Trust",
+      "position": "Volunteer",
+      "url": "https://www.bethanychristiantrust.com",
+      "startDate": "2004-09-01",
+      "endDate": "2005-08-01",
+      "summary": "Worked in a charity shop in Edinburgh, Scotland."
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Debrecen",
+      "area": "Software Engineering",
+      "studyType": "Bachelor's program",
+      "startDate": "2005-09-01",
+      "endDate": "2008-09-01"
+    },
+    {
+      "institution": "Reformed College of Debrecen",
+      "area": "IT Specialist",
+      "studyType": "Secondary school",
+      "startDate": "2000-09-01",
+      "endDate": "2004-05-01"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Backend Development",
+      "keywords": ["PHP", "Laravel", "Symfony", "Yii2", "Python", "FastAPI"]
+    },
+    {
+      "name": "Frontend Development",
+      "keywords": ["Vue.js", "React", "JavaScript", "TypeScript", "Svelte", "HTML5/CSS3", "Tailwind CSS"]
+    },
+    {
+      "name": "AI & Data",
+      "keywords": ["LLM Integration", "RAG Pipelines", "Vector Databases", "OpenAI API", "Anthropic API", "LangChain", "Agentic Workflows"]
+    },
+    {
+      "name": "Databases",
+      "keywords": ["MySQL", "PostgreSQL", "MongoDB", "Redis", "Pinecone", "ChromaDB"]
+    },
+    {
+      "name": "DevOps & Tools",
+      "keywords": ["Linux", "Docker", "Git", "CI/CD", "AWS", "Nginx", "Deployer"]
+    },
+    {
+      "name": "Mobile",
+      "keywords": ["PWA", "Offline-First Architecture", "React Native", "Ionic"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Hungarian",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "English",
+      "fluency": "Fluent"
+    },
+    {
+      "language": "German",
+      "fluency": "Basic"
+    }
+  ],
+  "meta": {
+    "version": "v2.0.0",
+    "lastModified": "2026-02-20",
+    "canonical": "https://pappfer.hu/resume.json"
+  }
+}

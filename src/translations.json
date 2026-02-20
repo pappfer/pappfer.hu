@@ -1,0 +1,664 @@
+{
+  "en": {
+    "lang": "en",
+    "locale": "en_US",
+    "htmlLang": "en",
+    "direction": "ltr",
+
+    "meta": {
+      "title": "Ferenc Papp — Full-Stack Developer & AI Integration Specialist | Debrecen, Hungary",
+      "description": "Freelance full-stack developer with 15+ years of experience. Specializing in Laravel, Vue.js, React, Python, and AI integration. Serving clients across Europe and the US.",
+      "ogSiteName": "Ferenc Papp — Full-Stack Developer"
+    },
+
+    "nav": {
+      "about": "About",
+      "services": "Services",
+      "techStack": "Tech Stack",
+      "experience": "Experience",
+      "testimonials": "Testimonials",
+      "faq": "FAQ",
+      "contact": "Contact",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "toggleTheme": "Toggle theme",
+      "skipToContent": "Skip to content"
+    },
+
+    "hero": {
+      "availability": "Available for new projects",
+      "greeting": "Hello, I'm",
+      "name": "Ferenc Papp",
+      "title": "Full-Stack Developer & AI Integration Specialist",
+      "description": "I build fast, scalable web applications and integrate AI solutions that give your business a competitive edge. 15+ years of experience, clients worldwide.",
+      "cta": "Let's Talk",
+      "cv": "Download CV",
+      "stats": {
+        "experience": "15+ years experience",
+        "clients": "Clients worldwide",
+        "languages": "EN / HU / DE"
+      }
+    },
+
+    "about": {
+      "label": "About Me",
+      "title": "Who I Am",
+      "p1": "Ferenc Papp is a freelance full-stack web developer based in Debrecen, Hungary, with over 15 years of professional experience. He specializes in building robust, scalable web applications using PHP/Laravel, Vue.js, React, Python, and cutting-edge AI technologies.",
+      "p2": "He delivers custom web applications, survey platforms, multi-tenant SaaS systems, and AI-powered automation solutions. His clients range from startups to established market research companies, and he is known for writing clean, tested, production-ready code.",
+      "p3": "Based in Debrecen, Hungary, Ferenc works with clients across Europe and the United States. He is fluent in English, a native Hungarian speaker, and has basic German proficiency. He provides custom web development, AI integration, and technical consulting services."
+    },
+
+    "services": {
+      "label": "What I Do",
+      "title": "Services",
+      "items": [
+        {
+          "icon": "code",
+          "title": "Custom Web Applications",
+          "description": "From MVPs to enterprise multi-tenant platforms. Built with Laravel, Symfony, Vue.js, and React. Clean architecture, tested code, production-ready."
+        },
+        {
+          "icon": "ai",
+          "title": "AI Integration & Automation",
+          "description": "LLM integration (OpenAI, Anthropic APIs), vector databases, RAG pipelines, and agentic workflows. Practical AI solutions for real business problems."
+        },
+        {
+          "icon": "mobile",
+          "title": "Mobile & PWA Development",
+          "description": "Progressive Web Apps with offline-first architecture. Cross-platform mobile solutions that load fast and work without connectivity."
+        },
+        {
+          "icon": "consulting",
+          "title": "Technical Consulting",
+          "description": "Architecture reviews, technology selection, performance optimization, and dev team mentoring. Strategic guidance for your technical decisions."
+        }
+      ]
+    },
+
+    "techStack": {
+      "label": "Technologies",
+      "title": "Tech Stack",
+      "categories": [
+        { "name": "Backend", "items": ["PHP", "Laravel", "Symfony", "Yii2", "Python", "FastAPI", "MySQL", "PostgreSQL", "MongoDB", "Redis"] },
+        { "name": "Frontend", "items": ["Vue.js", "React", "JavaScript", "TypeScript", "Svelte", "HTML5/CSS3", "Tailwind CSS"] },
+        { "name": "AI & Data", "items": ["LLM Integration", "Embeddings", "Vector Databases", "RAG Pipelines", "Agentic Coding", "OpenAI API", "Anthropic API", "LangChain"] },
+        { "name": "DevOps & Tools", "items": ["Linux", "Docker", "Git", "CI/CD", "AWS", "Nginx", "Deployer"] },
+        { "name": "Mobile", "items": ["PWA", "Offline-First", "React Native", "Ionic"] }
+      ]
+    },
+
+    "experience": {
+      "label": "Career",
+      "title": "Experience",
+      "timeline": [
+        {
+          "period": "2017 – Present",
+          "company": "Self-employed (Sole Proprietor)",
+          "role": "Full-Stack Developer & Technical Consultant",
+          "description": "Freelance developer building custom web apps, survey systems, and AI integrations for clients including market research companies across Europe and the US."
+        },
+        {
+          "period": "2015 – 2017",
+          "company": "Fathom Minds",
+          "role": "Senior PHP Developer",
+          "description": "Led web app and API development with Yii2. Set up Git infrastructure for the development team."
+        },
+        {
+          "period": "2014 – 2015",
+          "company": "Oktafone",
+          "role": "Frontend Developer",
+          "description": "Startup web application development with AngularJS, JavaScript, HTML5, and CSS3."
+        },
+        {
+          "period": "2011 – 2014",
+          "company": "Freelancer (pappfer.hu)",
+          "role": "PHP Developer",
+          "description": "Built websites for individuals and companies using PHP, Yii, Laravel, and WordPress. Facebook, LinkedIn, Box.com, and Stripe integrations."
+        },
+        {
+          "period": "2011",
+          "company": "British Telecom",
+          "role": "Service Desk Analyst 2nd Line",
+          "description": "Configured network devices (routers, switches) for global network support. Communicated with clients worldwide in English."
+        },
+        {
+          "period": "2010 – 2011",
+          "company": "IT Services Hungary",
+          "role": "Contact Center Server Administrator",
+          "description": "Linux and Windows server administration, Avaya IP phone management. Co-developed a PHP automation tool saving 3+ hours/day — received innovation award."
+        },
+        {
+          "period": "2009 – 2010",
+          "company": "Concept Solutions",
+          "role": "PHP Developer",
+          "description": "Remote PHP development. Maintained and improved existing codebases, gaining experience with diverse architectures and implementation patterns."
+        }
+      ]
+    },
+
+    "testimonials": {
+      "label": "What Clients Say",
+      "title": "Testimonials",
+      "items": [
+        {
+          "quote": "Reliable and fast. We have been working with him for years. He built several of our websites from scratch. I can only recommend him.",
+          "name": "Mészáros Tibor",
+          "company": "Sentonard Media"
+        },
+        {
+          "quote": "Excellent freelancer and very easy to work with. Great knowledge of PHP frameworks, excellent English and very good communicator, and very reliable.",
+          "name": "Phil Guegan",
+          "company": "CEO & Founder, Infogems"
+        },
+        {
+          "quote": "Ferenc is a very talented PHP developer. He quickly got to grips with what was required and delivered everything (and more) that I expected. I would happily work with him again.",
+          "name": "DanD",
+          "company": "Client"
+        }
+      ]
+    },
+
+    "faq": {
+      "label": "Common Questions",
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "What technologies do you specialize in?",
+          "answer": "My core stack is PHP/Laravel for backend, Vue.js and React for frontend, and Python/FastAPI for AI integrations. I also work with MySQL, PostgreSQL, MongoDB, Redis, Docker, and various cloud platforms."
+        },
+        {
+          "question": "Do you work with international clients?",
+          "answer": "Yes, I regularly work with clients across Europe and the United States. I speak fluent English and communicate across time zones daily. Most of my current clients are based outside Hungary."
+        },
+        {
+          "question": "What kind of AI integrations do you offer?",
+          "answer": "I integrate LLMs (OpenAI, Anthropic) into business workflows, build RAG pipelines with vector databases, create agentic automation systems, and develop AI-powered features for existing applications."
+        },
+        {
+          "question": "How do you handle project communication?",
+          "answer": "I'm flexible — Slack, Teams, email, or video calls, whatever works best for your team. I provide regular updates and believe in transparent, proactive communication."
+        },
+        {
+          "question": "What is your typical project timeline?",
+          "answer": "It depends on scope. Small features take days, MVPs take 4–8 weeks, larger platforms 2–6 months. I always provide detailed estimates upfront and keep you informed of progress."
+        },
+        {
+          "question": "What is your hourly rate / pricing model?",
+          "answer": "I work with both hourly and fixed-price models depending on the project. Contact me with your project details for a personalized quote."
+        }
+      ]
+    },
+
+    "contact": {
+      "label": "Get In Touch",
+      "title": "Contact",
+      "description": "Have a project in mind? Let's discuss how I can help.",
+      "form": {
+        "name": "Name",
+        "email": "Email",
+        "message": "Message",
+        "send": "Send Message",
+        "sending": "Sending...",
+        "success": "Thank you! Your message has been sent. I'll get back to you soon.",
+        "error": "Something went wrong. Please try again or email me directly."
+      },
+      "info": {
+        "emailLabel": "Email",
+        "email": "pappfer@pappfer.hu",
+        "locationLabel": "Location",
+        "location": "Debrecen, Hungary",
+        "responseLabel": "Response Time",
+        "response": "Usually within 24 hours",
+        "socialLabel": "Find me on"
+      }
+    },
+
+    "footer": {
+      "name": "Ferenc Papp",
+      "rights": "All rights reserved.",
+      "builtWith": "Built with semantic HTML, vanilla CSS, and zero frameworks."
+    }
+  },
+
+  "hu": {
+    "lang": "hu",
+    "locale": "hu_HU",
+    "htmlLang": "hu",
+    "direction": "ltr",
+
+    "meta": {
+      "title": "Papp Ferenc — Full-Stack Fejlesztő & AI Integrációs Szakértő | Debrecen",
+      "description": "Szabadúszó full-stack fejlesztő, 15+ év tapasztalattal. Laravel, Vue.js, React, Python és AI integráció. Ügyfelek Európa-szerte és az USA-ban.",
+      "ogSiteName": "Papp Ferenc — Full-Stack Fejlesztő"
+    },
+
+    "nav": {
+      "about": "Rólam",
+      "services": "Szolgáltatások",
+      "techStack": "Technológiák",
+      "experience": "Tapasztalat",
+      "testimonials": "Referenciák",
+      "faq": "GYIK",
+      "contact": "Kapcsolat",
+      "openMenu": "Menü megnyitása",
+      "closeMenu": "Menü bezárása",
+      "toggleTheme": "Téma váltása",
+      "skipToContent": "Ugrás a tartalomhoz"
+    },
+
+    "hero": {
+      "availability": "Elérhető új projektekre",
+      "greeting": "Szia, én vagyok",
+      "name": "Papp Ferenc",
+      "title": "Full-Stack Fejlesztő & AI Integrációs Szakértő",
+      "description": "Gyors, skálázható webalkalmazásokat fejlesztek és AI megoldásokat integrálok, amelyek versenyelőnyt biztosítanak a vállalkozásodnak. Több mint 15 év tapasztalat, ügyfelek világszerte.",
+      "cta": "Beszéljünk!",
+      "cv": "Önéletrajz letöltése",
+      "stats": {
+        "experience": "15+ év tapasztalat",
+        "clients": "Ügyfelek világszerte",
+        "languages": "EN / HU / DE"
+      }
+    },
+
+    "about": {
+      "label": "Rólam",
+      "title": "Ki vagyok én",
+      "p1": "Szabadúszó full-stack webfejlesztő vagyok Debrecenben, több mint 15 év szakmai tapasztalattal. Robusztus, skálázható webalkalmazásokat fejlesztek PHP/Laravel, Vue.js, React, Python és modern AI technológiák felhasználásával.",
+      "p2": "Egyedi webalkalmazásokat, kérdőív platformokat, multi-tenant SaaS rendszereket és AI-alapú automatizálási megoldásokat készítek. Ügyfeleim között startupok és piackutató cégek egyaránt megtalálhatók, és büszke vagyok a tiszta, tesztelt, produkciókész kódomra.",
+      "p3": "Debrecenben élek, de európai és amerikai ügyfelekkel egyaránt dolgozom. Folyékonyan beszélek angolul, anyanyelvem a magyar, és alapszintű német nyelvtudásom is van. Egyedi webfejlesztési, AI integrációs és technikai tanácsadási szolgáltatásokat nyújtok."
+    },
+
+    "services": {
+      "label": "Szolgáltatásaim",
+      "title": "Szolgáltatások",
+      "items": [
+        {
+          "icon": "code",
+          "title": "Egyedi Webalkalmazások",
+          "description": "MVP-ktől a vállalati multi-tenant platformokig. Laravel, Symfony, Vue.js és React technológiákkal. Tiszta architektúra, tesztelt kód, produkciókész."
+        },
+        {
+          "icon": "ai",
+          "title": "AI Integráció & Automatizálás",
+          "description": "LLM integráció (OpenAI, Anthropic API-k), vektor adatbázisok, RAG pipeline-ok és ágens munkafolyamatok. Gyakorlati AI megoldások valós üzleti problémákra."
+        },
+        {
+          "icon": "mobile",
+          "title": "Mobil & PWA Fejlesztés",
+          "description": "Progressive Web Appok offline-first architektúrával. Cross-platform mobil megoldások, amelyek gyorsan töltődnek és internetkapcsolat nélkül is működnek."
+        },
+        {
+          "icon": "consulting",
+          "title": "Technikai Tanácsadás",
+          "description": "Architektúra felülvizsgálat, technológia kiválasztás, teljesítményoptimalizálás és fejlesztői csapat mentorálás. Stratégiai útmutatás a technikai döntéseidhez."
+        }
+      ]
+    },
+
+    "techStack": {
+      "label": "Technológiák",
+      "title": "Tech Stack",
+      "categories": [
+        { "name": "Backend", "items": ["PHP", "Laravel", "Symfony", "Yii2", "Python", "FastAPI", "MySQL", "PostgreSQL", "MongoDB", "Redis"] },
+        { "name": "Frontend", "items": ["Vue.js", "React", "JavaScript", "TypeScript", "Svelte", "HTML5/CSS3", "Tailwind CSS"] },
+        { "name": "AI & Adat", "items": ["LLM Integráció", "Embeddings", "Vektor Adatbázisok", "RAG Pipeline-ok", "Ágens Kódolás", "OpenAI API", "Anthropic API", "LangChain"] },
+        { "name": "DevOps & Eszközök", "items": ["Linux", "Docker", "Git", "CI/CD", "AWS", "Nginx", "Deployer"] },
+        { "name": "Mobil", "items": ["PWA", "Offline-First", "React Native", "Ionic"] }
+      ]
+    },
+
+    "experience": {
+      "label": "Karrier",
+      "title": "Tapasztalat",
+      "timeline": [
+        {
+          "period": "2017 – Jelenleg",
+          "company": "Egyéni vállalkozó",
+          "role": "Full-Stack Fejlesztő & Technikai Tanácsadó",
+          "description": "Szabadúszó fejlesztő, egyedi webalkalmazások, kérdőív rendszerek és AI integrációk fejlesztése európai és amerikai piackutató cégek számára."
+        },
+        {
+          "period": "2015 – 2017",
+          "company": "Fathom Minds",
+          "role": "Senior PHP Fejlesztő",
+          "description": "Webalkalmazás és API fejlesztés Yii2 keretrendszerrel. Git infrastruktúra kiépítése a fejlesztőcsapat számára."
+        },
+        {
+          "period": "2014 – 2015",
+          "company": "Oktafone",
+          "role": "Frontend Fejlesztő",
+          "description": "Startup webalkalmazás fejlesztése AngularJS, JavaScript, HTML5 és CSS3 technológiákkal."
+        },
+        {
+          "period": "2011 – 2014",
+          "company": "Szabadúszó (pappfer.hu)",
+          "role": "PHP Fejlesztő",
+          "description": "Weboldalak készítése magánszemélyek és cégek számára PHP, Yii, Laravel és WordPress használatával. Facebook, LinkedIn, Box.com és Stripe integrációk."
+        },
+        {
+          "period": "2011",
+          "company": "British Telecom",
+          "role": "Service Desk Analyst 2nd Line",
+          "description": "Hálózati eszközök (routerek, switch-ek) konfigurálása globális hálózat támogatáshoz. Angol nyelvű kommunikáció ügyfelekkel világszerte."
+        },
+        {
+          "period": "2010 – 2011",
+          "company": "IT Services Hungary",
+          "role": "Contact Center szerver adminisztrátor",
+          "description": "Linux és Windows szerverek felügyelete, Avaya IP telefonok adminisztrációja. PHP automatizálási eszköz fejlesztése, amely napi 3+ óra megtakarítást eredményezett — innovációs díj."
+        },
+        {
+          "period": "2009 – 2010",
+          "company": "Concept Solutions",
+          "role": "PHP Fejlesztő",
+          "description": "Távmunkában PHP fejlesztés. Meglévő kódbázisok karbantartása és fejlesztése, tapasztalatszerzés különböző architektúrákkal és implementációs mintákkal."
+        }
+      ]
+    },
+
+    "testimonials": {
+      "label": "Ügyfeleim mondták",
+      "title": "Referenciák",
+      "items": [
+        {
+          "quote": "Megbízható és gyors. Évek óta dolgozunk vele. Több weboldalunkat is a nulláról építette fel. Csak ajánlani tudom.",
+          "name": "Mészáros Tibor",
+          "company": "Sentonard Media"
+        },
+        {
+          "quote": "Kiváló szabadúszó, nagyon könnyű vele dolgozni. Kiváló PHP keretrendszer ismeretek, kiváló angol nyelvtudás, nagyon jó kommunikátor és megbízható.",
+          "name": "Phil Guegan",
+          "company": "CEO & Alapító, Infogems"
+        },
+        {
+          "quote": "Ferenc egy nagyon tehetséges PHP fejlesztő. Gyorsan megértette, mire van szükség, és mindent (sőt többet is) leszállított, amit vártam. Szívesen dolgoznék vele újra.",
+          "name": "DanD",
+          "company": "Ügyfél"
+        }
+      ]
+    },
+
+    "faq": {
+      "label": "Gyakori Kérdések",
+      "title": "Gyakran Ismételt Kérdések",
+      "items": [
+        {
+          "question": "Milyen technológiákra specializálódsz?",
+          "answer": "Fő technológiáim a PHP/Laravel backend fejlesztéshez, Vue.js és React a frontendhez, valamint Python/FastAPI az AI integrációkhoz. Emellett dolgozom MySQL, PostgreSQL, MongoDB, Redis, Docker és különböző felhőplatformokkal."
+        },
+        {
+          "question": "Dolgozol nemzetközi ügyfelekkel?",
+          "answer": "Igen, rendszeresen dolgozom európai és amerikai ügyfelekkel. Folyékonyan beszélek angolul és naponta kommunikálok különböző időzónákban. Jelenlegi ügyfeleim többsége Magyarországon kívül van."
+        },
+        {
+          "question": "Milyen AI integrációkat kínálsz?",
+          "answer": "LLM-eket (OpenAI, Anthropic) integrálok üzleti munkafolyamatokba, RAG pipeline-okat építek vektor adatbázisokkal, ágens automatizálási rendszereket hozok létre, és AI-alapú funkciókat fejlesztek meglévő alkalmazásokhoz."
+        },
+        {
+          "question": "Hogyan kezeled a projekt kommunikációt?",
+          "answer": "Rugalmas vagyok — Slack, Teams, email vagy videóhívás, ami a legjobban megfelel a csapatodnak. Rendszeres frissítéseket adok és hiszek az átlátható, proaktív kommunikációban."
+        },
+        {
+          "question": "Mi a tipikus projekt időtartam?",
+          "answer": "A terjedelmétől függ. Kisebb funkciók napok alatt elkészülnek, MVP-k 4-8 hét, nagyobb platformok 2-6 hónap. Mindig részletes becslést adok előre és folyamatosan tájékoztatom a haladásról."
+        },
+        {
+          "question": "Mi az óradíjad / árazási modelled?",
+          "answer": "Óradíjas és fix áras modellel is dolgozom a projekttől függően. Írj nekem a projekt részleteivel egy személyre szabott ajánlatért."
+        }
+      ]
+    },
+
+    "contact": {
+      "label": "Kapcsolat",
+      "title": "Kapcsolatfelvétel",
+      "description": "Van egy projekt ötleted? Beszéljük meg, hogyan segíthetek.",
+      "form": {
+        "name": "Név",
+        "email": "E-mail",
+        "message": "Üzenet",
+        "send": "Üzenet küldése",
+        "sending": "Küldés...",
+        "success": "Köszönöm! Üzeneted elküldve. Hamarosan válaszolok.",
+        "error": "Hiba történt. Kérlek, próbáld újra, vagy írj e-mailt közvetlenül."
+      },
+      "info": {
+        "emailLabel": "E-mail",
+        "email": "pappfer@pappfer.hu",
+        "locationLabel": "Helyszín",
+        "location": "Debrecen, Magyarország",
+        "responseLabel": "Válaszidő",
+        "response": "Általában 24 órán belül",
+        "socialLabel": "Közösségi média"
+      }
+    },
+
+    "footer": {
+      "name": "Papp Ferenc",
+      "rights": "Minden jog fenntartva.",
+      "builtWith": "Szemantikus HTML-lel, vanilla CSS-sel és nulla keretrendszerrel készült."
+    }
+  },
+
+  "de": {
+    "lang": "de",
+    "locale": "de_DE",
+    "htmlLang": "de",
+    "direction": "ltr",
+
+    "meta": {
+      "title": "Ferenc Papp — Full-Stack Entwickler & KI-Integrationsspezialist | Debrecen, Ungarn",
+      "description": "Freiberuflicher Full-Stack Entwickler mit über 15 Jahren Erfahrung. Spezialisiert auf Laravel, Vue.js, React, Python und KI-Integration. Kunden in Europa und den USA.",
+      "ogSiteName": "Ferenc Papp — Full-Stack Entwickler"
+    },
+
+    "nav": {
+      "about": "Über mich",
+      "services": "Leistungen",
+      "techStack": "Technologien",
+      "experience": "Erfahrung",
+      "testimonials": "Referenzen",
+      "faq": "FAQ",
+      "contact": "Kontakt",
+      "openMenu": "Menü öffnen",
+      "closeMenu": "Menü schließen",
+      "toggleTheme": "Thema wechseln",
+      "skipToContent": "Zum Inhalt springen"
+    },
+
+    "hero": {
+      "availability": "Verfügbar für neue Projekte",
+      "greeting": "Hallo, ich bin",
+      "name": "Ferenc Papp",
+      "title": "Full-Stack Entwickler & KI-Integrationsspezialist",
+      "description": "Ich entwickle schnelle, skalierbare Webanwendungen und integriere KI-Lösungen, die Ihrem Unternehmen einen Wettbewerbsvorteil verschaffen. Über 15 Jahre Erfahrung, Kunden weltweit.",
+      "cta": "Kontakt aufnehmen",
+      "cv": "Lebenslauf herunterladen",
+      "stats": {
+        "experience": "15+ Jahre Erfahrung",
+        "clients": "Kunden weltweit",
+        "languages": "EN / HU / DE"
+      }
+    },
+
+    "about": {
+      "label": "Über mich",
+      "title": "Wer ich bin",
+      "p1": "Ferenc Papp ist ein freiberuflicher Full-Stack Webentwickler mit Sitz in Debrecen, Ungarn, mit über 15 Jahren Berufserfahrung. Er ist spezialisiert auf die Entwicklung robuster, skalierbarer Webanwendungen mit PHP/Laravel, Vue.js, React, Python und modernsten KI-Technologien.",
+      "p2": "Er liefert maßgeschneiderte Webanwendungen, Umfrageplattformen, Multi-Tenant SaaS-Systeme und KI-gestützte Automatisierungslösungen. Seine Kunden reichen von Startups bis hin zu etablierten Marktforschungsunternehmen, und er ist bekannt für sauberen, getesteten, produktionsreifen Code.",
+      "p3": "Ferenc arbeitet von Debrecen, Ungarn aus mit Kunden in ganz Europa und den Vereinigten Staaten. Er spricht fließend Englisch, ist ungarischer Muttersprachler und verfügt über grundlegende Deutschkenntnisse. Er bietet maßgeschneiderte Webentwicklung, KI-Integration und technische Beratung."
+    },
+
+    "services": {
+      "label": "Meine Leistungen",
+      "title": "Leistungen",
+      "items": [
+        {
+          "icon": "code",
+          "title": "Individuelle Webanwendungen",
+          "description": "Von MVPs bis zu Enterprise Multi-Tenant-Plattformen. Entwickelt mit Laravel, Symfony, Vue.js und React. Saubere Architektur, getesteter Code, produktionsreif."
+        },
+        {
+          "icon": "ai",
+          "title": "KI-Integration & Automatisierung",
+          "description": "LLM-Integration (OpenAI, Anthropic APIs), Vektordatenbanken, RAG-Pipelines und agentische Workflows. Praktische KI-Lösungen für reale Geschäftsprobleme."
+        },
+        {
+          "icon": "mobile",
+          "title": "Mobile & PWA-Entwicklung",
+          "description": "Progressive Web Apps mit Offline-First-Architektur. Cross-Platform Mobile Lösungen, die schnell laden und ohne Internetverbindung funktionieren."
+        },
+        {
+          "icon": "consulting",
+          "title": "Technische Beratung",
+          "description": "Architektur-Reviews, Technologieauswahl, Leistungsoptimierung und Entwicklerteam-Mentoring. Strategische Beratung für Ihre technischen Entscheidungen."
+        }
+      ]
+    },
+
+    "techStack": {
+      "label": "Technologien",
+      "title": "Tech Stack",
+      "categories": [
+        { "name": "Backend", "items": ["PHP", "Laravel", "Symfony", "Yii2", "Python", "FastAPI", "MySQL", "PostgreSQL", "MongoDB", "Redis"] },
+        { "name": "Frontend", "items": ["Vue.js", "React", "JavaScript", "TypeScript", "Svelte", "HTML5/CSS3", "Tailwind CSS"] },
+        { "name": "KI & Daten", "items": ["LLM-Integration", "Embeddings", "Vektordatenbanken", "RAG-Pipelines", "Agentisches Coding", "OpenAI API", "Anthropic API", "LangChain"] },
+        { "name": "DevOps & Tools", "items": ["Linux", "Docker", "Git", "CI/CD", "AWS", "Nginx", "Deployer"] },
+        { "name": "Mobil", "items": ["PWA", "Offline-First", "React Native", "Ionic"] }
+      ]
+    },
+
+    "experience": {
+      "label": "Karriere",
+      "title": "Erfahrung",
+      "timeline": [
+        {
+          "period": "2017 – Heute",
+          "company": "Selbstständig (Einzelunternehmer)",
+          "role": "Full-Stack Entwickler & Technischer Berater",
+          "description": "Freiberuflicher Entwickler für maßgeschneiderte Webanwendungen, Umfragesysteme und KI-Integrationen für Kunden, darunter Marktforschungsunternehmen in Europa und den USA."
+        },
+        {
+          "period": "2015 – 2017",
+          "company": "Fathom Minds",
+          "role": "Senior PHP Entwickler",
+          "description": "Leitung der Webanwendungs- und API-Entwicklung mit Yii2. Aufbau der Git-Infrastruktur für das Entwicklungsteam."
+        },
+        {
+          "period": "2014 – 2015",
+          "company": "Oktafone",
+          "role": "Frontend Entwickler",
+          "description": "Startup-Webanwendungsentwicklung mit AngularJS, JavaScript, HTML5 und CSS3."
+        },
+        {
+          "period": "2011 – 2014",
+          "company": "Freiberufler (pappfer.hu)",
+          "role": "PHP Entwickler",
+          "description": "Websites für Privatpersonen und Unternehmen mit PHP, Yii, Laravel und WordPress. Facebook-, LinkedIn-, Box.com- und Stripe-Integrationen."
+        },
+        {
+          "period": "2011",
+          "company": "British Telecom",
+          "role": "Service Desk Analyst 2nd Line",
+          "description": "Konfiguration von Netzwerkgeräten (Router, Switches) für den globalen Netzwerksupport. Englischsprachige Kommunikation mit Kunden weltweit."
+        },
+        {
+          "period": "2010 – 2011",
+          "company": "IT Services Hungary",
+          "role": "Contact Center Server Administrator",
+          "description": "Linux- und Windows-Serveradministration, Avaya IP-Telefonverwaltung. Mitentwicklung eines PHP-Automatisierungstools mit über 3 Stunden täglicher Zeitersparnis — Innovationspreis."
+        },
+        {
+          "period": "2009 – 2010",
+          "company": "Concept Solutions",
+          "role": "PHP Entwickler",
+          "description": "Remote PHP-Entwicklung. Wartung und Verbesserung bestehender Codebasen, Erfahrung mit verschiedenen Architekturen und Implementierungsmustern."
+        }
+      ]
+    },
+
+    "testimonials": {
+      "label": "Kundenstimmen",
+      "title": "Referenzen",
+      "items": [
+        {
+          "quote": "Zuverlässig und schnell. Wir arbeiten seit Jahren mit ihm zusammen. Er hat mehrere unserer Websites von Grund auf erstellt. Ich kann ihn nur empfehlen.",
+          "name": "Mészáros Tibor",
+          "company": "Sentonard Media"
+        },
+        {
+          "quote": "Exzellenter Freiberufler und sehr einfach in der Zusammenarbeit. Hervorragende Kenntnisse von PHP-Frameworks, ausgezeichnetes Englisch, sehr guter Kommunikator und sehr zuverlässig.",
+          "name": "Phil Guegan",
+          "company": "CEO & Gründer, Infogems"
+        },
+        {
+          "quote": "Ferenc ist ein sehr talentierter PHP-Entwickler. Er hat schnell verstanden, was gebraucht wurde, und alles (und mehr) geliefert, was ich erwartet habe. Ich würde gerne wieder mit ihm arbeiten.",
+          "name": "DanD",
+          "company": "Kunde"
+        }
+      ]
+    },
+
+    "faq": {
+      "label": "Häufige Fragen",
+      "title": "Häufig gestellte Fragen",
+      "items": [
+        {
+          "question": "Auf welche Technologien sind Sie spezialisiert?",
+          "answer": "Mein Kern-Stack ist PHP/Laravel für Backend, Vue.js und React für Frontend sowie Python/FastAPI für KI-Integrationen. Ich arbeite auch mit MySQL, PostgreSQL, MongoDB, Redis, Docker und verschiedenen Cloud-Plattformen."
+        },
+        {
+          "question": "Arbeiten Sie mit internationalen Kunden?",
+          "answer": "Ja, ich arbeite regelmäßig mit Kunden in ganz Europa und den Vereinigten Staaten. Ich spreche fließend Englisch und kommuniziere täglich über Zeitzonen hinweg. Die meisten meiner aktuellen Kunden sind außerhalb Ungarns ansässig."
+        },
+        {
+          "question": "Welche Art von KI-Integrationen bieten Sie an?",
+          "answer": "Ich integriere LLMs (OpenAI, Anthropic) in Geschäftsabläufe, baue RAG-Pipelines mit Vektordatenbanken, erstelle agentische Automatisierungssysteme und entwickle KI-gestützte Funktionen für bestehende Anwendungen."
+        },
+        {
+          "question": "Wie handhaben Sie die Projektkommunikation?",
+          "answer": "Ich bin flexibel — Slack, Teams, E-Mail oder Videoanrufe, was am besten für Ihr Team funktioniert. Ich gebe regelmäßige Updates und glaube an transparente, proaktive Kommunikation."
+        },
+        {
+          "question": "Was ist Ihr typischer Projektzeitrahmen?",
+          "answer": "Es kommt auf den Umfang an. Kleine Features dauern Tage, MVPs 4–8 Wochen, größere Plattformen 2–6 Monate. Ich liefere immer detaillierte Schätzungen im Voraus und halte Sie über den Fortschritt auf dem Laufenden."
+        },
+        {
+          "question": "Was ist Ihr Stundensatz / Preismodell?",
+          "answer": "Ich arbeite sowohl mit Stunden- als auch mit Festpreismodellen, je nach Projekt. Kontaktieren Sie mich mit Ihren Projektdetails für ein individuelles Angebot."
+        }
+      ]
+    },
+
+    "contact": {
+      "label": "Kontakt",
+      "title": "Kontakt aufnehmen",
+      "description": "Haben Sie ein Projekt im Sinn? Lassen Sie uns besprechen, wie ich helfen kann.",
+      "form": {
+        "name": "Name",
+        "email": "E-Mail",
+        "message": "Nachricht",
+        "send": "Nachricht senden",
+        "sending": "Wird gesendet...",
+        "success": "Vielen Dank! Ihre Nachricht wurde gesendet. Ich melde mich bald bei Ihnen.",
+        "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt eine E-Mail."
+      },
+      "info": {
+        "emailLabel": "E-Mail",
+        "email": "pappfer@pappfer.hu",
+        "locationLabel": "Standort",
+        "location": "Debrecen, Ungarn",
+        "responseLabel": "Antwortzeit",
+        "response": "In der Regel innerhalb von 24 Stunden",
+        "socialLabel": "Finden Sie mich auf"
+      }
+    },
+
+    "footer": {
+      "name": "Ferenc Papp",
+      "rights": "Alle Rechte vorbehalten.",
+      "builtWith": "Erstellt mit semantischem HTML, Vanilla CSS und null Frameworks."
+    }
+  }
+}
