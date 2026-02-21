@@ -8,7 +8,8 @@
     "meta": {
       "title": "Ferenc Papp — Full-Stack Developer & AI Integration Specialist | Debrecen, Hungary",
       "description": "Freelance full-stack developer with 15+ years of experience. Specializing in Laravel, Vue.js, React, Python, and AI integration. Serving clients across Europe and the US.",
-      "ogSiteName": "Ferenc Papp — Full-Stack Developer"
+      "ogSiteName": "Ferenc Papp — Full-Stack Developer",
+      "ogImageAlt": "Ferenc Papp — Full-Stack Developer & AI Integration Specialist"
     },
 
     "nav": {
@@ -33,6 +34,8 @@
       "description": "I build fast, scalable web applications and integrate AI solutions that give your business a competitive edge. 15+ years of experience, clients worldwide.",
       "cta": "Let's Talk",
       "cv": "Download CV",
+      "cvEn": "English CV (PDF)",
+      "cvJson": "Machine-readable CV (JSON)",
       "stats": {
         "experience": "15+ years experience",
         "clients": "Clients worldwide",
@@ -161,6 +164,7 @@
     "faq": {
       "label": "Common Questions",
       "title": "Frequently Asked Questions",
+      "entityLine": "Ferenc Papp provides these services as a freelance full-stack developer from Debrecen, Hungary.",
       "items": [
         {
           "question": "What technologies do you specialize in?",
@@ -229,7 +233,8 @@
     "meta": {
       "title": "Papp Ferenc — Full-Stack Fejlesztő & AI Integrációs Szakértő | Debrecen",
       "description": "Szabadúszó full-stack fejlesztő, 15+ év tapasztalattal. Laravel, Vue.js, React, Python és AI integráció. Ügyfelek Európa-szerte és az USA-ban.",
-      "ogSiteName": "Papp Ferenc — Full-Stack Fejlesztő"
+      "ogSiteName": "Papp Ferenc — Full-Stack Fejlesztő",
+      "ogImageAlt": "Papp Ferenc — Full-Stack Fejlesztő és AI Integrációs Szakértő"
     },
 
     "nav": {
@@ -254,6 +259,8 @@
       "description": "Gyors, skálázható webalkalmazásokat fejlesztek és AI megoldásokat integrálok, amelyek versenyelőnyt biztosítanak a vállalkozásodnak. Több mint 15 év tapasztalat, ügyfelek világszerte.",
       "cta": "Beszéljünk!",
       "cv": "Önéletrajz letöltése",
+      "cvEn": "English CV (PDF)",
+      "cvJson": "JSON önéletrajz",
       "stats": {
         "experience": "15+ év tapasztalat",
         "clients": "Ügyfelek világszerte",
@@ -382,6 +389,7 @@
     "faq": {
       "label": "Gyakori Kérdések",
       "title": "Gyakran Ismételt Kérdések",
+      "entityLine": "Ezeket a szolgáltatásokat Papp Ferenc nyújtja szabadúszó full-stack fejlesztőként Debrecenből.",
       "items": [
         {
           "question": "Milyen technológiákra specializálódsz?",
@@ -450,7 +458,8 @@
     "meta": {
       "title": "Ferenc Papp — Full-Stack Entwickler & KI-Integrationsspezialist | Debrecen, Ungarn",
       "description": "Freiberuflicher Full-Stack Entwickler mit über 15 Jahren Erfahrung. Spezialisiert auf Laravel, Vue.js, React, Python und KI-Integration. Kunden in Europa und den USA.",
-      "ogSiteName": "Ferenc Papp — Full-Stack Entwickler"
+      "ogSiteName": "Ferenc Papp — Full-Stack Entwickler",
+      "ogImageAlt": "Ferenc Papp — Full-Stack Entwickler und KI-Integrationsspezialist"
     },
 
     "nav": {
@@ -475,6 +484,8 @@
       "description": "Ich entwickle schnelle, skalierbare Webanwendungen und integriere KI-Lösungen, die Ihrem Unternehmen einen Wettbewerbsvorteil verschaffen. Über 15 Jahre Erfahrung, Kunden weltweit.",
       "cta": "Kontakt aufnehmen",
       "cv": "Lebenslauf herunterladen",
+      "cvEn": "English CV (PDF)",
+      "cvJson": "Maschinenlesbarer Lebenslauf (JSON)",
       "stats": {
         "experience": "15+ Jahre Erfahrung",
         "clients": "Kunden weltweit",
@@ -603,6 +614,7 @@
     "faq": {
       "label": "Häufige Fragen",
       "title": "Häufig gestellte Fragen",
+      "entityLine": "Diese Leistungen bietet Ferenc Papp als freiberuflicher Full-Stack-Entwickler aus Debrecen, Ungarn an.",
       "items": [
         {
           "question": "Auf welche Technologien sind Sie spezialisiert?",

@@ -3,6 +3,8 @@ const path = require('path');
 
 const translations = JSON.parse(fs.readFileSync(path.join(__dirname, 'src', 'translations.json'), 'utf8'));
 const DIST = path.join(__dirname, 'dist');
+const HAS_RESUME_PDF = fs.existsSync(path.join(__dirname, 'src', 'resume.pdf'));
+const HAS_RESUME_HU_PDF = fs.existsSync(path.join(__dirname, 'src', 'resume-hu.pdf'));
 const BUILD_DATE = new Date().toISOString().split('T')[0];
 const YEAR = new Date().getFullYear();
 const LANGUAGES = ['en', 'hu', 'de'];
@@ -73,15 +75,19 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 .nav-links a:hover{color:var(--accent)}
 .nav-right{display:flex;align-items:center;gap:.5rem}
 .lang-switcher{display:flex;gap:2px;background:var(--bg-tertiary);border-radius:6px;padding:2px}
-.lang-btn{padding:4px 10px;border:none;background:transparent;color:var(--text-secondary);font-size:.75rem;font-weight:600;cursor:pointer;border-radius:4px;transition:all .2s;text-transform:uppercase;font-family:var(--font-body)}
+.lang-btn{padding:4px 10px;border:none;background:transparent;color:#374151;font-size:.75rem;font-weight:700;cursor:pointer;border-radius:4px;transition:all .2s;text-transform:uppercase;font-family:var(--font-body)}
+[data-theme="dark"] .lang-btn{color:#cbd5e1}
 .lang-btn.active{background:#065f46;color:#fff}
 [data-theme="dark"] .lang-btn.active{background:#065f46}
-.lang-btn:hover:not(.active){color:var(--text-primary)}
+.lang-btn:hover:not(.active){color:var(--text-primary);background:var(--accent-subtle)}
 .theme-toggle,.menu-toggle{background:none;border:none;color:var(--text-secondary);cursor:pointer;padding:8px;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:color .2s,background .2s}
 .theme-toggle:hover,.menu-toggle:hover{color:var(--accent);background:var(--accent-subtle)}
 .theme-toggle .icon-sun{display:none}
 [data-theme="dark"] .theme-toggle .icon-moon{display:none}
 [data-theme="dark"] .theme-toggle .icon-sun{display:block}
+.menu-toggle .icon-close{display:none}
+.menu-toggle[aria-expanded="true"] .icon-menu{display:none}
+.menu-toggle[aria-expanded="true"] .icon-close{display:block}
 .menu-toggle{display:flex}
 
 /* Mobile Menu */
@@ -109,6 +115,8 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 [data-theme="dark"] .btn-primary:hover{background:#064e3b;box-shadow:0 4px 12px rgba(6,95,70,0.35)}
 .btn-outline{background:transparent;color:var(--text-primary);border:1.5px solid var(--border)}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+.hero .btn-outline{background:var(--bg-secondary)}
+[data-theme="dark"] .hero .btn-outline{background:var(--bg-secondary)}
 .hero-stats{display:flex;gap:2rem;flex-wrap:wrap}
 .hero-stat{font-size:.9rem;color:var(--text-muted);font-weight:500;padding-left:1rem;border-left:2px solid var(--accent)}
 
@@ -255,13 +263,19 @@ const js = `
   });
 
   // Mobile menu
-  var mb=document.getElementById('menu-toggle'),mm=document.getElementById('mobile-menu'),mc=document.getElementById('menu-close');
-  function openMenu(){mm.classList.add('open');mb.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
-  function closeMenu(){mm.classList.remove('open');mb.setAttribute('aria-expanded','false');document.body.style.overflow='';}
-  if(mb)mb.addEventListener('click',openMenu);
-  if(mc)mc.addEventListener('click',closeMenu);
+  var mb=document.getElementById('menu-toggle'),mm=document.getElementById('mobile-menu');
+  function setMenu(open){
+    if(!mb||!mm)return;
+    mm.classList.toggle('open',open);
+    mb.setAttribute('aria-expanded',open?'true':'false');
+    mb.setAttribute('aria-label',open?mb.getAttribute('data-close-label'):mb.getAttribute('data-open-label'));
+    document.body.style.overflow=open?'hidden':'';
+  }
+  function closeMenu(){setMenu(false);}
+  if(mb)mb.addEventListener('click',function(){setMenu(!mm.classList.contains('open'));});
   if(mm)mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mm&&mm.classList.contains('open'))closeMenu();});
+  window.addEventListener('resize',function(){if(window.innerWidth>=900&&mm&&mm.classList.contains('open'))closeMenu();});
 
   // Nav hide/show on scroll
   var nav=document.querySelector('.nav'),lastY=0,ticking=false;
@@ -344,6 +358,9 @@ function generatePage(lang) {
   const t = translations[lang];
   const otherLangs = LANGUAGES.filter(l => l !== lang);
   const footerDisplayName = lang === 'hu' ? 'Papp Ferenc' : (t.footer.name || 'Ferenc Papp');
+  const cvPrimaryHref = lang === 'hu' && HAS_RESUME_HU_PDF
+    ? '/resume-hu.pdf'
+    : (HAS_RESUME_PDF ? '/resume.pdf' : '/resume.json');
 
   // JSON-LD schemas
   const personSchema = JSON.stringify({
@@ -431,7 +448,7 @@ function generatePage(lang) {
 <meta property="og:image" content="https://pappfer.hu/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Ferenc Papp — Full-Stack Developer & AI Integration Specialist">
+<meta property="og:image:alt" content="${t.meta.ogImageAlt}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@pappfer">
 <meta name="twitter:title" content="${t.meta.title}">
@@ -471,14 +488,15 @@ function generatePage(lang) {
 </ul>
 <div class="nav-right">
 <div class="lang-switcher">
-${LANGUAGES.map(l => `<a href="/${l}" class="lang-btn${l === lang ? ' active' : ''}">${l}</a>`).join('')}
+${LANGUAGES.map(l => `<a href="/${l}" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}>${l}</a>`).join('')}
 </div>
 <button class="theme-toggle" id="theme-toggle" aria-label="${t.nav.toggleTheme}">
 <span class="icon-moon">${icons.moon}</span>
 <span class="icon-sun">${icons.sun}</span>
 </button>
-<button class="menu-toggle" id="menu-toggle" aria-label="${t.nav.openMenu}" aria-expanded="false">
-${icons.menu}
+<button class="menu-toggle" id="menu-toggle" aria-label="${t.nav.openMenu}" aria-controls="mobile-menu" aria-expanded="false" data-open-label="${t.nav.openMenu}" data-close-label="${t.nav.closeMenu}">
+<span class="icon-menu">${icons.menu}</span>
+<span class="icon-close">${icons.close}</span>
 </button>
 </div>
 </div>
@@ -486,9 +504,6 @@ ${icons.menu}
 
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true">
-<button class="menu-toggle" id="menu-close" aria-label="${t.nav.closeMenu}" style="position:absolute;top:1rem;right:1.5rem">
-${icons.close}
-</button>
 <a href="#about">${t.nav.about}</a>
 <a href="#services">${t.nav.services}</a>
 <a href="#tech">${t.nav.techStack}</a>
@@ -510,7 +525,9 @@ ${icons.close}
 <p class="hero-desc fade-up">${t.hero.description}</p>
 <div class="hero-buttons fade-up">
 <a href="#contact" class="btn btn-primary">${t.hero.cta} ${icons.arrow}</a>
-<a href="/resume.json" class="btn btn-outline">${t.hero.cv}</a>
+<a href="${cvPrimaryHref}" class="btn btn-outline">${t.hero.cv}</a>
+${lang === 'hu' && HAS_RESUME_PDF ? `<a href="/resume.pdf" class="btn btn-outline">${t.hero.cvEn}</a>` : ''}
+<a href="/resume.json" class="btn btn-outline">${t.hero.cvJson}</a>
 </div>
 <div class="hero-stats fade-up">
 <span class="hero-stat">${t.hero.stats.experience}</span>
@@ -625,7 +642,7 @@ ${t.faq.items.map((item, i) => `<div class="faq-item" itemscope itemprop="mainEn
 ${icons.chevron}
 </button>
 <div class="faq-answer" id="faq-${i}" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-<div class="faq-answer-inner" itemprop="text">${item.answer}</div>
+<div class="faq-answer-inner" itemprop="text">${item.answer}${t.faq.entityLine ? ` ${t.faq.entityLine}` : ''}</div>
 </div>
 </div>`).join('\n')}
 </div>
@@ -794,7 +811,7 @@ function generate404() {
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <title>404 — Page not found | Ferenc Papp</title>
-<style>body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:#fafafa;color:#1a1a2e;min-height:100vh;display:grid;place-items:center;padding:2rem}main{max-width:42rem;text-align:center}h1{font-size:clamp(2rem,6vw,3rem);line-height:1.1;margin:0 0 1rem}p{color:#4a4a6a;margin:0 0 1.25rem}a{display:inline-block;padding:.7rem 1.25rem;border-radius:.6rem;text-decoration:none;background:#0ea5e9;color:#fff;font-weight:600}</style>
+<style>body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:#fafafa;color:#1a1a2e;min-height:100vh;display:grid;place-items:center;padding:2rem}main{max-width:42rem;text-align:center}h1{font-size:clamp(2rem,6vw,3rem);line-height:1.1;margin:0 0 1rem}p{color:#4a4a6a;margin:0 0 1.25rem}a{display:inline-block;padding:.7rem 1.25rem;border-radius:.6rem;text-decoration:none;background:#10b981;color:#fff;font-weight:600}a:hover{background:#059669}</style>
 </head>
 <body>
 <main>
@@ -880,6 +897,8 @@ const staticAssets = [
   { src: 'src/apple-touch-icon.png', dest: 'dist/apple-touch-icon.png' },
   { src: 'src/safari-pinned-tab.svg', dest: 'dist/safari-pinned-tab.svg' },
   { src: 'src/favicon.ico', dest: 'dist/favicon.ico' },
+  { src: 'src/resume.pdf', dest: 'dist/resume.pdf' },
+  { src: 'src/resume-hu.pdf', dest: 'dist/resume-hu.pdf' },
   { src: 'src/resume.json', dest: 'dist/resume.json' }
 ];
 staticAssets.forEach(({ src, dest }) => {
