@@ -736,6 +736,7 @@ ${icons.send} ${t.contact.form.send}
 <!-- FOOTER -->
 <footer class="footer">
 <p>&copy; ${YEAR} ${footerDisplayName}. ${t.footer.rights}</p>
+<p>${t.footer.legal}</p>
 </footer>
 
 <script>${minJs}</script>

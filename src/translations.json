@@ -218,7 +218,8 @@
 
     "footer": {
       "name": "Ferenc Papp",
-      "rights": "All rights reserved."
+      "rights": "All rights reserved.",
+      "legal": "Papp Ferenc e. v. · Reg. No.: 51256481 · Tax No.: 73939249-2-33 · Registered address: H-2724 Újlengyel, Petőfi Sándor utca 48., Hungary"
     }
   },
 
@@ -441,7 +442,8 @@
 
     "footer": {
       "name": "Papp Ferenc",
-      "rights": "Minden jog fenntartva."
+      "rights": "Minden jog fenntartva.",
+      "legal": "Papp Ferenc e. v. · Nyilvántartási szám: 51256481 · Adószám: 73939249-2-33 · Székhely: 2724 Újlengyel, Petőfi Sándor utca 48."
     }
   },
 
@@ -664,7 +666,8 @@
 
     "footer": {
       "name": "Ferenc Papp",
-      "rights": "Alle Rechte vorbehalten."
+      "rights": "Alle Rechte vorbehalten.",
+      "legal": "Papp Ferenc e. v. · Reg.-Nr.: 51256481 · Steuernr.: 73939249-2-33 · Sitz: H-2724 Újlengyel, Petőfi Sándor utca 48., Ungarn"
     }
   }
 }
