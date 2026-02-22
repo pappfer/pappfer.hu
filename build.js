@@ -355,7 +355,7 @@ const minJs = js
   .replace(/\s+/g, ' ')
   .replace(/\s*([{}();,:])\s*/g, '$1')
   .trim();
-const csp = "default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; connect-src 'self' https://formspree.io; form-action https://formspree.io; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; upgrade-insecure-requests";
+const csp = "default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://cloudflareinsights.com; form-action https://formspree.io; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; upgrade-insecure-requests";
 const minHtml = (html) => html.replace(/>\s+</g, '><').replace(/\n+/g, '').trim();
 
 // ─── HTML Generator ─────────────────────────────────────────────────────────────
