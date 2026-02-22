@@ -46,9 +46,9 @@
     "about": {
       "label": "About Me",
       "title": "Who I Am",
-      "p1": "Ferenc Papp is a freelance full-stack web developer based in Debrecen, Hungary, with over 15 years of professional experience. He specializes in building robust, scalable web applications using PHP/Laravel, Vue.js, React, Python, and cutting-edge AI technologies.",
-      "p2": "He delivers custom web applications, survey platforms, multi-tenant SaaS systems, and AI-powered automation solutions. His clients range from startups to established market research companies, and he is known for writing clean, tested, production-ready code.",
-      "p3": "Based in Debrecen, Hungary, Ferenc works with clients across Europe and the United States. He is fluent in English, a native Hungarian speaker, and has basic German proficiency. He provides custom web development, AI integration, and technical consulting services."
+      "p1": "I'm a freelance full-stack web developer based in Debrecen, Hungary, with over 15 years of professional experience. I specialize in building robust, scalable web applications using PHP/Laravel, Vue.js, React, Python, and cutting-edge AI technologies.",
+      "p2": "I deliver custom web applications, survey platforms, multi-tenant SaaS systems, and AI-powered automation solutions. My clients range from startups to established market research companies, and I'm known for clean, tested, production-ready code.",
+      "p3": "I work remotely with clients across Europe and the United States — communicating fluently in English and Hungarian. I take full ownership of projects, from architecture decisions to deployment, acting as a reliable technical partner rather than just a code supplier."
     },
 
     "services": {
@@ -156,7 +156,7 @@
         {
           "quote": "Ferenc is a very talented PHP developer. He quickly got to grips with what was required and delivered everything (and more) that I expected. I would happily work with him again.",
           "name": "DanD",
-          "company": "Client"
+          "company": "Client via Upwork"
         }
       ]
     },
@@ -164,7 +164,6 @@
     "faq": {
       "label": "Common Questions",
       "title": "Frequently Asked Questions",
-      "entityLine": "Ferenc Papp provides these services as a freelance full-stack developer from Debrecen, Hungary.",
       "items": [
         {
           "question": "What technologies do you specialize in?",
@@ -219,8 +218,7 @@
 
     "footer": {
       "name": "Ferenc Papp",
-      "rights": "All rights reserved.",
-      "builtWith": "Built with semantic HTML, vanilla CSS, and zero frameworks."
+      "rights": "All rights reserved."
     }
   },
 
@@ -231,10 +229,10 @@
     "direction": "ltr",
 
     "meta": {
-      "title": "Papp Ferenc — Full-Stack Fejlesztő & AI Integrációs Szakértő | Debrecen",
+      "title": "Papp Ferenc — Full-stack fejlesztő & AI integrációs szakértő | Debrecen",
       "description": "Szabadúszó full-stack fejlesztő, 15+ év tapasztalattal. Laravel, Vue.js, React, Python és AI integráció. Ügyfelek Európa-szerte és az USA-ban.",
-      "ogSiteName": "Papp Ferenc — Full-Stack Fejlesztő",
-      "ogImageAlt": "Papp Ferenc — Full-Stack Fejlesztő és AI Integrációs Szakértő"
+      "ogSiteName": "Papp Ferenc — Full-stack fejlesztő",
+      "ogImageAlt": "Papp Ferenc — Full-stack fejlesztő és AI integrációs szakértő"
     },
 
     "nav": {
@@ -253,9 +251,9 @@
 
     "hero": {
       "availability": "Elérhető új projektekre",
-      "greeting": "Szia, én vagyok",
+      "greeting": "Üdvözöllek!",
       "name": "Papp Ferenc",
-      "title": "Full-Stack Fejlesztő & AI Integrációs Szakértő",
+      "title": "Full-stack fejlesztő & AI integrációs szakértő",
       "description": "Gyors, skálázható webalkalmazásokat fejlesztek és AI megoldásokat integrálok, amelyek versenyelőnyt biztosítanak a vállalkozásodnak. Több mint 15 év tapasztalat, ügyfelek világszerte.",
       "cta": "Beszéljünk!",
       "cv": "Önéletrajz letöltése",
@@ -273,7 +271,7 @@
       "title": "Ki vagyok én",
       "p1": "Szabadúszó full-stack webfejlesztő vagyok Debrecenben, több mint 15 év szakmai tapasztalattal. Robusztus, skálázható webalkalmazásokat fejlesztek PHP/Laravel, Vue.js, React, Python és modern AI technológiák felhasználásával.",
       "p2": "Egyedi webalkalmazásokat, kérdőív platformokat, multi-tenant SaaS rendszereket és AI-alapú automatizálási megoldásokat készítek. Ügyfeleim között startupok és piackutató cégek egyaránt megtalálhatók, és büszke vagyok a tiszta, tesztelt, produkciókész kódomra.",
-      "p3": "Debrecenben élek, de európai és amerikai ügyfelekkel egyaránt dolgozom. Folyékonyan beszélek angolul, anyanyelvem a magyar, és alapszintű német nyelvtudásom is van. Egyedi webfejlesztési, AI integrációs és technikai tanácsadási szolgáltatásokat nyújtok."
+      "p3": "Remotean dolgozom európai és amerikai ügyfelekkel — angolul és magyarul folyékonyan kommunikálva. A projekteket elejétől a végéig magamra vállalom, az architektúra-döntésektől az üzembe helyezésig — megbízható technikai partnerként, nem csupán kódszállítóként."
     },
 
     "services": {
@@ -282,22 +280,22 @@
       "items": [
         {
           "icon": "code",
-          "title": "Egyedi Webalkalmazások",
+          "title": "Egyedi webalkalmazások",
           "description": "MVP-ktől a vállalati multi-tenant platformokig. Laravel, Symfony, Vue.js és React technológiákkal. Tiszta architektúra, tesztelt kód, produkciókész."
         },
         {
           "icon": "ai",
-          "title": "AI Integráció & Automatizálás",
+          "title": "AI integráció & automatizálás",
           "description": "LLM integráció (OpenAI, Anthropic API-k), vektor adatbázisok, RAG pipeline-ok és ágens munkafolyamatok. Gyakorlati AI megoldások valós üzleti problémákra."
         },
         {
           "icon": "mobile",
-          "title": "Mobil & PWA Fejlesztés",
+          "title": "Mobil & PWA fejlesztés",
           "description": "Progressive Web Appok offline-first architektúrával. Cross-platform mobil megoldások, amelyek gyorsan töltődnek és internetkapcsolat nélkül is működnek."
         },
         {
           "icon": "consulting",
-          "title": "Technikai Tanácsadás",
+          "title": "Technikai tanácsadás",
           "description": "Architektúra felülvizsgálat, technológia kiválasztás, teljesítményoptimalizálás és fejlesztői csapat mentorálás. Stratégiai útmutatás a technikai döntéseidhez."
         }
       ]
@@ -322,25 +320,25 @@
         {
           "period": "2017 – Jelenleg",
           "company": "Egyéni vállalkozó",
-          "role": "Full-Stack Fejlesztő & Technikai Tanácsadó",
+          "role": "Full-stack fejlesztő & technikai tanácsadó",
           "description": "Szabadúszó fejlesztő, egyedi webalkalmazások, kérdőív rendszerek és AI integrációk fejlesztése európai és amerikai piackutató cégek számára."
         },
         {
           "period": "2015 – 2017",
           "company": "Fathom Minds",
-          "role": "Senior PHP Fejlesztő",
+          "role": "Senior PHP fejlesztő",
           "description": "Webalkalmazás és API fejlesztés Yii2 keretrendszerrel. Git infrastruktúra kiépítése a fejlesztőcsapat számára."
         },
         {
           "period": "2014 – 2015",
           "company": "Oktafone",
-          "role": "Frontend Fejlesztő",
+          "role": "Frontend fejlesztő",
           "description": "Startup webalkalmazás fejlesztése AngularJS, JavaScript, HTML5 és CSS3 technológiákkal."
         },
         {
           "period": "2011 – 2014",
           "company": "Szabadúszó (pappfer.hu)",
-          "role": "PHP Fejlesztő",
+          "role": "PHP fejlesztő",
           "description": "Weboldalak készítése magánszemélyek és cégek számára PHP, Yii, Laravel és WordPress használatával. Facebook, LinkedIn, Box.com és Stripe integrációk."
         },
         {
@@ -358,7 +356,7 @@
         {
           "period": "2009 – 2010",
           "company": "Concept Solutions",
-          "role": "PHP Fejlesztő",
+          "role": "PHP fejlesztő",
           "description": "Távmunkában PHP fejlesztés. Meglévő kódbázisok karbantartása és fejlesztése, tapasztalatszerzés különböző architektúrákkal és implementációs mintákkal."
         }
       ]
@@ -381,15 +379,14 @@
         {
           "quote": "Ferenc egy nagyon tehetséges PHP fejlesztő. Gyorsan megértette, mire van szükség, és mindent (sőt többet is) leszállított, amit vártam. Szívesen dolgoznék vele újra.",
           "name": "DanD",
-          "company": "Ügyfél"
+          "company": "Upwork-ügyfél"
         }
       ]
     },
 
     "faq": {
-      "label": "Gyakori Kérdések",
-      "title": "Gyakran Ismételt Kérdések",
-      "entityLine": "Ezeket a szolgáltatásokat Papp Ferenc nyújtja szabadúszó full-stack fejlesztőként Debrecenből.",
+      "label": "Gyakori kérdések",
+      "title": "Gyakran ismételt kérdések",
       "items": [
         {
           "question": "Milyen technológiákra specializálódsz?",
@@ -444,8 +441,7 @@
 
     "footer": {
       "name": "Papp Ferenc",
-      "rights": "Minden jog fenntartva.",
-      "builtWith": "Szemantikus HTML-lel, vanilla CSS-sel és nulla keretrendszerrel készült."
+      "rights": "Minden jog fenntartva."
     }
   },
 
@@ -496,9 +492,9 @@
     "about": {
       "label": "Über mich",
       "title": "Wer ich bin",
-      "p1": "Ferenc Papp ist ein freiberuflicher Full-Stack Webentwickler mit Sitz in Debrecen, Ungarn, mit über 15 Jahren Berufserfahrung. Er ist spezialisiert auf die Entwicklung robuster, skalierbarer Webanwendungen mit PHP/Laravel, Vue.js, React, Python und modernsten KI-Technologien.",
-      "p2": "Er liefert maßgeschneiderte Webanwendungen, Umfrageplattformen, Multi-Tenant SaaS-Systeme und KI-gestützte Automatisierungslösungen. Seine Kunden reichen von Startups bis hin zu etablierten Marktforschungsunternehmen, und er ist bekannt für sauberen, getesteten, produktionsreifen Code.",
-      "p3": "Ferenc arbeitet von Debrecen, Ungarn aus mit Kunden in ganz Europa und den Vereinigten Staaten. Er spricht fließend Englisch, ist ungarischer Muttersprachler und verfügt über grundlegende Deutschkenntnisse. Er bietet maßgeschneiderte Webentwicklung, KI-Integration und technische Beratung."
+      "p1": "Ich bin freiberuflicher Full-Stack-Webentwickler aus Debrecen, Ungarn, mit über 15 Jahren Berufserfahrung. Ich entwickle robuste, skalierbare Webanwendungen mit PHP/Laravel, Vue.js, React, Python und modernsten KI-Technologien.",
+      "p2": "Ich liefere maßgeschneiderte Webanwendungen, Umfrageplattformen, Multi-Tenant-SaaS-Systeme und KI-gestützte Automatisierungslösungen. Meine Kunden reichen von Startups bis hin zu etablierten Marktforschungsunternehmen, und ich bin bekannt für sauberen, getesteten, produktionsreifen Code.",
+      "p3": "Ich arbeite remote mit Kunden in ganz Europa und den Vereinigten Staaten — auf Englisch und Ungarisch fließend kommunizierend. Ich übernehme volle Verantwortung für Projekte, von der Architektur bis zum Deployment — als zuverlässiger technischer Partner, nicht nur als Code-Lieferant."
     },
 
     "services": {
@@ -606,7 +602,7 @@
         {
           "quote": "Ferenc ist ein sehr talentierter PHP-Entwickler. Er hat schnell verstanden, was gebraucht wurde, und alles (und mehr) geliefert, was ich erwartet habe. Ich würde gerne wieder mit ihm arbeiten.",
           "name": "DanD",
-          "company": "Kunde"
+          "company": "Kunde via Upwork"
         }
       ]
     },
@@ -614,7 +610,6 @@
     "faq": {
       "label": "Häufige Fragen",
       "title": "Häufig gestellte Fragen",
-      "entityLine": "Diese Leistungen bietet Ferenc Papp als freiberuflicher Full-Stack-Entwickler aus Debrecen, Ungarn an.",
       "items": [
         {
           "question": "Auf welche Technologien sind Sie spezialisiert?",
@@ -669,8 +664,7 @@
 
     "footer": {
       "name": "Ferenc Papp",
-      "rights": "Alle Rechte vorbehalten.",
-      "builtWith": "Erstellt mit semantischem HTML, Vanilla CSS und null Frameworks."
+      "rights": "Alle Rechte vorbehalten."
     }
   }
 }

@@ -8,6 +8,7 @@ const HAS_RESUME_HU_PDF = fs.existsSync(path.join(__dirname, 'src', 'resume-hu.p
 const BUILD_DATE = new Date().toISOString().split('T')[0];
 const YEAR = new Date().getFullYear();
 const LANGUAGES = ['en', 'hu', 'de'];
+const LANG_FLAGS = { en: '🇬🇧', hu: '🇭🇺', de: '🇩🇪' };
 
 // Ensure dist directories
 [DIST, ...LANGUAGES.map(l => path.join(DIST, l)), path.join(DIST, 'img')].forEach(dir => {
@@ -75,7 +76,7 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 .nav-links a:hover{color:var(--accent)}
 .nav-right{display:flex;align-items:center;gap:.5rem}
 .lang-switcher{display:flex;gap:2px;background:var(--bg-tertiary);border-radius:6px;padding:2px}
-.lang-btn{padding:4px 10px;border:none;background:transparent;color:#374151;font-size:.75rem;font-weight:700;cursor:pointer;border-radius:4px;transition:all .2s;text-transform:uppercase;font-family:var(--font-body)}
+.lang-btn{padding:4px 10px;border:none;background:transparent;color:#374151;font-size:.75rem;font-weight:700;cursor:pointer;border-radius:4px;transition:all .2s;font-family:var(--font-body);display:flex;align-items:center;gap:4px}
 [data-theme="dark"] .lang-btn{color:#cbd5e1}
 .lang-btn.active{background:#065f46;color:#fff}
 [data-theme="dark"] .lang-btn.active{background:#065f46}
@@ -391,6 +392,7 @@ function generatePage(lang) {
     "worksFor": {"@type":"Organization","name":"Self-employed","url":"https://pappfer.hu"}
   });
 
+  const enTestimonials = translations['en'].testimonials.items;
   const serviceSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -406,7 +408,20 @@ function generatePage(lang) {
     "serviceType": ["Custom Web Application Development","AI Integration and Automation","Mobile and PWA Development","Technical Consulting"],
     "knowsAbout": ["Laravel Development","Vue.js Development","React Development","Python Development","AI/LLM Integration","Database Architecture"],
     "address": {"@type":"PostalAddress","addressLocality":"Debrecen","addressCountry":"HU"},
-    "priceRange": "$$"
+    "priceRange": "$$",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": String(enTestimonials.length),
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": enTestimonials.map(item => ({
+      "@type": "Review",
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "author": {"@type": "Person", "name": item.name},
+      "reviewBody": item.quote
+    }))
   });
 
   const faqSchema = JSON.stringify({
@@ -434,16 +449,17 @@ function generatePage(lang) {
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${t.meta.title}</title>
 <meta name="description" content="${t.meta.description}">
-<link rel="canonical" href="https://pappfer.hu/${lang}">
-<link rel="alternate" hreflang="en" href="https://pappfer.hu/en">
-<link rel="alternate" hreflang="hu" href="https://pappfer.hu/hu">
-<link rel="alternate" hreflang="de" href="https://pappfer.hu/de">
-<link rel="alternate" hreflang="x-default" href="https://pappfer.hu/en">
+<link rel="canonical" href="https://pappfer.hu/${lang}/">
+<link rel="alternate" hreflang="en" href="https://pappfer.hu/en/">
+<link rel="alternate" hreflang="hu" href="https://pappfer.hu/hu/">
+<link rel="alternate" hreflang="de" href="https://pappfer.hu/de/">
+<link rel="alternate" hreflang="x-default" href="https://pappfer.hu/en/">
+<meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="${t.locale}">
 <meta property="og:title" content="${t.meta.title}">
 <meta property="og:description" content="${t.meta.description}">
-<meta property="og:url" content="https://pappfer.hu/${lang}">
+<meta property="og:url" content="https://pappfer.hu/${lang}/">
 <meta property="og:site_name" content="${t.meta.ogSiteName}">
 <meta property="og:image" content="https://pappfer.hu/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -461,6 +477,8 @@ function generatePage(lang) {
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#10b981">
 <link rel="shortcut icon" href="/favicon.ico">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://formspree.io">
 <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0f1117" media="(prefers-color-scheme: dark)">
 <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');})();</script>
@@ -488,7 +506,7 @@ function generatePage(lang) {
 </ul>
 <div class="nav-right">
 <div class="lang-switcher">
-${LANGUAGES.map(l => `<a href="/${l}" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}>${l}</a>`).join('')}
+${LANGUAGES.map(l => `<a href="/${l}" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}><span aria-hidden="true">${LANG_FLAGS[l]}</span> ${l.toUpperCase()}</a>`).join('')}
 </div>
 <button class="theme-toggle" id="theme-toggle" aria-label="${t.nav.toggleTheme}">
 <span class="icon-moon">${icons.moon}</span>
@@ -519,7 +537,7 @@ ${LANGUAGES.map(l => `<a href="/${l}" hreflang="${l}" lang="${l}" class="lang-bt
 <section class="hero">
 <div class="hero-inner">
 <div class="hero-availability fade-up">${t.hero.availability}</div>
-<p class="hero-greeting fade-up">${t.hero.greeting}</p>
+${t.hero.greeting ? `<p class="hero-greeting fade-up">${t.hero.greeting}</p>` : ''}
 <h1 class="fade-up">${t.hero.name}</h1>
 <p class="hero-title fade-up">${t.hero.title}</p>
 <p class="hero-desc fade-up">${t.hero.description}</p>
@@ -545,7 +563,7 @@ ${lang === 'hu' && HAS_RESUME_PDF ? `<a href="/resume.pdf" class="btn btn-outlin
 <h2 class="section-title">${t.about.title}</h2>
 </div>
 <div class="about-grid fade-up">
-<img src="/img/pappfer.webp" alt="Ferenc Papp" class="about-photo" width="180" height="180" loading="lazy">
+<img src="/img/pappfer.webp" alt="${t.hero.name} — ${t.hero.title}" class="about-photo" width="180" height="180" loading="lazy">
 <div class="about-text">
 <p>${t.about.p1}</p>
 <p>${t.about.p2}</p>
@@ -642,7 +660,7 @@ ${t.faq.items.map((item, i) => `<div class="faq-item" itemscope itemprop="mainEn
 ${icons.chevron}
 </button>
 <div class="faq-answer" id="faq-${i}" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-<div class="faq-answer-inner" itemprop="text">${item.answer}${t.faq.entityLine ? ` ${t.faq.entityLine}` : ''}</div>
+<div class="faq-answer-inner" itemprop="text">${item.answer}</div>
 </div>
 </div>`).join('\n')}
 </div>
@@ -734,7 +752,7 @@ function generateRoot() {
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ferenc Papp — Full-Stack Developer</title>
 <meta name="description" content="Redirecting to your preferred language...">
-<link rel="canonical" href="https://pappfer.hu/en">
+<link rel="canonical" href="https://pappfer.hu/en/">
 <meta http-equiv="refresh" content="0;url=/en/">
 <script>
 (function(){
@@ -763,13 +781,13 @@ Sitemap: https://pappfer.hu/sitemap.xml
 // ─── sitemap.xml ────────────────────────────────────────────────────────────────
 function generateSitemap() {
   const hreflangs = LANGUAGES.map(l =>
-    `    <xhtml:link rel="alternate" hreflang="${l}" href="https://pappfer.hu/${l}"/>`
+    `    <xhtml:link rel="alternate" hreflang="${l}" href="https://pappfer.hu/${l}/"/>`
   ).join('\n');
 
   const urls = LANGUAGES.map(l => `  <url>
-    <loc>https://pappfer.hu/${l}</loc>
+    <loc>https://pappfer.hu/${l}/</loc>
 ${hreflangs}
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://pappfer.hu/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pappfer.hu/en/"/>
     <lastmod>${BUILD_DATE}</lastmod>
     <priority>1.0</priority>
   </url>`).join('\n');
@@ -795,6 +813,7 @@ function generateManifest() {
     background_color: '#fafafa',
     theme_color: '#10b981',
     icons: [
+      { src: '/favicon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' },
       { src: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
       { src: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
       { src: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' }
@@ -897,6 +916,7 @@ const staticAssets = [
   { src: 'src/apple-touch-icon.png', dest: 'dist/apple-touch-icon.png' },
   { src: 'src/safari-pinned-tab.svg', dest: 'dist/safari-pinned-tab.svg' },
   { src: 'src/favicon.ico', dest: 'dist/favicon.ico' },
+  { src: 'src/favicon-512.png', dest: 'dist/favicon-512.png' },
   { src: 'src/resume.pdf', dest: 'dist/resume.pdf' },
   { src: 'src/resume-hu.pdf', dest: 'dist/resume-hu.pdf' },
   { src: 'src/resume.json', dest: 'dist/resume.json' }
