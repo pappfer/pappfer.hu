@@ -407,6 +407,8 @@ function generatePage(lang) {
     ],
     "serviceType": ["Custom Web Application Development","AI Integration and Automation","Mobile and PWA Development","Technical Consulting"],
     "knowsAbout": ["Laravel Development","Vue.js Development","React Development","Python Development","AI/LLM Integration","Database Architecture"],
+    "legalName": "Papp Ferenc e. v.",
+    "taxID": "73939249-2-33",
     "address": {"@type":"PostalAddress","addressLocality":"Debrecen","addressCountry":"HU"},
     "priceRange": "$$",
     "aggregateRating": {
@@ -647,20 +649,20 @@ ${t.testimonials.items.map(item => `<blockquote class="testimonial-card">
 </section>
 
 <!-- FAQ -->
-<section class="section" id="faq" itemscope itemtype="https://schema.org/FAQPage">
+<section class="section" id="faq">
 <div class="section-inner">
 <div class="fade-up">
 <p class="section-label">${t.faq.label}</p>
 <h2 class="section-title">${t.faq.title}</h2>
 </div>
 <div class="faq-list fade-up">
-${t.faq.items.map((item, i) => `<div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+${t.faq.items.map((item, i) => `<div class="faq-item">
 <button class="faq-btn" aria-expanded="false" aria-controls="faq-${i}">
-<span itemprop="name">${item.question}</span>
+<span>${item.question}</span>
 ${icons.chevron}
 </button>
-<div class="faq-answer" id="faq-${i}" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-<div class="faq-answer-inner" itemprop="text">${item.answer}</div>
+<div class="faq-answer" id="faq-${i}">
+<div class="faq-answer-inner">${item.answer}</div>
 </div>
 </div>`).join('\n')}
 </div>
