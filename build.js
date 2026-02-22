@@ -238,12 +238,16 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 }
 
 /* Responsive */
+@media(max-width:479px){
+  .nav .lang-switcher{display:none}
+  .hero-buttons{flex-direction:column}
+  .hero-buttons .btn{width:100%;justify-content:center}
+}
 @media(min-width:600px){
   .services-grid,.testimonials-grid{grid-template-columns:repeat(2,1fr)}
   .contact-grid{grid-template-columns:1fr 1fr}
   .about-grid{grid-template-columns:180px 1fr}
   .about-photo{margin:0}
-
 }
 @media(min-width:900px){
   .nav-links{display:flex}
@@ -531,6 +535,9 @@ ${LANGUAGES.map(l => `<a href="/${l}" hreflang="${l}" lang="${l}" class="lang-bt
 <a href="#testimonials">${t.nav.testimonials}</a>
 <a href="#faq">${t.nav.faq}</a>
 <a href="#contact">${t.nav.contact}</a>
+<div class="lang-switcher">
+${LANGUAGES.map(l => `<a href="/${l}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}><span aria-hidden="true">${LANG_FLAGS[l]}</span> ${l.toUpperCase()}</a>`).join('')}
+</div>
 </div>
 
 <main id="main">
