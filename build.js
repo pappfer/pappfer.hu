@@ -191,8 +191,10 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 
 /* TESTIMONIALS */
 .testimonials-grid{display:grid;gap:1.5rem}
-.testimonial-card{background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;position:relative}
-.testimonial-card::before{content:'\\201C';position:absolute;top:.5rem;left:1.25rem;font-size:4rem;color:var(--accent);opacity:.15;font-family:Georgia,serif;line-height:1}
+.testimonial-card{background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;position:relative;transition:transform .22s ease-out,box-shadow .22s ease-out,border-color .22s ease-out}
+.testimonial-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--accent)}
+.testimonial-card::before{content:'\\201C';position:absolute;top:.5rem;left:1.25rem;font-size:4rem;color:var(--accent);opacity:.38;font-family:Georgia,serif;line-height:1}
+[data-theme="dark"] .testimonial-card::before{color:var(--accent-hover);opacity:.7}
 .testimonial-quote{font-style:italic;color:var(--text-secondary);margin-bottom:1.25rem;padding-top:1.5rem;line-height:1.8;font-size:1rem}
 .testimonial-author{font-weight:700;font-size:.95rem;font-family:var(--font-heading)}
 .testimonial-company{font-size:.85rem;color:var(--text-muted)}

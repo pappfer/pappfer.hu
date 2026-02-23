@@ -5,16 +5,23 @@ Personal developer portfolio for Ferenc Papp — a multilingual (EN/HU/DE), stat
 ## Quick Start
 
 ```bash
-# Build the site
-node build.js
+# Install dependencies
+npm install
 
-# Serve locally
-npx serve dist
-# or
+# Build the site
+npm run build
+
+# Serve locally (http://localhost:3000)
+npm run dev
+```
+
+Alternative local server:
+
+```bash
 python3 -m http.server -d dist 8000
 ```
 
-Then open [http://localhost:3000](http://localhost:3000) (serve) or [http://localhost:8000](http://localhost:8000) (python).
+Then open [http://localhost:3000](http://localhost:3000) (`npm run dev`) or [http://localhost:8000](http://localhost:8000) (`python3 -m http.server`).
 
 ## Project Structure
 
@@ -44,12 +51,12 @@ Then open [http://localhost:3000](http://localhost:3000) (serve) or [http://loca
 
 ## Editing Content
 
-All translatable content is in `src/translations.json`. Edit the JSON, then run `node build.js` to regenerate. Sections: nav, hero, about, services, tech stack, experience, testimonials, FAQ, contact, footer, and SEO meta tags.
+All translatable content is in `src/translations.json`. Edit the JSON, then run `npm run build` to regenerate. Sections: nav, hero, about, services, tech stack, experience, testimonials, FAQ, contact, footer, and SEO meta tags.
 
 ## Deployment (Cloudflare Pages)
 
 1. Connect your GitHub repo in Cloudflare Dashboard > Pages
-2. Build command: `node build.js`
+2. Build command: `npm run build`
 3. Output directory: `dist`
 4. Add custom domain: `pappfer.hu`
 

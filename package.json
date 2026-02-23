@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "dev": "npx serve dist",
     "build": "node build.js",
     "generate-pdf": "node scripts/generate-resume-pdf.js"
   },

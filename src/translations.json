@@ -271,7 +271,7 @@
       "label": "Rólam",
       "title": "Ki vagyok én",
       "p1": "Szabadúszó full-stack webfejlesztő vagyok Debrecenben, több mint 15 év szakmai tapasztalattal. Robusztus, skálázható webalkalmazásokat fejlesztek PHP/Laravel, Vue.js, React, Python és modern AI technológiák felhasználásával.",
-      "p2": "Egyedi webalkalmazásokat, kérdőív platformokat, multi-tenant SaaS rendszereket és AI-alapú automatizálási megoldásokat készítek. Ügyfeleim között startupok és piackutató cégek egyaránt megtalálhatók, és büszke vagyok a tiszta, tesztelt, produkciókész kódomra.",
+      "p2": "Egyedi webalkalmazásokat, kérdőív platformokat, multi-tenant SaaS rendszereket és AI-alapú automatizálási megoldásokat készítek. Ügyfeleim között startupok és piackutató cégek egyaránt megtalálhatók, és büszke vagyok a tiszta, tesztelt és hosszú távon fenntartható kódomra.",
       "p3": "Európai és amerikai ügyfelekkel távmunkában dolgozom együtt, és magyarul, illetve angolul is gördülékenyen kommunikálok. Nemcsak fejlesztek: a teljes folyamatot viszem az architektúrától a bevezetésig."
     },
 
@@ -282,7 +282,7 @@
         {
           "icon": "code",
           "title": "Egyedi webalkalmazások",
-          "description": "MVP-ktől a vállalati multi-tenant platformokig. Laravel, Symfony, Vue.js és React technológiákkal. Tiszta architektúra, tesztelt kód, produkciókész."
+          "description": "MVP-ktől a vállalati multi-tenant platformokig. Laravel, Symfony, Vue.js és React technológiákkal. Tiszta architektúra, tesztelt kód, megbízható működés éles környezetben."
         },
         {
           "icon": "ai",
