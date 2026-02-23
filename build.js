@@ -1,14 +1,27 @@
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const translations = JSON.parse(fs.readFileSync(path.join(__dirname, 'src', 'translations.json'), 'utf8'));
 const DIST = path.join(__dirname, 'dist');
 const HAS_RESUME_PDF = fs.existsSync(path.join(__dirname, 'src', 'resume.pdf'));
 const HAS_RESUME_HU_PDF = fs.existsSync(path.join(__dirname, 'src', 'resume-hu.pdf'));
+const HAS_RESUME_JSON = fs.existsSync(path.join(__dirname, 'src', 'resume.json'));
 const BUILD_DATE = new Date().toISOString().split('T')[0];
 const YEAR = new Date().getFullYear();
 const LANGUAGES = ['en', 'hu', 'de'];
 const LANG_FLAGS = { en: '🇬🇧', hu: '🇭🇺', de: '🇩🇪' };
+
+function fileVersion(relPath) {
+  const fullPath = path.join(__dirname, relPath);
+  if (!fs.existsSync(fullPath)) return BUILD_DATE;
+  const hash = crypto.createHash('sha1').update(fs.readFileSync(fullPath)).digest('hex');
+  return hash.slice(0, 10);
+}
+
+const RESUME_PDF_VERSION = HAS_RESUME_PDF ? fileVersion('src/resume.pdf') : BUILD_DATE;
+const RESUME_HU_PDF_VERSION = HAS_RESUME_HU_PDF ? fileVersion('src/resume-hu.pdf') : BUILD_DATE;
+const RESUME_JSON_VERSION = HAS_RESUME_JSON ? fileVersion('src/resume.json') : BUILD_DATE;
 
 // Ensure dist directories
 [DIST, ...LANGUAGES.map(l => path.join(DIST, l)), path.join(DIST, 'img')].forEach(dir => {
@@ -361,11 +374,10 @@ const minHtml = (html) => html.replace(/>\s+</g, '><').replace(/\n+/g, '').trim(
 // ─── HTML Generator ─────────────────────────────────────────────────────────────
 function generatePage(lang) {
   const t = translations[lang];
-  const otherLangs = LANGUAGES.filter(l => l !== lang);
   const footerDisplayName = lang === 'hu' ? 'Papp Ferenc' : (t.footer.name || 'Ferenc Papp');
   const cvPrimaryHref = lang === 'hu' && HAS_RESUME_HU_PDF
-    ? '/resume-hu.pdf'
-    : (HAS_RESUME_PDF ? '/resume.pdf' : '/resume.json');
+    ? `/resume-hu.pdf?v=${RESUME_HU_PDF_VERSION}`
+    : (HAS_RESUME_PDF ? `/resume.pdf?v=${RESUME_PDF_VERSION}` : `/resume.json?v=${RESUME_JSON_VERSION}`);
 
   // JSON-LD schemas
   const personSchema = JSON.stringify({
@@ -396,7 +408,7 @@ function generatePage(lang) {
     "worksFor": {"@type":"Organization","name":"Self-employed","url":"https://pappfer.hu"}
   });
 
-  const enTestimonials = translations['en'].testimonials.items;
+  const localizedTestimonials = t.testimonials.items;
   const serviceSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -418,11 +430,11 @@ function generatePage(lang) {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5",
-      "reviewCount": String(enTestimonials.length),
+      "reviewCount": String(localizedTestimonials.length),
       "bestRating": "5",
       "worstRating": "1"
     },
-    "review": enTestimonials.map(item => ({
+    "review": localizedTestimonials.map(item => ({
       "@type": "Review",
       "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
       "author": {"@type": "Person", "name": item.name},
@@ -553,8 +565,8 @@ ${t.hero.greeting ? `<p class="hero-greeting fade-up">${t.hero.greeting}</p>` : 
 <div class="hero-buttons fade-up">
 <a href="#contact" class="btn btn-primary">${t.hero.cta} ${icons.arrow}</a>
 <a href="${cvPrimaryHref}" class="btn btn-outline">${t.hero.cv}</a>
-${lang === 'hu' && HAS_RESUME_PDF ? `<a href="/resume.pdf" class="btn btn-outline">${t.hero.cvEn}</a>` : ''}
-<a href="/resume.json" class="btn btn-outline">${t.hero.cvJson}</a>
+${lang === 'hu' && HAS_RESUME_PDF ? `<a href="/resume.pdf?v=${RESUME_PDF_VERSION}" class="btn btn-outline">${t.hero.cvEn}</a>` : ''}
+<a href="/resume.json?v=${RESUME_JSON_VERSION}" class="btn btn-outline">${t.hero.cvJson}</a>
 </div>
 <div class="hero-stats fade-up">
 <span class="hero-stat">${t.hero.stats.experience}</span>

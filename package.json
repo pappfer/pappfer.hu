@@ -1,0 +1,12 @@
+{
+  "name": "pappfer-hu",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node build.js",
+    "generate-pdf": "node scripts/generate-resume-pdf.js"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^22.0.0"
+  }
+}

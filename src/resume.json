@@ -139,11 +139,11 @@
   "skills": [
     {
       "name": "Backend Development",
-      "keywords": ["PHP", "Laravel", "Symfony", "Yii2", "Python", "FastAPI"]
+      "keywords": ["PHP", "Laravel", "Python", "Symfony", "Yii2", "FastAPI"]
     },
     {
       "name": "Frontend Development",
-      "keywords": ["Vue.js", "React", "JavaScript", "TypeScript", "Svelte", "HTML5/CSS3", "Tailwind CSS"]
+      "keywords": ["Vue.js", "React", "TypeScript", "JavaScript", "Svelte", "HTML5/CSS3", "Tailwind CSS"]
     },
     {
       "name": "AI & Data",

@@ -2,58 +2,50 @@
 'use strict';
 
 const fs = require('fs');
-const os = require('os');
 const path = require('path');
-const { execFileSync } = require('child_process');
+const puppeteer = require('puppeteer-core');
+
+const CHROME_PATHS = [
+  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+  '/Applications/Chromium.app/Contents/MacOS/Chromium',
+  '/usr/bin/google-chrome',
+  '/usr/bin/chromium-browser',
+  '/usr/bin/chromium',
+];
+
+function findChrome() {
+  const fromEnv = process.env.CHROME_PATH;
+  if (fromEnv && fs.existsSync(fromEnv)) return fromEnv;
+  for (const p of CHROME_PATHS) {
+    if (fs.existsSync(p)) return p;
+  }
+  throw new Error('Chrome/Chromium not found. Install Chrome or set CHROME_PATH env var.');
+}
 
 const rootDir = path.resolve(__dirname, '..');
 const resumePath = path.join(rootDir, 'src', 'resume.json');
 const outputPdfPath = path.join(rootDir, 'src', 'resume.pdf');
 const outputHuPdfPath = path.join(rootDir, 'src', 'resume-hu.pdf');
-const tmpSvgPath = path.join(os.tmpdir(), 'pappfer-resume-v3.svg');
-const tmpRawPdfPath = path.join(os.tmpdir(), 'pappfer-resume-v3-raw.pdf');
+const profileImagePath = path.join(rootDir, 'src', 'pappfer.webp');
 
-const PAGE = {
-  width: 1240,
-  height: 1754,
-  margin: 64,
-  headerH: 228,
-  leftColW: 332
-};
+function loadProfileImageDataUri() {
+  try {
+    if (!fs.existsSync(profileImagePath)) return null;
+    const raw = fs.readFileSync(profileImagePath);
+    return `data:image/webp;base64,${raw.toString('base64')}`;
+  } catch (_) {
+    return null;
+  }
+}
 
-const THEME = {
-  bg: '#ffffff',
-  header: '#f3f4f6',
-  headerStripe: '#d1d5db',
-  leftPanel: '#fafafa',
-  section: '#111827',
-  line: '#d1d5db',
-  text: '#0f172a',
-  body: '#334155',
-  muted: '#64748b',
-  leftText: '#1f2937',
-  leftBody: '#475569'
-};
+const PROFILE_IMAGE_URI = loadProfileImageDataUri();
 
-const HU = {
-  contact: 'KAPCSOLAT',
-  profiles: 'PROFILOK',
-  stack: 'TECHNOLÓGIAI STACK',
-  languages: 'NYELVEK',
-  profile: 'PROFIL',
-  experience: 'SZAKMAI TAPASZTALAT',
-  education: 'TANULMÁNYOK',
-  serviceFocus: 'FÓKUSZTERÜLETEK',
-  updated: 'Frissítve'
-};
-
-function escXml(value) {
+function escHtml(value) {
   return String(value || '')
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;');
+    .replace(/"/g, '&quot;');
 }
 
 function formatDate(isoDate, locale = 'en-GB') {
@@ -64,47 +56,7 @@ function formatDate(isoDate, locale = 'en-GB') {
 }
 
 function dateRange(startDate, endDate, locale = 'en-GB') {
-  return `${formatDate(startDate, locale)} - ${formatDate(endDate, locale)}`;
-}
-
-function trimText(value, max) {
-  const normalized = String(value || '').replace(/\s+/g, ' ').trim();
-  if (normalized.length <= max) return normalized;
-  return `${normalized.slice(0, max - 1).trimEnd()}…`;
-}
-
-function wrapLines(value, maxChars) {
-  const words = String(value || '').replace(/\s+/g, ' ').trim().split(' ').filter(Boolean);
-  if (!words.length) return [];
-  const lines = [];
-  let current = words[0];
-  for (let i = 1; i < words.length; i += 1) {
-    const candidate = `${current} ${words[i]}`;
-    if (candidate.length <= maxChars) current = candidate;
-    else {
-      lines.push(current);
-      current = words[i];
-    }
-  }
-  lines.push(current);
-  return lines;
-}
-
-function textLine({
-  x, y, size, weight = 400, color = '#111827', text, family = 'Avenir Next, Avenir, Helvetica, Arial, sans-serif'
-}) {
-  return `<text x="${x}" y="${y}" font-family="${family}" font-size="${size}" font-weight="${weight}" fill="${color}">${escXml(text)}</text>`;
-}
-
-function textBlock({ x, y, lines, size, lineHeight, weight = 400, color = '#111827' }) {
-  return lines.map((line, i) => textLine({
-    x,
-    y: y + i * lineHeight,
-    size,
-    weight,
-    color,
-    text: line
-  })).join('\n');
+  return `${formatDate(startDate, locale)} – ${formatDate(endDate, locale)}`;
 }
 
 function trHu(text) {
@@ -139,205 +91,625 @@ function trHu(text) {
     ['Linux and Windows server administration', 'Linux és Windows szerverüzemeltetés'],
     ['Avaya IP phone administration', 'Avaya IP telefonrendszer-adminisztráció'],
     ['Bachelor\'s program', 'Alapképzés'],
-    ['Secondary school', 'Középiskola']
+    ['Secondary school', 'Középiskola'],
+    ['Backend', 'Backend'],
+    ['Frontend', 'Frontend'],
+    ['AI & Data', 'AI & Adat'],
+    ['DevOps & Tools', 'DevOps & Eszközök'],
+    ['Mobile', 'Mobil'],
+    // positions
+    ['Full-Stack Developer & Technical Consultant', 'Full-stack fejlesztő és technikai tanácsadó'],
+    ['Senior PHP Developer', 'Senior PHP fejlesztő'],
+    ['Frontend Developer', 'Frontend fejlesztő'],
+    ['Full-Stack Web Developer', 'Full-stack webfejlesztő'],
+    ['Service Desk Analyst 2nd Line', 'Service Desk elemző, 2nd Line'],
+    ['Contact Center Server Administrator', 'Contact Center szerver-adminisztrátor'],
+    ['PHP Developer', 'PHP fejlesztő'],
+    // company names
+    ['Self-employed (Sole Proprietor)', 'Egyéni vállalkozó'],
+    ['pappfer.hu (Freelancer)', 'pappfer.hu (szabadúszó)'],
   ]);
   return map.get(text) || text;
 }
 
-function buildSvg(resume, lang = 'en') {
+function buildHtml(resume, lang = 'en') {
   const basics = resume.basics || {};
-  const work = Array.isArray(resume.work) ? resume.work.slice(0, 7) : [];
+  const workLimit = 6;
+  const work = Array.isArray(resume.work) ? resume.work.slice(0, workLimit) : [];
   const education = Array.isArray(resume.education) ? resume.education.slice(0, 2) : [];
   const languages = Array.isArray(resume.languages) ? resume.languages : [];
   const profiles = Array.isArray(basics.profiles) ? basics.profiles.slice(0, 4) : [];
-  const allSkills = Array.isArray(resume.skills) ? resume.skills.flatMap((s) => s.keywords || []) : [];
+  const skills = Array.isArray(resume.skills) ? resume.skills : [];
 
-  const rightX = PAGE.margin + PAGE.leftColW + 40;
-  const rightW = PAGE.width - rightX - PAGE.margin;
-  const leftX = PAGE.margin;
-  const leftW = PAGE.leftColW;
-
-  const svg = [];
-  svg.push(`<svg xmlns="http://www.w3.org/2000/svg" width="${PAGE.width}" height="${PAGE.height}" viewBox="0 0 ${PAGE.width} ${PAGE.height}">`);
-  svg.push(`<rect width="${PAGE.width}" height="${PAGE.height}" fill="${THEME.bg}"/>`);
-
-  // Header band
-  svg.push(`<rect x="0" y="0" width="${PAGE.width}" height="${PAGE.headerH}" fill="${THEME.header}"/>`);
-  svg.push(`<rect x="0" y="${PAGE.headerH - 8}" width="${PAGE.width}" height="8" fill="${THEME.headerStripe}"/>`);
-
-  const baseName = String(basics.name || 'Ferenc Papp').trim();
-  const name = lang === 'hu' ? 'Papp Ferenc' : baseName;
-  const labelText = lang === 'hu'
-    ? 'Full-Stack fejlesztő és AI integrációs szakértő'
+  const isHu = lang === 'hu';
+  const locale = isHu ? 'hu-HU' : 'en-GB';
+  const name = isHu ? 'Papp Ferenc' : (basics.name || 'Ferenc Papp');
+  const label = isHu
+    ? 'Full-stack fejlesztő és AI integrációs szakértő'
     : (basics.label || '');
-  svg.push(textLine({ x: PAGE.margin, y: 108, size: 64, weight: 700, color: '#111827', text: name }));
-  svg.push(textLine({ x: PAGE.margin, y: 152, size: 26, weight: 600, color: '#374151', text: trimText(labelText, 54) }));
-  const headerMeta = [
-    basics.email || '',
-    basics.url ? basics.url.replace(/^https?:\/\//, '') : '',
-    [basics.location?.city, 'Hungary'].filter(Boolean).join(', ')
-  ].filter(Boolean).join('  •  ');
-  svg.push(textLine({ x: PAGE.margin, y: 194, size: 16, weight: 500, color: '#4b5563', text: headerMeta }));
+  const locationCountry = isHu ? 'Magyarország' : 'Hungary';
+  const location = [basics.location?.city, locationCountry].filter(Boolean).join(', ');
 
-  // Left column surface
-  const contentTop = PAGE.headerH + 34;
-  svg.push(`<rect x="${leftX}" y="${contentTop}" width="${leftW}" height="${PAGE.height - contentTop - PAGE.margin}" rx="18" ry="18" fill="${THEME.leftPanel}"/>`);
-
-  let ly = contentTop + 42;
-  const leftSection = (title) => {
-    svg.push(textLine({ x: leftX + 26, y: ly, size: 17, weight: 700, color: THEME.section, text: title }));
-    ly += 18;
-    svg.push(`<rect x="${leftX + 26}" y="${ly}" width="${leftW - 52}" height="1" fill="${THEME.line}"/>`);
-    ly += 24;
+  const labels = {
+    contact: isHu ? 'KAPCSOLAT' : 'CONTACT',
+    profiles: isHu ? 'PROFILOK' : 'PROFILES',
+    stack: isHu ? 'TECHNOLÓGIAI STACK' : 'CORE STACK',
+    languages: isHu ? 'NYELVEK' : 'LANGUAGES',
+    profile: isHu ? 'PROFIL' : 'PROFILE',
+    experience: isHu ? 'SZAKMAI TAPASZTALAT' : 'SELECTED EXPERIENCE',
+    education: isHu ? 'TANULMÁNYOK' : 'EDUCATION',
+    serviceFocus: isHu ? 'FÓKUSZTERÜLETEK' : 'SERVICE FOCUS',
+    email: isHu ? 'Email' : 'Email',
+    web: isHu ? 'Web' : 'Web',
+    locationLabel: isHu ? 'Hely' : 'Location',
   };
 
-  leftSection(lang === 'hu' ? HU.contact : 'CONTACT');
-  const contactLines = [
-    basics.email || '',
-    basics.url ? basics.url.replace(/^https?:\/\//, '') : '',
-    [basics.location?.city, 'Hungary'].filter(Boolean).join(', ')
-  ].filter(Boolean);
-  svg.push(textBlock({ x: leftX + 26, y: ly, lines: contactLines, size: 14.5, lineHeight: 23, weight: 500, color: THEME.leftText }));
-  ly += contactLines.length * 23 + 18;
+  const email = basics.email || '';
+  const urlHref = basics.url || '';
+  const urlDisplay = urlHref.replace(/^https?:\/\//, '');
+  const summary = (isHu ? trHu(basics.summary) : basics.summary) || '';
 
-  leftSection(lang === 'hu' ? HU.profiles : 'PROFILES');
-  const profileLines = [];
-  for (const p of profiles) {
-    const label = p.network === 'Stack Overflow'
-      ? 'StackOverflow'
-      : (p.network || 'Profile');
-    const value = p.username ? `@${p.username}` : String(p.url || '').replace(/^https?:\/\//, '').replace(/^www\./, '');
-    profileLines.push(...wrapLines(`${label}: ${value}`, 30));
-  }
-  svg.push(textBlock({ x: leftX + 26, y: ly, lines: profileLines, size: 13.2, lineHeight: 20, color: THEME.leftBody }));
-  ly += profileLines.length * 20 + 18;
+  // Chips
+  const chips = [
+    isHu ? '15+ év tapasztalat' : '15+ years experience',
+    isHu ? 'EU + US ügyfelek' : 'EU + US clients',
+    isHu ? 'HU / EN / DE' : 'EN / HU / DE',
+  ];
 
-  leftSection(lang === 'hu' ? HU.stack : 'CORE STACK');
-  const stackLines = wrapLines(allSkills.slice(0, 20).join(', '), 35).slice(0, 10);
-  svg.push(textBlock({ x: leftX + 26, y: ly, lines: stackLines, size: 12.7, lineHeight: 19, color: THEME.leftBody }));
-  ly += stackLines.length * 19 + 18;
+  // Left: profiles
+  const profilesHtml = profiles.map(p => {
+    const netLabel = p.network === 'Stack Overflow' ? 'StackOverflow' : (p.network || 'Profile');
+    const display = p.username ? `@${p.username}` : String(p.url || '').replace(/^https?:\/\//, '').replace(/^www\./, '');
+    const href = p.url || '#';
+    return `<p><a href="${escHtml(href)}">${escHtml(netLabel)}: ${escHtml(display)}</a></p>`;
+  }).join('');
 
-  leftSection(lang === 'hu' ? HU.languages : 'LANGUAGES');
-  const langLines = languages.map((l) => {
-    if (lang !== 'hu') return `${l.language}: ${l.fluency}`;
+  // Left: stack
+  const stackHtml = (skills || []).slice(0, 5).map(group => {
+    const gname = isHu ? trHu(group.name || '') : (group.name || '');
+    const top = Array.isArray(group.keywords) ? group.keywords.slice(0, 3).join(', ') : '';
+    return `<div class="stack-item"><div class="stack-cat">${escHtml(gname)}</div><div class="stack-kw">${escHtml(top)}</div></div>`;
+  }).join('');
+
+  // Left: languages
+  const langHtml = languages.map(l => {
+    if (!isHu) return `<p>${escHtml(`${l.language}: ${l.fluency}`)}</p>`;
     const fluency = l.fluency === 'Native speaker' ? 'anyanyelvi' : (l.fluency === 'Fluent' ? 'folyékony' : 'alapszint');
     const language = l.language === 'Hungarian' ? 'Magyar' : (l.language === 'English' ? 'Angol' : 'Német');
-    return `${language}: ${fluency}`;
-  });
-  svg.push(textBlock({ x: leftX + 26, y: ly, lines: langLines, size: 13.5, lineHeight: 22, color: THEME.leftBody }));
+    return `<p>${escHtml(`${language}: ${fluency}`)}</p>`;
+  }).join('');
 
-  // Right column
-  let ry = contentTop + 6;
-  const rightSection = (title) => {
-    if (ry > contentTop + 6) {
-      ry += 12;
-    }
-    svg.push(textLine({ x: rightX, y: ry, size: 21, weight: 700, color: THEME.section, text: title }));
-    ry += 12;
-    svg.push(`<rect x="${rightX}" y="${ry}" width="${rightW}" height="1.5" fill="${THEME.line}"/>`);
-    ry += 30;
-  };
+  // Right: work
+  const workHtml = work.map((item, idx) => {
+    const position = (isHu ? trHu(item.position) : item.position) || '';
+    const company = (isHu ? trHu(item.name) : item.name) || '';
+    const dates = dateRange(item.startDate, item.endDate, locale);
+    const itemSummary = (isHu ? trHu(item.summary) : item.summary) || '';
+    const highlights = (Array.isArray(item.highlights) ? item.highlights : []).slice(0, 2);
+    const isLast = idx === work.length - 1;
 
-  rightSection(lang === 'hu' ? HU.profile : 'PROFILE');
-  const summary = trimText(
-    (lang === 'hu' ? trHu(basics.summary) : basics.summary) || 'Freelance full-stack developer focused on Laravel, Vue.js/React, Python, and practical AI integration.',
-    390
-  );
-  const summaryLines = wrapLines(summary, 76).slice(0, 6);
-  svg.push(textBlock({ x: rightX, y: ry, lines: summaryLines, size: 15.5, lineHeight: 24, color: THEME.body }));
-  ry += summaryLines.length * 24 + 28;
+    return `
+<div class="work-item${isLast ? ' last' : ''}">
+  <div class="work-header">
+    <span class="work-position">${escHtml(position)}</span>
+    <span class="work-date">${escHtml(dates)}</span>
+  </div>
+  <div class="work-company">${escHtml(company)}</div>
+  ${itemSummary ? `<div class="work-summary">${escHtml(itemSummary)}</div>` : ''}
+  ${highlights.map(h => `<div class="work-highlight">• ${escHtml(isHu ? trHu(h) : h)}</div>`).join('')}
+</div>`;
+  }).join('');
 
-  rightSection(lang === 'hu' ? HU.experience : 'SELECTED EXPERIENCE');
-  for (const item of work) {
-    if (ry > PAGE.height - 290) break;
-    const title = trimText(`${item.position} — ${item.name}`, 74);
-    svg.push(textLine({ x: rightX, y: ry, size: 17, weight: 700, color: THEME.text, text: title }));
-    ry += 21;
-    svg.push(textLine({ x: rightX, y: ry, size: 13.5, weight: 600, color: THEME.muted, text: dateRange(item.startDate, item.endDate, lang === 'hu' ? 'hu-HU' : 'en-GB') }));
-    ry += 21;
-    const itemSummary = trimText(lang === 'hu' ? trHu(item.summary) : item.summary || '', 250);
-    const itemLines = wrapLines(itemSummary, 74).slice(0, 3);
-    svg.push(textBlock({ x: rightX, y: ry, lines: itemLines, size: 13.8, lineHeight: 20, color: THEME.body }));
-    ry += itemLines.length * 20 + 6;
-    const highlights = Array.isArray(item.highlights) ? item.highlights.slice(0, 1) : [];
-    for (const h of highlights) {
-      const hi = lang === 'hu' ? trHu(h) : h;
-      const hLines = wrapLines(`• ${trimText(hi, 95)}`, 73).slice(0, 2);
-      svg.push(textBlock({ x: rightX, y: ry, lines: hLines, size: 12.8, lineHeight: 18, color: THEME.muted }));
-      ry += hLines.length * 18 + 4;
-    }
-    ry += 12;
-  }
+  // Right: education
+  const educationHtml = education.map(item => {
+    const studyType = isHu ? trHu(item.studyType || '') : (item.studyType || '');
+    return `
+<div class="edu-item">
+  <div class="edu-institution">${escHtml(item.institution || '')}</div>
+  <div class="edu-study">${escHtml(`${studyType} · ${item.area || ''}`)}</div>
+  <div class="edu-date">${escHtml(dateRange(item.startDate, item.endDate, locale))}</div>
+</div>`;
+  }).join('');
 
-  rightSection(lang === 'hu' ? HU.education : 'EDUCATION');
-  for (const item of education) {
-    svg.push(textLine({ x: rightX, y: ry, size: 15.8, weight: 700, color: THEME.text, text: trimText(item.institution || '', 66) }));
-    ry += 20;
-    const studyType = lang === 'hu' ? trHu(item.studyType || '') : (item.studyType || '');
-    svg.push(textLine({
-      x: rightX,
-      y: ry,
-      size: 13.6,
-      weight: 500,
-      color: THEME.body,
-      text: trimText(`${studyType} · ${item.area || ''}`, 76)
-    }));
-    ry += 18;
-    svg.push(textLine({ x: rightX, y: ry, size: 12.8, color: THEME.muted, text: dateRange(item.startDate, item.endDate, lang === 'hu' ? 'hu-HU' : 'en-GB') }));
-    ry += 24;
-  }
+  // Right: service focus
+  const serviceLines = isHu ? [
+    'Egyedi webalkalmazás-fejlesztés (Laravel, Vue.js, React)',
+    'AI integrációs automatizálás (OpenAI, Anthropic, RAG)',
+    'Architektúra tanácsadás és teljesítményoptimalizálás',
+  ] : [
+    'Custom web application development (Laravel, Vue.js, React)',
+    'AI integration and automation (OpenAI, Anthropic, RAG)',
+    'Technical architecture consulting and performance optimization',
+  ];
 
-  if (ry < PAGE.height - 170) {
-    rightSection(lang === 'hu' ? HU.serviceFocus : 'SERVICE FOCUS');
-    const serviceLines = lang === 'hu' ? [
-      '• Egyedi webalkalmazás-fejlesztés (Laravel, Vue.js, React)',
-      '• AI integráció és automatizálás (OpenAI, Anthropic, RAG)',
-      '• Architektúra tanácsadás és teljesítményoptimalizálás'
-    ] : [
-      '• Custom web application development (Laravel, Vue.js, React)',
-      '• AI integration and automation (OpenAI, Anthropic, RAG)',
-      '• Technical architecture consulting and performance optimization'
-    ];
-    svg.push(textBlock({ x: rightX, y: ry, lines: serviceLines, size: 13.8, lineHeight: 22, color: THEME.body }));
-    ry += serviceLines.length * 22 + 20;
-  }
+  const photoHtml = PROFILE_IMAGE_URI
+    ? `<img class="photo" src="${PROFILE_IMAGE_URI}" alt="${escHtml(name)}">`
+    : `<div class="photo-placeholder"></div>`;
 
-  if (ry < PAGE.height - 70) {
-    svg.push(`<rect x="${rightX}" y="${PAGE.height - 86}" width="${rightW}" height="1" fill="${THEME.line}"/>`);
-  }
+  return `<!DOCTYPE html>
+<html lang="${lang}">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { margin: 0 !important; padding: 0 !important; }
+body { margin: 0 !important; padding: 0 !important; }
 
-  const footerLabel = lang === 'hu' ? HU.updated : 'Last updated';
-  const footer = `${footerLabel}: ${resume.meta?.lastModified || new Date().toISOString().slice(0, 10)}`;
-  svg.push(textLine({ x: rightX, y: PAGE.height - 36, size: 12, color: '#94a3b8', text: footer }));
-  svg.push('</svg>');
+@page { size: A4; margin: 0; }
 
-  return svg.join('\n');
+html, body {
+  width: 210mm;
+  height: 297mm;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+  font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 7pt;
+  color: #334155;
+  background: #ffffff;
+  overflow: hidden;
 }
 
-function main() {
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* ── PAGE ─────────────────────────────────── */
+.page {
+  width: 210mm;
+  height: 297mm;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── HEADER ───────────────────────────────── */
+.header {
+  flex-shrink: 0;
+  position: relative;
+  background: #f8fafc;
+  border-bottom: 5px solid #e2e8f0;
+  padding: 5mm 10mm 5mm 13mm;
+  display: flex;
+  align-items: flex-start;
+  gap: 4mm;
+}
+
+.header-accent {
+  position: absolute;
+  left: 0; top: -4px; bottom: 0;
+  width: 3.5mm;
+  background: #0f766e;
+}
+
+.header-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.header-photo-wrap {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding-top: 1mm;
+}
+
+.photo {
+  width: 24mm;
+  height: 24mm;
+  border-radius: 50%;
+  border: 0.6mm solid #cbd5e1;
+  object-fit: cover;
+  background: #eef2ff;
+  display: block;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+}
+
+.photo-placeholder {
+  width: 24mm;
+  height: 24mm;
+  border-radius: 50%;
+  background: #e2e8f0;
+}
+
+.name {
+  font-size: 29pt;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.4pt;
+  line-height: 1.1;
+  margin-bottom: 1.5mm;
+}
+
+.header-label {
+  font-size: 12pt;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 2.5mm;
+}
+
+.header-meta {
+  font-size: 7.2pt;
+  font-weight: 500;
+  color: #475569;
+  margin-bottom: 3mm;
+}
+
+.header-meta a {
+  color: #475569;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.8mm;
+}
+
+.chip {
+  display: inline-block;
+  border: 0.3mm solid #94a3b8;
+  border-radius: 4mm;
+  padding: 1mm 3mm;
+  font-size: 6.5pt;
+  font-weight: 600;
+  color: #334155;
+  background: #ffffff;
+  white-space: nowrap;
+}
+
+/* ── BODY ─────────────────────────────────── */
+.body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 55mm 1fr;
+  gap: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ── LEFT COLUMN ──────────────────────────── */
+.left {
+  background: #f8fafc;
+  border-right: 0.4mm solid #e2e8f0;
+  padding: 5mm 5mm 5mm 7.5mm;
+  overflow: hidden;
+}
+
+.left-section {
+  margin-bottom: 4.8mm;
+}
+
+.left-title {
+  font-size: 6.5pt;
+  font-weight: 700;
+  color: #0b5f59;
+  letter-spacing: 1pt;
+  margin-bottom: 1.5mm;
+}
+
+.left-rule {
+  height: 0.3mm;
+  background: #dbeafe;
+  margin-bottom: 2.5mm;
+}
+
+.left-content p {
+  font-size: 7.3pt;
+  font-weight: 500;
+  color: #1f2937;
+  line-height: 1.72;
+}
+
+.left-content a {
+  color: #2f6f74;
+}
+
+.contact-label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.stack-item {
+  margin-bottom: 2.5mm;
+}
+
+.stack-cat {
+  font-size: 5.8pt;
+  font-weight: 700;
+  color: #0f766e;
+  text-transform: uppercase;
+  letter-spacing: 0.7pt;
+  margin-bottom: 0.3mm;
+}
+
+.stack-kw {
+  font-size: 6.8pt;
+  font-weight: 500;
+  color: #1f2937;
+  line-height: 1.4;
+}
+
+/* ── RIGHT COLUMN ─────────────────────────── */
+.right {
+  padding: 2.6mm 7.8mm 2.6mm 5.8mm;
+  overflow: hidden;
+}
+
+.right-section {
+  margin-bottom: 2.3mm;
+}
+
+.right-section-head {
+  display: flex;
+  align-items: center;
+  gap: 2.5mm;
+  margin-bottom: 1.1mm;
+}
+
+.right-accent {
+  width: 1.8mm;
+  height: 6.5mm;
+  background: #0f766e;
+  border-radius: 1mm;
+  flex-shrink: 0;
+}
+
+.right-title {
+  font-size: 10pt;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: 0.2pt;
+}
+
+.right-rule {
+  height: 0.3mm;
+  background: #dbeafe;
+  margin-bottom: 1.1mm;
+}
+
+.summary {
+  font-size: 7.5pt;
+  color: #2b3d52;
+  line-height: 1.72;
+}
+
+/* ── WORK ITEMS ───────────────────────────── */
+.work-item {
+  padding-bottom: 1.8mm;
+  margin-bottom: 1.8mm;
+  border-bottom: 0.25mm solid #e2e8f0;
+}
+
+.work-item.last {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.work-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 2mm;
+  margin-bottom: 0.5mm;
+}
+
+.work-position {
+  font-size: 8.5pt;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.work-date {
+  font-size: 6.5pt;
+  font-weight: 600;
+  color: #64748b;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.work-company {
+  font-size: 7pt;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 0.7mm;
+}
+
+.work-summary {
+  font-size: 7.1pt;
+  color: #2b3d52;
+  line-height: 1.72;
+  margin-bottom: 0.8mm;
+}
+
+.work-highlight {
+  font-size: 6.5pt;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* ── EDUCATION ────────────────────────────── */
+.edu-item {
+  margin-bottom: 2.4mm;
+}
+
+.edu-institution {
+  font-size: 8pt;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.8mm;
+}
+
+.edu-study {
+  font-size: 6.8pt;
+  font-weight: 500;
+  color: #334155;
+  margin-bottom: 0.5mm;
+}
+
+.edu-date {
+  font-size: 6.5pt;
+  color: #64748b;
+}
+
+/* ── SERVICE FOCUS ────────────────────────── */
+.service-line {
+  font-size: 7pt;
+  color: #334155;
+  line-height: 1.62;
+}
+
+/* ── FOOTER RULE ──────────────────────────── */
+.footer-rule {
+  flex-shrink: 0;
+  height: 0.3mm;
+  background: #e2e8f0;
+  margin: 0 8mm;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <div class="header-accent"></div>
+    <div class="header-main">
+      <h1 class="name">${escHtml(name)}</h1>
+      <p class="header-label">${escHtml(label)}</p>
+      <p class="header-meta">
+        <a href="mailto:${escHtml(email)}">${escHtml(email)}</a>
+        &nbsp;•&nbsp;
+        <a href="${escHtml(urlHref)}">${escHtml(urlDisplay)}</a>
+        &nbsp;•&nbsp;${escHtml(location)}
+      </p>
+      <div class="chips">
+        ${chips.map(c => `<span class="chip">${escHtml(c)}</span>`).join('\n        ')}
+      </div>
+    </div>
+    <div class="header-photo-wrap">
+      ${photoHtml}
+    </div>
+  </header>
+
+  <div class="body">
+
+    <aside class="left">
+
+      <div class="left-section">
+        <div class="left-title">${labels.contact}</div>
+        <div class="left-rule"></div>
+        <div class="left-content">
+          <p><span class="contact-label">${labels.email}:</span> <a href="mailto:${escHtml(email)}">${escHtml(email)}</a></p>
+          <p><span class="contact-label">${labels.web}:</span> <a href="${escHtml(urlHref)}">${escHtml(urlDisplay)}</a></p>
+          <p><span class="contact-label">${labels.locationLabel}:</span> ${escHtml(location)}</p>
+        </div>
+      </div>
+
+      <div class="left-section">
+        <div class="left-title">${labels.profiles}</div>
+        <div class="left-rule"></div>
+        <div class="left-content">${profilesHtml}</div>
+      </div>
+
+      <div class="left-section">
+        <div class="left-title">${labels.stack}</div>
+        <div class="left-rule"></div>
+        <div class="left-content">${stackHtml}</div>
+      </div>
+
+      <div class="left-section">
+        <div class="left-title">${labels.languages}</div>
+        <div class="left-rule"></div>
+        <div class="left-content">${langHtml}</div>
+      </div>
+
+    </aside>
+
+    <main class="right">
+
+      <div class="right-section">
+        <div class="right-section-head">
+          <div class="right-accent"></div>
+          <h2 class="right-title">${labels.profile}</h2>
+        </div>
+        <div class="right-rule"></div>
+        <p class="summary">${escHtml(summary)}</p>
+      </div>
+
+      <div class="right-section">
+        <div class="right-section-head">
+          <div class="right-accent"></div>
+          <h2 class="right-title">${labels.experience}</h2>
+        </div>
+        <div class="right-rule"></div>
+        ${workHtml}
+      </div>
+
+      <div class="right-section">
+        <div class="right-section-head">
+          <div class="right-accent"></div>
+          <h2 class="right-title">${labels.education}</h2>
+        </div>
+        <div class="right-rule"></div>
+        ${educationHtml}
+      </div>
+
+      <div class="right-section">
+        <div class="right-section-head">
+          <div class="right-accent"></div>
+          <h2 class="right-title">${labels.serviceFocus}</h2>
+        </div>
+        <div class="right-rule"></div>
+        ${serviceLines.map(l => `<p class="service-line">• ${escHtml(l)}</p>`).join('\n        ')}
+      </div>
+
+    </main>
+
+  </div>
+
+  <div class="footer-rule"></div>
+
+</div>
+</body>
+</html>`;
+}
+
+async function generatePdf(html, outputPath) {
+  const browser = await puppeteer.launch({
+    headless: true,
+    executablePath: findChrome(),
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  });
+  try {
+    const page = await browser.newPage();
+    await page.setContent(html, { waitUntil: 'networkidle0' });
+    await page.pdf({
+      path: outputPath,
+      format: 'A4',
+      printBackground: true,
+      margin: { top: 0, right: 0, bottom: 0, left: 0 },
+    });
+    console.log(`  ✓ ${path.relative(rootDir, outputPath)}`);
+  } finally {
+    await browser.close();
+  }
+}
+
+async function main() {
   if (!fs.existsSync(resumePath)) {
     throw new Error(`Missing ${resumePath}`);
   }
-
   const resume = JSON.parse(fs.readFileSync(resumePath, 'utf8'));
-  const svgEn = buildSvg(resume, 'en');
-  fs.writeFileSync(tmpSvgPath, svgEn, 'utf8');
-  execFileSync('magick', ['-density', '300', tmpSvgPath, tmpRawPdfPath], { stdio: 'inherit' });
-  execFileSync('ps2pdf', ['-dPDFSETTINGS=/ebook', tmpRawPdfPath, outputPdfPath], { stdio: 'inherit' });
 
-  const svgHu = buildSvg(resume, 'hu');
-  fs.writeFileSync(tmpSvgPath, svgHu, 'utf8');
-  execFileSync('magick', ['-density', '300', tmpSvgPath, tmpRawPdfPath], { stdio: 'inherit' });
-  execFileSync('ps2pdf', ['-dPDFSETTINGS=/ebook', tmpRawPdfPath, outputHuPdfPath], { stdio: 'inherit' });
-
-  try {
-    fs.unlinkSync(tmpSvgPath);
-    fs.unlinkSync(tmpRawPdfPath);
-  } catch (_) {
-    // no-op cleanup
-  }
-
-  console.log(`Generated ${path.relative(rootDir, outputPdfPath)} and ${path.relative(rootDir, outputHuPdfPath)}`);
+  console.log('Generating resume PDFs with Chromium...');
+  await generatePdf(buildHtml(resume, 'en'), outputPdfPath);
+  await generatePdf(buildHtml(resume, 'hu'), outputHuPdfPath);
+  console.log('Done.');
 }
 
-main();
+main().catch(err => { console.error(err); process.exit(1); });
