@@ -387,7 +387,7 @@ function generatePage(lang) {
     "@type": "Person",
     "name": "Ferenc Papp",
     "alternateName": "pappfer",
-    "jobTitle": "Full-Stack Developer & AI Integration Specialist",
+    "jobTitle": "Full-Stack Web Developer & AI Integration Specialist",
     "description": "Freelance full-stack web developer with 15+ years of experience specializing in Laravel, Vue.js, React, Python, and AI integration.",
     "url": "https://pappfer.hu",
     "email": "pappfer@pappfer.hu",
@@ -414,7 +414,7 @@ function generatePage(lang) {
   const serviceSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "Ferenc Papp — Full-Stack Developer",
+    "name": "Ferenc Papp — Full-Stack Web Developer",
     "description": "Freelance full-stack web development, AI integration, and technical consulting services by Ferenc Papp.",
     "url": "https://pappfer.hu",
     "founder": {"@type":"Person","name":"Ferenc Papp"},
@@ -457,7 +457,7 @@ function generatePage(lang) {
   const websiteSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Ferenc Papp — Full-Stack Developer",
+    "name": "Ferenc Papp — Full-Stack Web Developer",
     "url": "https://pappfer.hu",
     "inLanguage": ["en", "hu", "de"]
   });
@@ -774,7 +774,7 @@ function generateRoot() {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ferenc Papp — Full-Stack Developer</title>
+<title>Ferenc Papp — Full-Stack Web Developer</title>
 <meta name="description" content="Redirecting to your preferred language...">
 <link rel="canonical" href="https://pappfer.hu/en/">
 <meta http-equiv="refresh" content="0;url=/en/">
@@ -827,7 +827,7 @@ ${urls}
 // ─── manifest.webmanifest ──────────────────────────────────────────────────────
 function generateManifest() {
   return JSON.stringify({
-    name: 'Ferenc Papp — Full-Stack Developer',
+    name: 'Ferenc Papp — Full-Stack Web Developer',
     short_name: 'pappfer',
     description: 'Freelance full-stack developer and AI integration specialist in Debrecen, Hungary.',
     lang: 'en',
@@ -868,7 +868,7 @@ function generate404() {
 
 // ─── llms.txt ───────────────────────────────────────────────────────────────────
 function generateLlms() {
-  return `# Ferenc Papp — Full-Stack Developer & AI Integration Specialist
+  return `# Ferenc Papp — Full-Stack Web Developer & AI Integration Specialist
 
 ## About
 Ferenc Papp is a freelance full-stack web developer and AI integration specialist based in Debrecen, Hungary, working as a sole proprietor. He has over 15 years of professional experience and works with clients across Europe and the United States.

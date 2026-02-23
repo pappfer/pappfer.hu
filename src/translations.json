@@ -6,10 +6,10 @@
     "direction": "ltr",
 
     "meta": {
-      "title": "Ferenc Papp — Full-Stack Developer & AI Integration Specialist | Debrecen, Hungary",
+      "title": "Ferenc Papp — Full-Stack Web Developer & AI Integration Specialist | Debrecen, Hungary",
       "description": "Freelance full-stack developer with 15+ years of experience. Specializing in Laravel, Vue.js, React, Python, and AI integration. Serving clients across Europe and the US.",
-      "ogSiteName": "Ferenc Papp — Full-Stack Developer",
-      "ogImageAlt": "Ferenc Papp — Full-Stack Developer & AI Integration Specialist"
+      "ogSiteName": "Ferenc Papp — Full-Stack Web Developer",
+      "ogImageAlt": "Ferenc Papp — Full-Stack Web Developer & AI Integration Specialist"
     },
 
     "nav": {
@@ -30,7 +30,7 @@
       "availability": "Available for new projects",
       "greeting": "Hello, I'm",
       "name": "Ferenc Papp",
-      "title": "Full-Stack Developer & AI Integration Specialist",
+      "title": "Full-Stack Web Developer & AI Integration Specialist",
       "description": "I build fast, scalable web applications and integrate AI solutions that give your business a competitive edge. 15+ years of experience, clients worldwide.",
       "cta": "Let's Talk",
       "cv": "Download CV",
@@ -230,10 +230,10 @@
     "direction": "ltr",
 
     "meta": {
-      "title": "Papp Ferenc — Full-stack fejlesztő & AI integrációs szakértő | Debrecen",
+      "title": "Papp Ferenc — Full-stack webfejlesztő & AI integrációs szakértő | Debrecen",
       "description": "Szabadúszó full-stack fejlesztő, 15+ év tapasztalattal. Laravel, Vue.js, React, Python és AI integráció. Ügyfelek Európa-szerte és az USA-ban.",
-      "ogSiteName": "Papp Ferenc — Full-stack fejlesztő",
-      "ogImageAlt": "Papp Ferenc — Full-stack fejlesztő és AI integrációs szakértő"
+      "ogSiteName": "Papp Ferenc — Full-stack webfejlesztő",
+      "ogImageAlt": "Papp Ferenc — Full-stack webfejlesztő és AI integrációs szakértő"
     },
 
     "nav": {
@@ -254,7 +254,7 @@
       "availability": "Elérhető új projektekre",
       "greeting": "Üdvözöllek!",
       "name": "Papp Ferenc",
-      "title": "Full-stack fejlesztő & AI integrációs szakértő",
+      "title": "Full-stack webfejlesztő & AI integrációs szakértő",
       "description": "Gyors, skálázható webalkalmazásokat fejlesztek és AI megoldásokat integrálok, amelyek versenyelőnyt biztosítanak a vállalkozásodnak. Több mint 15 év tapasztalat, ügyfelek világszerte.",
       "cta": "Beszéljünk!",
       "cv": "Önéletrajz letöltése",
@@ -321,7 +321,7 @@
         {
           "period": "2017 – Jelenleg",
           "company": "Egyéni vállalkozó",
-          "role": "Full-stack fejlesztő & technikai tanácsadó",
+          "role": "Full-stack webfejlesztő & technikai tanácsadó",
           "description": "Szabadúszó fejlesztő, egyedi webalkalmazások, kérdőív rendszerek és AI integrációk fejlesztése európai és amerikai piackutató cégek számára."
         },
         {
@@ -454,7 +454,7 @@
     "direction": "ltr",
 
     "meta": {
-      "title": "Ferenc Papp — Full-Stack Entwickler & KI-Integrationsspezialist | Debrecen, Ungarn",
+      "title": "Ferenc Papp — Full-Stack Webentwickler & KI-Integrationsspezialist | Debrecen, Ungarn",
       "description": "Freiberuflicher Full-Stack Entwickler mit über 15 Jahren Erfahrung. Spezialisiert auf Laravel, Vue.js, React, Python und KI-Integration. Kunden in Europa und den USA.",
       "ogSiteName": "Ferenc Papp — Full-Stack Entwickler",
       "ogImageAlt": "Ferenc Papp — Full-Stack Entwickler und KI-Integrationsspezialist"
@@ -478,7 +478,7 @@
       "availability": "Verfügbar für neue Projekte",
       "greeting": "Hallo, ich bin",
       "name": "Ferenc Papp",
-      "title": "Full-Stack Entwickler & KI-Integrationsspezialist",
+      "title": "Full-Stack Webentwickler & KI-Integrationsspezialist",
       "description": "Ich entwickle schnelle, skalierbare Webanwendungen und integriere KI-Lösungen, die Ihrem Unternehmen einen Wettbewerbsvorteil verschaffen. Über 15 Jahre Erfahrung, Kunden weltweit.",
       "cta": "Kontakt aufnehmen",
       "cv": "Lebenslauf herunterladen",

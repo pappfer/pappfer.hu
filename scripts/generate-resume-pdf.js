@@ -98,7 +98,7 @@ function trHu(text) {
     ['DevOps & Tools', 'DevOps & Eszközök'],
     ['Mobile', 'Mobil'],
     // positions
-    ['Full-Stack Developer & Technical Consultant', 'Full-stack fejlesztő és technikai tanácsadó'],
+    ['Full-Stack Developer & Technical Consultant', 'Full-stack webfejlesztő és technikai tanácsadó'],
     ['Senior PHP Developer', 'Senior PHP fejlesztő'],
     ['Frontend Developer', 'Frontend fejlesztő'],
     ['Full-Stack Web Developer', 'Full-stack webfejlesztő'],
@@ -125,7 +125,7 @@ function buildHtml(resume, lang = 'en') {
   const locale = isHu ? 'hu-HU' : 'en-GB';
   const name = isHu ? 'Papp Ferenc' : (basics.name || 'Ferenc Papp');
   const label = isHu
-    ? 'Full-stack fejlesztő és AI integrációs szakértő'
+    ? 'Full-stack webfejlesztő és AI integrációs szakértő'
     : (basics.label || '');
   const locationCountry = isHu ? 'Magyarország' : 'Hungary';
   const location = [basics.location?.city, locationCountry].filter(Boolean).join(', ');
