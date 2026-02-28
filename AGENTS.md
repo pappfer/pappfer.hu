@@ -593,10 +593,10 @@ Clean, professional, modern — but NOT generic. The site should look like it wa
 --bg-tertiary: #f0f0f0;
 --text-primary: #1a1a2e;
 --text-secondary: #4a4a6a;
---text-muted: #7a7a9a;
---accent: #0ea5e9;         /* Sky blue — professional but not boring */
---accent-hover: #0284c7;
---accent-subtle: rgba(14, 165, 233, 0.08);
+--text-muted: #5c5c7a;
+--accent: #047857;         /* Emerald 700 — WCAG AA compliant on #fafafa (5.25:1) */
+--accent-hover: #065f46;
+--accent-subtle: rgba(4, 120, 87, 0.1);
 --border: #e2e2ee;
 ```
 
@@ -607,10 +607,10 @@ Clean, professional, modern — but NOT generic. The site should look like it wa
 --bg-tertiary: #232740;
 --text-primary: #e8e8f0;
 --text-secondary: #a0a0c0;
---text-muted: #6a6a8a;
---accent: #38bdf8;
---accent-hover: #7dd3fc;
---accent-subtle: rgba(56, 189, 248, 0.1);
+--text-muted: #8a8aaa;
+--accent: #34d399;
+--accent-hover: #6ee7b7;
+--accent-subtle: rgba(52, 211, 153, 0.1);
 --border: #2a2d40;
 ```
 

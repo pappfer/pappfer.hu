@@ -56,7 +56,7 @@ const css = `
 :root{
 --bg-primary:#fafafa;--bg-secondary:#ffffff;--bg-tertiary:#f0f0f0;
 --text-primary:#1a1a2e;--text-secondary:#4a4a6a;--text-muted:#5c5c7a;
---accent:#10b981;--accent-hover:#059669;--accent-subtle:rgba(16,185,129,0.08);
+--accent:#047857;--accent-hover:#065f46;--accent-subtle:rgba(4,120,87,0.1);
 --border:#e2e2ee;--shadow:0 1px 3px rgba(0,0,0,0.06);--shadow-lg:0 8px 30px rgba(0,0,0,0.08);
 --radius:10px;--nav-height:64px;
 --font-heading:ui-rounded,'Avenir Next','Segoe UI',system-ui,-apple-system,Roboto,sans-serif;
@@ -495,7 +495,7 @@ function generatePage(lang) {
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#10b981">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#047857">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="preconnect" href="https://formspree.io">
@@ -835,7 +835,7 @@ function generateManifest() {
     scope: '/',
     display: 'standalone',
     background_color: '#fafafa',
-    theme_color: '#10b981',
+    theme_color: '#047857',
     icons: [
       { src: '/favicon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' },
       { src: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
@@ -854,7 +854,7 @@ function generate404() {
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <title>404 — Page not found | Ferenc Papp</title>
-<style>body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:#fafafa;color:#1a1a2e;min-height:100vh;display:grid;place-items:center;padding:2rem}main{max-width:42rem;text-align:center}h1{font-size:clamp(2rem,6vw,3rem);line-height:1.1;margin:0 0 1rem}p{color:#4a4a6a;margin:0 0 1.25rem}a{display:inline-block;padding:.7rem 1.25rem;border-radius:.6rem;text-decoration:none;background:#10b981;color:#fff;font-weight:600}a:hover{background:#059669}</style>
+<style>body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:#fafafa;color:#1a1a2e;min-height:100vh;display:grid;place-items:center;padding:2rem}main{max-width:42rem;text-align:center}h1{font-size:clamp(2rem,6vw,3rem);line-height:1.1;margin:0 0 1rem}p{color:#4a4a6a;margin:0 0 1.25rem}a{display:inline-block;padding:.7rem 1.25rem;border-radius:.6rem;text-decoration:none;background:#047857;color:#fff;font-weight:600}a:hover{background:#065f46}</style>
 </head>
 <body>
 <main>
