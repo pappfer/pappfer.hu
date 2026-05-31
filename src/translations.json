@@ -6,10 +6,10 @@
     "direction": "ltr",
 
     "meta": {
-      "title": "Ferenc Papp — Full-Stack Web Developer & AI Integration Specialist | Debrecen, Hungary",
-      "description": "Freelance full-stack developer with 15+ years of experience. Specializing in Laravel, Vue.js, React, Python, and AI integration. Serving clients across Europe and the US.",
-      "ogSiteName": "Ferenc Papp — Full-Stack Web Developer",
-      "ogImageAlt": "Ferenc Papp — Full-Stack Web Developer & AI Integration Specialist"
+      "title": "Ferenc Papp — Senior Full-Stack Developer & AI Solutions Engineer | Debrecen, Hungary",
+      "description": "Senior full-stack developer & AI solutions engineer. Scalable web apps with Laravel, Vue.js & Python, plus production-ready generative AI and LLM integrations.",
+      "ogSiteName": "Ferenc Papp — Senior Full-Stack Developer & AI Solutions Engineer",
+      "ogImageAlt": "Ferenc Papp — Senior Full-Stack Developer & AI Solutions Engineer"
     },
 
     "nav": {
@@ -27,18 +27,18 @@
     },
 
     "hero": {
-      "availability": "Available for new projects",
+      "availability": "Limited availability · AI & technical partnerships",
       "greeting": "Hello, I'm",
       "name": "Ferenc Papp",
-      "title": "Full-Stack Web Developer & AI Integration Specialist",
-      "description": "I build fast, scalable web applications and integrate AI solutions that give your business a competitive edge. 15+ years of experience, clients worldwide.",
+      "title": "Senior Full-Stack Developer & AI Solutions Engineer",
+      "description": "Building scalable web ecosystems and production-ready AI integrations. Since October 2024 I work dedicatedly with DataExpert and its sister company Rubiklab on flagship projects — pairing full-stack engineering (Laravel, Vue.js, Python) with applied generative AI and large language model systems.",
       "cta": "Let's Talk",
       "cv": "Download CV",
       "cvEn": "English CV (PDF)",
       "cvJson": "Machine-readable CV (JSON)",
       "stats": {
         "experience": "15+ years experience",
-        "clients": "Clients worldwide",
+        "clients": "Clients across the EU & US",
         "languages": "EN / HU / DE"
       }
     },
@@ -46,9 +46,9 @@
     "about": {
       "label": "About Me",
       "title": "Who I Am",
-      "p1": "I'm a freelance full-stack web developer based in Debrecen, Hungary, with over 15 years of professional experience. I specialize in building robust, scalable web applications using PHP/Laravel, Vue.js, React, Python, and cutting-edge AI technologies.",
-      "p2": "I deliver custom web applications, survey platforms, multi-tenant SaaS systems, and AI-powered automation solutions. My clients range from startups to established market research companies, and I'm known for clean, tested, production-ready code.",
-      "p3": "I work remotely with clients across Europe and the United States — communicating fluently in English and Hungarian. I take full ownership of projects, from architecture decisions to deployment, acting as a reliable technical partner rather than just a code supplier."
+      "p1": "I'm a senior full-stack developer and AI solutions engineer based in Debrecen, Hungary, with over 15 years of professional experience. I design robust, scalable web applications and engineer production-grade generative AI systems — combining traditional full-stack development with the latest LLM technologies.",
+      "p2": "Since October 2024 I work dedicatedly for a tightly knit group of companies: DataExpert (the parent company) and Rubiklab (its sister company). At DataExpert I architect and build scalable, high-performance Progressive Web Apps on a Laravel backend and Vue.js frontend, backed by Python scripts and microservices.",
+      "p3": "At Rubiklab I work as a Senior AI Solutions Engineer on generative AI integrations and R&D — including their in-house LabIQ product. My focus areas include fine-tuning and benchmarking large language models, semantic search with vector databases and embeddings, LLM-based multi-class classification, and tuning generative AI hyperparameters (temperature, top-k/top-p) for reliable, deterministic behaviour."
     },
 
     "services": {
@@ -57,23 +57,23 @@
       "items": [
         {
           "icon": "code",
-          "title": "Custom Web Applications",
-          "description": "From MVPs to enterprise multi-tenant platforms. Built with Laravel, Symfony, Vue.js, and React. Clean architecture, tested code, production-ready."
+          "title": "Scalable Web Ecosystems",
+          "description": "High-performance web applications and Progressive Web Apps. Laravel backend, Vue.js frontend, Python scripts and microservices. Clean architecture, tested code, built to scale."
         },
         {
           "icon": "ai",
-          "title": "AI Integration & Automation",
-          "description": "LLM integration (OpenAI, Anthropic APIs), vector databases, RAG pipelines, and agentic workflows. Practical AI solutions for real business problems."
+          "title": "Production-Ready AI Integrations",
+          "description": "LLM-powered features that ship, not demos. RAG pipelines, semantic search, vector databases, embeddings and agentic workflows — reliable, observable and integrated into real product workflows."
         },
         {
-          "icon": "mobile",
-          "title": "Mobile & PWA Development",
-          "description": "Progressive Web Apps with offline-first architecture. Cross-platform mobile solutions that load fast and work without connectivity."
+          "icon": "research",
+          "title": "Generative AI R&D",
+          "description": "LLM fine-tuning and benchmarking, embeddings-based search, LLM-driven multi-class classification, and hyperparameter optimization (temperature, top-k/top-p) for deterministic, repeatable output."
         },
         {
           "icon": "consulting",
-          "title": "Technical Consulting",
-          "description": "Architecture reviews, technology selection, performance optimization, and dev team mentoring. Strategic guidance for your technical decisions."
+          "title": "Technical Consulting & Partnerships",
+          "description": "Architecture reviews, AI strategy, technology selection and performance optimization. Selective, high-impact engagements for teams building serious web or AI products."
         }
       ]
     },
@@ -82,11 +82,11 @@
       "label": "Technologies",
       "title": "Tech Stack",
       "categories": [
+        { "name": "AI & LLM", "items": ["LLM Integration", "LLM Fine-Tuning & Evaluation", "Semantic Search", "Vector Databases", "Embeddings", "Multi-Class Classification", "RAG Pipelines", "Hyperparameter Tuning", "Agentic Workflows", "OpenAI API", "Anthropic API", "LangChain"] },
         { "name": "Backend", "items": ["PHP", "Laravel", "Symfony", "Yii2", "Python", "FastAPI", "MySQL", "PostgreSQL", "MongoDB", "Redis"] },
-        { "name": "Frontend", "items": ["Vue.js", "React", "JavaScript", "TypeScript", "Svelte", "HTML5/CSS3", "Tailwind CSS"] },
-        { "name": "AI & Data", "items": ["LLM Integration", "Embeddings", "Vector Databases", "RAG Pipelines", "Agentic Coding", "OpenAI API", "Anthropic API", "LangChain"] },
+        { "name": "Frontend", "items": ["Vue.js", "React", "JavaScript", "TypeScript", "Svelte", "HTML5/CSS3", "Tailwind CSS", "PWA"] },
         { "name": "DevOps & Tools", "items": ["Linux", "Docker", "Git", "CI/CD", "AWS", "Nginx", "Deployer"] },
-        { "name": "Mobile", "items": ["PWA", "Offline-First", "React Native", "Ionic"] }
+        { "name": "Mobile & PWA", "items": ["Progressive Web Apps", "Offline-First", "React Native", "Ionic"] }
       ]
     },
 
@@ -95,10 +95,22 @@
       "title": "Experience",
       "timeline": [
         {
+          "period": "2024 – Present",
+          "company": "DataExpert",
+          "role": "Senior Full-Stack Developer",
+          "description": "Architecting and building scalable, high-performance Progressive Web Apps for flagship projects. Laravel backend, Vue.js frontend, Python scripts and microservices."
+        },
+        {
+          "period": "2024 – Present",
+          "company": "Rubiklab",
+          "role": "Senior AI Solutions Engineer",
+          "description": "Generative AI integrations and R&D, including the in-house LabIQ product. LLM fine-tuning and benchmarking, semantic search with vector databases and embeddings, LLM-based multi-class classification, and hyperparameter optimization (temperature, top-k/top-p) for deterministic output."
+        },
+        {
           "period": "2017 – Present",
           "company": "Self-employed (Sole Proprietor)",
           "role": "Full-Stack Developer & Technical Consultant",
-          "description": "Freelance developer building custom web apps, survey systems, and AI integrations for clients including market research companies across Europe and the US."
+          "description": "My independent practice as a sole proprietor: custom web applications and AI integrations — LLM-powered features, RAG pipelines and vector search — plus survey systems for market research clients across the EU and US."
         },
         {
           "period": "2015 – 2017",
@@ -149,12 +161,12 @@
           "company": "Sentonard Media"
         },
         {
-          "quote": "Excellent freelancer and very easy to work with. Great knowledge of PHP frameworks, excellent English and very good communicator, and very reliable.",
+          "quote": "Excellent developer and very easy to work with. Great knowledge of PHP frameworks, excellent English and very good communicator, and very reliable.",
           "name": "Phil Guegan",
           "company": "CEO & Founder, Infogems"
         },
         {
-          "quote": "Ferenc is a very talented PHP developer. He quickly got to grips with what was required and delivered everything (and more) that I expected. I would happily work with him again.",
+          "quote": "Ferenc is a very talented developer. He quickly got to grips with what was required and delivered everything (and more) that I expected. I would happily work with him again.",
           "name": "DanD",
           "company": "Client via Upwork"
         }
@@ -166,28 +178,28 @@
       "title": "Frequently Asked Questions",
       "items": [
         {
-          "question": "What technologies do you specialize in?",
-          "answer": "My core stack is PHP/Laravel for backend, Vue.js and React for frontend, and Python/FastAPI for AI integrations. I also work with MySQL, PostgreSQL, MongoDB, Redis, Docker, and various cloud platforms."
+          "question": "What kind of engagements are you available for right now?",
+          "answer": "I'm currently committed to long-term, large-scale projects with DataExpert and Rubiklab, so I no longer take on new small or individual website jobs. I remain open — in limited capacity — to serious, custom technology or AI-focused consulting and partnerships."
+        },
+        {
+          "question": "What does a production-ready AI integration mean to you?",
+          "answer": "Not a demo. It means LLM-powered features that are reliable, observable, cost-aware and deterministic where it matters — built on solid RAG, semantic search and vector-database foundations and integrated into real product workflows."
+        },
+        {
+          "question": "Do you offer LLM fine-tuning and evaluation?",
+          "answer": "Yes. I fine-tune and benchmark large language models, design LLM-based multi-class classification systems, and build evaluation pipelines to objectively compare models for a given task."
+        },
+        {
+          "question": "How do you make generative AI output reliable and deterministic?",
+          "answer": "By tuning hyperparameters such as temperature and top-k/top-p, structuring and constraining outputs, grounding responses with retrieval, and adding evaluation and guardrails — so the same input yields dependable, repeatable results."
+        },
+        {
+          "question": "What is your core technology stack?",
+          "answer": "Laravel, Symfony and Yii2 on the backend; Vue.js and React on the frontend; Python and FastAPI for AI services. For AI: LLM integration and fine-tuning, embeddings, semantic search, vector databases and RAG pipelines."
         },
         {
           "question": "Do you work with international clients?",
-          "answer": "Yes, I regularly work with clients across Europe and the United States. I speak fluent English and communicate across time zones daily. Most of my current clients are based outside Hungary."
-        },
-        {
-          "question": "What kind of AI integrations do you offer?",
-          "answer": "I integrate LLMs (OpenAI, Anthropic) into business workflows, build RAG pipelines with vector databases, create agentic automation systems, and develop AI-powered features for existing applications."
-        },
-        {
-          "question": "How do you handle project communication?",
-          "answer": "I'm flexible — Slack, Teams, email, or video calls, whatever works best for your team. I provide regular updates and believe in transparent, proactive communication."
-        },
-        {
-          "question": "What is your typical project timeline?",
-          "answer": "It depends on scope. Small features take days, MVPs take 4–8 weeks, larger platforms 2–6 months. I always provide detailed estimates upfront and keep you informed of progress."
-        },
-        {
-          "question": "What is your hourly rate / pricing model?",
-          "answer": "I work with both hourly and fixed-price models depending on the project. Contact me with your project details for a personalized quote."
+          "answer": "Yes. I work remotely with teams across the EU and the US, communicating fluently in English and Hungarian across time zones."
         }
       ]
     },
@@ -195,7 +207,8 @@
     "contact": {
       "label": "Get In Touch",
       "title": "Contact",
-      "description": "Have a project in mind? Let's discuss how I can help.",
+      "description": "Building something ambitious in web or AI? Let's talk.",
+      "notice": "I'm currently committed to long-term, large-scale projects with DataExpert & Rubiklab, so I'm not taking on new small or individual jobs. For serious, custom technology or AI-focused consulting and partnerships, I'm open in limited capacity — feel free to reach out.",
       "form": {
         "name": "Name",
         "email": "Email",
@@ -211,7 +224,7 @@
         "locationLabel": "Location",
         "location": "Debrecen, Hungary",
         "responseLabel": "Response Time",
-        "response": "Usually within 24 hours",
+        "response": "Within 1–2 business days",
         "socialLabel": "Find me on"
       }
     },
@@ -230,10 +243,10 @@
     "direction": "ltr",
 
     "meta": {
-      "title": "Papp Ferenc — Full-stack webfejlesztő & AI integrációs szakértő | Debrecen",
-      "description": "Szabadúszó full-stack fejlesztő, 15+ év tapasztalattal. Laravel, Vue.js, React, Python és AI integráció. Ügyfelek Európa-szerte és az USA-ban.",
-      "ogSiteName": "Papp Ferenc — Full-stack webfejlesztő",
-      "ogImageAlt": "Papp Ferenc — Full-stack webfejlesztő és AI integrációs szakértő"
+      "title": "Papp Ferenc — Szenior full-stack fejlesztő & AI Solutions Engineer | Debrecen",
+      "description": "Szenior full-stack fejlesztő & AI Solutions Engineer. Skálázható webalkalmazások Laravel, Vue.js és Python alapon, plusz éles generatív AI/LLM integrációk.",
+      "ogSiteName": "Papp Ferenc — Szenior full-stack fejlesztő & AI Solutions Engineer",
+      "ogImageAlt": "Papp Ferenc — Szenior full-stack fejlesztő és AI Solutions Engineer"
     },
 
     "nav": {
@@ -251,18 +264,18 @@
     },
 
     "hero": {
-      "availability": "Elérhető új projektekre",
+      "availability": "Korlátozott kapacitás · AI és technológiai partnerségek",
       "greeting": "Üdvözöllek!",
       "name": "Papp Ferenc",
-      "title": "Full-stack webfejlesztő & AI integrációs szakértő",
-      "description": "Gyors, skálázható webalkalmazásokat fejlesztek és AI megoldásokat integrálok, amelyek versenyelőnyt biztosítanak a vállalkozásodnak. Több mint 15 év tapasztalat, ügyfelek világszerte.",
+      "title": "Szenior full-stack fejlesztő & AI Solutions Engineer",
+      "description": "Skálázható webes ökoszisztémákat és éles környezetbe szánt AI integrációkat építek. 2024 októbere óta dedikáltan a DataExpert és testvércége, a Rubiklab kiemelt projektjein dolgozom — ötvözve a full-stack fejlesztést (Laravel, Vue.js, Python) az alkalmazott generatív AI-jal és a nagy nyelvi modellekkel.",
       "cta": "Beszéljünk!",
       "cv": "Önéletrajz letöltése",
       "cvEn": "English CV (PDF)",
       "cvJson": "JSON önéletrajz",
       "stats": {
         "experience": "15+ év tapasztalat",
-        "clients": "Ügyfelek világszerte",
+        "clients": "Ügyfelek az EU-ban és az USA-ban",
         "languages": "EN / HU / DE"
       }
     },
@@ -270,9 +283,9 @@
     "about": {
       "label": "Rólam",
       "title": "Ki vagyok én",
-      "p1": "Szabadúszó full-stack webfejlesztő vagyok Debrecenben, több mint 15 év szakmai tapasztalattal. Robusztus, skálázható webalkalmazásokat fejlesztek PHP/Laravel, Vue.js, React, Python és modern AI technológiák felhasználásával.",
-      "p2": "Egyedi webalkalmazásokat, kérdőív platformokat, multi-tenant SaaS rendszereket és AI-alapú automatizálási megoldásokat készítek. Ügyfeleim között startupok és piackutató cégek egyaránt megtalálhatók, és büszke vagyok a tiszta, tesztelt és hosszú távon fenntartható kódomra.",
-      "p3": "Európai és amerikai ügyfelekkel távmunkában dolgozom együtt, és magyarul, illetve angolul is gördülékenyen kommunikálok. Nemcsak fejlesztek: a teljes folyamatot viszem az architektúrától a bevezetésig."
+      "p1": "Szenior full-stack fejlesztő és AI Solutions Engineer vagyok Debrecenben, több mint 15 év szakmai tapasztalattal. Robusztus, skálázható webalkalmazásokat tervezek és éles környezetbe szánt generatív AI rendszereket fejlesztek — ötvözve a hagyományos full-stack fejlesztést a legújabb LLM technológiákkal.",
+      "p2": "2024 októbere óta dedikáltan egy szorosan összetartozó cégcsoportnak dolgozom: a DataExpertnek (anyacég) és a Rubiklabnak (testvércég). A DataExpertnél skálázható, nagy teljesítményű Progresszív Webalkalmazásokat (PWA) tervezek és fejlesztek Laravel backenddel és Vue.js frontenddel, Python szkriptekkel és mikroszolgáltatásokkal a háttérben.",
+      "p3": "A Rubiklabnál Senior AI Solutions Engineerként generatív AI integrációkon és kutatás-fejlesztési projekteken dolgozom — beleértve a saját LabIQ termékük fejlesztését. Fő szakterületeim: nagy nyelvi modellek (LLM) finomhangolása és összehasonlítása, szemantikus keresés vektor adatbázisokkal és embeddingekkel, LLM-alapú többosztályos klasszifikáció, valamint a generatív AI hiperparamétereinek (temperature, top-k/top-p) hangolása a megbízható, determinisztikus működésért."
     },
 
     "services": {
@@ -281,23 +294,23 @@
       "items": [
         {
           "icon": "code",
-          "title": "Egyedi webalkalmazások",
-          "description": "MVP-ktől a vállalati multi-tenant platformokig. Laravel, Symfony, Vue.js és React technológiákkal. Tiszta architektúra, tesztelt kód, megbízható működés éles környezetben."
+          "title": "Skálázható webes ökoszisztémák",
+          "description": "Nagy teljesítményű webalkalmazások és Progresszív Webalkalmazások (PWA). Laravel backend, Vue.js frontend, Python szkriptek és mikroszolgáltatások. Tiszta architektúra, tesztelt kód, skálázásra tervezve."
         },
         {
           "icon": "ai",
-          "title": "AI integráció & automatizálás",
-          "description": "LLM integráció (OpenAI, Anthropic API-k), vektor adatbázisok, RAG pipeline-ok és ágens munkafolyamatok. Gyakorlati AI megoldások valós üzleti problémákra."
+          "title": "Éles környezetbe szánt AI integrációk",
+          "description": "LLM-alapú funkciók, amelyek éles környezetben működnek, nem csak demók. RAG pipeline-ok, szemantikus keresés, vektor adatbázisok, embeddings és ágens munkafolyamatok — megbízhatóan, valós termékfolyamatokba integrálva."
         },
         {
-          "icon": "mobile",
-          "title": "Mobil & PWA fejlesztés",
-          "description": "Progressive Web Appok offline-first architektúrával. Cross-platform mobil megoldások, amelyek gyorsan töltődnek és internetkapcsolat nélkül is működnek."
+          "icon": "research",
+          "title": "Generatív AI kutatás-fejlesztés",
+          "description": "LLM finomhangolás és összehasonlítás, embeddings-alapú keresés, LLM-vezérelt többosztályos klasszifikáció, valamint hiperparaméter-optimalizálás (temperature, top-k/top-p) a determinisztikus, ismételhető kimenetért."
         },
         {
           "icon": "consulting",
-          "title": "Technikai tanácsadás",
-          "description": "Architektúra felülvizsgálat, technológia kiválasztás, teljesítményoptimalizálás és fejlesztői csapat mentorálás. Stratégiai útmutatás a technikai döntéseidhez."
+          "title": "Technikai tanácsadás & partnerségek",
+          "description": "Architektúra felülvizsgálat, AI stratégia, technológiaválasztás és teljesítményoptimalizálás. Válogatott, nagy hatású együttműködések komoly webes vagy AI termékeket építő csapatoknak."
         }
       ]
     },
@@ -306,11 +319,11 @@
       "label": "Technológiák",
       "title": "Tech Stack",
       "categories": [
+        { "name": "AI & LLM", "items": ["LLM Integráció", "LLM Finomhangolás & Kiértékelés", "Szemantikus Keresés", "Vektor Adatbázisok", "Embeddings", "Többosztályos Klasszifikáció", "RAG Pipeline-ok", "Hiperparaméter Hangolás", "Ágens Munkafolyamatok", "OpenAI API", "Anthropic API", "LangChain"] },
         { "name": "Backend", "items": ["PHP", "Laravel", "Symfony", "Yii2", "Python", "FastAPI", "MySQL", "PostgreSQL", "MongoDB", "Redis"] },
-        { "name": "Frontend", "items": ["Vue.js", "React", "JavaScript", "TypeScript", "Svelte", "HTML5/CSS3", "Tailwind CSS"] },
-        { "name": "AI & Adat", "items": ["LLM Integráció", "Embeddings", "Vektor Adatbázisok", "RAG Pipeline-ok", "Ágens Kódolás", "OpenAI API", "Anthropic API", "LangChain"] },
+        { "name": "Frontend", "items": ["Vue.js", "React", "JavaScript", "TypeScript", "Svelte", "HTML5/CSS3", "Tailwind CSS", "PWA"] },
         { "name": "DevOps & Eszközök", "items": ["Linux", "Docker", "Git", "CI/CD", "AWS", "Nginx", "Deployer"] },
-        { "name": "Mobil", "items": ["PWA", "Offline-First", "React Native", "Ionic"] }
+        { "name": "Mobil & PWA", "items": ["Progresszív Webalkalmazások", "Offline-First", "React Native", "Ionic"] }
       ]
     },
 
@@ -319,10 +332,22 @@
       "title": "Tapasztalat",
       "timeline": [
         {
+          "period": "2024 – Jelenleg",
+          "company": "DataExpert",
+          "role": "Senior Full-Stack Developer",
+          "description": "Skálázható, nagy teljesítményű Progresszív Webalkalmazások (PWA) tervezése és fejlesztése kiemelt projekteken. Laravel backend, Vue.js frontend, Python szkriptek és mikroszolgáltatások."
+        },
+        {
+          "period": "2024 – Jelenleg",
+          "company": "Rubiklab",
+          "role": "Senior AI Solutions Engineer",
+          "description": "Generatív AI integrációk és kutatás-fejlesztés, beleértve a saját LabIQ terméket. LLM finomhangolás és összehasonlítás, szemantikus keresés vektor adatbázisokkal és embeddingekkel, LLM-alapú többosztályos klasszifikáció, valamint hiperparaméter-optimalizálás (temperature, top-k/top-p) a determinisztikus kimenetért."
+        },
+        {
           "period": "2017 – Jelenleg",
           "company": "Egyéni vállalkozó",
-          "role": "Full-stack webfejlesztő & technikai tanácsadó",
-          "description": "Szabadúszó fejlesztő, egyedi webalkalmazások, kérdőív rendszerek és AI integrációk fejlesztése európai és amerikai piackutató cégek számára."
+          "role": "Full-stack fejlesztő & technikai tanácsadó",
+          "description": "Egyéni vállalkozói tevékenységem: egyedi webalkalmazások és AI integrációk — LLM-alapú funkciók, RAG pipeline-ok és vektoros keresés —, valamint kérdőív rendszerek európai és amerikai piackutató cégeknek."
         },
         {
           "period": "2015 – 2017",
@@ -373,12 +398,12 @@
           "company": "Sentonard Media"
         },
         {
-          "quote": "Kiváló szabadúszó, nagyon könnyű vele dolgozni. Kiváló PHP keretrendszer ismeretek, kiváló angol nyelvtudás, nagyon jó kommunikátor és megbízható.",
+          "quote": "Kiváló fejlesztő, nagyon könnyű vele dolgozni. Kiváló PHP keretrendszer ismeretek, kiváló angol nyelvtudás, nagyon jó kommunikátor és megbízható.",
           "name": "Phil Guegan",
           "company": "CEO & Alapító, Infogems"
         },
         {
-          "quote": "Ferenc egy nagyon tehetséges PHP fejlesztő. Gyorsan megértette, mire van szükség, és mindent (sőt többet is) leszállított, amit vártam. Szívesen dolgoznék vele újra.",
+          "quote": "Ferenc egy nagyon tehetséges fejlesztő. Gyorsan megértette, mire van szükség, és mindent (sőt többet is) leszállított, amit vártam. Szívesen dolgoznék vele újra.",
           "name": "DanD",
           "company": "Upwork-ügyfél"
         }
@@ -390,28 +415,28 @@
       "title": "Gyakran ismételt kérdések",
       "items": [
         {
-          "question": "Milyen technológiákra specializálódsz?",
-          "answer": "Fő technológiáim a PHP/Laravel backend fejlesztéshez, Vue.js és React a frontendhez, valamint Python/FastAPI az AI integrációkhoz. Emellett dolgozom MySQL, PostgreSQL, MongoDB, Redis, Docker és különböző felhőplatformokkal."
+          "question": "Milyen együttműködéseket vállalsz jelenleg?",
+          "answer": "Jelenleg hosszú távú, nagyszabású projekteken dolgozom a DataExpert és a Rubiklab kötelékében, így új lakossági/kis megbízásokat jelenleg nem vállalok. Komolyabb, egyedi technológiai vagy AI-fókuszú konzultációkra és partnerségekre korlátozott kapacitásban nyitott vagyok."
+        },
+        {
+          "question": "Mit jelent számodra az éles környezetbe szánt AI integráció?",
+          "answer": "Nem demót. Olyan LLM-alapú funkciókat, amelyek megbízhatóak, megfigyelhetőek, költségtudatosak és ott determinisztikusak, ahol számít — szilárd RAG, szemantikus keresés és vektor adatbázis alapokra építve, valós termékfolyamatokba integrálva."
+        },
+        {
+          "question": "Vállalsz LLM finomhangolást és kiértékelést?",
+          "answer": "Igen. Nagy nyelvi modelleket hangolok finomra és hasonlítok össze, LLM-alapú többosztályos klasszifikációs rendszereket tervezek, és kiértékelési pipeline-okat építek a modellek objektív összehasonlításához egy adott feladatra."
+        },
+        {
+          "question": "Hogyan teszed megbízhatóvá és determinisztikussá a generatív AI kimenetét?",
+          "answer": "A hiperparaméterek (temperature, top-k/top-p) hangolásával, a kimenet strukturálásával és korlátozásával, a válaszok retrieval-alapú megalapozásával, valamint kiértékeléssel és védőkorlátokkal — így ugyanaz a bemenet megbízható, ismételhető eredményt ad."
+        },
+        {
+          "question": "Mi a fő technológiai stacked?",
+          "answer": "Laravel, Symfony és Yii2 a backend oldalon; Vue.js és React a frontenden; Python és FastAPI az AI szolgáltatásokhoz. AI terén: LLM integráció és finomhangolás, embeddings, szemantikus keresés, vektor adatbázisok és RAG pipeline-ok."
         },
         {
           "question": "Dolgozol nemzetközi ügyfelekkel?",
-          "answer": "Igen, rendszeresen dolgozom európai és amerikai ügyfelekkel. Folyékonyan beszélek angolul és naponta kommunikálok különböző időzónákban. Jelenlegi ügyfeleim többsége Magyarországon kívül van."
-        },
-        {
-          "question": "Milyen AI integrációkat kínálsz?",
-          "answer": "LLM-eket (OpenAI, Anthropic) integrálok üzleti munkafolyamatokba, RAG pipeline-okat építek vektor adatbázisokkal, ágens automatizálási rendszereket hozok létre, és AI-alapú funkciókat fejlesztek meglévő alkalmazásokhoz."
-        },
-        {
-          "question": "Hogyan kezeled a projekt kommunikációt?",
-          "answer": "Rugalmas vagyok — Slack, Teams, email vagy videóhívás, ami a legjobban megfelel a csapatodnak. Rendszeres frissítéseket adok és hiszek az átlátható, proaktív kommunikációban."
-        },
-        {
-          "question": "Mi a tipikus projekt időtartam?",
-          "answer": "A terjedelmétől függ. Kisebb funkciók napok alatt elkészülnek, MVP-k 4-8 hét, nagyobb platformok 2-6 hónap. Mindig részletes becslést adok előre és folyamatosan tájékoztatom a haladásról."
-        },
-        {
-          "question": "Mi az óradíjad / árazási modelled?",
-          "answer": "Óradíjas és fix áras modellel is dolgozom a projekttől függően. Írj nekem a projekt részleteivel egy személyre szabott ajánlatért."
+          "answer": "Igen. Távmunkában dolgozom európai és amerikai csapatokkal, folyékonyan kommunikálva angolul és magyarul, különböző időzónákban."
         }
       ]
     },
@@ -419,7 +444,8 @@
     "contact": {
       "label": "Kapcsolat",
       "title": "Kapcsolatfelvétel",
-      "description": "Van egy projekt ötleted? Beszéljük meg, hogyan segíthetek.",
+      "description": "Valami nagyszabásút építesz webes vagy AI területen? Beszéljük meg.",
+      "notice": "Jelenleg hosszú távú, nagyszabású projekteken dolgozom a DataExpert & Rubiklab kötelékében, így új lakossági/kis megbízásokat jelenleg nem vállalok. Komolyabb, egyedi technológiai vagy AI-fókuszú konzultációkra és partnerségekre korlátozott kapacitásban nyitott vagyok — keress bátran.",
       "form": {
         "name": "Név",
         "email": "E-mail",
@@ -435,7 +461,7 @@
         "locationLabel": "Helyszín",
         "location": "Debrecen, Magyarország",
         "responseLabel": "Válaszidő",
-        "response": "Általában 24 órán belül",
+        "response": "1–2 munkanapon belül",
         "socialLabel": "Közösségi média"
       }
     },
@@ -454,10 +480,10 @@
     "direction": "ltr",
 
     "meta": {
-      "title": "Ferenc Papp — Full-Stack Webentwickler & KI-Integrationsspezialist | Debrecen, Ungarn",
-      "description": "Freiberuflicher Full-Stack Entwickler mit über 15 Jahren Erfahrung. Spezialisiert auf Laravel, Vue.js, React, Python und KI-Integration. Kunden in Europa und den USA.",
-      "ogSiteName": "Ferenc Papp — Full-Stack Entwickler",
-      "ogImageAlt": "Ferenc Papp — Full-Stack Entwickler und KI-Integrationsspezialist"
+      "title": "Ferenc Papp — Senior Full-Stack Entwickler & AI Solutions Engineer | Debrecen, Ungarn",
+      "description": "Senior Full-Stack Entwickler & AI Solutions Engineer. Skalierbare Web-Apps mit Laravel, Vue.js & Python sowie produktionsreife generative KI- und LLM-Integrationen.",
+      "ogSiteName": "Ferenc Papp — Senior Full-Stack Entwickler & AI Solutions Engineer",
+      "ogImageAlt": "Ferenc Papp — Senior Full-Stack Entwickler und AI Solutions Engineer"
     },
 
     "nav": {
@@ -475,18 +501,18 @@
     },
 
     "hero": {
-      "availability": "Verfügbar für neue Projekte",
+      "availability": "Begrenzte Kapazität · KI- & Technologiepartnerschaften",
       "greeting": "Hallo, ich bin",
       "name": "Ferenc Papp",
-      "title": "Full-Stack Webentwickler & KI-Integrationsspezialist",
-      "description": "Ich entwickle schnelle, skalierbare Webanwendungen und integriere KI-Lösungen, die Ihrem Unternehmen einen Wettbewerbsvorteil verschaffen. Über 15 Jahre Erfahrung, Kunden weltweit.",
+      "title": "Senior Full-Stack Entwickler & AI Solutions Engineer",
+      "description": "Ich entwickle skalierbare Web-Ökosysteme und produktionsreife KI-Integrationen. Seit Oktober 2024 arbeite ich dediziert mit DataExpert und der Schwesterfirma Rubiklab an Vorzeigeprojekten — und verbinde Full-Stack-Engineering (Laravel, Vue.js, Python) mit angewandter generativer KI und Large Language Models.",
       "cta": "Kontakt aufnehmen",
       "cv": "Lebenslauf herunterladen",
       "cvEn": "English CV (PDF)",
       "cvJson": "Maschinenlesbarer Lebenslauf (JSON)",
       "stats": {
         "experience": "15+ Jahre Erfahrung",
-        "clients": "Kunden weltweit",
+        "clients": "Kunden in der EU & den USA",
         "languages": "EN / HU / DE"
       }
     },
@@ -494,9 +520,9 @@
     "about": {
       "label": "Über mich",
       "title": "Wer ich bin",
-      "p1": "Ich bin freiberuflicher Full-Stack-Webentwickler aus Debrecen, Ungarn, mit über 15 Jahren Berufserfahrung. Ich entwickle robuste, skalierbare Webanwendungen mit PHP/Laravel, Vue.js, React, Python und modernsten KI-Technologien.",
-      "p2": "Ich liefere maßgeschneiderte Webanwendungen, Umfrageplattformen, Multi-Tenant-SaaS-Systeme und KI-gestützte Automatisierungslösungen. Meine Kunden reichen von Startups bis hin zu etablierten Marktforschungsunternehmen, und ich bin bekannt für sauberen, getesteten, produktionsreifen Code.",
-      "p3": "Ich arbeite remote mit Kunden in ganz Europa und den Vereinigten Staaten — auf Englisch und Ungarisch fließend kommunizierend. Ich übernehme volle Verantwortung für Projekte, von der Architektur bis zum Deployment — als zuverlässiger technischer Partner, nicht nur als Code-Lieferant."
+      "p1": "Ich bin Senior Full-Stack-Entwickler und AI Solutions Engineer aus Debrecen, Ungarn, mit über 15 Jahren Berufserfahrung. Ich entwerfe robuste, skalierbare Webanwendungen und entwickle produktionsreife generative KI-Systeme — und verbinde dabei klassische Full-Stack-Entwicklung mit den neuesten LLM-Technologien.",
+      "p2": "Seit Oktober 2024 arbeite ich dediziert für eine eng verbundene Unternehmensgruppe: DataExpert (Muttergesellschaft) und Rubiklab (Schwesterfirma). Bei DataExpert konzipiere und entwickle ich skalierbare, leistungsstarke Progressive Web Apps mit Laravel-Backend und Vue.js-Frontend, gestützt auf Python-Skripte und Microservices.",
+      "p3": "Bei Rubiklab arbeite ich als Senior AI Solutions Engineer an generativen KI-Integrationen und Forschung & Entwicklung — einschließlich ihres hauseigenen Produkts LabIQ. Meine Schwerpunkte sind das Fine-Tuning und Benchmarking von Large Language Models, semantische Suche mit Vektordatenbanken und Embeddings, LLM-basierte Mehrklassen-Klassifikation sowie das Tuning generativer KI-Hyperparameter (Temperature, Top-k/Top-p) für zuverlässiges, deterministisches Verhalten."
     },
 
     "services": {
@@ -505,23 +531,23 @@
       "items": [
         {
           "icon": "code",
-          "title": "Individuelle Webanwendungen",
-          "description": "Von MVPs bis zu Enterprise Multi-Tenant-Plattformen. Entwickelt mit Laravel, Symfony, Vue.js und React. Saubere Architektur, getesteter Code, produktionsreif."
+          "title": "Skalierbare Web-Ökosysteme",
+          "description": "Leistungsstarke Webanwendungen und Progressive Web Apps. Laravel-Backend, Vue.js-Frontend, Python-Skripte und Microservices. Saubere Architektur, getesteter Code, auf Skalierung ausgelegt."
         },
         {
           "icon": "ai",
-          "title": "KI-Integration & Automatisierung",
-          "description": "LLM-Integration (OpenAI, Anthropic APIs), Vektordatenbanken, RAG-Pipelines und agentische Workflows. Praktische KI-Lösungen für reale Geschäftsprobleme."
+          "title": "Produktionsreife KI-Integrationen",
+          "description": "LLM-gestützte Funktionen, die in Produktion gehen — keine Demos. RAG-Pipelines, semantische Suche, Vektordatenbanken, Embeddings und agentische Workflows — zuverlässig und in echte Produkt-Workflows integriert."
         },
         {
-          "icon": "mobile",
-          "title": "Mobile & PWA-Entwicklung",
-          "description": "Progressive Web Apps mit Offline-First-Architektur. Cross-Platform Mobile Lösungen, die schnell laden und ohne Internetverbindung funktionieren."
+          "icon": "research",
+          "title": "Generative KI — Forschung & Entwicklung",
+          "description": "LLM-Fine-Tuning und Benchmarking, Embeddings-basierte Suche, LLM-gesteuerte Mehrklassen-Klassifikation und Hyperparameter-Optimierung (Temperature, Top-k/Top-p) für deterministische, reproduzierbare Ergebnisse."
         },
         {
           "icon": "consulting",
-          "title": "Technische Beratung",
-          "description": "Architektur-Reviews, Technologieauswahl, Leistungsoptimierung und Entwicklerteam-Mentoring. Strategische Beratung für Ihre technischen Entscheidungen."
+          "title": "Technische Beratung & Partnerschaften",
+          "description": "Architektur-Reviews, KI-Strategie, Technologieauswahl und Leistungsoptimierung. Ausgewählte, wirkungsvolle Engagements für Teams, die ernsthafte Web- oder KI-Produkte entwickeln."
         }
       ]
     },
@@ -530,11 +556,11 @@
       "label": "Technologien",
       "title": "Tech Stack",
       "categories": [
+        { "name": "KI & LLM", "items": ["LLM-Integration", "LLM-Fine-Tuning & Evaluierung", "Semantische Suche", "Vektordatenbanken", "Embeddings", "Mehrklassen-Klassifikation", "RAG-Pipelines", "Hyperparameter-Tuning", "Agentische Workflows", "OpenAI API", "Anthropic API", "LangChain"] },
         { "name": "Backend", "items": ["PHP", "Laravel", "Symfony", "Yii2", "Python", "FastAPI", "MySQL", "PostgreSQL", "MongoDB", "Redis"] },
-        { "name": "Frontend", "items": ["Vue.js", "React", "JavaScript", "TypeScript", "Svelte", "HTML5/CSS3", "Tailwind CSS"] },
-        { "name": "KI & Daten", "items": ["LLM-Integration", "Embeddings", "Vektordatenbanken", "RAG-Pipelines", "Agentisches Coding", "OpenAI API", "Anthropic API", "LangChain"] },
+        { "name": "Frontend", "items": ["Vue.js", "React", "JavaScript", "TypeScript", "Svelte", "HTML5/CSS3", "Tailwind CSS", "PWA"] },
         { "name": "DevOps & Tools", "items": ["Linux", "Docker", "Git", "CI/CD", "AWS", "Nginx", "Deployer"] },
-        { "name": "Mobil", "items": ["PWA", "Offline-First", "React Native", "Ionic"] }
+        { "name": "Mobil & PWA", "items": ["Progressive Web Apps", "Offline-First", "React Native", "Ionic"] }
       ]
     },
 
@@ -543,10 +569,22 @@
       "title": "Erfahrung",
       "timeline": [
         {
+          "period": "2024 – Heute",
+          "company": "DataExpert",
+          "role": "Senior Full-Stack Developer",
+          "description": "Konzeption und Entwicklung skalierbarer, leistungsstarker Progressive Web Apps für Vorzeigeprojekte. Laravel-Backend, Vue.js-Frontend, Python-Skripte und Microservices."
+        },
+        {
+          "period": "2024 – Heute",
+          "company": "Rubiklab",
+          "role": "Senior AI Solutions Engineer",
+          "description": "Generative KI-Integrationen und Forschung & Entwicklung, einschließlich des hauseigenen Produkts LabIQ. LLM-Fine-Tuning und Benchmarking, semantische Suche mit Vektordatenbanken und Embeddings, LLM-basierte Mehrklassen-Klassifikation sowie Hyperparameter-Optimierung (Temperature, Top-k/Top-p) für deterministische Ergebnisse."
+        },
+        {
           "period": "2017 – Heute",
           "company": "Selbstständig (Einzelunternehmer)",
           "role": "Full-Stack Entwickler & Technischer Berater",
-          "description": "Freiberuflicher Entwickler für maßgeschneiderte Webanwendungen, Umfragesysteme und KI-Integrationen für Kunden, darunter Marktforschungsunternehmen in Europa und den USA."
+          "description": "Meine selbstständige Tätigkeit als Einzelunternehmer: maßgeschneiderte Webanwendungen und KI-Integrationen — LLM-gestützte Funktionen, RAG-Pipelines und Vektorsuche — sowie Umfragesysteme für Marktforschungskunden in der EU und den USA."
         },
         {
           "period": "2015 – 2017",
@@ -597,12 +635,12 @@
           "company": "Sentonard Media"
         },
         {
-          "quote": "Exzellenter Freiberufler und sehr einfach in der Zusammenarbeit. Hervorragende Kenntnisse von PHP-Frameworks, ausgezeichnetes Englisch, sehr guter Kommunikator und sehr zuverlässig.",
+          "quote": "Exzellenter Entwickler und sehr einfach in der Zusammenarbeit. Hervorragende Kenntnisse von PHP-Frameworks, ausgezeichnetes Englisch, sehr guter Kommunikator und sehr zuverlässig.",
           "name": "Phil Guegan",
           "company": "CEO & Gründer, Infogems"
         },
         {
-          "quote": "Ferenc ist ein sehr talentierter PHP-Entwickler. Er hat schnell verstanden, was gebraucht wurde, und alles (und mehr) geliefert, was ich erwartet habe. Ich würde gerne wieder mit ihm arbeiten.",
+          "quote": "Ferenc ist ein sehr talentierter Entwickler. Er hat schnell verstanden, was gebraucht wurde, und alles (und mehr) geliefert, was ich erwartet habe. Ich würde gerne wieder mit ihm arbeiten.",
           "name": "DanD",
           "company": "Kunde via Upwork"
         }
@@ -614,28 +652,28 @@
       "title": "Häufig gestellte Fragen",
       "items": [
         {
-          "question": "Auf welche Technologien sind Sie spezialisiert?",
-          "answer": "Mein Kern-Stack ist PHP/Laravel für Backend, Vue.js und React für Frontend sowie Python/FastAPI für KI-Integrationen. Ich arbeite auch mit MySQL, PostgreSQL, MongoDB, Redis, Docker und verschiedenen Cloud-Plattformen."
+          "question": "Für welche Art von Engagements stehen Sie derzeit zur Verfügung?",
+          "answer": "Ich bin derzeit langfristig in große Projekte mit DataExpert und Rubiklab eingebunden und nehme daher keine neuen kleinen oder einzelnen Website-Aufträge mehr an. Für ernsthafte, maßgeschneiderte Technologie- oder KI-fokussierte Beratung und Partnerschaften bin ich in begrenztem Umfang offen."
+        },
+        {
+          "question": "Was bedeutet für Sie eine produktionsreife KI-Integration?",
+          "answer": "Keine Demo. Es bedeutet LLM-gestützte Funktionen, die zuverlässig, beobachtbar, kostenbewusst und dort deterministisch sind, wo es zählt — aufgebaut auf soliden RAG-, Semantik-Such- und Vektordatenbank-Grundlagen und in echte Produkt-Workflows integriert."
+        },
+        {
+          "question": "Bieten Sie LLM-Fine-Tuning und Evaluierung an?",
+          "answer": "Ja. Ich optimiere und benchmarke Large Language Models, entwerfe LLM-basierte Mehrklassen-Klassifikationssysteme und baue Evaluierungs-Pipelines, um Modelle für eine bestimmte Aufgabe objektiv zu vergleichen."
+        },
+        {
+          "question": "Wie machen Sie generative KI-Ausgaben zuverlässig und deterministisch?",
+          "answer": "Durch das Tuning von Hyperparametern wie Temperature und Top-k/Top-p, das Strukturieren und Einschränken von Ausgaben, das Verankern von Antworten per Retrieval sowie Evaluierung und Leitplanken — so liefert dieselbe Eingabe verlässliche, reproduzierbare Ergebnisse."
+        },
+        {
+          "question": "Was ist Ihr zentraler Technologie-Stack?",
+          "answer": "Laravel, Symfony und Yii2 im Backend; Vue.js und React im Frontend; Python und FastAPI für KI-Services. Im KI-Bereich: LLM-Integration und Fine-Tuning, Embeddings, semantische Suche, Vektordatenbanken und RAG-Pipelines."
         },
         {
           "question": "Arbeiten Sie mit internationalen Kunden?",
-          "answer": "Ja, ich arbeite regelmäßig mit Kunden in ganz Europa und den Vereinigten Staaten. Ich spreche fließend Englisch und kommuniziere täglich über Zeitzonen hinweg. Die meisten meiner aktuellen Kunden sind außerhalb Ungarns ansässig."
-        },
-        {
-          "question": "Welche Art von KI-Integrationen bieten Sie an?",
-          "answer": "Ich integriere LLMs (OpenAI, Anthropic) in Geschäftsabläufe, baue RAG-Pipelines mit Vektordatenbanken, erstelle agentische Automatisierungssysteme und entwickle KI-gestützte Funktionen für bestehende Anwendungen."
-        },
-        {
-          "question": "Wie handhaben Sie die Projektkommunikation?",
-          "answer": "Ich bin flexibel — Slack, Teams, E-Mail oder Videoanrufe, was am besten für Ihr Team funktioniert. Ich gebe regelmäßige Updates und glaube an transparente, proaktive Kommunikation."
-        },
-        {
-          "question": "Was ist Ihr typischer Projektzeitrahmen?",
-          "answer": "Es kommt auf den Umfang an. Kleine Features dauern Tage, MVPs 4–8 Wochen, größere Plattformen 2–6 Monate. Ich liefere immer detaillierte Schätzungen im Voraus und halte Sie über den Fortschritt auf dem Laufenden."
-        },
-        {
-          "question": "Was ist Ihr Stundensatz / Preismodell?",
-          "answer": "Ich arbeite sowohl mit Stunden- als auch mit Festpreismodellen, je nach Projekt. Kontaktieren Sie mich mit Ihren Projektdetails für ein individuelles Angebot."
+          "answer": "Ja. Ich arbeite remote mit Teams in der gesamten EU und den USA und kommuniziere fließend auf Englisch und Ungarisch über Zeitzonen hinweg."
         }
       ]
     },
@@ -643,7 +681,8 @@
     "contact": {
       "label": "Kontakt",
       "title": "Kontakt aufnehmen",
-      "description": "Haben Sie ein Projekt im Sinn? Lassen Sie uns besprechen, wie ich helfen kann.",
+      "description": "Sie bauen etwas Ambitioniertes im Web- oder KI-Bereich? Lassen Sie uns sprechen.",
+      "notice": "Ich bin derzeit langfristig in große Projekte mit DataExpert & Rubiklab eingebunden und nehme daher keine neuen kleinen oder einzelnen Aufträge an. Für ernsthafte, maßgeschneiderte Technologie- oder KI-fokussierte Beratung und Partnerschaften bin ich in begrenztem Umfang offen — melden Sie sich gerne.",
       "form": {
         "name": "Name",
         "email": "E-Mail",
@@ -659,7 +698,7 @@
         "locationLabel": "Standort",
         "location": "Debrecen, Ungarn",
         "responseLabel": "Antwortzeit",
-        "response": "In der Regel innerhalb von 24 Stunden",
+        "response": "Innerhalb von 1–2 Werktagen",
         "socialLabel": "Finden Sie mich auf"
       }
     },

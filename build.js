@@ -38,6 +38,7 @@ const icons = {
   ai: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><path d="M16 14h.01"/><path d="M8 14h.01"/><path d="M12 18v4"/><path d="M8 22h8"/><rect x="4" y="10" width="16" height="8" rx="2"/></svg>',
   mobile: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>',
   consulting: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>',
+  research: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6"/><path d="M10 2v6.5L5 18a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9.5V2"/><line x1="7" y1="14" x2="17" y2="14"/></svg>',
   chevron: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>',
   mail: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>',
   mapPin: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
@@ -113,9 +114,9 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;padding:calc(var(--nav-height) + 3rem) 2rem 3rem;background:var(--bg-primary)}
 .hero-inner{max-width:1100px;margin:0 auto;width:100%}
-.hero-availability{display:inline-flex;align-items:center;gap:.5rem;padding:.375rem 1rem;background:var(--accent-subtle);border:1px solid var(--accent);border-radius:20px;font-size:.8rem;font-weight:600;color:var(--accent);margin-bottom:1.25rem}
-[data-theme="dark"] .hero-availability{color:var(--accent);background:var(--accent-subtle);border-color:var(--accent)}
-.hero-availability::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite}
+.hero-availability{display:inline-flex;align-items:center;gap:.5rem;padding:.375rem 1rem;background:rgba(180,83,9,0.1);border:1px solid #b45309;border-radius:20px;font-size:.8rem;font-weight:600;color:#b45309;margin-bottom:1.25rem}
+[data-theme="dark"] .hero-availability{color:#fbbf24;background:rgba(251,191,36,0.12);border-color:#fbbf24}
+.hero-availability::before{content:'';width:8px;height:8px;border-radius:50%;background:currentColor;animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .hero-greeting{font-size:1.125rem;color:var(--text-muted);margin-bottom:.5rem;font-weight:500}
 .hero h1{font-size:clamp(2.5rem,6vw,4rem);margin-bottom:.75rem}
@@ -226,6 +227,7 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 .contact-info-icon{color:var(--accent);flex-shrink:0;margin-top:2px}
 .contact-info-label{font-size:.8rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
 .contact-info-value{color:var(--text-primary);font-weight:500}
+.contact-notice{background:var(--accent-subtle);border:1px solid var(--accent);border-left-width:4px;border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:2.5rem;max-width:760px;color:var(--text-secondary);line-height:1.7;font-size:.95rem}
 .social-links{display:flex;gap:.75rem;margin-top:.5rem}
 .social-link{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;color:var(--text-secondary);border:1px solid var(--border);transition:all .2s}
 .social-link:hover{color:var(--accent);border-color:var(--accent);background:var(--accent-subtle);transform:translateY(-1px)}
@@ -387,8 +389,8 @@ function generatePage(lang) {
     "@type": "Person",
     "name": "Ferenc Papp",
     "alternateName": "pappfer",
-    "jobTitle": "Full-Stack Web Developer & AI Integration Specialist",
-    "description": "Freelance full-stack web developer with 15+ years of experience specializing in Laravel, Vue.js, React, Python, and AI integration.",
+    "jobTitle": "Senior Full-Stack Developer & AI Solutions Engineer",
+    "description": "Senior full-stack developer and AI solutions engineer with 15+ years of experience. Builds scalable web ecosystems with Laravel, Vue.js and Python, and production-ready generative AI / LLM integrations.",
     "url": "https://pappfer.hu",
     "email": "pappfer@pappfer.hu",
     "image": "https://pappfer.hu/img/pappfer.webp",
@@ -405,17 +407,20 @@ function generatePage(lang) {
       {"@type":"Language","name":"English","alternateName":"en"},
       {"@type":"Language","name":"German","alternateName":"de"}
     ],
-    "knowsAbout": ["PHP","Laravel","Symfony","Yii2","Vue.js","React","JavaScript","TypeScript","Svelte","Python","FastAPI","AI Integration","Large Language Models","RAG Pipelines","Vector Databases","Agentic Coding","OpenAI API","Anthropic API","LangChain","MySQL","PostgreSQL","MongoDB","Redis","Docker","Linux","AWS","CI/CD","Progressive Web Apps","React Native"],
-    "hasOccupation": {"@type":"Occupation","name":"Full-Stack Web Developer","occupationalCategory":"15-1252.00","skills":"PHP, Laravel, Vue.js, React, Python, AI Integration, Database Design, API Development"},
-    "worksFor": {"@type":"Organization","name":"Self-employed","url":"https://pappfer.hu"}
+    "knowsAbout": ["PHP","Laravel","Symfony","Yii2","Vue.js","React","JavaScript","TypeScript","Svelte","Python","FastAPI","Progressive Web Apps","Large Language Models","LLM Fine-Tuning","LLM Evaluation","Semantic Search","Vector Databases","Embeddings","Multi-Class Classification","RAG Pipelines","Hyperparameter Tuning","Agentic Workflows","OpenAI API","Anthropic API","LangChain","MySQL","PostgreSQL","MongoDB","Redis","Docker","Linux","AWS","CI/CD"],
+    "hasOccupation": {"@type":"Occupation","name":"Senior Full-Stack Developer & AI Solutions Engineer","occupationalCategory":"15-1252.00","skills":"PHP, Laravel, Vue.js, Python, Progressive Web Apps, LLM Fine-Tuning, Vector Databases, Embeddings, Semantic Search, RAG, Generative AI"},
+    "worksFor": [
+      {"@type":"Organization","name":"DataExpert"},
+      {"@type":"Organization","name":"Rubiklab"}
+    ]
   });
 
   const localizedTestimonials = t.testimonials.items;
   const serviceSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "Ferenc Papp — Full-Stack Web Developer",
-    "description": "Freelance full-stack web development, AI integration, and technical consulting services by Ferenc Papp.",
+    "name": "Ferenc Papp — Senior Full-Stack Developer & AI Solutions Engineer",
+    "description": "Scalable web development, production-ready generative AI / LLM integration, and technical consulting by Ferenc Papp. Selective, high-impact engagements.",
     "url": "https://pappfer.hu",
     "founder": {"@type":"Person","name":"Ferenc Papp"},
     "areaServed": [
@@ -423,8 +428,8 @@ function generatePage(lang) {
       {"@type":"Continent","name":"Europe"},
       {"@type":"Country","name":"United States"}
     ],
-    "serviceType": ["Custom Web Application Development","AI Integration and Automation","Mobile and PWA Development","Technical Consulting"],
-    "knowsAbout": ["Laravel Development","Vue.js Development","React Development","Python Development","AI/LLM Integration","Database Architecture"],
+    "serviceType": ["Scalable Web Application Development","Progressive Web App Development","Production-Ready AI / LLM Integration","Generative AI Research & Development","Technical and AI Consulting"],
+    "knowsAbout": ["Laravel Development","Vue.js Development","Python Development","Progressive Web Apps","LLM Integration and Fine-Tuning","Vector Databases and Embeddings","Semantic Search","RAG Pipelines","Generative AI"],
     "legalName": "Papp Ferenc e. v.",
     "taxID": "73939249-2-33",
     "address": {"@type":"PostalAddress","addressLocality":"Debrecen","addressCountry":"HU"},
@@ -698,6 +703,7 @@ ${icons.chevron}
 <h2 class="section-title">${t.contact.title}</h2>
 <p>${t.contact.description}</p>
 </div>
+${t.contact.notice ? `<div class="contact-notice fade-up">${t.contact.notice}</div>` : ''}
 <div class="contact-grid fade-up">
 <form class="contact-form" id="contact-form" action="https://formspree.io/f/xjgeeqzr" method="POST">
 <label for="_gotcha" class="ohnohoney">Leave empty</label><input type="text" id="_gotcha" name="_gotcha" class="ohnohoney" tabindex="-1" autocomplete="off">
@@ -774,7 +780,7 @@ function generateRoot() {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ferenc Papp — Full-Stack Web Developer</title>
+<title>Ferenc Papp — Senior Full-Stack Developer & AI Solutions Engineer</title>
 <meta name="description" content="Redirecting to your preferred language...">
 <link rel="canonical" href="https://pappfer.hu/en/">
 <meta http-equiv="refresh" content="0;url=/en/">
@@ -827,9 +833,9 @@ ${urls}
 // ─── manifest.webmanifest ──────────────────────────────────────────────────────
 function generateManifest() {
   return JSON.stringify({
-    name: 'Ferenc Papp — Full-Stack Web Developer',
+    name: 'Ferenc Papp — Senior Full-Stack Developer & AI Solutions Engineer',
     short_name: 'pappfer',
-    description: 'Freelance full-stack developer and AI integration specialist in Debrecen, Hungary.',
+    description: 'Senior full-stack developer and AI solutions engineer in Debrecen, Hungary. Scalable web ecosystems and production-ready generative AI / LLM integrations.',
     lang: 'en',
     start_url: '/en/',
     scope: '/',
@@ -868,35 +874,33 @@ function generate404() {
 
 // ─── llms.txt ───────────────────────────────────────────────────────────────────
 function generateLlms() {
-  return `# Ferenc Papp — Full-Stack Web Developer & AI Integration Specialist
+  return `# Ferenc Papp — Senior Full-Stack Developer & AI Solutions Engineer
 
-## About
-Ferenc Papp is a freelance full-stack web developer and AI integration specialist based in Debrecen, Hungary, working as a sole proprietor. He has over 15 years of professional experience and works with clients across Europe and the United States.
+> Senior full-stack developer and AI solutions engineer with 15+ years of experience, pairing scalable web engineering (Laravel, Vue.js, Python) with production-ready generative AI and LLM systems. Based in Debrecen, Hungary; working with teams across the EU and the US.
 
-## Core Expertise
-- Backend: PHP, Laravel, Symfony, Yii2, Python, FastAPI
-- Frontend: Vue.js, React, JavaScript/TypeScript, Svelte
-- AI: LLM integration (OpenAI, Anthropic), RAG pipelines, vector databases, agentic workflows
-- Databases: MySQL, PostgreSQL, MongoDB, Redis
-- DevOps: Docker, Linux, AWS, CI/CD, Nginx
-- Mobile: PWA, offline-first architecture, React Native
+Since October 2024, Ferenc works dedicatedly with DataExpert as a Senior Full-Stack Developer — architecting scalable, high-performance Progressive Web Apps on a Laravel backend and Vue.js frontend, with Python scripts and microservices — and with its sister company Rubiklab as a Senior AI Solutions Engineer on generative AI integrations and R&D, including the in-house LabIQ product.
 
-## Services
-- Custom web application development (Laravel, Vue.js, React)
-- AI integration and automation (LLM, RAG, vector DB, agentic coding)
-- Mobile and PWA development (offline-first)
-- Technical consulting (architecture, technology selection, performance)
+Core expertise: PHP, Laravel, Symfony, Yii2, Python and FastAPI on the backend; Vue.js, React, Svelte, TypeScript and PWA on the frontend; LLM integration, fine-tuning and benchmarking, semantic search, vector databases, embeddings, LLM-based multi-class classification, RAG pipelines, hyperparameter tuning (temperature, top-k/top-p) for deterministic output, and agentic workflows for AI; MySQL, PostgreSQL, MongoDB and Redis for data; Docker, Linux, AWS, CI/CD and Nginx for DevOps.
+
+Availability: currently committed to long-term, large-scale projects with DataExpert and Rubiklab, and not taking on new small or individual website jobs. Open in limited capacity to serious, custom technology or AI-focused consulting and partnerships. Languages: Hungarian (native), English (fluent), German (basic).
+
+## Pages
+
+- [Portfolio (English)](https://pappfer.hu/en/): full profile — about, services, tech stack, experience and contact
+- [Portfolio (Hungarian)](https://pappfer.hu/hu/): teljes magyar nyelvű profil
+- [Portfolio (German)](https://pappfer.hu/de/): vollständiges deutschsprachiges Profil
+- [Résumé (JSON Resume)](https://pappfer.hu/resume.json): machine-readable CV in JSON Resume format
+
+## Profiles
+
+- [LinkedIn](https://www.linkedin.com/in/pappfer): professional profile and updates
+- [GitHub](https://github.com/pappfer): open-source code and repositories
+- [Stack Overflow](https://stackoverflow.com/users/3736962/pappfer): Q&A contributions
+- [X](https://x.com/pappfer): posts and updates
 
 ## Contact
-- Email: pappfer@pappfer.hu
-- LinkedIn: https://www.linkedin.com/in/pappfer
-- GitHub: https://github.com/pappfer
-- Website: https://pappfer.hu
 
-## Languages
-- Hungarian (native)
-- English (fluent)
-- German (basic)
+- [Email](mailto:pappfer@pappfer.hu): direct contact for serious technical and AI-focused enquiries
 `;
 }
 

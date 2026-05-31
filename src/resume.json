@@ -2,11 +2,11 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Ferenc Papp",
-    "label": "Full-Stack Web Developer & AI Integration Specialist",
+    "label": "Senior Full-Stack Developer & AI Solutions Engineer",
     "image": "https://pappfer.hu/img/pappfer.webp",
     "email": "pappfer@pappfer.hu",
     "url": "https://pappfer.hu",
-    "summary": "Freelance full-stack web developer and AI integration specialist with over 15 years of professional experience. I build fast, scalable web applications using PHP/Laravel, Vue.js, React, and Python, and integrate AI solutions (LLMs, RAG pipelines, vector databases) into business workflows. Based in Debrecen, Hungary, serving clients across Europe and the United States.",
+    "summary": "Senior full-stack developer and AI solutions engineer with over 15 years of professional experience. I build scalable, high-performance web ecosystems with PHP/Laravel, Vue.js and Python, and engineer production-ready generative AI / LLM systems — fine-tuning, semantic search, vector databases, embeddings and RAG pipelines. Since October 2024 I work dedicatedly with DataExpert and its sister company Rubiklab on flagship projects. Based in Debrecen, Hungary, working with teams across Europe and the United States.",
     "location": {
       "city": "Debrecen",
       "region": "Hajdú-Bihar",
@@ -37,11 +37,34 @@
   },
   "work": [
     {
+      "name": "DataExpert",
+      "position": "Senior Full-Stack Developer",
+      "startDate": "2024-10-01",
+      "summary": "Architecting and building scalable, high-performance Progressive Web Apps for flagship projects.",
+      "highlights": [
+        "Scalable, high-performance Progressive Web Apps (PWA)",
+        "Laravel backend with a Vue.js frontend",
+        "Python scripts and microservices"
+      ]
+    },
+    {
+      "name": "Rubiklab",
+      "position": "Senior AI Solutions Engineer",
+      "startDate": "2024-10-01",
+      "summary": "Generative AI integrations and R&D, including the in-house LabIQ product.",
+      "highlights": [
+        "LLM fine-tuning, benchmarking and comparison",
+        "Semantic search with vector databases and embeddings",
+        "LLM-based multi-class classification systems",
+        "Hyperparameter optimization (temperature, top-k/top-p) for deterministic output"
+      ]
+    },
+    {
       "name": "Self-employed (Sole Proprietor)",
       "position": "Full-Stack Developer & Technical Consultant",
       "url": "https://pappfer.hu",
       "startDate": "2017-03-01",
-      "summary": "Freelance developer building custom web applications, survey systems, and AI integrations for clients including market research companies across Europe and the US.",
+      "summary": "Independent practice as a sole proprietor: custom web applications and AI integrations (LLM-powered features, RAG pipelines, vector search) plus survey systems for market research clients across the EU and US.",
       "highlights": [
         "Custom Laravel/Vue.js web applications for market research clients",
         "AI integration: LLMs, RAG pipelines, vector databases, agentic workflows",
@@ -146,8 +169,8 @@
       "keywords": ["Vue.js", "React", "TypeScript", "JavaScript", "Svelte", "HTML5/CSS3", "Tailwind CSS"]
     },
     {
-      "name": "AI & Data",
-      "keywords": ["LLM Integration", "RAG Pipelines", "Vector Databases", "OpenAI API", "Anthropic API", "LangChain", "Agentic Workflows"]
+      "name": "AI & LLM",
+      "keywords": ["LLM Integration", "LLM Fine-Tuning & Evaluation", "Semantic Search", "Vector Databases", "Embeddings", "Multi-Class Classification", "RAG Pipelines", "Hyperparameter Tuning", "Agentic Workflows", "OpenAI API", "Anthropic API", "LangChain"]
     },
     {
       "name": "Databases",
@@ -177,8 +200,8 @@
     }
   ],
   "meta": {
-    "version": "v2.0.0",
-    "lastModified": "2026-02-20",
+    "version": "v2.1.0",
+    "lastModified": "2026-05-31",
     "canonical": "https://pappfer.hu/resume.json"
   }
 }
