@@ -10,11 +10,29 @@ landing.pages.sort((a, b) => {
   const ia = PAGE_ORDER.indexOf(a.id), ib = PAGE_ORDER.indexOf(b.id);
   return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
 });
-// Monochrome header icon per landing page (reuses the site's icon set).
+// Monochrome brand icons (CC0 Simple Icons) inlined at build time, forced to currentColor.
+const BRAND_ICONS = {};
+{
+  const iconsDir = path.join(__dirname, 'src', 'icons');
+  if (fs.existsSync(iconsDir)) {
+    fs.readdirSync(iconsDir).filter(f => f.endsWith('.svg')).forEach(f => {
+      const svg = fs.readFileSync(path.join(iconsDir, f), 'utf8')
+        .replace(/<title>[\s\S]*?<\/title>/, '')
+        .replace('<svg ', '<svg fill="currentColor" ')
+        .trim();
+      BRAND_ICONS[f.replace(/\.svg$/, '')] = svg;
+    });
+  }
+}
+// Header icon per landing page: brand icon where available, else a built-in line icon.
 const LANDING_ICONS = {
-  laravel: 'code', vuejs: 'code', react: 'mobile', ai: 'ai',
-  python: 'research', symfony: 'code', yii: 'code', 'web-debrecen': 'mapPin'
+  laravel: 'laravel', vuejs: 'vue', react: 'react', ai: 'ai',
+  python: 'python', symfony: 'symfony', yii: 'code', 'web-debrecen': 'mapPin'
 };
+function landingIcon(id) {
+  const key = LANDING_ICONS[id] || 'code';
+  return BRAND_ICONS[key] || icons[key] || icons.code;
+}
 const DIST = path.join(__dirname, 'dist');
 const HAS_RESUME_PDF = fs.existsSync(path.join(__dirname, 'src', 'resume.pdf'));
 const HAS_RESUME_HU_PDF = fs.existsSync(path.join(__dirname, 'src', 'resume-hu.pdf'));
@@ -275,8 +293,10 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 .lp-crumbs{font-size:.85rem;color:var(--text-muted);margin-bottom:1.25rem}
 .lp-crumbs a{color:var(--text-muted)}
 .lp-crumbs a:hover{color:var(--accent)}
-.lp-icon{color:var(--accent);margin-bottom:.5rem;line-height:0}
-.lp-icon svg{width:40px;height:40px}
+.lp-head{display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.lp-icon{color:var(--accent);flex-shrink:0;line-height:0}
+.lp-icon svg{width:56px;height:56px;display:block}
+@media(max-width:600px){.lp-icon svg{width:40px;height:40px}}
 .lp-hero h1{font-size:clamp(2rem,5vw,3rem);margin:.25rem 0 1rem}
 .lp-lead{font-size:1.15rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1.25rem}
 .lp-hero p{color:var(--text-secondary);line-height:1.8}
@@ -992,9 +1012,13 @@ ${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l
 <section class="lp-hero">
 <div class="lp-inner">
 <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="/${lang}/">${lab.home}</a> › ${c.h1}</nav>
-<div class="lp-icon" aria-hidden="true">${icons[LANDING_ICONS[page.id]] || icons.code}</div>
+<div class="lp-head">
+<div>
 <p class="section-label">${c.kicker}</p>
 <h1>${c.h1}</h1>
+</div>
+<div class="lp-icon" aria-hidden="true">${landingIcon(page.id)}</div>
+</div>
 <p class="lp-lead">${c.lead}</p>
 <p>${c.body}</p>
 <div class="lp-actions">
