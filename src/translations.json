@@ -84,7 +84,7 @@
       "categories": [
         { "name": "AI & LLM", "items": ["LLM Integration", "LLM Fine-Tuning & Evaluation", "Semantic Search", "Vector Databases", "Embeddings", "Multi-Class Classification", "RAG Pipelines", "Hyperparameter Tuning", "Agentic Workflows", "OpenAI API", "Anthropic API", "LangChain"] },
         { "name": "Backend", "items": ["PHP", "Laravel", "Symfony", "Yii2", "Python", "FastAPI", "MySQL", "PostgreSQL", "MongoDB", "Redis"] },
-        { "name": "Frontend", "items": ["Vue.js", "React", "JavaScript", "TypeScript", "Svelte", "HTML5/CSS3", "Tailwind CSS", "PWA"] },
+        { "name": "Frontend", "items": ["Vue.js", "React", "Next.js", "JavaScript", "TypeScript", "Svelte", "HTML5/CSS3", "Tailwind CSS", "PWA"] },
         { "name": "DevOps & Tools", "items": ["Linux", "Docker", "Git", "CI/CD", "AWS", "Nginx", "Deployer"] },
         { "name": "Mobile & PWA", "items": ["Progressive Web Apps", "Offline-First", "React Native", "Ionic"] }
       ]
@@ -321,7 +321,7 @@
       "categories": [
         { "name": "AI & LLM", "items": ["LLM Integráció", "LLM Finomhangolás & Kiértékelés", "Szemantikus Keresés", "Vektor Adatbázisok", "Embeddings", "Többosztályos Klasszifikáció", "RAG Pipeline-ok", "Hiperparaméter Hangolás", "Ágens Munkafolyamatok", "OpenAI API", "Anthropic API", "LangChain"] },
         { "name": "Backend", "items": ["PHP", "Laravel", "Symfony", "Yii2", "Python", "FastAPI", "MySQL", "PostgreSQL", "MongoDB", "Redis"] },
-        { "name": "Frontend", "items": ["Vue.js", "React", "JavaScript", "TypeScript", "Svelte", "HTML5/CSS3", "Tailwind CSS", "PWA"] },
+        { "name": "Frontend", "items": ["Vue.js", "React", "Next.js", "JavaScript", "TypeScript", "Svelte", "HTML5/CSS3", "Tailwind CSS", "PWA"] },
         { "name": "DevOps & Eszközök", "items": ["Linux", "Docker", "Git", "CI/CD", "AWS", "Nginx", "Deployer"] },
         { "name": "Mobil & PWA", "items": ["Progresszív Webalkalmazások", "Offline-First", "React Native", "Ionic"] }
       ]
@@ -558,7 +558,7 @@
       "categories": [
         { "name": "KI & LLM", "items": ["LLM-Integration", "LLM-Fine-Tuning & Evaluierung", "Semantische Suche", "Vektordatenbanken", "Embeddings", "Mehrklassen-Klassifikation", "RAG-Pipelines", "Hyperparameter-Tuning", "Agentische Workflows", "OpenAI API", "Anthropic API", "LangChain"] },
         { "name": "Backend", "items": ["PHP", "Laravel", "Symfony", "Yii2", "Python", "FastAPI", "MySQL", "PostgreSQL", "MongoDB", "Redis"] },
-        { "name": "Frontend", "items": ["Vue.js", "React", "JavaScript", "TypeScript", "Svelte", "HTML5/CSS3", "Tailwind CSS", "PWA"] },
+        { "name": "Frontend", "items": ["Vue.js", "React", "Next.js", "JavaScript", "TypeScript", "Svelte", "HTML5/CSS3", "Tailwind CSS", "PWA"] },
         { "name": "DevOps & Tools", "items": ["Linux", "Docker", "Git", "CI/CD", "AWS", "Nginx", "Deployer"] },
         { "name": "Mobil & PWA", "items": ["Progressive Web Apps", "Offline-First", "React Native", "Ionic"] }
       ]

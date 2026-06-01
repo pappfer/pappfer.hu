@@ -432,6 +432,67 @@
         "ctaTitle": "Brauchen Sie einen Senior Yii-Entwickler?",
         "ctaText": "Beschreiben Sie Ihr Projekt — lassen Sie uns sprechen."
       }
+    },
+    {
+      "id": "react",
+      "related": ["vuejs", "laravel", "ai"],
+      "en": {
+        "slug": "react-developer",
+        "metaTitle": "React & Next.js Developer — Ferenc Papp",
+        "metaDescription": "Senior React developer: Next.js web apps and React Native mobile. Fast, modern front ends, full-stack with Laravel and Python. 15+ years' experience.",
+        "kicker": "Frontend & mobile",
+        "h1": "React Developer",
+        "lead": "I build modern front ends with React — Next.js web applications and React Native mobile apps. Senior full-stack developer with 15+ years of experience, connecting the front end to robust Laravel or Python back ends.",
+        "body": "From server-rendered Next.js sites and SPAs to cross-platform React Native apps, I deliver clean component architecture, solid state management and good performance. One developer who can take a React product from web to mobile and wire it to the back end.",
+        "doTitle": "What I build with React",
+        "do": ["React single-page apps and dashboards", "Next.js web apps (SSR / SSG) with great Core Web Vitals", "React Native cross-platform mobile apps", "Component libraries and design systems", "Front ends wired to Laravel / FastAPI back ends", "AI-powered UI features (chat, search, assistants)"],
+        "whyTitle": "Why work with me",
+        "why": "Full-stack across the React ecosystem and the back end behind it, so web, mobile and API stay in sync. 15+ years of shipping production software, TypeScript throughout, and clear communication in English and Hungarian.",
+        "faq": [
+          { "q": "React, Next.js or React Native?", "a": "All three — React for SPAs, Next.js for server-rendered web apps, and React Native for cross-platform mobile. I pick the right one for your product." },
+          { "q": "Do you also build the back end?", "a": "Yes — I'm full-stack. I can deliver the React front end (or mobile app) and the Laravel or Python back end together." }
+        ],
+        "ctaTitle": "Looking for a senior React developer?",
+        "ctaText": "Tell me about your project and let's talk."
+      },
+      "hu": {
+        "slug": "react-fejleszto",
+        "metaTitle": "React & Next.js fejlesztő — Papp Ferenc",
+        "metaDescription": "Szenior React fejlesztő: Next.js webalkalmazások és React Native mobil. Gyors, modern frontendek, full-stack Laravel és Python háttérrel. 15+ év tapasztalat.",
+        "kicker": "Frontend & mobil",
+        "h1": "React fejlesztő",
+        "lead": "Modern frontendeket építek Reacttel — Next.js webalkalmazásokat és React Native mobilappokat. Szenior full-stack fejlesztő 15+ év tapasztalattal, a frontendet stabil Laravel vagy Python backendhez kötve.",
+        "body": "A szerver-oldalon renderelt Next.js oldalaktól és SPA-któl a cross-platform React Native appokig tiszta komponens-architektúrát, stabil állapotkezelést és jó teljesítményt adok. Egy fejlesztő, aki a React terméket a webtől a mobilig viszi, és összeköti a backenddel.",
+        "doTitle": "Mit építek Reacttel",
+        "do": ["React single-page appok és dashboardok", "Next.js webalkalmazások (SSR / SSG) jó Core Web Vitals értékekkel", "React Native cross-platform mobilappok", "Komponenskönyvtárak és design rendszerek", "Laravel / FastAPI backendhez kötött frontendek", "AI-alapú UI funkciók (chat, keresés, asszisztensek)"],
+        "whyTitle": "Miért velem",
+        "why": "Full-stack a React ökoszisztémában és a mögötte lévő backendben is, így a web, a mobil és az API szinkronban marad. 15+ év éles szoftverfejlesztés, végig TypeScripttel, átlátható kommunikáció magyarul és angolul.",
+        "faq": [
+          { "q": "React, Next.js vagy React Native?", "a": "Mindhárom — React az SPA-khoz, Next.js a szerver-oldalon renderelt webappokhoz, React Native a cross-platform mobilhoz. A termékedhez a megfelelőt választom." },
+          { "q": "A backendet is megcsinálod?", "a": "Igen — full-stack vagyok. A React frontendet (vagy mobilappot) és a Laravel vagy Python backendet együtt is szállítom." }
+        ],
+        "ctaTitle": "Szenior React fejlesztőt keresel?",
+        "ctaText": "Írd le a projekted, és beszéljünk."
+      },
+      "de": {
+        "slug": "react-entwickler",
+        "metaTitle": "React & Next.js Entwickler — Ferenc Papp",
+        "metaDescription": "Senior React-Entwickler: Next.js-Web-Apps und React-Native-Mobile. Schnelle, moderne Frontends, Full-Stack mit Laravel und Python. Über 15 Jahre Erfahrung.",
+        "kicker": "Frontend & Mobile",
+        "h1": "React Entwickler",
+        "lead": "Ich entwickle moderne Frontends mit React — Next.js-Webanwendungen und React-Native-Mobile-Apps. Senior Full-Stack-Entwickler mit über 15 Jahren Erfahrung, der das Frontend an robuste Laravel- oder Python-Backends anbindet.",
+        "body": "Von serverseitig gerenderten Next.js-Seiten und SPAs bis zu plattformübergreifenden React-Native-Apps liefere ich saubere Komponentenarchitektur, solides State-Management und gute Performance. Ein Entwickler, der ein React-Produkt vom Web bis zum Mobile bringt und mit dem Backend verbindet.",
+        "doTitle": "Was ich mit React baue",
+        "do": ["React-Single-Page-Apps und Dashboards", "Next.js-Web-Apps (SSR / SSG) mit guten Core Web Vitals", "React-Native-Cross-Platform-Mobile-Apps", "Komponentenbibliotheken und Design-Systeme", "Frontends, angebunden an Laravel- / FastAPI-Backends", "KI-gestützte UI-Funktionen (Chat, Suche, Assistenten)"],
+        "whyTitle": "Warum mit mir arbeiten",
+        "why": "Full-Stack im React-Ökosystem und im Backend dahinter, sodass Web, Mobile und API synchron bleiben. Über 15 Jahre produktive Softwareentwicklung, durchgängig mit TypeScript, klare Kommunikation auf Englisch und Ungarisch.",
+        "faq": [
+          { "q": "React, Next.js oder React Native?", "a": "Alle drei — React für SPAs, Next.js für serverseitig gerenderte Web-Apps und React Native für plattformübergreifendes Mobile. Ich wähle das Passende für Ihr Produkt." },
+          { "q": "Bauen Sie auch das Backend?", "a": "Ja — ich bin Full-Stack. Ich liefere das React-Frontend (oder die Mobile-App) und das Laravel- oder Python-Backend zusammen." }
+        ],
+        "ctaTitle": "Suchen Sie einen Senior React-Entwickler?",
+        "ctaText": "Beschreiben Sie Ihr Projekt — lassen Sie uns sprechen."
+      }
     }
   ]
 }
