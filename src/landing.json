@@ -310,6 +310,128 @@
         "ctaTitle": "Suchen Sie einen Webentwickler in Debrecen?",
         "ctaText": "Beschreiben Sie Ihr Projekt — lassen Sie uns sprechen."
       }
+    },
+    {
+      "id": "python",
+      "related": ["ai", "laravel", "vuejs"],
+      "en": {
+        "slug": "python-developer",
+        "metaTitle": "Python Developer (FastAPI) — Ferenc Papp",
+        "metaDescription": "Senior Python developer building FastAPI services, APIs, automation and AI/LLM back ends. 15+ years' experience, full-stack with Laravel and Vue.js.",
+        "kicker": "Python & APIs",
+        "h1": "Python Developer",
+        "lead": "I build clean, well-tested Python services — FastAPI APIs, automation scripts, data pipelines and the back ends behind AI/LLM features. Senior full-stack developer with 15+ years of experience.",
+        "body": "Python is where I build AI and microservices: FastAPI endpoints, background workers, integrations and LLM pipelines (LangChain, LangGraph). I connect them cleanly to web front ends and existing systems, with tests and CI/CD throughout.",
+        "doTitle": "What I build with Python",
+        "do": ["FastAPI services and REST APIs", "AI / LLM back ends (RAG, embeddings, vector search)", "Automation scripts and data pipelines", "Microservices and system integrations", "Background workers and scheduled jobs", "Python services wired to Laravel / Vue front ends"],
+        "whyTitle": "Why work with me",
+        "why": "I pair Python with 15+ years of full-stack web engineering, so your Python services integrate cleanly with the rest of your stack. Tested, maintainable code and clear communication in English and Hungarian.",
+        "faq": [
+          { "q": "FastAPI or Django?", "a": "Mainly FastAPI for services and APIs — especially around AI — but I can work with Django or Flask if that's your stack." },
+          { "q": "Can you build the back end and the front end?", "a": "Yes — I'm full-stack. I deliver the Python / FastAPI back end and the Vue.js or Laravel front end, end to end." }
+        ],
+        "ctaTitle": "Need a senior Python developer?",
+        "ctaText": "Tell me about your project and let's talk."
+      },
+      "hu": {
+        "slug": "python-fejleszto",
+        "metaTitle": "Python fejlesztő (FastAPI) — Papp Ferenc",
+        "metaDescription": "Szenior Python fejlesztő: FastAPI szolgáltatások, API-k, automatizálás és AI/LLM backend. 15+ év tapasztalat, full-stack Laravel és Vue.js háttérrel.",
+        "kicker": "Python & API-k",
+        "h1": "Python fejlesztő",
+        "lead": "Tiszta, jól tesztelt Python szolgáltatásokat építek — FastAPI API-kat, automatizáló szkripteket, adat-pipeline-okat és az AI/LLM funkciók mögötti backendet. Szenior full-stack fejlesztő 15+ év tapasztalattal.",
+        "body": "Pythonban építem az AI-t és a mikroszolgáltatásokat: FastAPI végpontok, háttérfeladatok, integrációk és LLM pipeline-ok (LangChain, LangGraph). Ezeket tisztán kötöm össze a webes frontenddel és a meglévő rendszerekkel, tesztekkel és CI/CD-vel.",
+        "doTitle": "Mit építek Pythonban",
+        "do": ["FastAPI szolgáltatások és REST API-k", "AI / LLM backend (RAG, embeddings, vektoros keresés)", "Automatizáló szkriptek és adat-pipeline-ok", "Mikroszolgáltatások és rendszerintegrációk", "Háttérben futó és ütemezett feladatok", "Python szolgáltatások Laravel / Vue frontendhez kötve"],
+        "whyTitle": "Miért velem",
+        "why": "A Pythont 15+ év full-stack webfejlesztéssel párosítom, így a Python szolgáltatásaid tisztán illeszkednek a stacked többi részéhez. Tesztelt, karbantartható kód és átlátható kommunikáció magyarul és angolul.",
+        "faq": [
+          { "q": "FastAPI vagy Django?", "a": "Főleg FastAPI a szolgáltatásokhoz és API-khoz — különösen az AI körül —, de Django vagy Flask is mehet, ha az a stacked." },
+          { "q": "A backendet és a frontendet is megcsinálod?", "a": "Igen — full-stack vagyok. A Python / FastAPI backendet és a Vue.js vagy Laravel frontendet végponttól végpontig építem." }
+        ],
+        "ctaTitle": "Szenior Python fejlesztőt keresel?",
+        "ctaText": "Írd le a projekted, és beszéljünk."
+      },
+      "de": {
+        "slug": "python-entwickler",
+        "metaTitle": "Python Entwickler (FastAPI) — Ferenc Papp",
+        "metaDescription": "Senior Python-Entwickler: FastAPI-Services, APIs, Automatisierung und KI/LLM-Backends. Über 15 Jahre Erfahrung, Full-Stack mit Laravel und Vue.js.",
+        "kicker": "Python & APIs",
+        "h1": "Python Entwickler",
+        "lead": "Ich entwickle saubere, gut getestete Python-Services — FastAPI-APIs, Automatisierungsskripte, Datenpipelines und die Backends hinter KI/LLM-Funktionen. Senior Full-Stack-Entwickler mit über 15 Jahren Erfahrung.",
+        "body": "In Python baue ich KI und Microservices: FastAPI-Endpunkte, Background-Worker, Integrationen und LLM-Pipelines (LangChain, LangGraph). Ich verbinde sie sauber mit Web-Frontends und bestehenden Systemen, samt Tests und CI/CD.",
+        "doTitle": "Was ich mit Python baue",
+        "do": ["FastAPI-Services und REST-APIs", "KI- / LLM-Backends (RAG, Embeddings, Vektorsuche)", "Automatisierungsskripte und Datenpipelines", "Microservices und Systemintegrationen", "Background-Worker und geplante Jobs", "Python-Services, angebunden an Laravel- / Vue-Frontends"],
+        "whyTitle": "Warum mit mir arbeiten",
+        "why": "Ich kombiniere Python mit über 15 Jahren Full-Stack-Webentwicklung, sodass sich Ihre Python-Services sauber in den restlichen Stack integrieren. Getesteter, wartbarer Code und klare Kommunikation auf Englisch und Ungarisch.",
+        "faq": [
+          { "q": "FastAPI oder Django?", "a": "Hauptsächlich FastAPI für Services und APIs — besonders rund um KI —, aber Django oder Flask sind möglich, wenn das Ihr Stack ist." },
+          { "q": "Bauen Sie Backend und Frontend?", "a": "Ja — ich bin Full-Stack. Ich liefere das Python- / FastAPI-Backend und das Vue.js- oder Laravel-Frontend durchgängig." }
+        ],
+        "ctaTitle": "Brauchen Sie einen Senior Python-Entwickler?",
+        "ctaText": "Beschreiben Sie Ihr Projekt — lassen Sie uns sprechen."
+      }
+    },
+    {
+      "id": "yii",
+      "related": ["laravel", "symfony", "python"],
+      "en": {
+        "slug": "yii2-developer",
+        "metaTitle": "Yii2 Developer — Ferenc Papp",
+        "metaDescription": "Senior Yii framework developer with deep Yii2 experience. APIs, web apps, console tools and modernization — clean, tested code. Ready for Yii3 projects too.",
+        "kicker": "Backend & full-stack",
+        "h1": "Yii2 Developer",
+        "lead": "Senior PHP developer with deep, hands-on Yii2 experience — APIs, web applications, console commands and scheduled tasks. I build new Yii apps and modernize or extend existing ones.",
+        "body": "I've shipped production Yii2 systems and led Yii-based development. With the new Yii3 released, I'm ready to take on Yii3 projects as well, building on years of Yii experience — and I also work across Laravel and Symfony when a project spans frameworks.",
+        "doTitle": "What I build with Yii",
+        "do": ["REST and JSON APIs with Yii2", "Web applications, admin panels and back-office tools", "Yii console applications and scheduled tasks", "Third-party and payment integrations", "Maintaining, refactoring and upgrading legacy Yii apps", "Yii3 projects, building on deep Yii2 experience"],
+        "whyTitle": "Why work with me",
+        "why": "Yii is where a lot of my early senior work happened — I know its conventions inside out. 15+ years of production PHP across Yii2, Laravel and Symfony, with tested, maintainable code and clear communication in English and Hungarian.",
+        "faq": [
+          { "q": "Do you work on legacy Yii2 projects?", "a": "Yes — maintaining, extending and upgrading existing Yii2 applications is a core part of what I do, including raising test coverage and untangling legacy code." },
+          { "q": "Can you do Yii3?", "a": "Yes. I have deep Yii2 experience and I'm ready to take on Yii3 projects, applying the same framework fundamentals to the new version." }
+        ],
+        "ctaTitle": "Need a senior Yii developer?",
+        "ctaText": "Tell me about your project and let's talk."
+      },
+      "hu": {
+        "slug": "yii2-fejleszto",
+        "metaTitle": "Yii2 fejlesztő — Papp Ferenc",
+        "metaDescription": "Szenior Yii fejlesztő, mély Yii2 tapasztalattal. API-k, webalkalmazások, konzol eszközök és modernizálás — tiszta, tesztelt kód. Yii3 projektekre is kész.",
+        "kicker": "Backend & full-stack",
+        "h1": "Yii2 fejlesztő",
+        "lead": "Szenior PHP fejlesztő, mély, gyakorlati Yii2 tapasztalattal — API-k, webalkalmazások, konzol parancsok és ütemezett feladatok. Új Yii appokat építek, meglévőket modernizálok és bővítek.",
+        "body": "Éles Yii2 rendszereket szállítottam és Yii-alapú fejlesztést vezettem. A megjelent új Yii3-mal a Yii3 projekteket is vállalom, az évek Yii tapasztalatára építve — és szükség esetén Laravelben és Symfonyban is dolgozom.",
+        "doTitle": "Mit építek Yii-vel",
+        "do": ["REST és JSON API-k Yii2-vel", "Webalkalmazások, admin felületek és back-office eszközök", "Yii konzol alkalmazások és ütemezett feladatok", "Külső és fizetési integrációk", "Legacy Yii appok karbantartása, refaktorálása és frissítése", "Yii3 projektek, a mély Yii2 tapasztalatra építve"],
+        "whyTitle": "Miért velem",
+        "why": "Sok korai szenior munkám Yii-ben történt — kívülről ismerem a konvencióit. 15+ év éles PHP Yii2, Laravel és Symfony terén, tesztelt, karbantartható kóddal és átlátható kommunikációval magyarul és angolul.",
+        "faq": [
+          { "q": "Dolgozol legacy Yii2 projekteken?", "a": "Igen — meglévő Yii2 alkalmazások karbantartása, bővítése és frissítése a munkám fontos része, beleértve a tesztlefedettség növelését és a legacy kód rendberakását." },
+          { "q": "Yii3-at is csinálsz?", "a": "Igen. Mély Yii2 tapasztalatom van, és vállalom a Yii3 projekteket, ugyanazokat a keretrendszer-alapokat alkalmazva az új verzióra." }
+        ],
+        "ctaTitle": "Szenior Yii fejlesztőt keresel?",
+        "ctaText": "Írd le a projekted, és beszéljünk."
+      },
+      "de": {
+        "slug": "yii2-entwickler",
+        "metaTitle": "Yii2 Entwickler — Ferenc Papp",
+        "metaDescription": "Senior Yii-Entwickler mit tiefer Yii2-Erfahrung. APIs, Web-Apps, Konsolen-Tools und Modernisierung — sauberer, getesteter Code. Auch bereit für Yii3-Projekte.",
+        "kicker": "Backend & Full-Stack",
+        "h1": "Yii2 Entwickler",
+        "lead": "Senior PHP-Entwickler mit tiefer, praktischer Yii2-Erfahrung — APIs, Webanwendungen, Konsolenbefehle und geplante Aufgaben. Ich entwickle neue Yii-Apps und modernisiere oder erweitere bestehende.",
+        "body": "Ich habe produktive Yii2-Systeme ausgeliefert und Yii-basierte Entwicklung geleitet. Mit dem veröffentlichten Yii3 übernehme ich auch Yii3-Projekte — aufbauend auf jahrelanger Yii-Erfahrung. Bei Bedarf arbeite ich auch mit Laravel und Symfony.",
+        "doTitle": "Was ich mit Yii baue",
+        "do": ["REST- und JSON-APIs mit Yii2", "Webanwendungen, Admin-Panels und Back-Office-Tools", "Yii-Konsolenanwendungen und geplante Aufgaben", "Dritt- und Zahlungsintegrationen", "Wartung, Refactoring und Upgrade von Legacy-Yii-Apps", "Yii3-Projekte, aufbauend auf tiefer Yii2-Erfahrung"],
+        "whyTitle": "Warum mit mir arbeiten",
+        "why": "Viel meiner frühen Senior-Arbeit entstand in Yii — ich kenne seine Konventionen in- und auswendig. Über 15 Jahre produktives PHP mit Yii2, Laravel und Symfony, getesteter, wartbarer Code und klare Kommunikation auf Englisch und Ungarisch.",
+        "faq": [
+          { "q": "Arbeiten Sie an Legacy-Yii2-Projekten?", "a": "Ja — Wartung, Erweiterung und Upgrade bestehender Yii2-Anwendungen sind ein Kernteil meiner Arbeit, inkl. höherer Testabdeckung und Aufräumen von Legacy-Code." },
+          { "q": "Machen Sie auch Yii3?", "a": "Ja. Ich habe tiefe Yii2-Erfahrung und übernehme Yii3-Projekte, indem ich dieselben Framework-Grundlagen auf die neue Version anwende." }
+        ],
+        "ctaTitle": "Brauchen Sie einen Senior Yii-Entwickler?",
+        "ctaText": "Beschreiben Sie Ihr Projekt — lassen Sie uns sprechen."
+      }
     }
   ]
 }
