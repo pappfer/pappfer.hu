@@ -108,14 +108,37 @@ function trHu(text) {
     // company names
     ['Self-employed (Sole Proprietor)', 'Egyéni vállalkozó'],
     ['pappfer.hu (Freelancer)', 'pappfer.hu (szabadúszó)'],
+    // updated profile summary
+    ['Senior full-stack developer and AI solutions engineer with over 15 years of professional experience. I build scalable, high-performance web ecosystems with PHP/Laravel, Vue.js and Python, and engineer production-ready generative AI / LLM systems — fine-tuning, semantic search, vector databases, embeddings and RAG pipelines. Since October 2024 I work dedicatedly with DataExpert and its sister company Rubiklab on flagship projects. Based in Debrecen, Hungary, working with teams across Europe and the United States.',
+      'Szenior full-stack fejlesztő és AI Solutions Engineer vagyok, több mint 15 év szakmai tapasztalattal. Skálázható, nagy teljesítményű webes ökoszisztémákat építek PHP/Laravel, Vue.js és Python alapokon, és éles környezetbe szánt generatív AI / LLM rendszereket fejlesztek — finomhangolás, szemantikus keresés, vektor adatbázisok, embeddings és RAG pipeline-ok. 2024 októbere óta dedikáltan a DataExpert és testvércége, a Rubiklab kiemelt projektjein dolgozom. Debrecenből, európai és amerikai csapatokkal.'],
+    // DataExpert
+    ['Architecting and building scalable, high-performance Progressive Web Apps for flagship projects.',
+      'Skálázható, nagy teljesítményű Progresszív Webalkalmazások (PWA) tervezése és fejlesztése kiemelt projekteken.'],
+    ['Scalable, high-performance Progressive Web Apps (PWA)', 'Skálázható, nagy teljesítményű Progresszív Webalkalmazások (PWA)'],
+    ['Laravel backend with a Vue.js frontend', 'Laravel backend Vue.js frontenddel'],
+    ['Python scripts and microservices', 'Python szkriptek és mikroszolgáltatások'],
+    // Rubiklab
+    ['Generative AI integrations and R&D, including the in-house LabIQ product.',
+      'Generatív AI integrációk és kutatás-fejlesztés, beleértve a saját LabIQ terméket.'],
+    ['LLM fine-tuning, benchmarking and comparison', 'LLM finomhangolás, benchmark és összehasonlítás'],
+    ['Semantic search with vector databases and embeddings', 'Szemantikus keresés vektor adatbázisokkal és embeddingekkel'],
+    ['LLM-based multi-class classification systems', 'LLM-alapú többosztályos klasszifikációs rendszerek'],
+    ['Hyperparameter optimization (temperature, top-k/top-p) for deterministic output', 'Hiperparaméter-optimalizálás (temperature, top-k/top-p) a determinisztikus kimenetért'],
+    // Self-employed (updated summary)
+    ['Independent practice as a sole proprietor: custom web applications and AI integrations (LLM-powered features, RAG pipelines, vector search) plus survey systems for market research clients across the EU and US.',
+      'Egyéni vállalkozói tevékenység: egyedi webalkalmazások és AI integrációk (LLM-alapú funkciók, RAG pipeline-ok, vektoros keresés), valamint kérdőíves rendszerek európai és amerikai piackutató ügyfeleknek.'],
+    // skill category names
+    ['Backend Development', 'Backend fejlesztés'],
+    ['Frontend Development', 'Frontend fejlesztés'],
+    ['Databases', 'Adatbázisok'],
+    ['AI & LLM', 'AI & LLM'],
   ]);
   return map.get(text) || text;
 }
 
 function buildHtml(resume, lang = 'en') {
   const basics = resume.basics || {};
-  const workLimit = 6;
-  const work = Array.isArray(resume.work) ? resume.work.slice(0, workLimit) : [];
+  const work = Array.isArray(resume.work) ? resume.work : [];
   const education = Array.isArray(resume.education) ? resume.education.slice(0, 2) : [];
   const languages = Array.isArray(resume.languages) ? resume.languages : [];
   const profiles = Array.isArray(basics.profiles) ? basics.profiles.slice(0, 4) : [];
@@ -125,7 +148,7 @@ function buildHtml(resume, lang = 'en') {
   const locale = isHu ? 'hu-HU' : 'en-GB';
   const name = isHu ? 'Papp Ferenc' : (basics.name || 'Ferenc Papp');
   const label = isHu
-    ? 'Full-stack webfejlesztő és AI integrációs szakértő'
+    ? 'Szenior full-stack fejlesztő & AI Solutions Engineer'
     : (basics.label || '');
   const locationCountry = isHu ? 'Magyarország' : 'Hungary';
   const location = [basics.location?.city, locationCountry].filter(Boolean).join(', ');
@@ -137,6 +160,7 @@ function buildHtml(resume, lang = 'en') {
     languages: isHu ? 'NYELVEK' : 'LANGUAGES',
     profile: isHu ? 'PROFIL' : 'PROFILE',
     experience: isHu ? 'SZAKMAI TAPASZTALAT' : 'SELECTED EXPERIENCE',
+    experienceCont: isHu ? 'SZAKMAI TAPASZTALAT (folyt.)' : 'EXPERIENCE (CONTINUED)',
     education: isHu ? 'TANULMÁNYOK' : 'EDUCATION',
     serviceFocus: isHu ? 'FÓKUSZTERÜLETEK' : 'SERVICE FOCUS',
     email: isHu ? 'Email' : 'Email',
@@ -165,9 +189,9 @@ function buildHtml(resume, lang = 'en') {
   }).join('');
 
   // Left: stack
-  const stackHtml = (skills || []).slice(0, 5).map(group => {
+  const stackHtml = (skills || []).slice(0, 6).map(group => {
     const gname = isHu ? trHu(group.name || '') : (group.name || '');
-    const top = Array.isArray(group.keywords) ? group.keywords.slice(0, 3).join(', ') : '';
+    const top = Array.isArray(group.keywords) ? group.keywords.slice(0, 12).join(', ') : '';
     return `<div class="stack-item"><div class="stack-cat">${escHtml(gname)}</div><div class="stack-kw">${escHtml(top)}</div></div>`;
   }).join('');
 
@@ -179,15 +203,13 @@ function buildHtml(resume, lang = 'en') {
     return `<p>${escHtml(`${language}: ${fluency}`)}</p>`;
   }).join('');
 
-  // Right: work
-  const workHtml = work.map((item, idx) => {
+  // Right: work — rendered per item, split across two pages
+  const renderWorkItem = (item, isLast, maxHl) => {
     const position = (isHu ? trHu(item.position) : item.position) || '';
     const company = (isHu ? trHu(item.name) : item.name) || '';
     const dates = dateRange(item.startDate, item.endDate, locale);
     const itemSummary = (isHu ? trHu(item.summary) : item.summary) || '';
-    const highlights = (Array.isArray(item.highlights) ? item.highlights : []).slice(0, 2);
-    const isLast = idx === work.length - 1;
-
+    const highlights = (Array.isArray(item.highlights) ? item.highlights : []).slice(0, maxHl);
     return `
 <div class="work-item${isLast ? ' last' : ''}">
   <div class="work-header">
@@ -198,7 +220,14 @@ function buildHtml(resume, lang = 'en') {
   ${itemSummary ? `<div class="work-summary">${escHtml(itemSummary)}</div>` : ''}
   ${highlights.map(h => `<div class="work-highlight">• ${escHtml(isHu ? trHu(h) : h)}</div>`).join('')}
 </div>`;
-  }).join('');
+  };
+  const PAGE1_ROLES = 5;
+  const page1Work = work.slice(0, PAGE1_ROLES)
+    .map((item, i, arr) => renderWorkItem(item, i === arr.length - 1, 4)).join('');
+  const page2WorkArr = work.slice(PAGE1_ROLES);
+  const page2Work = page2WorkArr
+    .map((item, i, arr) => renderWorkItem(item, i === arr.length - 1, 2)).join('');
+  const hasPage2Work = page2WorkArr.length > 0;
 
   // Right: education
   const educationHtml = education.map(item => {
@@ -242,14 +271,12 @@ body { margin: 0 !important; padding: 0 !important; }
 
 html, body {
   width: 210mm;
-  height: 297mm;
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
   font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   font-size: 7pt;
   color: #334155;
   background: #ffffff;
-  overflow: hidden;
 }
 
 a {
@@ -571,6 +598,22 @@ a:hover { text-decoration: underline; }
   background: #e2e8f0;
   margin: 0 8mm;
 }
+
+/* ── PAGE 2 ───────────────────────────────── */
+.page--two { page-break-before: always; }
+
+.mini-header {
+  flex-shrink: 0;
+  position: relative;
+  background: #f8fafc;
+  border-bottom: 5px solid #e2e8f0;
+  padding: 4mm 10mm 4mm 13mm;
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+}
+.mini-name { font-size: 13pt; font-weight: 700; color: #0f172a; }
+.mini-label { font-size: 8pt; font-weight: 600; color: #475569; }
 </style>
 </head>
 <body>
@@ -647,25 +690,52 @@ a:hover { text-decoration: underline; }
           <h2 class="right-title">${labels.experience}</h2>
         </div>
         <div class="right-rule"></div>
-        ${workHtml}
+        ${page1Work}
       </div>
+
+    </main>
+
+  </div>
+
+  <div class="footer-rule"></div>
+
+</div>
+
+<div class="page page--two">
+
+  <header class="mini-header">
+    <div class="header-accent"></div>
+    <span class="mini-name">${escHtml(name)}</span>
+    <span class="mini-label">— ${escHtml(label)}</span>
+  </header>
+
+  <div class="body">
+
+    <aside class="left">
+
+      <div class="left-section">
+        <div class="left-title">${labels.education}</div>
+        <div class="left-rule"></div>
+        <div class="left-content">${educationHtml}</div>
+      </div>
+
+      <div class="left-section">
+        <div class="left-title">${labels.serviceFocus}</div>
+        <div class="left-rule"></div>
+        <div class="left-content">${serviceLines.map(l => `<p class="service-line">• ${escHtml(l)}</p>`).join('\n          ')}</div>
+      </div>
+
+    </aside>
+
+    <main class="right">
 
       <div class="right-section">
         <div class="right-section-head">
           <div class="right-accent"></div>
-          <h2 class="right-title">${labels.education}</h2>
+          <h2 class="right-title">${labels.experienceCont}</h2>
         </div>
         <div class="right-rule"></div>
-        ${educationHtml}
-      </div>
-
-      <div class="right-section">
-        <div class="right-section-head">
-          <div class="right-accent"></div>
-          <h2 class="right-title">${labels.serviceFocus}</h2>
-        </div>
-        <div class="right-rule"></div>
-        ${serviceLines.map(l => `<p class="service-line">• ${escHtml(l)}</p>`).join('\n        ')}
+        ${page2Work}
       </div>
 
     </main>
