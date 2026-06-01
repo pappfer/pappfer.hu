@@ -1,0 +1,253 @@
+{
+  "labels": {
+    "en": { "home": "Home", "related": "Related services", "cta": "Get in touch", "backHome": "Back to homepage", "servicesFooter": "Services" },
+    "hu": { "home": "Főoldal", "related": "Kapcsolódó szolgáltatások", "cta": "Kapcsolatfelvétel", "backHome": "Vissza a főoldalra", "servicesFooter": "Szolgáltatások" },
+    "de": { "home": "Startseite", "related": "Verwandte Leistungen", "cta": "Kontakt aufnehmen", "backHome": "Zurück zur Startseite", "servicesFooter": "Leistungen" }
+  },
+  "pages": [
+    {
+      "id": "laravel",
+      "related": ["vuejs", "ai", "symfony"],
+      "en": {
+        "slug": "laravel-developer",
+        "metaTitle": "Senior Laravel Developer — Ferenc Papp",
+        "metaDescription": "Senior Laravel developer with 15+ years' experience. Scalable APIs, multi-tenant SaaS and PWA back ends — clean, tested, production-ready code.",
+        "kicker": "Backend & full-stack",
+        "h1": "Laravel Developer",
+        "lead": "I'm Ferenc Papp, a senior full-stack developer with 15+ years of experience and Laravel as my backend of choice. I design and build scalable, well-tested Laravel applications — from APIs and multi-tenant SaaS platforms to the back end of high-performance Progressive Web Apps.",
+        "body": "I take full ownership: architecture, database design, queues and jobs, third-party integrations, testing and deployment. Whether you're starting a new product or need a senior pair of hands on an existing Laravel codebase, I deliver clean, maintainable code that scales.",
+        "doTitle": "What I build with Laravel",
+        "do": ["REST and JSON APIs for web and mobile clients", "Multi-tenant SaaS platforms and admin panels", "Scalable back ends for Progressive Web Apps (with Vue.js)", "Payment, CRM and third-party API integrations", "Queues, scheduled jobs and background processing", "AI / LLM features wired into Laravel apps"],
+        "whyTitle": "Why work with me",
+        "why": "15+ years in production PHP, a focus on clean architecture and automated tests, and clear, proactive communication in English and Hungarian. I act as a reliable technical partner, not just a code supplier.",
+        "faq": [
+          { "q": "Do you work on existing Laravel projects?", "a": "Yes — I regularly join existing codebases to add features, improve performance, raise test coverage or untangle legacy code." },
+          { "q": "Which Laravel tools do you use?", "a": "Modern Laravel with Eloquent, queues, Horizon, Sanctum/Passport, Pest/PHPUnit and CI/CD. I also work with Symfony and Yii2 when a project calls for it." }
+        ],
+        "ctaTitle": "Need a senior Laravel developer?",
+        "ctaText": "Tell me about your project and let's see how I can help."
+      },
+      "hu": {
+        "slug": "laravel-fejleszto",
+        "metaTitle": "Laravel fejlesztő — Papp Ferenc",
+        "metaDescription": "Szenior Laravel fejlesztő 15+ év tapasztalattal. Skálázható API-k, multi-tenant SaaS és PWA backend — tiszta, tesztelt, éles környezetre kész kód.",
+        "kicker": "Backend & full-stack",
+        "h1": "Laravel fejlesztő",
+        "lead": "Papp Ferenc vagyok, szenior full-stack fejlesztő 15+ év tapasztalattal, a Laravel a fő backend eszközöm. Skálázható, jól tesztelt Laravel alkalmazásokat tervezek és építek — API-któl és multi-tenant SaaS platformoktól a nagy teljesítményű Progresszív Webalkalmazások backendjéig.",
+        "body": "A teljes folyamatot viszem: architektúra, adatbázis-tervezés, sorok és háttérfeladatok, külső integrációk, tesztelés és bevezetés. Akár új terméket indítasz, akár egy meglévő Laravel kódbázishoz kell szenior fejlesztő, tiszta, karbantartható és skálázható kódot adok.",
+        "doTitle": "Mit építek Laravelben",
+        "do": ["REST és JSON API-k web- és mobilklienseknek", "Multi-tenant SaaS platformok és admin felületek", "Skálázható backend Progresszív Webalkalmazásokhoz (Vue.js-szel)", "Fizetési, CRM és külső API integrációk", "Sorok, ütemezett és háttérben futó feladatok", "AI / LLM funkciók beépítése Laravel alkalmazásokba"],
+        "whyTitle": "Miért velem",
+        "why": "15+ év éles PHP tapasztalat, tiszta architektúra és automatizált tesztek, valamint átlátható, proaktív kommunikáció magyarul és angolul. Megbízható technikai partner vagyok, nem csak kódszállító.",
+        "faq": [
+          { "q": "Dolgozol meglévő Laravel projekteken?", "a": "Igen — rendszeresen csatlakozom meglévő kódbázisokhoz: új funkciók, teljesítményjavítás, tesztlefedettség növelése vagy legacy kód rendberakása." },
+          { "q": "Milyen Laravel eszközökkel dolgozol?", "a": "Modern Laravel: Eloquent, sorok, Horizon, Sanctum/Passport, Pest/PHPUnit és CI/CD. Szükség esetén Symfony és Yii2 is." }
+        ],
+        "ctaTitle": "Szenior Laravel fejlesztőt keresel?",
+        "ctaText": "Írd le a projekted, és nézzük meg, hogyan segíthetek."
+      },
+      "de": {
+        "slug": "laravel-entwickler",
+        "metaTitle": "Laravel Entwickler — Ferenc Papp",
+        "metaDescription": "Senior Laravel-Entwickler mit über 15 Jahren Erfahrung. Skalierbare APIs, Multi-Tenant-SaaS und PWA-Backends — sauberer, getesteter, produktionsreifer Code.",
+        "kicker": "Backend & Full-Stack",
+        "h1": "Laravel Entwickler",
+        "lead": "Ich bin Ferenc Papp, Senior Full-Stack-Entwickler mit über 15 Jahren Erfahrung und Laravel als bevorzugtem Backend. Ich entwerfe und entwickle skalierbare, gut getestete Laravel-Anwendungen — von APIs und Multi-Tenant-SaaS-Plattformen bis zum Backend leistungsstarker Progressive Web Apps.",
+        "body": "Ich übernehme die volle Verantwortung: Architektur, Datenbankdesign, Queues und Jobs, Drittanbieter-Integrationen, Tests und Deployment. Ob neues Produkt oder erfahrene Verstärkung für eine bestehende Laravel-Codebasis — ich liefere sauberen, wartbaren und skalierbaren Code.",
+        "doTitle": "Was ich mit Laravel baue",
+        "do": ["REST- und JSON-APIs für Web- und Mobile-Clients", "Multi-Tenant-SaaS-Plattformen und Admin-Panels", "Skalierbare Backends für Progressive Web Apps (mit Vue.js)", "Zahlungs-, CRM- und Drittanbieter-API-Integrationen", "Queues, geplante und Hintergrund-Jobs", "KI- / LLM-Funktionen in Laravel-Apps integriert"],
+        "whyTitle": "Warum mit mir arbeiten",
+        "why": "Über 15 Jahre produktives PHP, Fokus auf saubere Architektur und automatisierte Tests sowie klare, proaktive Kommunikation auf Englisch und Ungarisch. Ich bin ein zuverlässiger technischer Partner, kein reiner Code-Lieferant.",
+        "faq": [
+          { "q": "Arbeiten Sie an bestehenden Laravel-Projekten?", "a": "Ja — ich steige regelmäßig in bestehende Codebasen ein: neue Features, Performance, Testabdeckung oder Aufräumen von Legacy-Code." },
+          { "q": "Welche Laravel-Tools nutzen Sie?", "a": "Modernes Laravel: Eloquent, Queues, Horizon, Sanctum/Passport, Pest/PHPUnit und CI/CD. Bei Bedarf auch Symfony und Yii2." }
+        ],
+        "ctaTitle": "Brauchen Sie einen Senior Laravel-Entwickler?",
+        "ctaText": "Beschreiben Sie Ihr Projekt — ich zeige Ihnen, wie ich helfen kann."
+      }
+    },
+    {
+      "id": "vuejs",
+      "related": ["laravel", "ai", "symfony"],
+      "en": {
+        "slug": "vuejs-developer",
+        "metaTitle": "Vue.js Developer — Ferenc Papp",
+        "metaDescription": "Senior Vue.js developer building fast, modern front ends and Progressive Web Apps. 15+ years' experience, full-stack with Laravel and Python.",
+        "kicker": "Frontend & PWA",
+        "h1": "Vue.js Developer",
+        "lead": "I build fast, maintainable front ends with Vue.js — from interactive dashboards and SaaS UIs to installable, offline-capable Progressive Web Apps. As a full-stack developer I connect the front end to robust Laravel or Python back ends end to end.",
+        "body": "Component architecture, state management, performance, accessibility and clean APIs between front and back end — I cover the whole picture. The result is a UI that loads fast, scales, and is a pleasure to maintain.",
+        "doTitle": "What I build with Vue.js",
+        "do": ["Single-page apps, dashboards and SaaS interfaces", "Installable, offline-first Progressive Web Apps (PWA)", "Component libraries and design-system implementation", "Front ends wired to Laravel / FastAPI back ends", "Performance and Core Web Vitals optimization", "AI-powered UI features (chat, search, assistants)"],
+        "whyTitle": "Why work with me",
+        "why": "Full-stack perspective: I understand both the Vue front end and the back end it talks to, so integrations are clean and there's no finger-pointing. 15+ years of shipping production software, with clear communication in English and Hungarian.",
+        "faq": [
+          { "q": "Do you also do the back end?", "a": "Yes — I'm full-stack. I can deliver the Vue.js front end and the Laravel or Python back end together, or just the front end if you have a back-end team." },
+          { "q": "Vue 2 or Vue 3?", "a": "Vue 3 with the Composition API and modern tooling (Vite, Pinia). I can also maintain or migrate existing Vue 2 apps." }
+        ],
+        "ctaTitle": "Looking for a senior Vue.js developer?",
+        "ctaText": "Tell me about your project and let's talk."
+      },
+      "hu": {
+        "slug": "vuejs-fejleszto",
+        "metaTitle": "Vue.js fejlesztő — Papp Ferenc",
+        "metaDescription": "Szenior Vue.js fejlesztő: gyors, modern frontendek és Progresszív Webalkalmazások. 15+ év tapasztalat, full-stack Laravel és Python háttérrel.",
+        "kicker": "Frontend & PWA",
+        "h1": "Vue.js fejlesztő",
+        "lead": "Gyors, karbantartható frontendeket építek Vue.js-szel — interaktív dashboardoktól és SaaS felületektől a telepíthető, offline is működő Progresszív Webalkalmazásokig. Full-stack fejlesztőként a frontendet végponttól végpontig kötöm össze a stabil Laravel vagy Python backenddel.",
+        "body": "Komponens-architektúra, állapotkezelés, teljesítmény, akadálymentesség és tiszta API-k a frontend és backend között — az egész képet lefedem. Az eredmény gyorsan töltődő, skálázható és könnyen karbantartható felület.",
+        "doTitle": "Mit építek Vue.js-szel",
+        "do": ["Single-page appok, dashboardok és SaaS felületek", "Telepíthető, offline-first Progresszív Webalkalmazások (PWA)", "Komponenskönyvtárak és design rendszerek megvalósítása", "Laravel / FastAPI backendhez kötött frontendek", "Teljesítmény- és Core Web Vitals-optimalizálás", "AI-alapú UI funkciók (chat, keresés, asszisztensek)"],
+        "whyTitle": "Miért velem",
+        "why": "Full-stack rálátás: értem a Vue frontendet és a mögötte lévő backendet is, így az integráció tiszta, és nincs egymásra mutogatás. 15+ év éles szoftverfejlesztés, átlátható kommunikáció magyarul és angolul.",
+        "faq": [
+          { "q": "A backendet is csinálod?", "a": "Igen — full-stack vagyok. A Vue.js frontendet és a Laravel vagy Python backendet együtt is szállítom, vagy csak a frontendet, ha van backend csapatod." },
+          { "q": "Vue 2 vagy Vue 3?", "a": "Vue 3 Composition API-val és modern eszközökkel (Vite, Pinia). Meglévő Vue 2 appokat is karbantartok vagy migrálok." }
+        ],
+        "ctaTitle": "Szenior Vue.js fejlesztőt keresel?",
+        "ctaText": "Írd le a projekted, és beszéljünk."
+      },
+      "de": {
+        "slug": "vuejs-entwickler",
+        "metaTitle": "Vue.js Entwickler — Ferenc Papp",
+        "metaDescription": "Senior Vue.js-Entwickler für schnelle, moderne Frontends und Progressive Web Apps. Über 15 Jahre Erfahrung, Full-Stack mit Laravel und Python.",
+        "kicker": "Frontend & PWA",
+        "h1": "Vue.js Entwickler",
+        "lead": "Ich entwickle schnelle, wartbare Frontends mit Vue.js — von interaktiven Dashboards und SaaS-Oberflächen bis zu installierbaren, offlinefähigen Progressive Web Apps. Als Full-Stack-Entwickler verbinde ich das Frontend durchgängig mit robusten Laravel- oder Python-Backends.",
+        "body": "Komponentenarchitektur, State-Management, Performance, Barrierefreiheit und saubere APIs zwischen Front- und Backend — ich decke das Gesamtbild ab. Das Ergebnis ist eine schnell ladende, skalierbare und wartbare Oberfläche.",
+        "doTitle": "Was ich mit Vue.js baue",
+        "do": ["Single-Page-Apps, Dashboards und SaaS-Oberflächen", "Installierbare, Offline-First Progressive Web Apps (PWA)", "Komponentenbibliotheken und Design-System-Umsetzung", "Frontends, angebunden an Laravel- / FastAPI-Backends", "Performance- und Core-Web-Vitals-Optimierung", "KI-gestützte UI-Funktionen (Chat, Suche, Assistenten)"],
+        "whyTitle": "Warum mit mir arbeiten",
+        "why": "Full-Stack-Perspektive: Ich verstehe das Vue-Frontend und das Backend dahinter, daher sind Integrationen sauber und ohne Schuldzuweisungen. Über 15 Jahre produktive Softwareentwicklung, klare Kommunikation auf Englisch und Ungarisch.",
+        "faq": [
+          { "q": "Machen Sie auch das Backend?", "a": "Ja — ich bin Full-Stack. Ich liefere das Vue.js-Frontend und das Laravel- oder Python-Backend zusammen, oder nur das Frontend, wenn Sie ein Backend-Team haben." },
+          { "q": "Vue 2 oder Vue 3?", "a": "Vue 3 mit Composition API und modernem Tooling (Vite, Pinia). Bestehende Vue-2-Apps pflege oder migriere ich ebenfalls." }
+        ],
+        "ctaTitle": "Suchen Sie einen Senior Vue.js-Entwickler?",
+        "ctaText": "Beschreiben Sie Ihr Projekt — lassen Sie uns sprechen."
+      }
+    },
+    {
+      "id": "ai",
+      "related": ["laravel", "vuejs", "symfony"],
+      "en": {
+        "slug": "ai-llm-integration",
+        "metaTitle": "AI & LLM Integration Developer — Ferenc Papp",
+        "metaDescription": "Production-ready AI and LLM integration: RAG pipelines, semantic search, vector databases, fine-tuning and deterministic output. Senior engineer, 15+ years.",
+        "kicker": "Generative AI",
+        "h1": "AI & LLM Integration",
+        "lead": "I integrate large language models into real products — not demos. RAG pipelines, semantic search with vector databases and embeddings, LLM-based classification, and the engineering discipline to make generative AI reliable, observable and cost-aware.",
+        "body": "I work in Python (FastAPI, LangChain, LangGraph) and wire AI features into existing web apps (Laravel, Vue.js). I tune hyperparameters like temperature and top-k/top-p, ground answers with retrieval, and add evaluation and guardrails so the same input gives dependable, repeatable results.",
+        "doTitle": "What I build",
+        "do": ["RAG pipelines over your documents and data", "Semantic search with vector databases and embeddings", "LLM-based classification and extraction systems", "Fine-tuning, benchmarking and model comparison", "Deterministic, evaluated LLM features (temperature, top-k/top-p)", "AI features integrated into Laravel / Vue apps and APIs"],
+        "whyTitle": "Why work with me",
+        "why": "I combine 15+ years of production web engineering with hands-on generative-AI R&D (currently as a Senior AI Solutions Engineer). That means AI features that actually ship, integrate cleanly and hold up in production — not proofs of concept that stall.",
+        "faq": [
+          { "q": "Which models and tools do you use?", "a": "OpenAI and Anthropic APIs, LangChain / LangGraph, FastAPI, and vector databases such as Pinecone or pgvector — chosen per use case and budget." },
+          { "q": "Can you add AI to my existing app?", "a": "Yes. I integrate LLM features (search, chat, classification, automation) into existing Laravel, Vue.js or Python systems, with the back-end plumbing to support them." }
+        ],
+        "ctaTitle": "Want production-ready AI in your product?",
+        "ctaText": "Tell me what you're building and let's talk."
+      },
+      "hu": {
+        "slug": "ai-integracio",
+        "metaTitle": "AI & LLM integráció fejlesztő — Papp Ferenc",
+        "metaDescription": "Éles környezetbe szánt AI- és LLM-integráció: RAG, szemantikus keresés, vektor adatbázisok, finomhangolás, determinisztikus kimenet. Szenior fejlesztő, 15+ év.",
+        "kicker": "Generatív AI",
+        "h1": "AI & LLM integráció",
+        "lead": "Nagy nyelvi modelleket integrálok valódi termékekbe — nem demókba. RAG pipeline-ok, szemantikus keresés vektor adatbázisokkal és embeddingekkel, LLM-alapú klasszifikáció, és az a mérnöki fegyelem, amitől a generatív AI megbízható, megfigyelhető és költségtudatos lesz.",
+        "body": "Pythonban dolgozom (FastAPI, LangChain, LangGraph), és az AI funkciókat meglévő webalkalmazásokba kötöm (Laravel, Vue.js). Hangolom a hiperparamétereket (temperature, top-k/top-p), retrievallel alapozom meg a válaszokat, és kiértékelést meg védőkorlátokat építek, hogy ugyanaz a bemenet megbízható, ismételhető eredményt adjon.",
+        "doTitle": "Mit építek",
+        "do": ["RAG pipeline-ok a dokumentumaidra és adataidra", "Szemantikus keresés vektor adatbázisokkal és embeddingekkel", "LLM-alapú klasszifikációs és kinyerő rendszerek", "Finomhangolás, benchmark és modell-összehasonlítás", "Determinisztikus, kiértékelt LLM funkciók (temperature, top-k/top-p)", "AI funkciók beépítése Laravel / Vue appokba és API-kba"],
+        "whyTitle": "Miért velem",
+        "why": "15+ év éles webfejlesztést ötvözök gyakorlati generatív AI kutatás-fejlesztéssel (jelenleg Senior AI Solutions Engineerként). Ez olyan AI funkciókat jelent, amelyek tényleg élesbe kerülnek, tisztán integrálódnak és kibírják az éles terhelést — nem megrekedt proof-of-conceptek.",
+        "faq": [
+          { "q": "Milyen modelleket és eszközöket használsz?", "a": "OpenAI és Anthropic API-k, LangChain / LangGraph, FastAPI, és vektor adatbázisok (pl. Pinecone vagy pgvector) — a feladathoz és kerethez igazítva." },
+          { "q": "Be tudod építeni az AI-t a meglévő appomba?", "a": "Igen. LLM funkciókat (keresés, chat, klasszifikáció, automatizálás) integrálok meglévő Laravel, Vue.js vagy Python rendszerekbe, a hozzá tartozó backenddel együtt." }
+        ],
+        "ctaTitle": "Éles környezetbe szánt AI-t szeretnél a termékedbe?",
+        "ctaText": "Mondd el, mit építesz, és beszéljünk."
+      },
+      "de": {
+        "slug": "ki-integration",
+        "metaTitle": "KI- & LLM-Integration Entwickler — Ferenc Papp",
+        "metaDescription": "Produktionsreife KI- und LLM-Integration: RAG, semantische Suche, Vektordatenbanken, Fine-Tuning und deterministische Ergebnisse. Senior-Entwickler, 15+ Jahre.",
+        "kicker": "Generative KI",
+        "h1": "KI- & LLM-Integration",
+        "lead": "Ich integriere Large Language Models in echte Produkte — keine Demos. RAG-Pipelines, semantische Suche mit Vektordatenbanken und Embeddings, LLM-basierte Klassifikation und die Engineering-Disziplin, die generative KI zuverlässig, beobachtbar und kostenbewusst macht.",
+        "body": "Ich arbeite in Python (FastAPI, LangChain, LangGraph) und binde KI-Funktionen in bestehende Web-Apps ein (Laravel, Vue.js). Ich tune Hyperparameter wie Temperature und Top-k/Top-p, untermauere Antworten per Retrieval und ergänze Evaluierung und Leitplanken, damit dieselbe Eingabe verlässliche, reproduzierbare Ergebnisse liefert.",
+        "doTitle": "Was ich baue",
+        "do": ["RAG-Pipelines über Ihre Dokumente und Daten", "Semantische Suche mit Vektordatenbanken und Embeddings", "LLM-basierte Klassifikations- und Extraktionssysteme", "Fine-Tuning, Benchmarking und Modellvergleich", "Deterministische, evaluierte LLM-Funktionen (Temperature, Top-k/Top-p)", "KI-Funktionen integriert in Laravel- / Vue-Apps und APIs"],
+        "whyTitle": "Warum mit mir arbeiten",
+        "why": "Ich verbinde über 15 Jahre produktive Webentwicklung mit praktischer generativer KI-F&E (derzeit als Senior AI Solutions Engineer). Das bedeutet KI-Funktionen, die tatsächlich live gehen, sauber integrieren und im Produktivbetrieb bestehen — keine steckengebliebenen Proofs of Concept.",
+        "faq": [
+          { "q": "Welche Modelle und Tools nutzen Sie?", "a": "OpenAI- und Anthropic-APIs, LangChain / LangGraph, FastAPI und Vektordatenbanken wie Pinecone oder pgvector — passend zu Use-Case und Budget." },
+          { "q": "Können Sie KI in meine bestehende App integrieren?", "a": "Ja. Ich integriere LLM-Funktionen (Suche, Chat, Klassifikation, Automatisierung) in bestehende Laravel-, Vue.js- oder Python-Systeme samt nötigem Backend." }
+        ],
+        "ctaTitle": "Produktionsreife KI in Ihrem Produkt?",
+        "ctaText": "Erzählen Sie mir, was Sie bauen — lassen Sie uns sprechen."
+      }
+    },
+    {
+      "id": "symfony",
+      "related": ["laravel", "vuejs", "ai"],
+      "en": {
+        "slug": "symfony-developer",
+        "metaTitle": "Symfony Developer — Ferenc Papp",
+        "metaDescription": "Senior Symfony developer with 15+ years of PHP experience. Robust APIs, enterprise apps and integrations — clean, tested, maintainable code.",
+        "kicker": "Backend & full-stack",
+        "h1": "Symfony Developer",
+        "lead": "Senior PHP developer with deep Symfony experience. I build robust, well-structured Symfony applications and APIs, and I'm equally at home modernizing or extending existing enterprise codebases.",
+        "body": "From bundle architecture and Doctrine to Messenger queues, security and API Platform, I deliver maintainable Symfony code with automated tests and clean integrations. I also work across Laravel and Yii2 when a project spans frameworks.",
+        "doTitle": "What I build with Symfony",
+        "do": ["REST / API Platform back ends and services", "Enterprise web applications and admin tools", "Doctrine data modelling and migrations", "Messenger queues and background processing", "Third-party and legacy system integrations", "Refactoring and modernizing existing Symfony apps"],
+        "whyTitle": "Why work with me",
+        "why": "15+ years of production PHP across Symfony, Laravel and Yii2, a focus on tested, maintainable code, and clear communication in English and Hungarian. A senior partner who takes ownership end to end.",
+        "faq": [
+          { "q": "Do you work on legacy Symfony projects?", "a": "Yes — I modernize, refactor and extend existing Symfony applications, including version upgrades and raising test coverage." },
+          { "q": "Symfony or Laravel?", "a": "Both — I choose based on your needs, or fit into whatever your team already uses. I've shipped production apps in Symfony, Laravel and Yii2." }
+        ],
+        "ctaTitle": "Need a senior Symfony developer?",
+        "ctaText": "Tell me about your project and let's talk."
+      },
+      "hu": {
+        "slug": "symfony-fejleszto",
+        "metaTitle": "Symfony fejlesztő — Papp Ferenc",
+        "metaDescription": "Szenior Symfony fejlesztő 15+ év PHP tapasztalattal. Robusztus API-k, vállalati alkalmazások és integrációk — tiszta, tesztelt, karbantartható kód.",
+        "kicker": "Backend & full-stack",
+        "h1": "Symfony fejlesztő",
+        "lead": "Szenior PHP fejlesztő, mély Symfony tapasztalattal. Robusztus, jól strukturált Symfony alkalmazásokat és API-kat építek, és ugyanúgy otthon vagyok meglévő vállalati kódbázisok modernizálásában vagy bővítésében.",
+        "body": "A bundle-architektúrától és a Doctrine-tól a Messenger sorokig, a security-ig és az API Platformig karbantartható Symfony kódot adok automatizált tesztekkel és tiszta integrációkkal. Szükség esetén Laravelben és Yii2-ben is dolgozom.",
+        "doTitle": "Mit építek Symfonyban",
+        "do": ["REST / API Platform backendek és szolgáltatások", "Vállalati webalkalmazások és admin eszközök", "Doctrine adatmodellezés és migrációk", "Messenger sorok és háttérfeldolgozás", "Külső és legacy rendszerek integrációja", "Meglévő Symfony appok refaktorálása és modernizálása"],
+        "whyTitle": "Miért velem",
+        "why": "15+ év éles PHP Symfony, Laravel és Yii2 terén, tesztelt és karbantartható kódra fókuszálva, átlátható kommunikációval magyarul és angolul. Szenior partner, aki végponttól végpontig viszi a feladatot.",
+        "faq": [
+          { "q": "Dolgozol legacy Symfony projekteken?", "a": "Igen — meglévő Symfony alkalmazásokat modernizálok, refaktorálok és bővítek, beleértve a verziófrissítéseket és a tesztlefedettség növelését." },
+          { "q": "Symfony vagy Laravel?", "a": "Mindkettő — az igények alapján választok, vagy beilleszkedem abba, amit a csapatod használ. Symfonyban, Laravelben és Yii2-ben is szállítottam éles appokat." }
+        ],
+        "ctaTitle": "Szenior Symfony fejlesztőt keresel?",
+        "ctaText": "Írd le a projekted, és beszéljünk."
+      },
+      "de": {
+        "slug": "symfony-entwickler",
+        "metaTitle": "Symfony Entwickler — Ferenc Papp",
+        "metaDescription": "Senior Symfony-Entwickler mit über 15 Jahren PHP-Erfahrung. Robuste APIs, Enterprise-Anwendungen und Integrationen — sauberer, getesteter, wartbarer Code.",
+        "kicker": "Backend & Full-Stack",
+        "h1": "Symfony Entwickler",
+        "lead": "Senior PHP-Entwickler mit tiefer Symfony-Erfahrung. Ich entwickle robuste, gut strukturierte Symfony-Anwendungen und APIs und bin ebenso versiert darin, bestehende Enterprise-Codebasen zu modernisieren oder zu erweitern.",
+        "body": "Von Bundle-Architektur und Doctrine über Messenger-Queues, Security bis API Platform liefere ich wartbaren Symfony-Code mit automatisierten Tests und sauberen Integrationen. Bei Bedarf arbeite ich auch mit Laravel und Yii2.",
+        "doTitle": "Was ich mit Symfony baue",
+        "do": ["REST- / API-Platform-Backends und Services", "Enterprise-Webanwendungen und Admin-Tools", "Doctrine-Datenmodellierung und Migrationen", "Messenger-Queues und Hintergrundverarbeitung", "Integration von Dritt- und Legacy-Systemen", "Refactoring und Modernisierung bestehender Symfony-Apps"],
+        "whyTitle": "Warum mit mir arbeiten",
+        "why": "Über 15 Jahre produktives PHP mit Symfony, Laravel und Yii2, Fokus auf getesteten, wartbaren Code und klare Kommunikation auf Englisch und Ungarisch. Ein Senior-Partner, der Verantwortung von Anfang bis Ende übernimmt.",
+        "faq": [
+          { "q": "Arbeiten Sie an Legacy-Symfony-Projekten?", "a": "Ja — ich modernisiere, refaktoriere und erweitere bestehende Symfony-Anwendungen, inkl. Upgrades und höherer Testabdeckung." },
+          { "q": "Symfony oder Laravel?", "a": "Beides — ich wähle nach Ihren Anforderungen oder füge mich in den Stack Ihres Teams ein. Produktiv-Apps in Symfony, Laravel und Yii2." }
+        ],
+        "ctaTitle": "Brauchen Sie einen Senior Symfony-Entwickler?",
+        "ctaText": "Beschreiben Sie Ihr Projekt — lassen Sie uns sprechen."
+      }
+    }
+  ]
+}
