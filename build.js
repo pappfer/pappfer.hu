@@ -863,6 +863,7 @@ function generateLandingPage(lang, page) {
     "description": c.metaDescription,
     "url": url,
     "areaServed": [
+      ...(page.city ? [{"@type":"City","name":page.city}] : []),
       {"@type":"Country","name":"Hungary"},
       {"@type":"Continent","name":"Europe"},
       {"@type":"Country","name":"United States"}
