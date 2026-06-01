@@ -4,6 +4,12 @@ const crypto = require('crypto');
 
 const translations = JSON.parse(fs.readFileSync(path.join(__dirname, 'src', 'translations.json'), 'utf8'));
 const landing = JSON.parse(fs.readFileSync(path.join(__dirname, 'src', 'landing.json'), 'utf8'));
+// Intentional display/order for footer links, generation and sitemap.
+const PAGE_ORDER = ['laravel', 'vuejs', 'react', 'ai', 'python', 'symfony', 'yii', 'web-debrecen'];
+landing.pages.sort((a, b) => {
+  const ia = PAGE_ORDER.indexOf(a.id), ib = PAGE_ORDER.indexOf(b.id);
+  return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+});
 const DIST = path.join(__dirname, 'dist');
 const HAS_RESUME_PDF = fs.existsSync(path.join(__dirname, 'src', 'resume.pdf'));
 const HAS_RESUME_HU_PDF = fs.existsSync(path.join(__dirname, 'src', 'resume-hu.pdf'));
@@ -887,9 +893,8 @@ function generateLandingPage(lang, page) {
     "mainEntity": c.faq.map(f => ({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":f.a}}))
   });
 
-  const relatedLinks = page.related
-    .map(id => landing.pages.find(p => p.id === id))
-    .filter(Boolean)
+  const relatedLinks = landing.pages
+    .filter(p => p.id !== page.id)
     .map(p => `<a href="/${lang}/${p[lang].slug}/">${p[lang].h1}</a>`)
     .join('');
 
