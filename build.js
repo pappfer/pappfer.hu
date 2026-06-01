@@ -122,7 +122,10 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 .hero h1{font-size:clamp(2.5rem,6vw,4rem);margin-bottom:.75rem}
 .hero-title{font-size:clamp(1.125rem,3vw,1.5rem);color:var(--accent);font-weight:600;margin-bottom:1.5rem;font-family:var(--font-heading)}
 .hero-desc{font-size:1.125rem;color:var(--text-secondary);max-width:600px;margin-bottom:2rem;line-height:1.8}
-.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.hero-cv-links{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;margin-bottom:3rem}
+.hero-cv-links a{font-size:.85rem;color:var(--text-muted);font-weight:500;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border)}
+.hero-cv-links a:hover{color:var(--accent);text-decoration-color:var(--accent)}
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.875rem 2rem;border-radius:var(--radius);font-weight:600;font-size:.95rem;transition:all .2s ease-out;border:none;cursor:pointer;font-family:var(--font-body);text-decoration:none}
 .btn-primary{background:#065f46;color:#fff}
 .btn-primary:hover{background:#064e3b;color:#fff;transform:translateY(-1px);box-shadow:0 4px 12px rgba(6,95,70,0.35)}
@@ -134,6 +137,19 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 [data-theme="dark"] .hero .btn-outline{background:var(--bg-secondary)}
 .hero-stats{display:flex;gap:2rem;flex-wrap:wrap}
 .hero-stat{font-size:.9rem;color:var(--text-muted);font-weight:500;padding-left:1rem;border-left:2px solid var(--accent)}
+.hero-content{min-width:0}
+.hero-visual{display:none}
+.code-card{background:#0d1117;border:1px solid #1f2430;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.35);overflow:hidden;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.code-bar{display:flex;align-items:center;gap:.45rem;padding:.7rem 1rem;background:#161b22;border-bottom:1px solid #1f2430}
+.code-dot{width:11px;height:11px;border-radius:50%;display:inline-block}
+.code-dot.r{background:#ff5f56}.code-dot.y{background:#ffbd2e}.code-dot.g{background:#27c93f}
+.code-file{margin-left:.4rem;color:#8b949e;font-size:.78rem}
+.code-body{margin:0;padding:1.1rem 1.25rem;font-size:.82rem;line-height:1.7;color:#e6edf3;overflow-x:auto}
+.code-body .cl{display:block;white-space:nowrap}
+.code-body .ind{padding-left:1.7em}
+.code-body .ind2{padding-left:3.4em}
+.code-body .tok-key{color:#ff7b72}
+.code-body .tok-com{color:#8b949e}.code-body .tok-str{color:#7ee787}.code-body .tok-fn{color:#d2a8ff}.code-body .tok-num{color:#79c0ff}.code-body .tok-cls{color:#ffa657}
 
 /* Animations */
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
@@ -148,6 +164,7 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 .hero .fade-up:nth-child(5){animation-delay:.35s}
 .hero .fade-up:nth-child(6){animation-delay:.45s}
 .hero .fade-up:nth-child(7){animation-delay:.55s}
+.hero .fade-up:nth-child(8){animation-delay:.65s}
 
 /* SECTIONS */
 .section{padding:5rem 2rem}
@@ -271,6 +288,8 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   .menu-toggle{display:none}
   .hero h1{font-size:3.5rem}
   .section{padding:6rem 2rem}
+  .hero-inner{display:grid;grid-template-columns:1fr minmax(360px,430px);gap:3rem;align-items:center}
+  .hero-visual{display:block;animation:fadeUp .7s ease-out .4s both}
 }
 `;
 
@@ -564,6 +583,7 @@ ${LANGUAGES.map(l => `<a href="/${l}/" hreflang="${l}" lang="${l}" class="lang-b
 <!-- HERO -->
 <section class="hero">
 <div class="hero-inner">
+<div class="hero-content">
 <div class="hero-availability fade-up">${t.hero.availability}</div>
 ${t.hero.greeting ? `<p class="hero-greeting fade-up">${t.hero.greeting}</p>` : ''}
 <h1 class="fade-up">${t.hero.name}</h1>
@@ -572,13 +592,31 @@ ${t.hero.greeting ? `<p class="hero-greeting fade-up">${t.hero.greeting}</p>` : 
 <div class="hero-buttons fade-up">
 <a href="#contact" class="btn btn-primary">${t.hero.cta} ${icons.arrow}</a>
 <a href="${cvPrimaryHref}" class="btn btn-outline">${t.hero.cv}</a>
-${lang === 'hu' && HAS_RESUME_PDF ? `<a href="/resume.pdf?v=${RESUME_PDF_VERSION}" class="btn btn-outline">${t.hero.cvEn}</a>` : ''}
-<a href="/resume.json?v=${RESUME_JSON_VERSION}" class="btn btn-outline">${t.hero.cvJson}</a>
+</div>
+<div class="hero-cv-links fade-up">
+${lang === 'hu' && HAS_RESUME_PDF ? `<a href="/resume.pdf?v=${RESUME_PDF_VERSION}">${t.hero.cvEn}</a>` : ''}
+<a href="/resume.json?v=${RESUME_JSON_VERSION}">${t.hero.cvJson}</a>
 </div>
 <div class="hero-stats fade-up">
 <span class="hero-stat">${t.hero.stats.experience}</span>
 <span class="hero-stat">${t.hero.stats.clients}</span>
 <span class="hero-stat">${t.hero.stats.languages}</span>
+</div>
+</div>
+<div class="hero-visual" aria-hidden="true">
+<div class="code-card">
+<div class="code-bar"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span><span class="code-file">rag_service.py</span></div>
+<div class="code-body">
+<span class="cl"><span class="tok-com"># RAG over a vector store, deterministic output</span></span>
+<span class="cl"><span class="tok-fn">@app.post</span>(<span class="tok-str">"/ask"</span>)</span>
+<span class="cl"><span class="tok-key">async def </span><span class="tok-fn">ask</span>(q: <span class="tok-cls">Query</span>):</span>
+<span class="cl ind">docs = store.<span class="tok-fn">search</span>(q.text, k=<span class="tok-num">5</span>)</span>
+<span class="cl ind"><span class="tok-key">return</span> graph.<span class="tok-fn">invoke</span>(</span>
+<span class="cl ind2">{<span class="tok-str">"question"</span>: q.text, <span class="tok-str">"context"</span>: docs},</span>
+<span class="cl ind2">{<span class="tok-str">"temperature"</span>: <span class="tok-num">0.2</span>},</span>
+<span class="cl ind">)</span>
+</div>
+</div>
 </div>
 </div>
 </section>

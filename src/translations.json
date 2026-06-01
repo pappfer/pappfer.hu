@@ -27,7 +27,7 @@
     },
 
     "hero": {
-      "availability": "Open to select AI & technical partnerships",
+      "availability": "Open to AI & technical partnerships",
       "greeting": "Hello, I'm",
       "name": "Ferenc Papp",
       "title": "Senior Full-Stack Developer & AI Solutions Engineer",
@@ -264,7 +264,7 @@
     },
 
     "hero": {
-      "availability": "Válogatott AI- és technológiai partnerségekre nyitott",
+      "availability": "Nyitott AI- és technológiai együttműködésekre",
       "greeting": "Üdvözöllek!",
       "name": "Papp Ferenc",
       "title": "Szenior full-stack fejlesztő & AI Solutions Engineer",
@@ -501,7 +501,7 @@
     },
 
     "hero": {
-      "availability": "Offen für ausgewählte KI- und Technologiepartnerschaften",
+      "availability": "Offen für KI- und Technologiepartnerschaften",
       "greeting": "Hallo, ich bin",
       "name": "Ferenc Papp",
       "title": "Senior Full-Stack Entwickler & AI Solutions Engineer",
