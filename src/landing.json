@@ -19,7 +19,7 @@
         "doTitle": "What I build with Laravel",
         "do": ["REST and JSON APIs for web and mobile clients", "Multi-tenant SaaS platforms and admin panels", "Scalable back ends for Progressive Web Apps (with Vue.js)", "Payment, CRM and third-party API integrations", "Queues, scheduled jobs and background processing", "AI / LLM features wired into Laravel apps"],
         "whyTitle": "Why work with me",
-        "why": "15+ years in production PHP, a focus on clean architecture and automated tests, and clear, proactive communication in English and Hungarian. I act as a reliable technical partner, not just a code supplier.",
+        "why": "I've architected and shipped Laravel systems from MVPs to multi-tenant SaaS, so you get senior judgment on the hard parts — data modelling, performance, queues and security — not just working code. I own the work end to end and keep it tested and maintainable.",
         "faq": [
           { "q": "Do you work on existing Laravel projects?", "a": "Yes — I regularly join existing codebases to add features, improve performance, raise test coverage or untangle legacy code." },
           { "q": "Which Laravel tools do you use?", "a": "Modern Laravel with Eloquent, queues, Horizon, Sanctum/Passport, Pest/PHPUnit and CI/CD. I also work with Symfony and Yii2 when a project calls for it." }
@@ -38,7 +38,7 @@
         "doTitle": "Mit építek Laravelben",
         "do": ["REST és JSON API-k web- és mobilklienseknek", "Multi-tenant SaaS platformok és admin felületek", "Skálázható backend Progresszív Webalkalmazásokhoz (Vue.js-szel)", "Fizetési, CRM és külső API integrációk", "Sorok, ütemezett és háttérben futó feladatok", "AI / LLM funkciók beépítése Laravel alkalmazásokba"],
         "whyTitle": "Miért velem",
-        "why": "15+ év éles PHP tapasztalat, tiszta architektúra és automatizált tesztek, valamint átlátható, proaktív kommunikáció magyarul és angolul. Megbízható technikai partner vagyok, nem csak kódszállító.",
+        "why": "MVP-től multi-tenant SaaS-ig terveztem és szállítottam Laravel rendszereket, így a nehéz részekhez — adatmodellezés, teljesítmény, sorok, biztonság — szenior döntéseket kapsz, nem csak működő kódot. A munkát végig viszem, tesztelten és karbantarthatóan.",
         "faq": [
           { "q": "Dolgozol meglévő Laravel projekteken?", "a": "Igen — rendszeresen csatlakozom meglévő kódbázisokhoz: új funkciók, teljesítményjavítás, tesztlefedettség növelése vagy legacy kód rendberakása." },
           { "q": "Milyen Laravel eszközökkel dolgozol?", "a": "Modern Laravel: Eloquent, sorok, Horizon, Sanctum/Passport, Pest/PHPUnit és CI/CD. Szükség esetén Symfony és Yii2 is." }
@@ -57,7 +57,7 @@
         "doTitle": "Was ich mit Laravel baue",
         "do": ["REST- und JSON-APIs für Web- und Mobile-Clients", "Multi-Tenant-SaaS-Plattformen und Admin-Panels", "Skalierbare Backends für Progressive Web Apps (mit Vue.js)", "Zahlungs-, CRM- und Drittanbieter-API-Integrationen", "Queues, geplante und Hintergrund-Jobs", "KI- / LLM-Funktionen in Laravel-Apps integriert"],
         "whyTitle": "Warum mit mir arbeiten",
-        "why": "Über 15 Jahre produktives PHP, Fokus auf saubere Architektur und automatisierte Tests sowie klare, proaktive Kommunikation auf Englisch und Ungarisch. Ich bin ein zuverlässiger technischer Partner, kein reiner Code-Lieferant.",
+        "why": "Ich habe Laravel-Systeme von MVPs bis zu Multi-Tenant-SaaS konzipiert und ausgeliefert — Sie erhalten also fundierte Senior-Entscheidungen bei den schwierigen Teilen (Datenmodellierung, Performance, Queues, Security), nicht nur funktionierenden Code. Ich verantworte die Arbeit von Anfang bis Ende, getestet und wartbar.",
         "faq": [
           { "q": "Arbeiten Sie an bestehenden Laravel-Projekten?", "a": "Ja — ich steige regelmäßig in bestehende Codebasen ein: neue Features, Performance, Testabdeckung oder Aufräumen von Legacy-Code." },
           { "q": "Welche Laravel-Tools nutzen Sie?", "a": "Modernes Laravel: Eloquent, Queues, Horizon, Sanctum/Passport, Pest/PHPUnit und CI/CD. Bei Bedarf auch Symfony und Yii2." }
@@ -202,7 +202,7 @@
         "doTitle": "What I build with Symfony",
         "do": ["REST / API Platform back ends and services", "Enterprise web applications and admin tools", "Doctrine data modelling and migrations", "Messenger queues and background processing", "Third-party and legacy system integrations", "Refactoring and modernizing existing Symfony apps"],
         "whyTitle": "Why work with me",
-        "why": "15+ years of production PHP across Symfony, Laravel and Yii2, a focus on tested, maintainable code, and clear communication in English and Hungarian. A senior partner who takes ownership end to end.",
+        "why": "Three PHP frameworks in production (Symfony, Laravel, Yii2) means I'm not dogmatic — I work the way your team and codebase already do, and I'm comfortable in large, long-lived enterprise systems where structure and stability matter most.",
         "faq": [
           { "q": "Do you work on legacy Symfony projects?", "a": "Yes — I modernize, refactor and extend existing Symfony applications, including version upgrades and raising test coverage." },
           { "q": "Symfony or Laravel?", "a": "Both — I choose based on your needs, or fit into whatever your team already uses. I've shipped production apps in Symfony, Laravel and Yii2." }
@@ -221,7 +221,7 @@
         "doTitle": "Mit építek Symfonyban",
         "do": ["REST / API Platform backendek és szolgáltatások", "Vállalati webalkalmazások és admin eszközök", "Doctrine adatmodellezés és migrációk", "Messenger sorok és háttérfeldolgozás", "Külső és legacy rendszerek integrációja", "Meglévő Symfony appok refaktorálása és modernizálása"],
         "whyTitle": "Miért velem",
-        "why": "15+ év éles PHP Symfony, Laravel és Yii2 terén, tesztelt és karbantartható kódra fókuszálva, átlátható kommunikációval magyarul és angolul. Szenior partner, aki végponttól végpontig viszi a feladatot.",
+        "why": "Három PHP keretrendszer éles használata (Symfony, Laravel, Yii2) azt jelenti, hogy nem vagyok dogmatikus — úgy dolgozom, ahogy a csapatod és a kódbázisod már működik, és otthon vagyok a nagy, hosszú életű vállalati rendszerekben, ahol a struktúra és a stabilitás a legfontosabb.",
         "faq": [
           { "q": "Dolgozol legacy Symfony projekteken?", "a": "Igen — meglévő Symfony alkalmazásokat modernizálok, refaktorálok és bővítek, beleértve a verziófrissítéseket és a tesztlefedettség növelését." },
           { "q": "Symfony vagy Laravel?", "a": "Mindkettő — az igények alapján választok, vagy beilleszkedem abba, amit a csapatod használ. Symfonyban, Laravelben és Yii2-ben is szállítottam éles appokat." }
@@ -240,7 +240,7 @@
         "doTitle": "Was ich mit Symfony baue",
         "do": ["REST- / API-Platform-Backends und Services", "Enterprise-Webanwendungen und Admin-Tools", "Doctrine-Datenmodellierung und Migrationen", "Messenger-Queues und Hintergrundverarbeitung", "Integration von Dritt- und Legacy-Systemen", "Refactoring und Modernisierung bestehender Symfony-Apps"],
         "whyTitle": "Warum mit mir arbeiten",
-        "why": "Über 15 Jahre produktives PHP mit Symfony, Laravel und Yii2, Fokus auf getesteten, wartbaren Code und klare Kommunikation auf Englisch und Ungarisch. Ein Senior-Partner, der Verantwortung von Anfang bis Ende übernimmt.",
+        "why": "Drei PHP-Frameworks im Produktiveinsatz (Symfony, Laravel, Yii2) bedeuten: Ich bin nicht dogmatisch — ich arbeite so, wie Ihr Team und Ihre Codebasis es bereits tun, und fühle mich in großen, langlebigen Enterprise-Systemen wohl, in denen Struktur und Stabilität am wichtigsten sind.",
         "faq": [
           { "q": "Arbeiten Sie an Legacy-Symfony-Projekten?", "a": "Ja — ich modernisiere, refaktoriere und erweitere bestehende Symfony-Anwendungen, inkl. Upgrades und höherer Testabdeckung." },
           { "q": "Symfony oder Laravel?", "a": "Beides — ich wähle nach Ihren Anforderungen oder füge mich in den Stack Ihres Teams ein. Produktiv-Apps in Symfony, Laravel und Yii2." }
@@ -325,7 +325,7 @@
         "doTitle": "What I build with Python",
         "do": ["FastAPI services and REST APIs", "AI / LLM back ends (RAG, embeddings, vector search)", "Automation scripts and data pipelines", "Microservices and system integrations", "Background workers and scheduled jobs", "Python services wired to Laravel / Vue front ends"],
         "whyTitle": "Why work with me",
-        "why": "I pair Python with 15+ years of full-stack web engineering, so your Python services integrate cleanly with the rest of your stack. Tested, maintainable code and clear communication in English and Hungarian.",
+        "why": "Plenty of people can call an API in Python; fewer can also build the web product around it. I bridge both — so your FastAPI services, AI pipelines and the app that uses them are designed together and actually fit, with tests and CI/CD from day one.",
         "faq": [
           { "q": "FastAPI or Django?", "a": "Mainly FastAPI for services and APIs — especially around AI — but I can work with Django or Flask if that's your stack." },
           { "q": "Can you build the back end and the front end?", "a": "Yes — I'm full-stack. I deliver the Python / FastAPI back end and the Vue.js or Laravel front end, end to end." }
@@ -344,7 +344,7 @@
         "doTitle": "Mit építek Pythonban",
         "do": ["FastAPI szolgáltatások és REST API-k", "AI / LLM backend (RAG, embeddings, vektoros keresés)", "Automatizáló szkriptek és adat-pipeline-ok", "Mikroszolgáltatások és rendszerintegrációk", "Háttérben futó és ütemezett feladatok", "Python szolgáltatások Laravel / Vue frontendhez kötve"],
         "whyTitle": "Miért velem",
-        "why": "A Pythont 15+ év full-stack webfejlesztéssel párosítom, így a Python szolgáltatásaid tisztán illeszkednek a stacked többi részéhez. Tesztelt, karbantartható kód és átlátható kommunikáció magyarul és angolul.",
+        "why": "Sokan tudnak Pythonban API-t hívni; kevesebben építik meg köré a webes terméket is. Én mindkettőt áthidalom — így a FastAPI szolgáltatásaid, az AI pipeline-jaid és az őket használó alkalmazás együtt tervezve készül és tényleg összeillik, tesztekkel és CI/CD-vel az első naptól.",
         "faq": [
           { "q": "FastAPI vagy Django?", "a": "Főleg FastAPI a szolgáltatásokhoz és API-khoz — különösen az AI körül —, de Django vagy Flask is mehet, ha az a stacked." },
           { "q": "A backendet és a frontendet is megcsinálod?", "a": "Igen — full-stack vagyok. A Python / FastAPI backendet és a Vue.js vagy Laravel frontendet végponttól végpontig építem." }
@@ -363,7 +363,7 @@
         "doTitle": "Was ich mit Python baue",
         "do": ["FastAPI-Services und REST-APIs", "KI- / LLM-Backends (RAG, Embeddings, Vektorsuche)", "Automatisierungsskripte und Datenpipelines", "Microservices und Systemintegrationen", "Background-Worker und geplante Jobs", "Python-Services, angebunden an Laravel- / Vue-Frontends"],
         "whyTitle": "Warum mit mir arbeiten",
-        "why": "Ich kombiniere Python mit über 15 Jahren Full-Stack-Webentwicklung, sodass sich Ihre Python-Services sauber in den restlichen Stack integrieren. Getesteter, wartbarer Code und klare Kommunikation auf Englisch und Ungarisch.",
+        "why": "Viele können in Python eine API aufrufen; weniger bauen auch das Webprodukt darum herum. Ich verbinde beides — so entstehen Ihre FastAPI-Services, KI-Pipelines und die App, die sie nutzt, gemeinsam und passen wirklich zusammen, mit Tests und CI/CD von Anfang an.",
         "faq": [
           { "q": "FastAPI oder Django?", "a": "Hauptsächlich FastAPI für Services und APIs — besonders rund um KI —, aber Django oder Flask sind möglich, wenn das Ihr Stack ist." },
           { "q": "Bauen Sie Backend und Frontend?", "a": "Ja — ich bin Full-Stack. Ich liefere das Python- / FastAPI-Backend und das Vue.js- oder Laravel-Frontend durchgängig." }

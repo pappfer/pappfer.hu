@@ -150,6 +150,8 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 .code-body .ind{padding-left:1.7em}
 .code-body .ind2{padding-left:3.4em}
 .code-body .tok-key{color:#ff7b72}
+[data-theme="dark"] .code-card{background:#1a2030;border-color:#323d54}
+[data-theme="dark"] .code-bar{background:#232c40;border-bottom-color:#323d54}
 .code-body .tok-com{color:#8b949e}.code-body .tok-str{color:#7ee787}.code-body .tok-fn{color:#d2a8ff}.code-body .tok-num{color:#79c0ff}.code-body .tok-cls{color:#ffa657}
 
 /* Animations */
