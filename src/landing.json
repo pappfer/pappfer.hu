@@ -30,20 +30,20 @@
       "hu": {
         "slug": "laravel-fejleszto",
         "metaTitle": "Laravel fejlesztő — Papp Ferenc",
-        "metaDescription": "Szenior Laravel fejlesztő 15+ év tapasztalattal. Skálázható API-k, multi-tenant SaaS és PWA backend — tiszta, tesztelt, éles környezetre kész kód.",
+        "metaDescription": "Senior Laravel fejlesztő 15+ év tapasztalattal. Skálázható API-k, multi-tenant SaaS és PWA backend — tiszta, tesztelt, éles környezetre kész kód.",
         "kicker": "Backend & full-stack",
         "h1": "Laravel fejlesztő",
-        "lead": "Papp Ferenc vagyok, szenior full-stack fejlesztő 15+ év tapasztalattal, a Laravel a fő backend eszközöm. Skálázható, jól tesztelt Laravel alkalmazásokat tervezek és építek — API-któl és multi-tenant SaaS platformoktól a nagy teljesítményű Progresszív Webalkalmazások backendjéig.",
-        "body": "A teljes folyamatot viszem: architektúra, adatbázis-tervezés, sorok és háttérfeladatok, külső integrációk, tesztelés és bevezetés. Akár új terméket indítasz, akár egy meglévő Laravel kódbázishoz kell szenior fejlesztő, tiszta, karbantartható és skálázható kódot adok.",
+        "lead": "Papp Ferenc vagyok, senior full-stack fejlesztő 15+ év tapasztalattal, a Laravel a fő backend eszközöm. Skálázható, jól tesztelt Laravel alkalmazásokat tervezek és építek — API-któl és multi-tenant SaaS platformoktól a nagy teljesítményű Progresszív Webalkalmazások backendjéig.",
+        "body": "A teljes folyamatot viszem: architektúra, adatbázis-tervezés, sorok és háttérfeladatok, külső integrációk, tesztelés és bevezetés. Akár új terméket indítasz, akár egy meglévő Laravel kódbázishoz kell senior fejlesztő, tiszta, karbantartható és skálázható kódot adok.",
         "doTitle": "Mit építek Laravelben",
         "do": ["REST és JSON API-k web- és mobilklienseknek", "Multi-tenant SaaS platformok és admin felületek", "Skálázható backend Progresszív Webalkalmazásokhoz (Vue.js-szel)", "Fizetési, CRM és külső API integrációk", "Sorok, ütemezett és háttérben futó feladatok", "AI / LLM funkciók beépítése Laravel alkalmazásokba"],
         "whyTitle": "Miért velem",
-        "why": "MVP-től multi-tenant SaaS-ig terveztem és szállítottam Laravel rendszereket, így a nehéz részekhez — adatmodellezés, teljesítmény, sorok, biztonság — szenior döntéseket kapsz, nem csak működő kódot. A munkát végig viszem, tesztelten és karbantarthatóan.",
+        "why": "MVP-től multi-tenant SaaS-ig terveztem és szállítottam Laravel rendszereket, így a nehéz részekhez — adatmodellezés, teljesítmény, sorok, biztonság — senior döntéseket kapsz, nem csak működő kódot. A munkát végig viszem, tesztelten és karbantarthatóan.",
         "faq": [
           { "q": "Dolgozol meglévő Laravel projekteken?", "a": "Igen — rendszeresen csatlakozom meglévő kódbázisokhoz: új funkciók, teljesítményjavítás, tesztlefedettség növelése vagy legacy kód rendberakása." },
           { "q": "Milyen Laravel eszközökkel dolgozol?", "a": "Modern Laravel: Eloquent, sorok, Horizon, Sanctum/Passport, Pest/PHPUnit és CI/CD. Szükség esetén Symfony és Yii2 is." }
         ],
-        "ctaTitle": "Szenior Laravel fejlesztőt keresel?",
+        "ctaTitle": "Senior Laravel fejlesztőt keresel?",
         "ctaText": "Írd le a projekted, és nézzük meg, hogyan segíthetek."
       },
       "de": {
@@ -91,7 +91,7 @@
       "hu": {
         "slug": "vuejs-fejleszto",
         "metaTitle": "Vue.js fejlesztő — Papp Ferenc",
-        "metaDescription": "Szenior Vue.js fejlesztő: gyors, modern frontendek és Progresszív Webalkalmazások. 15+ év tapasztalat, full-stack Laravel és Python háttérrel.",
+        "metaDescription": "Senior Vue.js fejlesztő: gyors, modern frontendek és Progresszív Webalkalmazások. 15+ év tapasztalat, full-stack Laravel és Python háttérrel.",
         "kicker": "Frontend & PWA",
         "h1": "Vue.js fejlesztő",
         "lead": "Gyors, karbantartható frontendeket építek Vue.js-szel — interaktív dashboardoktól és SaaS felületektől a telepíthető, offline is működő Progresszív Webalkalmazásokig. Full-stack fejlesztőként a frontendet végponttól végpontig kötöm össze a stabil Laravel vagy Python backenddel.",
@@ -104,7 +104,7 @@
           { "q": "A backendet is csinálod?", "a": "Igen — full-stack vagyok. A Vue.js frontendet és a Laravel vagy Python backendet együtt is szállítom, vagy csak a frontendet, ha van backend csapatod." },
           { "q": "Vue 2 vagy Vue 3?", "a": "Vue 3 Composition API-val és modern eszközökkel (Vite, Pinia). Meglévő Vue 2 appokat is karbantartok vagy migrálok." }
         ],
-        "ctaTitle": "Szenior Vue.js fejlesztőt keresel?",
+        "ctaTitle": "Senior Vue.js fejlesztőt keresel?",
         "ctaText": "Írd le a projekted, és beszéljünk."
       },
       "de": {
@@ -152,7 +152,7 @@
       "hu": {
         "slug": "ai-integracio",
         "metaTitle": "AI & LLM integráció fejlesztő — Papp Ferenc",
-        "metaDescription": "Éles környezetbe szánt AI- és LLM-integráció: RAG, szemantikus keresés, vektor adatbázisok, finomhangolás, determinisztikus kimenet. Szenior fejlesztő, 15+ év.",
+        "metaDescription": "Éles környezetbe szánt AI- és LLM-integráció: RAG, szemantikus keresés, vektor adatbázisok, finomhangolás, determinisztikus kimenet. Senior fejlesztő, 15+ év.",
         "kicker": "Generatív AI",
         "h1": "AI & LLM integráció",
         "lead": "Nagy nyelvi modelleket integrálok valódi termékekbe — nem demókba. RAG pipeline-ok, szemantikus keresés vektor adatbázisokkal és embeddingekkel, LLM-alapú klasszifikáció, és az a mérnöki fegyelem, amitől a generatív AI megbízható, megfigyelhető és költségtudatos lesz.",
@@ -213,10 +213,10 @@
       "hu": {
         "slug": "symfony-fejleszto",
         "metaTitle": "Symfony fejlesztő — Papp Ferenc",
-        "metaDescription": "Szenior Symfony fejlesztő 15+ év PHP tapasztalattal. Robusztus API-k, vállalati alkalmazások és integrációk — tiszta, tesztelt, karbantartható kód.",
+        "metaDescription": "Senior Symfony fejlesztő 15+ év PHP tapasztalattal. Robusztus API-k, vállalati alkalmazások és integrációk — tiszta, tesztelt, karbantartható kód.",
         "kicker": "Backend & full-stack",
         "h1": "Symfony fejlesztő",
-        "lead": "Szenior PHP fejlesztő, mély Symfony tapasztalattal. Robusztus, jól strukturált Symfony alkalmazásokat és API-kat építek, és ugyanúgy otthon vagyok meglévő vállalati kódbázisok modernizálásában vagy bővítésében.",
+        "lead": "Senior PHP fejlesztő, mély Symfony tapasztalattal. Robusztus, jól strukturált Symfony alkalmazásokat és API-kat építek, és ugyanúgy otthon vagyok meglévő vállalati kódbázisok modernizálásában vagy bővítésében.",
         "body": "A bundle-architektúrától és a Doctrine-tól a Messenger sorokig, a security-ig és az API Platformig karbantartható Symfony kódot adok automatizált tesztekkel és tiszta integrációkkal. Szükség esetén Laravelben és Yii2-ben is dolgozom.",
         "doTitle": "Mit építek Symfonyban",
         "do": ["REST / API Platform backendek és szolgáltatások", "Vállalati webalkalmazások és admin eszközök", "Doctrine adatmodellezés és migrációk", "Messenger sorok és háttérfeldolgozás", "Külső és legacy rendszerek integrációja", "Meglévő Symfony appok refaktorálása és modernizálása"],
@@ -226,7 +226,7 @@
           { "q": "Dolgozol legacy Symfony projekteken?", "a": "Igen — meglévő Symfony alkalmazásokat modernizálok, refaktorálok és bővítek, beleértve a verziófrissítéseket és a tesztlefedettség növelését." },
           { "q": "Symfony vagy Laravel?", "a": "Mindkettő — az igények alapján választok, vagy beilleszkedem abba, amit a csapatod használ. Symfonyban, Laravelben és Yii2-ben is szállítottam éles appokat." }
         ],
-        "ctaTitle": "Szenior Symfony fejlesztőt keresel?",
+        "ctaTitle": "Senior Symfony fejlesztőt keresel?",
         "ctaText": "Írd le a projekted, és beszéljünk."
       },
       "de": {
@@ -275,15 +275,15 @@
       "hu": {
         "slug": "webfejleszto-debrecen",
         "metaTitle": "Webfejlesztő Debrecen — Papp Ferenc",
-        "metaDescription": "Szenior full-stack webfejlesztő Debrecenben. Egyedi webalkalmazások, modern weboldalak és AI integráció — helyi vállalkozásoknak és távoli csapatoknak.",
+        "metaDescription": "Senior full-stack webfejlesztő Debrecenben. Egyedi webalkalmazások, modern weboldalak és AI integráció — helyi vállalkozásoknak és távoli csapatoknak.",
         "kicker": "Debrecen",
         "h1": "Webfejlesztő Debrecen",
-        "lead": "Papp Ferenc vagyok, szenior full-stack webfejlesztő Debrecenben, 15+ év tapasztalattal. Egyedi webalkalmazásokat, gyors, modern weboldalakat és AI-alapú funkciókat építek — helyi vállalkozásoknak, valamint európai és amerikai ügyfeleknek.",
+        "lead": "Papp Ferenc vagyok, senior full-stack webfejlesztő Debrecenben, 15+ év tapasztalattal. Egyedi webalkalmazásokat, gyors, modern weboldalakat és AI-alapú funkciókat építek — helyi vállalkozásoknak, valamint európai és amerikai ügyfeleknek.",
         "body": "Debrecenből dolgozom, így a helyi cégekkel akár személyesen is egyeztetek, vagy teljesen távmunkában. Az ötlettől az architektúrán át a fejlesztésig és az élesítésig viszem a projektet, és tiszta, megbízható, karbantartható kódot adok.",
         "doTitle": "Miben tudok segíteni",
         "do": ["Egyedi webalkalmazások és belső eszközök", "Modern, gyors, SEO-barát weboldalak", "Laravel / PHP backend és API-k", "Vue.js / React frontend és PWA-k", "AI és LLM integráció a termékedbe", "Technikai tanácsadás és kód-átvizsgálás"],
-        "whyTitle": "Miért egy helyi szenior fejlesztő",
-        "why": "Megbízható, szenior partner, akivel akár személyesen is találkozhatsz — magyarul és angolul is gördülékenyen, 15+ év éles tapasztalattal. Átlátható kommunikáció, őszinte becslések, hosszú távra épített kód.",
+        "whyTitle": "Miért egy helyi senior fejlesztő",
+        "why": "Megbízható, senior partner, akivel akár személyesen is találkozhatsz — magyarul és angolul is gördülékenyen, 15+ év éles tapasztalattal. Átlátható kommunikáció, őszinte becslések, hosszú távra épített kód.",
         "faq": [
           { "q": "Csak debreceni ügyfelekkel dolgozol?", "a": "Nem — Debrecenben vagyok, a helyi cégekkel szívesen találkozom személyesen is, de távmunkában dolgozom ügyfelekkel Magyarországon, az EU-ban és az USA-ban." },
           { "q": "Egyszerű weboldalt is készítesz?", "a": "A fő fókuszom az egyedi webalkalmazás és AI integráció, de szívesen megbeszéljük a vállalkozásodnak megfelelő megoldást, a modern weboldaltól a komplett platformig." }
@@ -336,10 +336,10 @@
       "hu": {
         "slug": "python-fejleszto",
         "metaTitle": "Python fejlesztő (FastAPI) — Papp Ferenc",
-        "metaDescription": "Szenior Python fejlesztő: FastAPI szolgáltatások, API-k, automatizálás és AI/LLM backend. 15+ év tapasztalat, full-stack Laravel és Vue.js háttérrel.",
+        "metaDescription": "Senior Python fejlesztő: FastAPI szolgáltatások, API-k, automatizálás és AI/LLM backend. 15+ év tapasztalat, full-stack Laravel és Vue.js háttérrel.",
         "kicker": "Python & API-k",
         "h1": "Python fejlesztő",
-        "lead": "Tiszta, jól tesztelt Python szolgáltatásokat építek — FastAPI API-kat, automatizáló szkripteket, adat-pipeline-okat és az AI/LLM funkciók mögötti backendet. Szenior full-stack fejlesztő 15+ év tapasztalattal.",
+        "lead": "Tiszta, jól tesztelt Python szolgáltatásokat építek — FastAPI API-kat, automatizáló szkripteket, adat-pipeline-okat és az AI/LLM funkciók mögötti backendet. Senior full-stack fejlesztő 15+ év tapasztalattal.",
         "body": "Pythonban építem az AI-t és a mikroszolgáltatásokat: FastAPI végpontok, háttérfeladatok, integrációk és LLM pipeline-ok (LangChain, LangGraph). Ezeket tisztán kötöm össze a webes frontenddel és a meglévő rendszerekkel, tesztekkel és CI/CD-vel.",
         "doTitle": "Mit építek Pythonban",
         "do": ["FastAPI szolgáltatások és REST API-k", "AI / LLM backend (RAG, embeddings, vektoros keresés)", "Automatizáló szkriptek és adat-pipeline-ok", "Mikroszolgáltatások és rendszerintegrációk", "Háttérben futó és ütemezett feladatok", "Python szolgáltatások Laravel / Vue frontendhez kötve"],
@@ -349,7 +349,7 @@
           { "q": "FastAPI vagy Django?", "a": "Főleg FastAPI a szolgáltatásokhoz és API-khoz — különösen az AI körül —, de Django vagy Flask is mehet, ha az a stacked." },
           { "q": "A backendet és a frontendet is megcsinálod?", "a": "Igen — full-stack vagyok. A Python / FastAPI backendet és a Vue.js vagy Laravel frontendet végponttól végpontig építem." }
         ],
-        "ctaTitle": "Szenior Python fejlesztőt keresel?",
+        "ctaTitle": "Senior Python fejlesztőt keresel?",
         "ctaText": "Írd le a projekted, és beszéljünk."
       },
       "de": {
@@ -397,20 +397,20 @@
       "hu": {
         "slug": "yii2-fejleszto",
         "metaTitle": "Yii2 fejlesztő — Papp Ferenc",
-        "metaDescription": "Szenior Yii fejlesztő, mély Yii2 tapasztalattal. API-k, webalkalmazások, konzol eszközök és modernizálás — tiszta, tesztelt kód. Yii3 projektekre is kész.",
+        "metaDescription": "Senior Yii fejlesztő, mély Yii2 tapasztalattal. API-k, webalkalmazások, konzol eszközök és modernizálás — tiszta, tesztelt kód. Yii3 projektekre is kész.",
         "kicker": "Backend & full-stack",
         "h1": "Yii2 fejlesztő",
-        "lead": "Szenior PHP fejlesztő, mély, gyakorlati Yii2 tapasztalattal — API-k, webalkalmazások, konzol parancsok és ütemezett feladatok. Új Yii appokat építek, meglévőket modernizálok és bővítek.",
+        "lead": "Senior PHP fejlesztő, mély, gyakorlati Yii2 tapasztalattal — API-k, webalkalmazások, konzol parancsok és ütemezett feladatok. Új Yii appokat építek, meglévőket modernizálok és bővítek.",
         "body": "Éles Yii2 rendszereket szállítottam és Yii-alapú fejlesztést vezettem. A megjelent új Yii3-mal a Yii3 projekteket is vállalom, az évek Yii tapasztalatára építve — és szükség esetén Laravelben és Symfonyban is dolgozom.",
         "doTitle": "Mit építek Yii-vel",
         "do": ["REST és JSON API-k Yii2-vel", "Webalkalmazások, admin felületek és back-office eszközök", "Yii konzol alkalmazások és ütemezett feladatok", "Külső és fizetési integrációk", "Legacy Yii appok karbantartása, refaktorálása és frissítése", "Yii3 projektek, a mély Yii2 tapasztalatra építve"],
         "whyTitle": "Miért velem",
-        "why": "Sok korai szenior munkám Yii-ben történt — kívülről ismerem a konvencióit. 15+ év éles PHP Yii2, Laravel és Symfony terén, tesztelt, karbantartható kóddal és átlátható kommunikációval magyarul és angolul.",
+        "why": "Sok korai senior munkám Yii-ben történt — kívülről ismerem a konvencióit. 15+ év éles PHP Yii2, Laravel és Symfony terén, tesztelt, karbantartható kóddal és átlátható kommunikációval magyarul és angolul.",
         "faq": [
           { "q": "Dolgozol legacy Yii2 projekteken?", "a": "Igen — meglévő Yii2 alkalmazások karbantartása, bővítése és frissítése a munkám fontos része, beleértve a tesztlefedettség növelését és a legacy kód rendberakását." },
           { "q": "Yii3-at is csinálsz?", "a": "Igen. Mély Yii2 tapasztalatom van, és vállalom a Yii3 projekteket, ugyanazokat a keretrendszer-alapokat alkalmazva az új verzióra." }
         ],
-        "ctaTitle": "Szenior Yii fejlesztőt keresel?",
+        "ctaTitle": "Senior Yii fejlesztőt keresel?",
         "ctaText": "Írd le a projekted, és beszéljünk."
       },
       "de": {
@@ -458,10 +458,10 @@
       "hu": {
         "slug": "react-fejleszto",
         "metaTitle": "React & Next.js fejlesztő — Papp Ferenc",
-        "metaDescription": "Szenior React fejlesztő: Next.js webalkalmazások és React Native mobil. Gyors, modern frontendek, full-stack Laravel és Python háttérrel. 15+ év tapasztalat.",
+        "metaDescription": "Senior React fejlesztő: Next.js webalkalmazások és React Native mobil. Gyors, modern frontendek, full-stack Laravel és Python háttérrel. 15+ év tapasztalat.",
         "kicker": "Frontend & mobil",
         "h1": "React fejlesztő",
-        "lead": "Modern frontendeket építek Reacttel — Next.js webalkalmazásokat és React Native mobilappokat. Szenior full-stack fejlesztő 15+ év tapasztalattal, a frontendet stabil Laravel vagy Python backendhez kötve.",
+        "lead": "Modern frontendeket építek Reacttel — Next.js webalkalmazásokat és React Native mobilappokat. Senior full-stack fejlesztő 15+ év tapasztalattal, a frontendet stabil Laravel vagy Python backendhez kötve.",
         "body": "A szerver-oldalon renderelt Next.js oldalaktól és SPA-któl a cross-platform React Native appokig tiszta komponens-architektúrát, stabil állapotkezelést és jó teljesítményt adok. Egy fejlesztő, aki a React terméket a webtől a mobilig viszi, és összeköti a backenddel.",
         "doTitle": "Mit építek Reacttel",
         "do": ["React single-page appok és dashboardok", "Next.js webalkalmazások (SSR / SSG) jó Core Web Vitals értékekkel", "React Native cross-platform mobilappok", "Komponenskönyvtárak és design rendszerek", "Laravel / FastAPI backendhez kötött frontendek", "AI-alapú UI funkciók (chat, keresés, asszisztensek)"],
@@ -471,7 +471,7 @@
           { "q": "React, Next.js vagy React Native?", "a": "Mindhárom — React az SPA-khoz, Next.js a szerver-oldalon renderelt webappokhoz, React Native a cross-platform mobilhoz. A termékedhez a megfelelőt választom." },
           { "q": "A backendet is megcsinálod?", "a": "Igen — full-stack vagyok. A React frontendet (vagy mobilappot) és a Laravel vagy Python backendet együtt is szállítom." }
         ],
-        "ctaTitle": "Szenior React fejlesztőt keresel?",
+        "ctaTitle": "Senior React fejlesztőt keresel?",
         "ctaText": "Írd le a projekted, és beszéljünk."
       },
       "de": {

@@ -10,6 +10,11 @@ landing.pages.sort((a, b) => {
   const ia = PAGE_ORDER.indexOf(a.id), ib = PAGE_ORDER.indexOf(b.id);
   return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
 });
+// Monochrome header icon per landing page (reuses the site's icon set).
+const LANDING_ICONS = {
+  laravel: 'code', vuejs: 'code', react: 'mobile', ai: 'ai',
+  python: 'research', symfony: 'code', yii: 'code', 'web-debrecen': 'mapPin'
+};
 const DIST = path.join(__dirname, 'dist');
 const HAS_RESUME_PDF = fs.existsSync(path.join(__dirname, 'src', 'resume.pdf'));
 const HAS_RESUME_HU_PDF = fs.existsSync(path.join(__dirname, 'src', 'resume-hu.pdf'));
@@ -270,6 +275,8 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 .lp-crumbs{font-size:.85rem;color:var(--text-muted);margin-bottom:1.25rem}
 .lp-crumbs a{color:var(--text-muted)}
 .lp-crumbs a:hover{color:var(--accent)}
+.lp-icon{color:var(--accent);margin-bottom:.5rem;line-height:0}
+.lp-icon svg{width:40px;height:40px}
 .lp-hero h1{font-size:clamp(2rem,5vw,3rem);margin:.25rem 0 1rem}
 .lp-lead{font-size:1.15rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1.25rem}
 .lp-hero p{color:var(--text-secondary);line-height:1.8}
@@ -985,6 +992,7 @@ ${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l
 <section class="lp-hero">
 <div class="lp-inner">
 <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="/${lang}/">${lab.home}</a> › ${c.h1}</nav>
+<div class="lp-icon" aria-hidden="true">${icons[LANDING_ICONS[page.id]] || icons.code}</div>
 <p class="section-label">${c.kicker}</p>
 <h1>${c.h1}</h1>
 <p class="lp-lead">${c.lead}</p>

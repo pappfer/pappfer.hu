@@ -110,7 +110,7 @@ function trHu(text) {
     ['pappfer.hu (Freelancer)', 'pappfer.hu (szabadúszó)'],
     // updated profile summary
     ['Senior full-stack developer and AI solutions engineer with over 15 years of professional experience. I build scalable, high-performance web ecosystems with PHP/Laravel, Vue.js and Python, and engineer production-ready generative AI / LLM systems — fine-tuning, semantic search, vector databases, embeddings and RAG pipelines. Since October 2024 I work dedicatedly with DataExpert and its sister company Rubiklab on flagship projects. Based in Debrecen, Hungary, working with teams across Europe and the United States.',
-      'Szenior full-stack fejlesztő és AI Solutions Engineer vagyok, több mint 15 év szakmai tapasztalattal. Skálázható, nagy teljesítményű webes ökoszisztémákat építek PHP/Laravel, Vue.js és Python alapokon, és éles környezetbe szánt generatív AI / LLM rendszereket fejlesztek — finomhangolás, szemantikus keresés, vektor adatbázisok, embeddings és RAG pipeline-ok. 2024 októbere óta dedikáltan a DataExpert és testvércége, a Rubiklab kiemelt projektjein dolgozom. Debrecenből, európai és amerikai csapatokkal.'],
+      'Senior full-stack fejlesztő és AI Solutions Engineer vagyok, több mint 15 év szakmai tapasztalattal. Skálázható, nagy teljesítményű webes ökoszisztémákat építek PHP/Laravel, Vue.js és Python alapokon, és éles környezetbe szánt generatív AI / LLM rendszereket fejlesztek — finomhangolás, szemantikus keresés, vektor adatbázisok, embeddings és RAG pipeline-ok. 2024 októbere óta dedikáltan a DataExpert és testvércége, a Rubiklab kiemelt projektjein dolgozom. Debrecenből, európai és amerikai csapatokkal.'],
     // DataExpert
     ['Architecting and building scalable, high-performance Progressive Web Apps for flagship projects.',
       'Skálázható, nagy teljesítményű Progresszív Webalkalmazások (PWA) tervezése és fejlesztése kiemelt projekteken.'],
@@ -148,7 +148,7 @@ function buildHtml(resume, lang = 'en') {
   const locale = isHu ? 'hu-HU' : 'en-GB';
   const name = isHu ? 'Papp Ferenc' : (basics.name || 'Ferenc Papp');
   const label = isHu
-    ? 'Szenior full-stack fejlesztő & AI Solutions Engineer'
+    ? 'Senior full-stack fejlesztő & AI Solutions Engineer'
     : (basics.label || '');
   const locationCountry = isHu ? 'Magyarország' : 'Hungary';
   const location = [basics.location?.city, locationCountry].filter(Boolean).join(', ');

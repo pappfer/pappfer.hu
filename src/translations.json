@@ -243,10 +243,10 @@
     "direction": "ltr",
 
     "meta": {
-      "title": "Papp Ferenc — Szenior full-stack fejlesztő & AI Solutions Engineer | Debrecen",
-      "description": "Szenior full-stack fejlesztő & AI Solutions Engineer. Skálázható webalkalmazások Laravel, Vue.js és Python alapon, plusz éles generatív AI/LLM integrációk.",
-      "ogSiteName": "Papp Ferenc — Szenior full-stack fejlesztő & AI Solutions Engineer",
-      "ogImageAlt": "Papp Ferenc — Szenior full-stack fejlesztő és AI Solutions Engineer"
+      "title": "Papp Ferenc — Senior full-stack fejlesztő & AI Solutions Engineer | Debrecen",
+      "description": "Senior full-stack fejlesztő & AI Solutions Engineer. Skálázható webalkalmazások Laravel, Vue.js és Python alapon, plusz éles generatív AI/LLM integrációk.",
+      "ogSiteName": "Papp Ferenc — Senior full-stack fejlesztő & AI Solutions Engineer",
+      "ogImageAlt": "Papp Ferenc — Senior full-stack fejlesztő és AI Solutions Engineer"
     },
 
     "nav": {
@@ -267,7 +267,7 @@
       "availability": "Nyitott AI- és technológiai együttműködésekre",
       "greeting": "Üdvözöllek!",
       "name": "Papp Ferenc",
-      "title": "Szenior full-stack fejlesztő & AI Solutions Engineer",
+      "title": "Senior full-stack fejlesztő & AI Solutions Engineer",
       "description": "Skálázható webes ökoszisztémákat és éles környezetbe szánt AI integrációkat építek. 2024 októbere óta dedikáltan a DataExpert és testvércége, a Rubiklab kiemelt projektjein dolgozom — ötvözve a full-stack fejlesztést (Laravel, Vue.js, Python) az alkalmazott generatív AI-jal és a nagy nyelvi modellekkel.",
       "cta": "Beszéljünk!",
       "cv": "Önéletrajz letöltése",
@@ -283,7 +283,7 @@
     "about": {
       "label": "Rólam",
       "title": "Ki vagyok én",
-      "p1": "Szenior full-stack fejlesztő és AI Solutions Engineer vagyok Debrecenben, több mint 15 év szakmai tapasztalattal. Robusztus, skálázható webalkalmazásokat tervezek és éles környezetbe szánt generatív AI rendszereket fejlesztek — ötvözve a hagyományos full-stack fejlesztést a legújabb LLM technológiákkal.",
+      "p1": "Senior full-stack fejlesztő és AI Solutions Engineer vagyok Debrecenben, több mint 15 év szakmai tapasztalattal. Robusztus, skálázható webalkalmazásokat tervezek és éles környezetbe szánt generatív AI rendszereket fejlesztek — ötvözve a hagyományos full-stack fejlesztést a legújabb LLM technológiákkal.",
       "p2": "2024 októbere óta dedikáltan egy szorosan összetartozó cégcsoportnak dolgozom: a DataExpertnek (anyacég) és a Rubiklabnak (testvércég). A DataExpertnél skálázható, nagy teljesítményű Progresszív Webalkalmazásokat (PWA) tervezek és fejlesztek Laravel backenddel és Vue.js frontenddel, Python szkriptekkel és mikroszolgáltatásokkal a háttérben.",
       "p3": "A Rubiklabnál Senior AI Solutions Engineerként generatív AI integrációkon és kutatás-fejlesztési projekteken dolgozom — beleértve a saját LabIQ termékük fejlesztését. Fő szakterületeim: nagy nyelvi modellek (LLM) finomhangolása és összehasonlítása, szemantikus keresés vektor adatbázisokkal és embeddingekkel, LLM-alapú többosztályos klasszifikáció, valamint a generatív AI hiperparamétereinek (temperature, top-k/top-p) hangolása a megbízható, determinisztikus működésért."
     },
