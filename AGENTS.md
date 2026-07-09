@@ -121,7 +121,7 @@ The root `index.html` should detect `navigator.language` and redirect:
 ### 4.1 Navigation (sticky, top)
 - Logo: `<span>papp</span>fer` (accent color on "papp")
 - Links: About, Services, Tech Stack, Experience, Testimonials, FAQ, Contact
-- Language switcher: EN | HU | DE (compact, inline buttons)
+- Language switcher: compact inline buttons, each with a country flag (inline SVG, self-hosted — MIT-licensed flag-icons source, not Unicode flag emoji, since OS emoji fonts render flags inconsistently) plus the EN / HU / DE code
 - Theme toggle: sun/moon icon (SVG inline, no icon library)
 - Mobile: hamburger → full-screen overlay menu
 - Behavior: hide on scroll down, show on scroll up (CSS transform, toggled by minimal JS)

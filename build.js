@@ -24,6 +24,22 @@ const BRAND_ICONS = {};
     });
   }
 }
+// Language flags (MIT, lipis/flag-icons), inlined at build time — keeps their own colors
+// (not forced to currentColor like the monochrome brand icons) so they render identically
+// on every OS/browser, unlike the Unicode flag emoji they replace.
+const LANG_FLAGS = {};
+{
+  const flagsDir = path.join(__dirname, 'src', 'flags');
+  if (fs.existsSync(flagsDir)) {
+    fs.readdirSync(flagsDir).filter(f => f.endsWith('.svg')).forEach(f => {
+      const svg = fs.readFileSync(path.join(flagsDir, f), 'utf8')
+        .replace(/\s+id="[^"]*"/, '')
+        .replace('<svg ', '<svg class="flag-icon" aria-hidden="true" ')
+        .trim();
+      LANG_FLAGS[f.replace(/\.svg$/, '')] = svg;
+    });
+  }
+}
 // Header icon per landing page: brand icon where available, else a built-in line icon.
 const LANDING_ICONS = {
   laravel: 'laravel', vuejs: 'vue', react: 'react', ai: 'ai',
@@ -124,6 +140,7 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 .lang-btn.active{background:#065f46;color:#fff}
 [data-theme="dark"] .lang-btn.active{background:#065f46}
 .lang-btn:hover:not(.active){color:var(--text-primary);background:var(--accent-subtle)}
+.flag-icon{width:16px;height:12px;border-radius:2px;flex-shrink:0;display:block}
 .theme-toggle,.menu-toggle{background:none;border:none;color:var(--text-secondary);cursor:pointer;padding:8px;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:color .2s,background .2s}
 .theme-toggle:hover,.menu-toggle:hover{color:var(--accent);background:var(--accent-subtle)}
 .theme-toggle .icon-sun{display:none}
@@ -614,7 +631,7 @@ function generatePage(lang) {
 </ul>
 <div class="nav-right">
 <div class="lang-switcher">
-${LANGUAGES.map(l => `<a href="/${l}" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}>${l.toUpperCase()}</a>`).join('')}
+${LANGUAGES.map(l => `<a href="/${l}" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}>${LANG_FLAGS[l] || ''} ${l.toUpperCase()}</a>`).join('')}
 </div>
 <button class="theme-toggle" id="theme-toggle" aria-label="${t.nav.toggleTheme}">
 <span class="icon-moon">${icons.moon}</span>
@@ -638,7 +655,7 @@ ${LANGUAGES.map(l => `<a href="/${l}" hreflang="${l}" lang="${l}" class="lang-bt
 <a href="#faq">${t.nav.faq}</a>
 <a href="#contact">${t.nav.contact}</a>
 <div class="lang-switcher">
-${LANGUAGES.map(l => `<a href="/${l}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}>${l.toUpperCase()}</a>`).join('')}
+${LANGUAGES.map(l => `<a href="/${l}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}>${LANG_FLAGS[l] || ''} ${l.toUpperCase()}</a>`).join('')}
 </div>
 </div>
 
@@ -980,7 +997,7 @@ ${hreflangs}
 </ul>
 <div class="nav-right">
 <div class="lang-switcher">
-${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}>${l.toUpperCase()}</a>`).join('')}
+${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}>${LANG_FLAGS[l] || ''} ${l.toUpperCase()}</a>`).join('')}
 </div>
 <button class="theme-toggle" id="theme-toggle" aria-label="${t.nav.toggleTheme}">
 <span class="icon-moon">${icons.moon}</span>
@@ -1002,7 +1019,7 @@ ${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l
 <a href="/${lang}/#experience">${t.nav.experience}</a>
 <a href="/${lang}/#contact">${t.nav.contact}</a>
 <div class="lang-switcher">
-${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}>${l.toUpperCase()}</a>`).join('')}
+${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}>${LANG_FLAGS[l] || ''} ${l.toUpperCase()}</a>`).join('')}
 </div>
 </div>
 
