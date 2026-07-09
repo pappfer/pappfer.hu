@@ -9,6 +9,6 @@
     "generate-og": "node scripts/generate-og-image.js"
   },
   "devDependencies": {
-    "puppeteer-core": "^22.0.0"
+    "puppeteer-core": "^25.0.0"
   }
 }
