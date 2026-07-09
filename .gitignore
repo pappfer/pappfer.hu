@@ -3,3 +3,5 @@ node_modules/
 .DS_Store
 src/pappfer-400.jpg
 .idea/
+.env
+vendor/
