@@ -1186,7 +1186,7 @@ Since October 2024, Ferenc works dedicatedly with DataExpert as a Senior Full-St
 
 Core expertise: PHP, Laravel, Symfony, Yii2, Python and FastAPI on the backend; Vue.js, React, Svelte, TypeScript and PWA on the frontend; LLM integration, fine-tuning and benchmarking, semantic search, vector databases, embeddings, LLM-based multi-class classification, RAG pipelines, hyperparameter tuning (temperature, top-k/top-p) for deterministic output, and agentic workflows for AI; MySQL, PostgreSQL, MongoDB and Redis for data; Docker, Linux, AWS, CI/CD and Nginx for DevOps.
 
-Availability: currently committed to long-term, large-scale projects with DataExpert and Rubiklab, and not taking on new small or individual website jobs. Open in limited capacity to serious, custom technology or AI-focused consulting and partnerships. Languages: Hungarian (native), English (fluent), German (basic).
+Availability: primary focus is on flagship projects with DataExpert and Rubiklab, with limited capacity alongside that for freelance web development, AI integration, and technical consulting engagements. Languages: Hungarian (native), English (fluent), German (basic).
 
 ## Pages
 
@@ -1204,7 +1204,7 @@ Availability: currently committed to long-term, large-scale projects with DataEx
 
 ## Contact
 
-- [Email](mailto:pappfer@pappfer.hu): direct contact for serious technical and AI-focused enquiries
+- [Email](mailto:pappfer@pappfer.hu): direct contact for freelance, consulting, and collaboration enquiries
 `;
 }
 

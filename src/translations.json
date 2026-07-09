@@ -27,7 +27,7 @@
     },
 
     "hero": {
-      "availability": "Open to AI & technical partnerships",
+      "availability": "Open to select freelance & consulting projects",
       "greeting": "Hello, I'm",
       "name": "Ferenc Papp",
       "title": "Senior Full-Stack Developer & AI Solutions Engineer",
@@ -73,7 +73,7 @@
         {
           "icon": "consulting",
           "title": "Technical Consulting & Partnerships",
-          "description": "Architecture reviews, AI strategy, technology selection and performance optimization. Selective, high-impact engagements for teams building serious web or AI products."
+          "description": "Architecture reviews, AI strategy, technology selection and performance optimization — available for focused engagements alongside my current work."
         }
       ]
     },
@@ -179,7 +179,7 @@
       "items": [
         {
           "question": "What kind of engagements are you available for right now?",
-          "answer": "I'm currently committed to long-term, large-scale projects with DataExpert and Rubiklab, so I no longer take on new small or individual website jobs. I remain open — in limited capacity — to serious, custom technology or AI-focused consulting and partnerships."
+          "answer": "My main focus is on flagship projects with DataExpert and Rubiklab, but I take on a limited number of freelance and consulting engagements alongside that — web applications, AI integrations, and technical advisory work. Get in touch with your project and I'll let you know if it's a good fit."
         },
         {
           "question": "What does a production-ready AI integration mean to you?",
@@ -208,7 +208,7 @@
       "label": "Get In Touch",
       "title": "Contact",
       "description": "Building something ambitious in web or AI? Let's talk.",
-      "notice": "I'm currently committed to long-term, large-scale projects with DataExpert & Rubiklab, so I'm not taking on new small or individual jobs. For serious, custom technology or AI-focused consulting and partnerships, I'm open in limited capacity — feel free to reach out.",
+      "notice": "Alongside my work with DataExpert & Rubiklab, I take on a limited number of freelance and consulting projects — web applications, AI integrations, or technical advisory work. Reach out and let's see if it's a good fit.",
       "form": {
         "name": "Name",
         "email": "Email",
@@ -264,7 +264,7 @@
     },
 
     "hero": {
-      "availability": "Nyitott AI- és technológiai együttműködésekre",
+      "availability": "Nyitott válogatott szabadúszó és tanácsadói munkákra",
       "greeting": "Üdvözöllek!",
       "name": "Papp Ferenc",
       "title": "Senior full-stack fejlesztő & AI Solutions Engineer",
@@ -310,7 +310,7 @@
         {
           "icon": "consulting",
           "title": "Technikai tanácsadás & partnerségek",
-          "description": "Architektúra felülvizsgálat, AI stratégia, technológiaválasztás és teljesítményoptimalizálás. Válogatott, nagy hatású együttműködések komoly webes vagy AI termékeket építő csapatoknak."
+          "description": "Architektúra felülvizsgálat, AI stratégia, technológiaválasztás és teljesítményoptimalizálás — fókuszált együttműködésekhez, a jelenlegi elköteleződéseim mellett."
         }
       ]
     },
@@ -416,7 +416,7 @@
       "items": [
         {
           "question": "Milyen együttműködéseket vállalsz jelenleg?",
-          "answer": "Jelenleg hosszú távú, nagyszabású projekteken dolgozom a DataExpert és a Rubiklab kötelékében, így új lakossági/kis megbízásokat jelenleg nem vállalok. Komolyabb, egyedi technológiai vagy AI-fókuszú konzultációkra és partnerségekre korlátozott kapacitásban nyitott vagyok."
+          "answer": "Fő fókuszom a DataExpert és a Rubiklab kiemelt projektjein van, de emellett korlátozott számban vállalok szabadúszó és tanácsadói megbízásokat is — webalkalmazásokat, AI integrációkat és technikai tanácsadást. Írj a projektedről, és jelzem, ha illeszkedik."
         },
         {
           "question": "Mit jelent számodra az éles környezetbe szánt AI integráció?",
@@ -445,7 +445,7 @@
       "label": "Kapcsolat",
       "title": "Kapcsolatfelvétel",
       "description": "Valami nagyszabásút építesz webes vagy AI területen? Beszéljük meg.",
-      "notice": "Jelenleg hosszú távú, nagyszabású projekteken dolgozom a DataExpert & Rubiklab kötelékében, így új lakossági/kis megbízásokat jelenleg nem vállalok. Komolyabb, egyedi technológiai vagy AI-fókuszú konzultációkra és partnerségekre korlátozott kapacitásban nyitott vagyok — keress bátran.",
+      "notice": "A DataExpert és a Rubiklab melletti munkám mellett korlátozott számban vállalok szabadúszó és tanácsadói projekteket is — webalkalmazásokat, AI integrációkat vagy technikai tanácsadást. Keress bátran, megnézzük, illik-e a projekted.",
       "form": {
         "name": "Név",
         "email": "E-mail",
@@ -501,7 +501,7 @@
     },
 
     "hero": {
-      "availability": "Offen für KI- und Technologiepartnerschaften",
+      "availability": "Offen für ausgewählte Freelance- & Beratungsprojekte",
       "greeting": "Hallo, ich bin",
       "name": "Ferenc Papp",
       "title": "Senior Full-Stack Entwickler & AI Solutions Engineer",
@@ -547,7 +547,7 @@
         {
           "icon": "consulting",
           "title": "Technische Beratung & Partnerschaften",
-          "description": "Architektur-Reviews, KI-Strategie, Technologieauswahl und Leistungsoptimierung. Ausgewählte, wirkungsvolle Engagements für Teams, die ernsthafte Web- oder KI-Produkte entwickeln."
+          "description": "Architektur-Reviews, KI-Strategie, Technologieauswahl und Leistungsoptimierung — für fokussierte Engagements neben meinen aktuellen Verpflichtungen."
         }
       ]
     },
@@ -653,7 +653,7 @@
       "items": [
         {
           "question": "Für welche Art von Engagements stehen Sie derzeit zur Verfügung?",
-          "answer": "Ich bin derzeit langfristig in große Projekte mit DataExpert und Rubiklab eingebunden und nehme daher keine neuen kleinen oder einzelnen Website-Aufträge mehr an. Für ernsthafte, maßgeschneiderte Technologie- oder KI-fokussierte Beratung und Partnerschaften bin ich in begrenztem Umfang offen."
+          "answer": "Mein Hauptfokus liegt auf Vorzeigeprojekten mit DataExpert und Rubiklab, daneben übernehme ich in begrenztem Umfang auch freiberufliche und beratende Aufträge — Webanwendungen, KI-Integrationen und technische Beratung. Schreiben Sie mir zu Ihrem Projekt, ich sage Ihnen, ob es passt."
         },
         {
           "question": "Was bedeutet für Sie eine produktionsreife KI-Integration?",
@@ -682,7 +682,7 @@
       "label": "Kontakt",
       "title": "Kontakt aufnehmen",
       "description": "Sie bauen etwas Ambitioniertes im Web- oder KI-Bereich? Lassen Sie uns sprechen.",
-      "notice": "Ich bin derzeit langfristig in große Projekte mit DataExpert & Rubiklab eingebunden und nehme daher keine neuen kleinen oder einzelnen Aufträge an. Für ernsthafte, maßgeschneiderte Technologie- oder KI-fokussierte Beratung und Partnerschaften bin ich in begrenztem Umfang offen — melden Sie sich gerne.",
+      "notice": "Neben meiner Arbeit bei DataExpert & Rubiklab übernehme ich in begrenztem Umfang freiberufliche und beratende Projekte — Webanwendungen, KI-Integrationen oder technische Beratung. Melden Sie sich gerne, wir schauen, ob es passt.",
       "form": {
         "name": "Name",
         "email": "E-Mail",
