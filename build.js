@@ -1171,6 +1171,25 @@ function generateManifest() {
   }, null, 2) + '\n';
 }
 
+// ─── _headers (Cloudflare Pages custom response headers) ───────────────────────
+// The CSP <meta> tag in <head> can't carry frame-ancestors (browsers silently
+// ignore it there), so without this the site had no clickjacking protection at
+// all. Setting the equivalent policy as a real HTTP header covers that gap and
+// adds HSTS/Permissions-Policy, which aren't expressible via meta tags either.
+// HSTS is scoped to this apex host only (no includeSubDomains/preload) since
+// www.pappfer.hu currently errors on HTTPS (Cloudflare 522) and other
+// subdomains (ha./go2rtc./mobiloapps.) haven't been confirmed HTTPS-clean.
+function generateHeaders() {
+  return `/*
+  Content-Security-Policy: ${csp}; frame-ancestors 'none'
+  X-Frame-Options: DENY
+  Strict-Transport-Security: max-age=63072000
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+`;
+}
+
 // ─── 404.html ──────────────────────────────────────────────────────────────────
 function generate404() {
   return `<!DOCTYPE html>
@@ -1261,6 +1280,9 @@ console.log('  ✓ llms.txt');
 
 fs.writeFileSync(path.join(DIST, 'manifest.webmanifest'), generateManifest());
 console.log('  ✓ manifest.webmanifest');
+
+fs.writeFileSync(path.join(DIST, '_headers'), generateHeaders());
+console.log('  ✓ _headers');
 
 fs.writeFileSync(path.join(DIST, '404.html'), generate404());
 console.log('  ✓ 404.html');
