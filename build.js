@@ -40,7 +40,6 @@ const HAS_RESUME_JSON = fs.existsSync(path.join(__dirname, 'src', 'resume.json')
 const BUILD_DATE = new Date().toISOString().split('T')[0];
 const YEAR = new Date().getFullYear();
 const LANGUAGES = ['en', 'hu', 'de'];
-const LANG_FLAGS = { en: '🇬🇧', hu: '🇭🇺', de: '🇩🇪' };
 
 function fileVersion(relPath) {
   const fullPath = path.join(__dirname, relPath);
@@ -615,7 +614,7 @@ function generatePage(lang) {
 </ul>
 <div class="nav-right">
 <div class="lang-switcher">
-${LANGUAGES.map(l => `<a href="/${l}" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}><span aria-hidden="true">${LANG_FLAGS[l]}</span> ${l.toUpperCase()}</a>`).join('')}
+${LANGUAGES.map(l => `<a href="/${l}" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}>${l.toUpperCase()}</a>`).join('')}
 </div>
 <button class="theme-toggle" id="theme-toggle" aria-label="${t.nav.toggleTheme}">
 <span class="icon-moon">${icons.moon}</span>
@@ -639,7 +638,7 @@ ${LANGUAGES.map(l => `<a href="/${l}" hreflang="${l}" lang="${l}" class="lang-bt
 <a href="#faq">${t.nav.faq}</a>
 <a href="#contact">${t.nav.contact}</a>
 <div class="lang-switcher">
-${LANGUAGES.map(l => `<a href="/${l}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}><span aria-hidden="true">${LANG_FLAGS[l]}</span> ${l.toUpperCase()}</a>`).join('')}
+${LANGUAGES.map(l => `<a href="/${l}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}>${l.toUpperCase()}</a>`).join('')}
 </div>
 </div>
 
@@ -981,7 +980,7 @@ ${hreflangs}
 </ul>
 <div class="nav-right">
 <div class="lang-switcher">
-${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}><span aria-hidden="true">${LANG_FLAGS[l]}</span> ${l.toUpperCase()}</a>`).join('')}
+${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}>${l.toUpperCase()}</a>`).join('')}
 </div>
 <button class="theme-toggle" id="theme-toggle" aria-label="${t.nav.toggleTheme}">
 <span class="icon-moon">${icons.moon}</span>
@@ -1003,7 +1002,7 @@ ${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l
 <a href="/${lang}/#experience">${t.nav.experience}</a>
 <a href="/${lang}/#contact">${t.nav.contact}</a>
 <div class="lang-switcher">
-${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}><span aria-hidden="true">${LANG_FLAGS[l]}</span> ${l.toUpperCase()}</a>`).join('')}
+${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}>${l.toUpperCase()}</a>`).join('')}
 </div>
 </div>
 
