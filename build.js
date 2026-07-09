@@ -1176,14 +1176,14 @@ function generateManifest() {
 // ignore it there), so without this the site had no clickjacking protection at
 // all. Setting the equivalent policy as a real HTTP header covers that gap and
 // adds HSTS/Permissions-Policy, which aren't expressible via meta tags either.
-// HSTS is scoped to this apex host only (no includeSubDomains/preload) since
-// www.pappfer.hu currently errors on HTTPS (Cloudflare 522) and other
-// subdomains (ha./go2rtc./mobiloapps.) haven't been confirmed HTTPS-clean.
+// includeSubDomains is safe: www.pappfer.hu now redirects cleanly to the apex,
+// ha./go2rtc.pappfer.hu both serve valid HTTPS, and mobiloapps.pappfer.hu
+// doesn't resolve in DNS at all (so it can't be broken by an HTTPS-only rule).
 function generateHeaders() {
   return `/*
   Content-Security-Policy: ${csp}; frame-ancestors 'none'
   X-Frame-Options: DENY
-  Strict-Transport-Security: max-age=63072000
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
