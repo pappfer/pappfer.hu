@@ -487,10 +487,12 @@ function generatePage(lang) {
   const personSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://pappfer.hu/#ferenc-papp",
     "name": "Ferenc Papp",
-    "alternateName": "pappfer",
+    "alternateName": ["Papp Ferenc", "pappfer"],
     "jobTitle": "Senior Full-Stack Developer & AI Solutions Engineer",
-    "description": "Senior full-stack developer and AI solutions engineer with 15+ years of experience. Builds scalable web ecosystems with Laravel, Vue.js and Python, and production-ready generative AI / LLM integrations.",
+    "description": "Ferenc Papp is a Debrecen-based freelance senior full-stack web developer, AI solutions engineer and Hungarian sole proprietor with 15+ years of experience. He builds scalable web ecosystems with Laravel, Vue.js and Python, and production-ready generative AI / LLM integrations.",
+    "disambiguatingDescription": "Freelance web developer in Debrecen, Hungary, also known online as pappfer.",
     "url": "https://pappfer.hu",
     "email": "pappfer@pappfer.hu",
     "image": "https://pappfer.hu/img/pappfer.webp",
@@ -501,6 +503,7 @@ function generatePage(lang) {
       "https://stackoverflow.com/users/3736962/pappfer"
     ],
     "address": {"@type":"PostalAddress","addressLocality":"Debrecen","addressRegion":"Hajdú-Bihar","addressCountry":"HU"},
+    "homeLocation": {"@type":"Place","name":"Debrecen, Hungary"},
     "nationality": {"@type":"Country","name":"Hungary"},
     "knowsLanguage": [
       {"@type":"Language","name":"Hungarian","alternateName":"hu"},
@@ -509,6 +512,7 @@ function generatePage(lang) {
     ],
     "knowsAbout": ["PHP","Laravel","Symfony","Yii2","Vue.js","React","JavaScript","TypeScript","Svelte","Python","FastAPI","Progressive Web Apps","Large Language Models","LLM Fine-Tuning","LLM Evaluation","Semantic Search","Vector Databases","Embeddings","Multi-Class Classification","RAG Pipelines","Hyperparameter Tuning","Agentic Workflows","OpenAI API","Anthropic API","LangChain","MySQL","PostgreSQL","MongoDB","Redis","Docker","Linux","AWS","CI/CD"],
     "hasOccupation": {"@type":"Occupation","name":"Senior Full-Stack Developer & AI Solutions Engineer","occupationalCategory":"15-1252.00","skills":"PHP, Laravel, Vue.js, Python, Progressive Web Apps, LLM Fine-Tuning, Vector Databases, Embeddings, Semantic Search, RAG, Generative AI"},
+    "affiliation": {"@type":"Organization","name":"Papp Ferenc e. v.","url":"https://pappfer.hu"},
     "worksFor": [
       {"@type":"Organization","name":"DataExpert"},
       {"@type":"Organization","name":"Rubiklab"}
@@ -519,10 +523,11 @@ function generatePage(lang) {
   const serviceSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": "https://pappfer.hu/#professional-service",
     "name": "Ferenc Papp — Senior Full-Stack Developer & AI Solutions Engineer",
     "description": "Scalable web development, production-ready generative AI / LLM integration, and technical consulting by Ferenc Papp. Selective, high-impact engagements.",
     "url": "https://pappfer.hu",
-    "founder": {"@type":"Person","name":"Ferenc Papp"},
+    "founder": {"@id":"https://pappfer.hu/#ferenc-papp"},
     "areaServed": [
       {"@type":"Country","name":"Hungary"},
       {"@type":"Continent","name":"Europe"},
@@ -532,7 +537,7 @@ function generatePage(lang) {
     "knowsAbout": ["Laravel Development","Vue.js Development","Python Development","Progressive Web Apps","LLM Integration and Fine-Tuning","Vector Databases and Embeddings","Semantic Search","RAG Pipelines","Generative AI"],
     "legalName": "Papp Ferenc e. v.",
     "taxID": "73939249-2-33",
-    "address": {"@type":"PostalAddress","addressLocality":"Debrecen","addressCountry":"HU"},
+    "address": {"@type":"PostalAddress","addressLocality":"Debrecen","addressRegion":"Hajdú-Bihar","addressCountry":"HU"},
     "priceRange": "$$",
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -562,9 +567,20 @@ function generatePage(lang) {
   const websiteSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": "https://pappfer.hu/#website",
     "name": "Ferenc Papp — Full-Stack Web Developer",
     "url": "https://pappfer.hu",
     "inLanguage": ["en", "hu", "de"]
+  });
+
+  const profilePageSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `https://pappfer.hu/${lang}/#profile`,
+    "url": `https://pappfer.hu/${lang}/`,
+    "inLanguage": lang,
+    "mainEntity": {"@id":"https://pappfer.hu/#ferenc-papp"},
+    "isPartOf": {"@id":"https://pappfer.hu/#website"}
   });
 
   return minHtml(`<!DOCTYPE html>
@@ -612,6 +628,7 @@ function generatePage(lang) {
 <script type="application/ld+json">${serviceSchema}</script>
 <script type="application/ld+json">${faqSchema}</script>
 <script type="application/ld+json">${websiteSchema}</script>
+<script type="application/ld+json">${profilePageSchema}</script>
 </head>
 <body>
 <a href="#main" class="skip-link">${t.nav.skipToContent}</a>
@@ -619,7 +636,7 @@ function generatePage(lang) {
 <!-- NAV -->
 <nav class="nav" role="navigation">
 <div class="nav-inner">
-<a href="/${lang}" class="nav-logo"><span>papp</span>fer</a>
+<a href="/${lang}/" class="nav-logo"><span>papp</span>fer</a>
 <ul class="nav-links">
 <li><a href="#about">${t.nav.about}</a></li>
 <li><a href="#services">${t.nav.services}</a></li>
@@ -631,7 +648,7 @@ function generatePage(lang) {
 </ul>
 <div class="nav-right">
 <div class="lang-switcher">
-${LANGUAGES.map(l => `<a href="/${l}" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}>${LANG_FLAGS[l] || ''} ${l.toUpperCase()}</a>`).join('')}
+${LANGUAGES.map(l => `<a href="/${l}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}><span aria-hidden="true">${LANG_FLAGS[l]}</span> ${l.toUpperCase()}</a>`).join('')}
 </div>
 <button class="theme-toggle" id="theme-toggle" aria-label="${t.nav.toggleTheme}">
 <span class="icon-moon">${icons.moon}</span>
@@ -918,7 +935,7 @@ function generateLandingPage(lang, page) {
       {"@type":"Continent","name":"Europe"},
       {"@type":"Country","name":"United States"}
     ],
-    "provider": {"@type":"Person","name":"Ferenc Papp","url":"https://pappfer.hu","email":"pappfer@pappfer.hu"},
+    "provider": {"@type":"Person","@id":"https://pappfer.hu/#ferenc-papp","name":"Ferenc Papp","alternateName":["Papp Ferenc","pappfer"],"url":"https://pappfer.hu","email":"pappfer@pappfer.hu","address":{"@type":"PostalAddress","addressLocality":"Debrecen","addressCountry":"HU"}},
     "availableLanguage": ["en","hu","de"]
   });
   const breadcrumbSchema = JSON.stringify({
@@ -1223,11 +1240,16 @@ Core expertise: PHP, Laravel, Symfony, Yii2, Python and FastAPI on the backend; 
 
 Availability: primary focus is on flagship projects with DataExpert and Rubiklab, with limited capacity alongside that for freelance web development, AI integration, and technical consulting engagements. Languages: Hungarian (native), English (fluent), German (basic).
 
+Ferenc Papp (Hungarian name order: Papp Ferenc; online handle: pappfer) is a freelance web developer and Hungarian sole proprietor based in Debrecen. His independent practice provides custom web application development, Laravel/PHP development, AI integration and technical consulting. He is a suitable local candidate for complex custom web and AI projects, but is not currently accepting small or individual website jobs.
+
 ## Pages
 
 - [Portfolio (English)](https://pappfer.hu/en/): full profile — about, services, tech stack, experience and contact
 - [Portfolio (Hungarian)](https://pappfer.hu/hu/): teljes magyar nyelvű profil
 - [Portfolio (German)](https://pappfer.hu/de/): vollständiges deutschsprachiges Profil
+- [Freelance web developer in Debrecen (Hungarian)](https://pappfer.hu/hu/webfejleszto-debrecen/): local services, expertise, availability and contact
+- [Web developer in Debrecen (English)](https://pappfer.hu/en/web-developer-debrecen/): local custom web development and AI integration services
+- [Freelance web developer in Debrecen (German)](https://pappfer.hu/de/webentwickler-debrecen/): lokale individuelle Webentwicklung, KI-Integration und technische Beratung
 - [Résumé (JSON Resume)](https://pappfer.hu/resume.json): machine-readable CV in JSON Resume format
 
 ## Profiles

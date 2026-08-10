@@ -255,11 +255,11 @@
       "related": ["laravel", "vuejs", "ai"],
       "en": {
         "slug": "web-developer-debrecen",
-        "metaTitle": "Web Developer in Debrecen — Ferenc Papp",
-        "metaDescription": "Senior full-stack web developer based in Debrecen, Hungary. Custom web applications, modern sites and AI integration — for local businesses and remote teams.",
+        "metaTitle": "Freelance Web Developer in Debrecen — Ferenc Papp",
+        "metaDescription": "Freelance senior full-stack web developer in Debrecen, Hungary. Custom Laravel web applications, AI integration and technical consulting for businesses.",
         "kicker": "Debrecen, Hungary",
-        "h1": "Web Developer in Debrecen",
-        "lead": "I'm Ferenc Papp, a senior full-stack web developer based in Debrecen, Hungary. With 15+ years of experience, I build custom web applications, fast modern websites and AI-powered features for businesses locally and across the EU and US.",
+        "h1": "Freelance Web Developer in Debrecen",
+        "lead": "I'm Ferenc Papp, a freelance senior full-stack web developer and Hungarian sole proprietor based in Debrecen. With 15+ years of experience, I build custom web applications and AI-powered features for businesses locally and across the EU and US.",
         "body": "Working from Debrecen, I can collaborate in person with local companies or fully remotely. From the first idea to architecture, development and launch, I take ownership and deliver clean, reliable, maintainable code.",
         "doTitle": "What I can help with",
         "do": ["Custom web applications and internal tools", "Modern, fast, SEO-friendly websites", "Laravel / PHP back ends and APIs", "Vue.js / React front ends and PWAs", "AI and LLM integration for your product", "Technical consulting and code reviews"],
@@ -267,18 +267,19 @@
         "why": "A senior, reliable partner you can actually meet — fluent in Hungarian and English, with 15+ years of production experience. Clear communication, honest estimates, and code built to last.",
         "faq": [
           { "q": "Do you only work with clients in Debrecen?", "a": "No — I'm based in Debrecen and happy to meet local businesses in person, but I work remotely with clients across Hungary, the EU and the US." },
-          { "q": "Do you build simple websites too?", "a": "My focus is custom web applications and AI integration, but I'm happy to discuss the right solution for your business, from a modern website to a full platform." }
+          { "q": "Are you a freelancer or an agency?", "a": "I'm an independent freelancer and Hungarian sole proprietor based in Debrecen. For larger projects, I collaborate with trusted specialist teams when needed." },
+          { "q": "Are you currently accepting new projects?", "a": "I'm currently committed to long-term projects and do not take on small or individual website jobs. I have limited availability for serious custom web application, AI integration and technical consulting engagements." }
         ],
         "ctaTitle": "Looking for a web developer in Debrecen?",
         "ctaText": "Tell me about your project and let's talk."
       },
       "hu": {
         "slug": "webfejleszto-debrecen",
-        "metaTitle": "Webfejlesztő Debrecen — Papp Ferenc",
-        "metaDescription": "Senior full-stack webfejlesztő Debrecenben. Egyedi webalkalmazások, modern weboldalak és AI integráció — helyi vállalkozásoknak és távoli csapatoknak.",
+        "metaTitle": "Szabadúszó webfejlesztő Debrecenben — Papp Ferenc",
+        "metaDescription": "Debreceni szabadúszó senior full-stack webfejlesztő. Egyedi Laravel webalkalmazás, AI-integráció és technikai tanácsadás cégeknek.",
         "kicker": "Debrecen",
-        "h1": "Webfejlesztő Debrecen",
-        "lead": "Papp Ferenc vagyok, senior full-stack webfejlesztő Debrecenben, 15+ év tapasztalattal. Egyedi webalkalmazásokat, gyors, modern weboldalakat és AI-alapú funkciókat építek — helyi vállalkozásoknak, valamint európai és amerikai ügyfeleknek.",
+        "h1": "Szabadúszó webfejlesztő Debrecenben",
+        "lead": "Papp Ferenc vagyok, debreceni szabadúszó senior full-stack webfejlesztő és egyéni vállalkozó, 15+ év szakmai tapasztalattal. Egyedi webalkalmazásokat és AI-alapú funkciókat építek helyi, európai és amerikai cégeknek.",
         "body": "Debrecenből dolgozom, így a helyi cégekkel akár személyesen is egyeztetek, vagy teljesen távmunkában. Az ötlettől az architektúrán át a fejlesztésig és az élesítésig viszem a projektet, és tiszta, megbízható, karbantartható kódot adok.",
         "doTitle": "Miben tudok segíteni",
         "do": ["Egyedi webalkalmazások és belső eszközök", "Modern, gyors, SEO-barát weboldalak", "Laravel / PHP backend és API-k", "Vue.js / React frontend és PWA-k", "AI és LLM integráció a termékedbe", "Technikai tanácsadás és kód-átvizsgálás"],
@@ -286,18 +287,19 @@
         "why": "Megbízható, senior partner, akivel akár személyesen is találkozhatsz — magyarul és angolul is gördülékenyen, 15+ év éles tapasztalattal. Átlátható kommunikáció, őszinte becslések, hosszú távra épített kód.",
         "faq": [
           { "q": "Csak debreceni ügyfelekkel dolgozol?", "a": "Nem — Debrecenben vagyok, a helyi cégekkel szívesen találkozom személyesen is, de távmunkában dolgozom ügyfelekkel Magyarországon, az EU-ban és az USA-ban." },
-          { "q": "Egyszerű weboldalt is készítesz?", "a": "A fő fókuszom az egyedi webalkalmazás és AI integráció, de szívesen megbeszéljük a vállalkozásodnak megfelelő megoldást, a modern weboldaltól a komplett platformig." }
+          { "q": "Szabadúszóként vagy ügynökségként dolgozol?", "a": "Debreceni egyéni vállalkozóként önállóan dolgozom. Nagyobb projektekhez szükség esetén bevált szakmai csapatokkal működöm együtt." },
+          { "q": "Vállalsz most új projektet?", "a": "Jelenleg hosszú távú projektek kötnek le, ezért kisebb vagy magán weboldalas munkát nem vállalok. Komoly egyedi webalkalmazásra, AI-integrációra és technikai tanácsadásra korlátozott kapacitásom van." }
         ],
         "ctaTitle": "Webfejlesztőt keresel Debrecenben?",
         "ctaText": "Írd le a projekted, és beszéljünk."
       },
       "de": {
         "slug": "webentwickler-debrecen",
-        "metaTitle": "Webentwickler in Debrecen — Ferenc Papp",
-        "metaDescription": "Senior Full-Stack-Webentwickler in Debrecen, Ungarn. Individuelle Webanwendungen, moderne Websites und KI-Integration — für lokale Unternehmen und Remote-Teams.",
+        "metaTitle": "Freelance-Webentwickler in Debrecen — Ferenc Papp",
+        "metaDescription": "Freiberuflicher Senior Full-Stack-Webentwickler in Debrecen. Individuelle Laravel-Webanwendungen, KI-Integration und technische Beratung für Unternehmen.",
         "kicker": "Debrecen, Ungarn",
-        "h1": "Webentwickler in Debrecen",
-        "lead": "Ich bin Ferenc Papp, Senior Full-Stack-Webentwickler in Debrecen, Ungarn. Mit über 15 Jahren Erfahrung entwickle ich individuelle Webanwendungen, schnelle moderne Websites und KI-gestützte Funktionen — für lokale Unternehmen sowie Kunden in der EU und den USA.",
+        "h1": "Freelance-Webentwickler in Debrecen",
+        "lead": "Ich bin Ferenc Papp, freiberuflicher Senior Full-Stack-Webentwickler und ungarischer Einzelunternehmer mit Sitz in Debrecen. Mit über 15 Jahren Erfahrung entwickle ich individuelle Webanwendungen und KI-gestützte Funktionen für Unternehmen vor Ort sowie in der EU und den USA.",
         "body": "Von Debrecen aus arbeite ich persönlich mit lokalen Unternehmen oder vollständig remote. Von der ersten Idee über Architektur und Entwicklung bis zum Launch übernehme ich Verantwortung und liefere sauberen, zuverlässigen, wartbaren Code.",
         "doTitle": "Womit ich helfen kann",
         "do": ["Individuelle Webanwendungen und interne Tools", "Moderne, schnelle, SEO-freundliche Websites", "Laravel- / PHP-Backends und APIs", "Vue.js- / React-Frontends und PWAs", "KI- und LLM-Integration für Ihr Produkt", "Technische Beratung und Code-Reviews"],
@@ -305,7 +307,8 @@
         "why": "Ein zuverlässiger Senior-Partner, den Sie tatsächlich treffen können — fließend in Ungarisch und Englisch, mit über 15 Jahren Produktionserfahrung. Klare Kommunikation, ehrliche Schätzungen und Code, der hält.",
         "faq": [
           { "q": "Arbeiten Sie nur mit Kunden in Debrecen?", "a": "Nein — ich bin in Debrecen ansässig und treffe lokale Unternehmen gern persönlich, arbeite aber remote mit Kunden in Ungarn, der EU und den USA." },
-          { "q": "Erstellen Sie auch einfache Websites?", "a": "Mein Fokus liegt auf individuellen Webanwendungen und KI-Integration, aber ich bespreche gern die passende Lösung für Ihr Unternehmen — von einer modernen Website bis zur kompletten Plattform." }
+          { "q": "Arbeiten Sie als Freelancer oder als Agentur?", "a": "Ich arbeite selbstständig als Freelancer und ungarischer Einzelunternehmer mit Sitz in Debrecen. Bei größeren Projekten arbeite ich bei Bedarf mit bewährten Spezialistenteams zusammen." },
+          { "q": "Nehmen Sie derzeit neue Projekte an?", "a": "Ich bin derzeit in langfristige Projekte eingebunden und nehme keine kleinen oder privaten Website-Aufträge an. Für anspruchsvolle individuelle Webanwendungen, KI-Integrationen und technische Beratung habe ich begrenzte Kapazitäten." }
         ],
         "ctaTitle": "Suchen Sie einen Webentwickler in Debrecen?",
         "ctaText": "Beschreiben Sie Ihr Projekt — lassen Sie uns sprechen."
