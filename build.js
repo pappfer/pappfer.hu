@@ -179,6 +179,7 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 .btn-primary:hover{background:#064e3b;color:#fff;transform:translateY(-1px);box-shadow:0 4px 12px rgba(6,95,70,0.35)}
 [data-theme="dark"] .btn-primary{background:#065f46}
 [data-theme="dark"] .btn-primary:hover{background:#064e3b;box-shadow:0 4px 12px rgba(6,95,70,0.35)}
+.btn-primary:disabled,.btn-primary:disabled:hover,[data-theme="dark"] .btn-primary:disabled,[data-theme="dark"] .btn-primary:disabled:hover{background:var(--bg-tertiary);color:var(--text-muted);border:1px solid var(--border);cursor:wait;opacity:1;transform:none;box-shadow:none}
 .btn-outline{background:transparent;color:var(--text-primary);border:1.5px solid var(--border)}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
 .hero .btn-outline{background:var(--bg-secondary)}
