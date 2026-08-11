@@ -462,11 +462,17 @@ const js = `
 
   // Contact form
   var form=document.getElementById('contact-form');
-  if(form)form.addEventListener('submit',function(e){
+  if(form){
+    var submitBtn=form.querySelector('button[type=submit]');
+    function syncSubmitButton(){submitBtn.disabled=!form.checkValidity();}
+    form.addEventListener('input',syncSubmitButton);
+    form.addEventListener('change',syncSubmitButton);
+    syncSubmitButton();
+    form.addEventListener('submit',function(e){
     e.preventDefault();
     var data=new FormData(form);
     if(data.get('_gotcha')){return;}
-    var btn=form.querySelector('button[type=submit]'),status=document.getElementById('form-status');
+    var btn=submitBtn,status=document.getElementById('form-status');
     var origHtml=btn.innerHTML;
     btn.disabled=true;btn.textContent=btn.getAttribute('data-sending');
     form.setAttribute('aria-busy','true');
@@ -477,8 +483,9 @@ const js = `
       else{status.className='form-status error';status.textContent=btn.getAttribute('data-error');status.style.display='block';}
     })
     .catch(function(){status.className='form-status error';status.textContent=btn.getAttribute('data-error');status.style.display='block';})
-    .finally(function(){btn.disabled=false;btn.innerHTML=origHtml;form.removeAttribute('aria-busy');});
+    .finally(function(){btn.innerHTML=origHtml;form.removeAttribute('aria-busy');syncSubmitButton();});
   });
+  }
 })();
 `;
 
