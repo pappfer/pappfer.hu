@@ -889,7 +889,7 @@ ${t.contact.notice ? `<div class="contact-notice fade-up">${t.contact.notice}</d
 </div>
 <div class="form-group">
 <label for="message">${t.contact.form.message}</label>
-<textarea id="message" name="message" required rows="5" minlength="20"></textarea>
+<textarea id="message" name="message" required rows="5"></textarea>
 </div>
 <button type="submit" class="btn btn-primary" data-sending="${t.contact.form.sending}" data-success="${t.contact.form.success}" data-error="${t.contact.form.error}">
 ${icons.send} ${t.contact.form.send}
