@@ -133,6 +133,7 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 .nav-links{display:none;list-style:none;gap:1.75rem;align-items:center}
 .nav-links a{color:var(--text-secondary);font-size:.875rem;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--accent)}
+.nav-links a.active{color:var(--accent)}
 .nav-right{display:flex;align-items:center;gap:.5rem}
 .lang-switcher{display:flex;gap:2px;background:var(--bg-tertiary);border-radius:6px;padding:2px}
 .lang-btn{padding:4px 10px;border:none;background:transparent;color:#374151;font-size:.75rem;font-weight:700;cursor:pointer;border-radius:4px;transition:all .2s;font-family:var(--font-body);display:flex;align-items:center;gap:4px}
@@ -173,6 +174,7 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 .hero-cv-links a{font-size:.85rem;color:var(--text-muted);font-weight:500;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border)}
 .hero-cv-links a:hover{color:var(--accent);text-decoration-color:var(--accent)}
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.875rem 2rem;border-radius:var(--radius);font-weight:600;font-size:.95rem;transition:all .2s ease-out;border:none;cursor:pointer;font-family:var(--font-body);text-decoration:none}
+.btn:disabled{cursor:not-allowed;opacity:.65;transform:none;box-shadow:none}
 .btn-primary{background:#065f46;color:#fff}
 .btn-primary:hover{background:#064e3b;color:#fff;transform:translateY(-1px);box-shadow:0 4px 12px rgba(6,95,70,0.35)}
 [data-theme="dark"] .btn-primary{background:#065f46}
@@ -372,9 +374,11 @@ const js = `
 (function(){
   // Theme toggle
   var tt=document.getElementById('theme-toggle');
+  function syncThemeButton(){if(tt)tt.setAttribute('aria-pressed',document.documentElement.getAttribute('data-theme')==='dark'?'true':'false');}
+  syncThemeButton();
   if(tt)tt.addEventListener('click',function(){
     var d=document.documentElement,t=d.getAttribute('data-theme')==='dark'?'light':'dark';
-    d.setAttribute('data-theme',t);localStorage.setItem('theme',t);
+    d.setAttribute('data-theme',t);localStorage.setItem('theme',t);syncThemeButton();
   });
 
   // Mobile menu
@@ -382,15 +386,38 @@ const js = `
   function setMenu(open){
     if(!mb||!mm)return;
     mm.classList.toggle('open',open);
+    mm.setAttribute('aria-hidden',open?'false':'true');
     mb.setAttribute('aria-expanded',open?'true':'false');
     mb.setAttribute('aria-label',open?mb.getAttribute('data-close-label'):mb.getAttribute('data-open-label'));
     document.body.style.overflow=open?'hidden':'';
+    if(open){var first=mm.querySelector('a');if(first)first.focus();}
+    else if(document.activeElement&&mm.contains(document.activeElement))mb.focus();
   }
   function closeMenu(){setMenu(false);}
   if(mb)mb.addEventListener('click',function(){setMenu(!mm.classList.contains('open'));});
   if(mm)mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mm&&mm.classList.contains('open'))closeMenu();});
+  document.addEventListener('keydown',function(e){
+    if(!mm||!mm.classList.contains('open'))return;
+    if(e.key==='Escape'){closeMenu();return;}
+    if(e.key==='Tab'){
+      var focusable=mm.querySelectorAll('a[href]');if(!focusable.length)return;
+      var first=focusable[0],last=focusable[focusable.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    }
+  });
   window.addEventListener('resize',function(){if(window.innerWidth>=900&&mm&&mm.classList.contains('open'))closeMenu();});
+
+  // Highlight the section currently in view
+  var sectionLinks=document.querySelectorAll('.nav-links a[href^="#"]');
+  if('IntersectionObserver'in window&&sectionLinks.length){
+    var sectionMap={};sectionLinks.forEach(function(a){sectionMap[a.getAttribute('href').slice(1)]=a;});
+    var navObs=new IntersectionObserver(function(entries){entries.forEach(function(e){
+      if(e.isIntersecting){sectionLinks.forEach(function(a){a.classList.remove('active');a.removeAttribute('aria-current');});
+      var link=sectionMap[e.target.id];if(link){link.classList.add('active');link.setAttribute('aria-current','location');}}
+    });},{rootMargin:'-35% 0px -55% 0px'});
+    Object.keys(sectionMap).forEach(function(id){var section=document.getElementById(id);if(section)navObs.observe(section);});
+  }
 
   // Nav hide/show on scroll
   var nav=document.querySelector('.nav'),lastY=0,ticking=false;
@@ -439,8 +466,9 @@ const js = `
     var data=new FormData(form);
     if(data.get('_gotcha')){return;}
     var btn=form.querySelector('button[type=submit]'),status=document.getElementById('form-status');
-    var origText=btn.textContent;
+    var origHtml=btn.innerHTML;
     btn.disabled=true;btn.textContent=btn.getAttribute('data-sending');
+    form.setAttribute('aria-busy','true');
     status.className='form-status';status.style.display='none';
     fetch(form.action,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({name:data.get('name'),email:data.get('email'),message:data.get('message')})})
     .then(function(r){
@@ -448,7 +476,7 @@ const js = `
       else{status.className='form-status error';status.textContent=btn.getAttribute('data-error');status.style.display='block';}
     })
     .catch(function(){status.className='form-status error';status.textContent=btn.getAttribute('data-error');status.style.display='block';})
-    .finally(function(){btn.disabled=false;btn.textContent=origText;});
+    .finally(function(){btn.disabled=false;btn.innerHTML=origHtml;form.removeAttribute('aria-busy');});
   });
 })();
 `;
@@ -650,7 +678,7 @@ function generatePage(lang) {
 <div class="lang-switcher">
 ${LANGUAGES.map(l => `<a href="/${l}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}><span aria-hidden="true">${LANG_FLAGS[l]}</span> ${l.toUpperCase()}</a>`).join('')}
 </div>
-<button class="theme-toggle" id="theme-toggle" aria-label="${t.nav.toggleTheme}">
+<button class="theme-toggle" id="theme-toggle" aria-label="${t.nav.toggleTheme}" aria-pressed="false">
 <span class="icon-moon">${icons.moon}</span>
 <span class="icon-sun">${icons.sun}</span>
 </button>
@@ -663,7 +691,7 @@ ${LANGUAGES.map(l => `<a href="/${l}/" hreflang="${l}" lang="${l}" class="lang-b
 </nav>
 
 <!-- Mobile Menu -->
-<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true">
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-hidden="true" aria-label="${t.nav.openMenu}">
 <a href="#about">${t.nav.about}</a>
 <a href="#services">${t.nav.services}</a>
 <a href="#tech">${t.nav.techStack}</a>
@@ -672,7 +700,7 @@ ${LANGUAGES.map(l => `<a href="/${l}/" hreflang="${l}" lang="${l}" class="lang-b
 <a href="#faq">${t.nav.faq}</a>
 <a href="#contact">${t.nav.contact}</a>
 <div class="lang-switcher">
-${LANGUAGES.map(l => `<a href="/${l}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}>${LANG_FLAGS[l] || ''} ${l.toUpperCase()}</a>`).join('')}
+${LANGUAGES.map(l => `<a href="/${l}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}><span aria-hidden="true">${LANG_FLAGS[l]}</span> ${l.toUpperCase()}</a>`).join('')}
 </div>
 </div>
 
@@ -819,11 +847,11 @@ ${t.testimonials.items.map(item => `<blockquote class="testimonial-card">
 </div>
 <div class="faq-list fade-up">
 ${t.faq.items.map((item, i) => `<div class="faq-item">
-<button class="faq-btn" aria-expanded="false" aria-controls="faq-${i}">
+<button class="faq-btn" id="faq-button-${i}" aria-expanded="false" aria-controls="faq-${i}">
 <span>${item.question}</span>
 ${icons.chevron}
 </button>
-<div class="faq-answer" id="faq-${i}">
+<div class="faq-answer" id="faq-${i}" role="region" aria-labelledby="faq-button-${i}">
 <div class="faq-answer-inner">${item.answer}</div>
 </div>
 </div>`).join('\n')}
@@ -853,12 +881,12 @@ ${t.contact.notice ? `<div class="contact-notice fade-up">${t.contact.notice}</d
 </div>
 <div class="form-group">
 <label for="message">${t.contact.form.message}</label>
-<textarea id="message" name="message" required rows="5"></textarea>
+<textarea id="message" name="message" required rows="5" minlength="20"></textarea>
 </div>
 <button type="submit" class="btn btn-primary" data-sending="${t.contact.form.sending}" data-success="${t.contact.form.success}" data-error="${t.contact.form.error}">
 ${icons.send} ${t.contact.form.send}
 </button>
-<div class="form-status" id="form-status"></div>
+<div class="form-status" id="form-status" role="status" aria-live="polite"></div>
 </form>
 <div class="contact-info">
 <div class="contact-info-item">
@@ -1014,9 +1042,9 @@ ${hreflangs}
 </ul>
 <div class="nav-right">
 <div class="lang-switcher">
-${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}>${LANG_FLAGS[l] || ''} ${l.toUpperCase()}</a>`).join('')}
+${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}><span aria-hidden="true">${LANG_FLAGS[l]}</span> ${l.toUpperCase()}</a>`).join('')}
 </div>
-<button class="theme-toggle" id="theme-toggle" aria-label="${t.nav.toggleTheme}">
+<button class="theme-toggle" id="theme-toggle" aria-label="${t.nav.toggleTheme}" aria-pressed="false">
 <span class="icon-moon">${icons.moon}</span>
 <span class="icon-sun">${icons.sun}</span>
 </button>
@@ -1029,14 +1057,14 @@ ${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l
 </nav>
 
 <!-- Mobile Menu -->
-<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true">
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-hidden="true" aria-label="${t.nav.openMenu}">
 <a href="/${lang}/#about">${t.nav.about}</a>
 <a href="/${lang}/#services">${t.nav.services}</a>
 <a href="/${lang}/#tech">${t.nav.techStack}</a>
 <a href="/${lang}/#experience">${t.nav.experience}</a>
 <a href="/${lang}/#contact">${t.nav.contact}</a>
 <div class="lang-switcher">
-${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}>${LANG_FLAGS[l] || ''} ${l.toUpperCase()}</a>`).join('')}
+${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}><span aria-hidden="true">${LANG_FLAGS[l]}</span> ${l.toUpperCase()}</a>`).join('')}
 </div>
 </div>
 
