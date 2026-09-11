@@ -3,9 +3,17 @@
     "hash": "c02c5c35b44eb28b",
     "date": "2026-07-09"
   },
+  "/de/ki-glossar/": {
+    "hash": "1b6da19ebb7833ee",
+    "date": "2026-09-11"
+  },
   "/de/ki-integration/": {
     "hash": "dbce2b37e795f65c",
     "date": "2026-08-10"
+  },
+  "/de/ki-suchmaschinenoptimierung/": {
+    "hash": "591058edfce1ab70",
+    "date": "2026-09-11"
   },
   "/de/laravel-entwickler/": {
     "hash": "3bdb9a12e2eb8b63",
@@ -39,9 +47,17 @@
     "hash": "d30c36b402b9eb27",
     "date": "2026-07-09"
   },
+  "/en/ai-glossary/": {
+    "hash": "55122ec0db938cd2",
+    "date": "2026-09-11"
+  },
   "/en/ai-llm-integration/": {
     "hash": "28499259fdf9c152",
     "date": "2026-08-10"
+  },
+  "/en/answer-engine-optimization/": {
+    "hash": "4d3b8f653b6144b7",
+    "date": "2026-09-11"
   },
   "/en/laravel-developer/": {
     "hash": "aa43c7731d18ab12",
@@ -78,6 +94,14 @@
   "/hu/ai-integracio/": {
     "hash": "49fbf2af1fa82ffe",
     "date": "2026-08-10"
+  },
+  "/hu/ai-keresooptimalizalas/": {
+    "hash": "9873f135e562b3b5",
+    "date": "2026-09-11"
+  },
+  "/hu/ai-szotar/": {
+    "hash": "fe3d73b2039fd7de",
+    "date": "2026-09-11"
   },
   "/hu/laravel-fejleszto/": {
     "hash": "7923494fc21de48d",

@@ -1,0 +1,858 @@
+{
+  "meta": {
+    "en": {
+      "slug": "ai-glossary",
+      "metaTitle": "AI & LLM Glossary — 50 terms explained | Ferenc Papp",
+      "metaDescription": "50 AI and LLM terms explained plainly by a working AI engineer: RAG, embeddings, fine-tuning, agents, evaluation, tokens and cost. In English, Hungarian and German.",
+      "kicker": "Reference",
+      "h1": "AI & LLM Glossary",
+      "lead": "50 terms you meet the moment a large language model goes into a real product — written by an engineer who ships these systems, not by a marketing team.",
+      "intro": "Every entry says what the term means and why it matters in practice, in plain language, without pretending the hard parts are solved. Each term has its own anchor link, so you can point a colleague — or an assistant — straight at a single definition.",
+      "tocTitle": "Categories",
+      "termsWord": "terms",
+      "ctaTitle": "Building something with an LLM?",
+      "ctaText": "I design and ship production AI systems — RAG pipelines, semantic search, evaluation and the engineering around them.",
+      "relatedTitle": "Related services"
+    },
+    "hu": {
+      "slug": "ai-szotar",
+      "metaTitle": "AI és LLM szótár — 50 fogalom érthetően | Papp Ferenc",
+      "metaDescription": "50 AI- és LLM-fogalom közérthetően, gyakorló AI-fejlesztőtől: RAG, embedding, finomhangolás, ágensek, kiértékelés, tokenek és költségek. Magyarul, angolul, németül.",
+      "kicker": "Fogalomtár",
+      "h1": "AI és LLM szótár",
+      "lead": "50 fogalom, amivel akkor találkozol, amikor egy nagy nyelvi modell valódi termékbe kerül — olyan fejlesztőtől, aki ezeket a rendszereket élesbe is adja, nem marketingcsapattól.",
+      "intro": "Minden szócikk megmondja, mit jelent a fogalom, és a gyakorlatban miért számít — közérthetően, anélkül hogy megoldottnak tüntetné fel a nehéz részeket. Minden fogalomnak saját horgonylinkje van, így egyetlen definícióra is ráirányíthatsz egy kollégát vagy egy asszisztenst.",
+      "tocTitle": "Kategóriák",
+      "termsWord": "fogalom",
+      "ctaTitle": "Építesz valamit LLM-mel?",
+      "ctaText": "Éles környezetbe szánt AI-rendszereket tervezek és adok át — RAG pipeline-ok, szemantikus keresés, kiértékelés és a köré épülő mérnöki munka.",
+      "relatedTitle": "Kapcsolódó szolgáltatások"
+    },
+    "de": {
+      "slug": "ki-glossar",
+      "metaTitle": "KI- & LLM-Glossar — 50 Begriffe erklärt | Ferenc Papp",
+      "metaDescription": "50 KI- und LLM-Begriffe verständlich erklärt von einem praktizierenden KI-Entwickler: RAG, Embeddings, Fine-Tuning, Agenten, Evaluation, Tokens und Kosten.",
+      "kicker": "Nachschlagewerk",
+      "h1": "KI- & LLM-Glossar",
+      "lead": "50 Begriffe, die auftauchen, sobald ein großes Sprachmodell in ein echtes Produkt geht — geschrieben von einem Entwickler, der diese Systeme produktiv bringt, nicht von einem Marketing-Team.",
+      "intro": "Jeder Eintrag sagt, was der Begriff bedeutet und warum er in der Praxis zählt — in klarer Sprache, ohne die schwierigen Teile für gelöst zu erklären. Jeder Begriff hat einen eigenen Ankerlink, sodass Sie Kollegen oder einen Assistenten direkt auf eine einzelne Definition verweisen können.",
+      "tocTitle": "Kategorien",
+      "termsWord": "Begriffe",
+      "ctaTitle": "Bauen Sie etwas mit einem LLM?",
+      "ctaText": "Ich entwerfe und liefere produktionsreife KI-Systeme — RAG-Pipelines, semantische Suche, Evaluation und die Technik drumherum.",
+      "relatedTitle": "Verwandte Leistungen"
+    }
+  },
+  "categories": [
+    {
+      "id": "basics",
+      "name": {
+        "en": "LLM fundamentals",
+        "hu": "LLM alapok",
+        "de": "LLM-Grundlagen"
+      },
+      "terms": [
+        {
+          "id": "llm",
+          "en": {
+            "t": "Large language model (LLM)",
+            "d": "A neural network trained on very large amounts of text to predict the next token. That single mechanism is enough to summarise, translate, classify and write code — but it also means the model produces plausible continuations, not verified facts."
+          },
+          "hu": {
+            "t": "Nagy nyelvi modell (LLM)",
+            "d": "Hatalmas szövegmennyiségen tanított neurális háló, amely a következő tokent jósolja meg. Ez az egyetlen mechanizmus elég az összefoglaláshoz, fordításhoz, klasszifikációhoz és kódíráshoz — de azt is jelenti, hogy a modell hihető folytatást állít elő, nem ellenőrzött tényt."
+          },
+          "de": {
+            "t": "Großes Sprachmodell (LLM)",
+            "d": "Ein neuronales Netz, das auf sehr großen Textmengen trainiert wurde, um das nächste Token vorherzusagen. Dieser eine Mechanismus genügt für Zusammenfassung, Übersetzung, Klassifikation und Code — bedeutet aber auch: Das Modell erzeugt plausible Fortsetzungen, keine geprüften Fakten."
+          }
+        },
+        {
+          "id": "token",
+          "en": {
+            "t": "Token",
+            "d": "The unit an LLM actually reads and writes: roughly a word piece, about four characters in English and noticeably less efficient in Hungarian or German. Context limits, latency and billing are all counted in tokens, not words."
+          },
+          "hu": {
+            "t": "Token",
+            "d": "Az az egység, amit az LLM ténylegesen olvas és ír: nagyjából egy szótöredék, angolban négy karakter körül, magyarul és németül érezhetően rosszabb hatásfokkal. A kontextuskorlát, a késleltetés és a számlázás is tokenben mérődik, nem szóban."
+          },
+          "de": {
+            "t": "Token",
+            "d": "Die Einheit, die ein LLM tatsächlich liest und schreibt: grob ein Wortteil, im Englischen etwa vier Zeichen, im Deutschen oder Ungarischen deutlich ineffizienter. Kontextgrenze, Latenz und Abrechnung zählen in Token, nicht in Wörtern."
+          }
+        },
+        {
+          "id": "context-window",
+          "en": {
+            "t": "Context window",
+            "d": "The maximum number of tokens a model can consider at once — system prompt, conversation, retrieved documents and its own answer together. Exceeding it truncates the oldest content, which is why long chats quietly start forgetting instructions."
+          },
+          "hu": {
+            "t": "Kontextusablak",
+            "d": "Az a maximális tokenszám, amit a modell egyszerre figyelembe vehet — a rendszerprompt, a beszélgetés, a behúzott dokumentumok és a saját válasza együtt. Túllépésnél a legrégebbi tartalom levágódik, ezért kezd egy hosszú beszélgetés csendben elfelejteni utasításokat."
+          },
+          "de": {
+            "t": "Kontextfenster",
+            "d": "Die maximale Tokenzahl, die ein Modell gleichzeitig berücksichtigen kann — System-Prompt, Konversation, abgerufene Dokumente und die eigene Antwort zusammen. Wird sie überschritten, fällt der älteste Inhalt weg; deshalb vergessen lange Chats still und leise Anweisungen."
+          }
+        },
+        {
+          "id": "prompt",
+          "en": {
+            "t": "Prompt",
+            "d": "Everything sent to the model for one request: instructions, examples, retrieved context and the user's question. In production a prompt is not a clever sentence but a versioned, tested artefact — changing it changes behaviour the same way changing code does."
+          },
+          "hu": {
+            "t": "Prompt",
+            "d": "Minden, amit egy kéréshez elküldünk a modellnek: utasítások, példák, behúzott kontextus és a felhasználó kérdése. Éles rendszerben a prompt nem egy ügyes mondat, hanem verziózott, tesztelt artefaktum — ugyanúgy megváltoztatja a viselkedést, mint egy kódmódosítás."
+          },
+          "de": {
+            "t": "Prompt",
+            "d": "Alles, was für eine Anfrage an das Modell geht: Anweisungen, Beispiele, abgerufener Kontext und die Nutzerfrage. In Produktion ist ein Prompt kein cleverer Satz, sondern ein versioniertes, getestetes Artefakt — eine Änderung wirkt wie eine Codeänderung."
+          }
+        },
+        {
+          "id": "system-prompt",
+          "en": {
+            "t": "System prompt",
+            "d": "The standing instruction that frames every request in a conversation: role, tone, rules, output format. It carries more weight than the user's message, which makes it the natural place for guardrails — and a frequent target of prompt injection."
+          },
+          "hu": {
+            "t": "Rendszerprompt",
+            "d": "Az az állandó utasítás, amely a beszélgetés minden kérését keretezi: szerep, hangnem, szabályok, kimeneti formátum. Nagyobb súllyal esik latba, mint a felhasználó üzenete, ezért ez a védőkorlátok természetes helye — és a prompt injection gyakori célpontja."
+          },
+          "de": {
+            "t": "System-Prompt",
+            "d": "Die dauerhafte Anweisung, die jede Anfrage einer Konversation rahmt: Rolle, Ton, Regeln, Ausgabeformat. Sie wiegt schwerer als die Nutzernachricht und ist damit der natürliche Ort für Leitplanken — und ein häufiges Ziel von Prompt Injection."
+          }
+        },
+        {
+          "id": "temperature",
+          "en": {
+            "t": "Temperature",
+            "d": "A sampling parameter controlling how much randomness is allowed when picking the next token. Near 0 the output is repeatable and conservative, which is what you want for extraction and classification; higher values buy variety at the cost of reliability."
+          },
+          "hu": {
+            "t": "Temperature (hőmérséklet)",
+            "d": "Mintavételi paraméter, amely azt szabályozza, mennyi véletlenszerűség megengedett a következő token kiválasztásánál. 0 közelében a kimenet ismételhető és konzervatív — ez kell kinyeréshez és klasszifikációhoz; a magasabb érték változatosságot vesz, megbízhatóságért cserébe."
+          },
+          "de": {
+            "t": "Temperature (Temperatur)",
+            "d": "Ein Sampling-Parameter, der steuert, wie viel Zufall bei der Wahl des nächsten Tokens erlaubt ist. Nahe 0 ist die Ausgabe wiederholbar und konservativ — genau richtig für Extraktion und Klassifikation; höhere Werte erkaufen Vielfalt mit Verlässlichkeit."
+          }
+        },
+        {
+          "id": "top-p",
+          "en": {
+            "t": "Top-p and top-k sampling",
+            "d": "Two ways to limit which tokens may be chosen. Top-k keeps the k most likely candidates; top-p (nucleus sampling) keeps the smallest set whose probabilities sum to p. Tightening them is usually a better way to stabilise output than temperature alone."
+          },
+          "hu": {
+            "t": "Top-p és top-k mintavétel",
+            "d": "Két módszer annak korlátozására, mely tokenek választhatók. A top-k a k legvalószínűbb jelöltet tartja meg; a top-p (nucleus sampling) a legkisebb olyan halmazt, amelynek valószínűségei p-t adnak ki. Ezek szorítása általában jobban stabilizál, mint önmagában a temperature."
+          },
+          "de": {
+            "t": "Top-p- und Top-k-Sampling",
+            "d": "Zwei Wege, die Auswahl der möglichen Tokens einzugrenzen. Top-k behält die k wahrscheinlichsten Kandidaten, Top-p (Nucleus Sampling) die kleinste Menge, deren Wahrscheinlichkeiten p ergeben. Sie zu verengen stabilisiert die Ausgabe meist besser als Temperature allein."
+          }
+        },
+        {
+          "id": "hallucination",
+          "en": {
+            "t": "Hallucination",
+            "d": "A fluent, confident answer that is simply wrong — an invented citation, API method or figure. It is not a bug to be patched but a property of next-token prediction, so it is managed with retrieval, grounding, output validation and evaluation rather than eliminated."
+          },
+          "hu": {
+            "t": "Hallucináció",
+            "d": "Gördülékeny, magabiztos válasz, ami egyszerűen hamis — kitalált hivatkozás, API-metódus vagy szám. Nem javítható hiba, hanem a következő-token-jóslás tulajdonsága, ezért retrievallel, megalapozással, kimenet-validálással és kiértékeléssel kezeljük, nem megszüntetjük."
+          },
+          "de": {
+            "t": "Halluzination",
+            "d": "Eine flüssige, selbstbewusste Antwort, die schlicht falsch ist — eine erfundene Quelle, API-Methode oder Zahl. Kein Bug, der sich patchen lässt, sondern eine Eigenschaft der Next-Token-Vorhersage: Man managt sie mit Retrieval, Grounding, Ausgabevalidierung und Evaluation."
+          }
+        }
+      ]
+    },
+    {
+      "id": "rag",
+      "name": {
+        "en": "RAG and retrieval",
+        "hu": "RAG és keresés",
+        "de": "RAG und Retrieval"
+      },
+      "terms": [
+        {
+          "id": "rag",
+          "en": {
+            "t": "RAG (retrieval-augmented generation)",
+            "d": "Retrieve the relevant passages from your own data first, then let the model answer using only those. It is how an LLM gets access to private, current or too-large-to-fit knowledge, and it turns answers into something you can trace back to a source."
+          },
+          "hu": {
+            "t": "RAG (retrieval-augmented generation)",
+            "d": "Előbb kikeressük a releváns részleteket a saját adatodból, aztán a modell csak azokból válaszol. Így jut az LLM privát, friss vagy a kontextusba be nem férő tudáshoz — és így lesz a válasz forrásig visszavezethető."
+          },
+          "de": {
+            "t": "RAG (Retrieval-Augmented Generation)",
+            "d": "Zuerst die relevanten Passagen aus den eigenen Daten abrufen, dann das Modell ausschließlich daraus antworten lassen. So bekommt ein LLM Zugriff auf private, aktuelle oder zu umfangreiche Inhalte — und die Antwort wird auf eine Quelle zurückführbar."
+          }
+        },
+        {
+          "id": "embedding",
+          "en": {
+            "t": "Embedding",
+            "d": "A vector of numbers representing the meaning of a piece of text, so that similar meanings sit close together. Embeddings are what make semantic search, clustering and deduplication possible without matching a single keyword."
+          },
+          "hu": {
+            "t": "Embedding (beágyazás)",
+            "d": "Számvektor, amely egy szövegrészlet jelentését reprezentálja úgy, hogy a hasonló jelentések közel kerülnek egymáshoz. Az embedding teszi lehetővé a szemantikus keresést, a klaszterezést és a duplikátumszűrést egyetlen kulcsszóegyezés nélkül."
+          },
+          "de": {
+            "t": "Embedding",
+            "d": "Ein Zahlenvektor, der die Bedeutung eines Textstücks abbildet — ähnliche Bedeutungen liegen nah beieinander. Embeddings ermöglichen semantische Suche, Clustering und Deduplizierung, ganz ohne Schlüsselwort-Treffer."
+          }
+        },
+        {
+          "id": "vector-database",
+          "en": {
+            "t": "Vector database",
+            "d": "A store built to find the nearest vectors to a query vector in milliseconds across millions of entries — pgvector, Qdrant, Pinecone. For moderate data volumes a Postgres extension is usually enough; a separate service earns its keep at scale."
+          },
+          "hu": {
+            "t": "Vektor adatbázis",
+            "d": "Olyan tároló, amely milliós nagyságrendben is ezredmásodpercek alatt megtalálja a kérdésvektorhoz legközelebbi vektorokat — pgvector, Qdrant, Pinecone. Közepes adatmennyiségnél általában elég egy Postgres-kiterjesztés; külön szolgáltatás nagy méretben térül meg."
+          },
+          "de": {
+            "t": "Vektordatenbank",
+            "d": "Ein Speicher, der in Millisekunden die nächstgelegenen Vektoren zu einem Anfragevektor findet — pgvector, Qdrant, Pinecone. Bei moderaten Datenmengen genügt meist eine Postgres-Erweiterung; ein eigener Dienst lohnt sich erst bei großem Volumen."
+          }
+        },
+        {
+          "id": "semantic-search",
+          "en": {
+            "t": "Semantic search",
+            "d": "Search by meaning instead of by string match, using embeddings. It finds the right document when the user's words differ from the text's words — and it is also why an exact product code can rank worse than with plain keyword search."
+          },
+          "hu": {
+            "t": "Szemantikus keresés",
+            "d": "Keresés jelentés alapján, karakteregyezés helyett, embeddingekkel. Akkor is megtalálja a jó dokumentumot, ha a felhasználó más szavakat használ, mint a szöveg — cserébe egy pontos cikkszámra gyengébb lehet, mint a sima kulcsszavas keresés."
+          },
+          "de": {
+            "t": "Semantische Suche",
+            "d": "Suche nach Bedeutung statt nach Zeichenkette, auf Basis von Embeddings. Sie findet das richtige Dokument auch bei anderer Wortwahl — und genau deshalb kann eine exakte Artikelnummer schlechter treffen als bei klassischer Stichwortsuche."
+          }
+        },
+        {
+          "id": "chunking",
+          "en": {
+            "t": "Chunking",
+            "d": "Cutting documents into retrievable pieces. The single most underrated decision in RAG: chunks that split a table from its header, or an answer from its question, quietly poison retrieval no matter how good the model is."
+          },
+          "hu": {
+            "t": "Chunkolás (darabolás)",
+            "d": "A dokumentumok visszakereshető darabokra vágása. A RAG legalulértékeltebb döntése: az a darabolás, amely elszakítja a táblázatot a fejlécétől vagy a választ a kérdésétől, csendben tönkreteszi a keresést, bármilyen jó is a modell."
+          },
+          "de": {
+            "t": "Chunking",
+            "d": "Das Zerlegen von Dokumenten in abrufbare Stücke. Die am meisten unterschätzte Entscheidung in RAG: Chunks, die eine Tabelle von ihrer Kopfzeile oder eine Antwort von ihrer Frage trennen, ruinieren das Retrieval — unabhängig von der Modellqualität."
+          }
+        },
+        {
+          "id": "reranking",
+          "en": {
+            "t": "Reranking",
+            "d": "A second pass that reorders the retrieved candidates with a slower, more accurate model before they reach the LLM. Retrieve twenty, rerank, keep five: usually the cheapest single improvement to answer quality in a working RAG system."
+          },
+          "hu": {
+            "t": "Reranking (újrarangsorolás)",
+            "d": "Második menet, amely egy lassabb, pontosabb modellel átrendezi a találatokat, mielőtt az LLM elé kerülnének. Húszat behúzni, újrarangsorolni, ötöt megtartani: egy működő RAG-rendszerben rendszerint ez a legolcsóbb minőségjavítás."
+          },
+          "de": {
+            "t": "Reranking",
+            "d": "Ein zweiter Durchgang, der die gefundenen Kandidaten mit einem langsameren, genaueren Modell neu ordnet, bevor sie das LLM erreichen. Zwanzig abrufen, neu ranken, fünf behalten: meist die günstigste einzelne Qualitätsverbesserung in einem RAG-System."
+          }
+        },
+        {
+          "id": "hybrid-search",
+          "en": {
+            "t": "Hybrid search",
+            "d": "Combining keyword (BM25) and vector search and merging the two result lists. It covers each method's blind spot — exact identifiers and rare words for the keyword side, paraphrases and synonyms for the vector side."
+          },
+          "hu": {
+            "t": "Hibrid keresés",
+            "d": "A kulcsszavas (BM25) és a vektoros keresés kombinálása, a két találati lista összefésülésével. Kioltja egymás vakfoltját: a kulcsszavas oldal hozza a pontos azonosítókat és ritka szavakat, a vektoros az átfogalmazásokat és szinonimákat."
+          },
+          "de": {
+            "t": "Hybride Suche",
+            "d": "Die Kombination aus Stichwortsuche (BM25) und Vektorsuche mit anschließender Zusammenführung beider Trefferlisten. Sie deckt die blinden Flecken beider Verfahren ab: exakte Bezeichner und seltene Wörter hier, Umschreibungen und Synonyme dort."
+          }
+        },
+        {
+          "id": "grounding",
+          "en": {
+            "t": "Grounding and citation",
+            "d": "Requiring the model to answer only from supplied sources and to name which passage each claim came from. Citations are not decoration: they make an answer auditable, and they make a wrong answer diagnosable."
+          },
+          "hu": {
+            "t": "Megalapozás (grounding) és forrásmegjelölés",
+            "d": "Annak megkövetelése, hogy a modell csak a megadott forrásokból válaszoljon, és megnevezze, melyik részletből származik az adott állítás. A forrásmegjelölés nem dísz: auditálhatóvá teszi a választ, a hibás választ pedig diagnosztizálhatóvá."
+          },
+          "de": {
+            "t": "Grounding und Quellenangabe",
+            "d": "Die Vorgabe, dass das Modell ausschließlich aus den gelieferten Quellen antwortet und zu jeder Aussage die Passage nennt. Quellenangaben sind kein Schmuck: Sie machen eine Antwort prüfbar — und eine falsche Antwort diagnostizierbar."
+          }
+        },
+        {
+          "id": "llms-txt",
+          "en": {
+            "t": "llms.txt",
+            "d": "A plain-text file at the root of a site that gives AI assistants a structured summary and a map of the important pages — robots.txt for meaning rather than permission. The companion llms-full.txt carries the entire content in one fetch."
+          },
+          "hu": {
+            "t": "llms.txt",
+            "d": "Az oldal gyökerében elhelyezett egyszerű szöveges fájl, amely strukturált összefoglalót és térképet ad az AI-asszisztenseknek a fontos oldalakról — mintha a robots.txt nem engedélyről, hanem jelentésről szólna. Párja, az llms-full.txt a teljes tartalmat adja egyetlen lekérésben."
+          },
+          "de": {
+            "t": "llms.txt",
+            "d": "Eine Textdatei im Wurzelverzeichnis, die KI-Assistenten eine strukturierte Zusammenfassung und eine Karte der wichtigen Seiten liefert — robots.txt, aber für Bedeutung statt Erlaubnis. Das Gegenstück llms-full.txt liefert den gesamten Inhalt in einem Abruf."
+          }
+        }
+      ]
+    },
+    {
+      "id": "training",
+      "name": {
+        "en": "Training and tuning",
+        "hu": "Tanítás és finomhangolás",
+        "de": "Training und Tuning"
+      },
+      "terms": [
+        {
+          "id": "pretraining",
+          "en": {
+            "t": "Pre-training",
+            "d": "The original, enormously expensive training run on broad text that produces a base model's general ability. Almost nobody outside the large labs does this; everything most teams call 'training' is one of the cheaper adaptations built on top."
+          },
+          "hu": {
+            "t": "Előtanítás (pre-training)",
+            "d": "Az az eredeti, rendkívül drága tanítási futás széles szövegkorpuszon, amely az alapmodell általános képességét adja. A nagy laborokon kívül ezt szinte senki nem csinálja; amit a legtöbb csapat „tanításnak” hív, az a rá épülő olcsóbb adaptációk egyike."
+          },
+          "de": {
+            "t": "Pre-Training",
+            "d": "Der ursprüngliche, extrem teure Trainingslauf auf breitem Text, der die allgemeine Fähigkeit eines Basismodells erzeugt. Außerhalb der großen Labore macht das praktisch niemand; was die meisten Teams „Training“ nennen, ist eine der günstigeren Anpassungen darauf."
+          }
+        },
+        {
+          "id": "fine-tuning",
+          "en": {
+            "t": "Fine-tuning",
+            "d": "Continuing training on your own examples so the model adopts a format, tone or narrow task. It teaches behaviour, not facts — if the model needs to know your data, use retrieval; fine-tune when you need it to answer in a specific way, consistently."
+          },
+          "hu": {
+            "t": "Finomhangolás (fine-tuning)",
+            "d": "A tanítás folytatása saját példákon, hogy a modell átvegyen egy formátumot, hangnemet vagy szűk feladatot. Viselkedést tanít, nem tényeket — ha az adataidat kell ismernie, retrieval kell; finomhangolás akkor, ha következetesen adott módon kell válaszolnia."
+          },
+          "de": {
+            "t": "Fine-Tuning",
+            "d": "Fortgesetztes Training auf eigenen Beispielen, damit das Modell ein Format, einen Ton oder eine enge Aufgabe übernimmt. Es lehrt Verhalten, keine Fakten — für eigene Daten nutzt man Retrieval; Fine-Tuning, wenn konsistent auf bestimmte Weise geantwortet werden soll."
+          }
+        },
+        {
+          "id": "lora",
+          "en": {
+            "t": "LoRA and parameter-efficient tuning",
+            "d": "Training a small set of extra weights instead of the whole model, cutting cost and hardware needs by orders of magnitude. Adapters can be swapped per customer or task and stacked on one shared base model."
+          },
+          "hu": {
+            "t": "LoRA és paraméterhatékony hangolás",
+            "d": "A teljes modell helyett egy kis extra súlyhalmaz tanítása, nagyságrendekkel kisebb költséggel és hardverigénnyel. Az adapterek ügyfelenként vagy feladatonként cserélhetők, és egyetlen közös alapmodellre rétegezhetők."
+          },
+          "de": {
+            "t": "LoRA und parameter-effizientes Tuning",
+            "d": "Statt des ganzen Modells wird nur ein kleiner Satz zusätzlicher Gewichte trainiert — um Größenordnungen günstiger und mit geringerem Hardwarebedarf. Adapter lassen sich pro Kunde oder Aufgabe tauschen und auf einem gemeinsamen Basismodell stapeln."
+          }
+        },
+        {
+          "id": "rlhf",
+          "en": {
+            "t": "RLHF (reinforcement learning from human feedback)",
+            "d": "Aligning a model using human preference judgements between candidate answers. It is what turns a raw text predictor into an assistant that follows instructions and declines the things it should decline."
+          },
+          "hu": {
+            "t": "RLHF (megerősítéses tanulás emberi visszajelzésből)",
+            "d": "A modell hangolása aszerint, hogy emberek melyik válaszjelöltet részesítik előnyben. Ettől lesz a nyers szövegjóslóból olyan asszisztens, amely követi az utasításokat, és visszautasítja azt, amit vissza kell utasítania."
+          },
+          "de": {
+            "t": "RLHF (Reinforcement Learning aus menschlichem Feedback)",
+            "d": "Ausrichtung eines Modells anhand menschlicher Präferenzurteile zwischen Antwortkandidaten. Erst dadurch wird aus einem reinen Textvorhersager ein Assistent, der Anweisungen befolgt und ablehnt, was abzulehnen ist."
+          }
+        },
+        {
+          "id": "instruction-tuning",
+          "en": {
+            "t": "Instruction tuning",
+            "d": "Training on instruction-and-response pairs so a model reliably does what it is asked rather than continuing the text. It is the difference between a completion engine and something you can hand a task to."
+          },
+          "hu": {
+            "t": "Instrukciós hangolás",
+            "d": "Tanítás utasítás–válasz párokon, hogy a modell megbízhatóan azt tegye, amit kérnek tőle, ahelyett hogy folytatná a szöveget. Ez a különbség egy szövegfolytató motor és egy olyan rendszer között, amelynek feladatot lehet adni."
+          },
+          "de": {
+            "t": "Instruction Tuning",
+            "d": "Training auf Paaren aus Anweisung und Antwort, damit ein Modell zuverlässig das Geforderte tut, statt den Text fortzusetzen. Das ist der Unterschied zwischen einer Vervollständigungsmaschine und etwas, dem man eine Aufgabe übergeben kann."
+          }
+        },
+        {
+          "id": "few-shot",
+          "en": {
+            "t": "Zero-shot and few-shot prompting",
+            "d": "Zero-shot means asking with instructions only; few-shot means including a handful of worked examples in the prompt. Three good examples routinely beat a page of prose instructions, and cost far less than fine-tuning."
+          },
+          "hu": {
+            "t": "Zero-shot és few-shot promptolás",
+            "d": "A zero-shot csak utasítással kérdez, a few-shot néhány kidolgozott példát is betesz a promptba. Három jó példa rendszeresen többet ér, mint egy oldalnyi prózai utasítás — és sokkal olcsóbb, mint a finomhangolás."
+          },
+          "de": {
+            "t": "Zero-Shot- und Few-Shot-Prompting",
+            "d": "Zero-Shot fragt nur mit Anweisungen, Few-Shot legt einige ausgearbeitete Beispiele in den Prompt. Drei gute Beispiele schlagen regelmäßig eine Seite Fließtext-Anweisungen — und kosten weit weniger als Fine-Tuning."
+          }
+        },
+        {
+          "id": "quantization",
+          "en": {
+            "t": "Quantization",
+            "d": "Storing model weights at lower numeric precision so a model fits on smaller hardware and runs faster. Quality loss is modest down to about 4-bit for most tasks, which is what makes self-hosted models practical."
+          },
+          "hu": {
+            "t": "Kvantálás",
+            "d": "A modellsúlyok alacsonyabb számábrázolási pontosságú tárolása, hogy a modell kisebb hardveren is elférjen és gyorsabban fusson. A minőségromlás a legtöbb feladatnál körülbelül 4 bitig mérsékelt — ettől lesz reális a saját üzemeltetésű modell."
+          },
+          "de": {
+            "t": "Quantisierung",
+            "d": "Modellgewichte werden mit geringerer numerischer Präzision gespeichert, damit ein Modell auf kleinere Hardware passt und schneller läuft. Der Qualitätsverlust bleibt bis etwa 4 Bit für die meisten Aufgaben moderat — das macht selbst gehostete Modelle praktikabel."
+          }
+        },
+        {
+          "id": "distillation",
+          "en": {
+            "t": "Distillation",
+            "d": "Training a small, cheap model on the outputs of a large one. Done on a narrow, well-defined task it can match the big model closely at a fraction of the latency and cost — and it is a sound way to get an expensive pipeline into production economics."
+          },
+          "hu": {
+            "t": "Desztilláció",
+            "d": "Kis, olcsó modell tanítása egy nagy modell kimenetein. Szűk, jól definiált feladaton megközelítheti a nagy modell minőségét a késleltetés és a költség töredékéért — jó módszer arra, hogy egy drága pipeline elérje az éles üzem gazdaságosságát."
+          },
+          "de": {
+            "t": "Distillation",
+            "d": "Ein kleines, günstiges Modell wird auf den Ausgaben eines großen trainiert. Bei einer eng definierten Aufgabe erreicht es das große Modell nahezu — bei einem Bruchteil von Latenz und Kosten. Ein solider Weg, eine teure Pipeline wirtschaftlich zu machen."
+          }
+        }
+      ]
+    },
+    {
+      "id": "agents",
+      "name": {
+        "en": "Agents and tool use",
+        "hu": "Ágensek és eszközhasználat",
+        "de": "Agenten und Werkzeugnutzung"
+      },
+      "terms": [
+        {
+          "id": "ai-agent",
+          "en": {
+            "t": "AI agent",
+            "d": "An LLM that can take actions — call tools, read results, decide the next step — instead of only producing text. The engineering work is rarely the reasoning; it is the boundaries, permissions and stopping conditions around it."
+          },
+          "hu": {
+            "t": "AI ágens",
+            "d": "Olyan LLM, amely cselekedni is tud — eszközöket hív, elolvassa az eredményt, eldönti a következő lépést —, nem csak szöveget állít elő. A mérnöki munka ritkán a gondolkodás: a köré húzott határok, jogosultságok és leállási feltételek."
+          },
+          "de": {
+            "t": "KI-Agent",
+            "d": "Ein LLM, das handeln kann — Werkzeuge aufrufen, Ergebnisse lesen, den nächsten Schritt bestimmen — statt nur Text zu erzeugen. Die eigentliche Arbeit ist selten das Schlussfolgern, sondern Grenzen, Berechtigungen und Abbruchbedingungen darum herum."
+          }
+        },
+        {
+          "id": "agentic-workflow",
+          "en": {
+            "t": "Agentic workflow",
+            "d": "A multi-step process where the model plans, acts and checks its own work in a loop. Powerful for open-ended tasks, but each extra step multiplies cost, latency and failure modes — most production problems are better served by a fixed pipeline."
+          },
+          "hu": {
+            "t": "Ágens munkafolyamat",
+            "d": "Többlépéses folyamat, amelyben a modell ciklusban tervez, cselekszik és ellenőrzi a saját munkáját. Nyílt végű feladatokra erős, de minden extra lépés sokszorozza a költséget, a késleltetést és a hibalehetőségeket — éles problémák többségét jobban szolgálja egy fix pipeline."
+          },
+          "de": {
+            "t": "Agentischer Workflow",
+            "d": "Ein mehrstufiger Prozess, in dem das Modell in einer Schleife plant, handelt und die eigene Arbeit prüft. Stark bei offenen Aufgaben, aber jeder zusätzliche Schritt vervielfacht Kosten, Latenz und Fehlerquellen — die meisten Produktionsprobleme löst eine feste Pipeline besser."
+          }
+        },
+        {
+          "id": "tool-calling",
+          "en": {
+            "t": "Tool calling (function calling)",
+            "d": "Giving the model a typed list of functions it may invoke — a database query, an API call, a calculation — and letting it return a structured call instead of prose. This is how an LLM touches real systems safely and verifiably."
+          },
+          "hu": {
+            "t": "Eszközhívás (function calling)",
+            "d": "A modell kap egy típusos függvénylistát, amit meghívhat — adatbázis-lekérdezés, API-hívás, számítás —, és próza helyett strukturált hívást ad vissza. Így ér hozzá egy LLM valódi rendszerekhez biztonságosan és ellenőrizhetően."
+          },
+          "de": {
+            "t": "Tool Calling (Function Calling)",
+            "d": "Das Modell erhält eine typisierte Liste aufrufbarer Funktionen — Datenbankabfrage, API-Aufruf, Berechnung — und gibt statt Prosa einen strukturierten Aufruf zurück. So berührt ein LLM echte Systeme sicher und überprüfbar."
+          }
+        },
+        {
+          "id": "mcp",
+          "en": {
+            "t": "MCP (Model Context Protocol)",
+            "d": "An open protocol for connecting models to tools and data sources through a common interface, so an integration written once works across assistants. It replaces the bespoke glue every team used to write per vendor."
+          },
+          "hu": {
+            "t": "MCP (Model Context Protocol)",
+            "d": "Nyílt protokoll, amely közös interfészen köti a modelleket eszközökhöz és adatforrásokhoz, így az egyszer megírt integráció több asszisztenssel is működik. Kiváltja azt az egyedi ragasztókódot, amit korábban minden csapat gyártónként megírt."
+          },
+          "de": {
+            "t": "MCP (Model Context Protocol)",
+            "d": "Ein offenes Protokoll, das Modelle über eine gemeinsame Schnittstelle mit Werkzeugen und Datenquellen verbindet — eine einmal geschriebene Integration funktioniert so über Assistenten hinweg. Es ersetzt den maßgeschneiderten Klebecode pro Anbieter."
+          }
+        },
+        {
+          "id": "multi-agent",
+          "en": {
+            "t": "Multi-agent system",
+            "d": "Several specialised agents working on one task, often with a coordinator. It genuinely helps when subtasks need different tools or permissions; it mostly adds cost and non-determinism when a single well-prompted call would do."
+          },
+          "hu": {
+            "t": "Többágenses rendszer",
+            "d": "Több specializált ágens dolgozik egy feladaton, gyakran koordinátorral. Valóban segít, ha a részfeladatok eltérő eszközöket vagy jogosultságokat igényelnek; többnyire csak költséget és kiszámíthatatlanságot ad, ha egyetlen jól megírt hívás is elég lenne."
+          },
+          "de": {
+            "t": "Multi-Agenten-System",
+            "d": "Mehrere spezialisierte Agenten arbeiten an einer Aufgabe, oft mit einem Koordinator. Hilft wirklich, wenn Teilaufgaben unterschiedliche Werkzeuge oder Rechte brauchen; sonst erzeugt es vor allem Kosten und Nichtdeterminismus, wo ein guter Einzelaufruf genügt hätte."
+          }
+        },
+        {
+          "id": "guardrails",
+          "en": {
+            "t": "Guardrails",
+            "d": "The checks around a model: input filtering, output schema validation, allowed-action lists, budget and step limits. Guardrails are ordinary software — deterministic code you can test — and they are what makes a non-deterministic component safe to ship."
+          },
+          "hu": {
+            "t": "Védőkorlátok (guardrails)",
+            "d": "A modell köré épített ellenőrzések: bemenetszűrés, kimeneti séma validálása, engedélyezett műveletek listája, költség- és lépéskorlátok. A védőkorlát hagyományos szoftver — determinisztikus, tesztelhető kód —, és ettől lesz élesbe adható egy nem determinisztikus komponens."
+          },
+          "de": {
+            "t": "Guardrails (Leitplanken)",
+            "d": "Die Prüfungen rund um das Modell: Eingabefilter, Validierung des Ausgabeschemas, Positivlisten erlaubter Aktionen, Budget- und Schrittgrenzen. Guardrails sind gewöhnliche, deterministisch testbare Software — und machen eine nichtdeterministische Komponente erst produktionsreif."
+          }
+        },
+        {
+          "id": "human-in-the-loop",
+          "en": {
+            "t": "Human in the loop",
+            "d": "Requiring human approval before an action that is expensive, irreversible or customer-facing. The design question is not whether to include a human, but exactly which steps need one — too many approvals and the automation stops paying for itself."
+          },
+          "hu": {
+            "t": "Ember a hurokban (human in the loop)",
+            "d": "Emberi jóváhagyás megkövetelése minden drága, visszafordíthatatlan vagy ügyfél felé menő művelet előtt. A kérdés nem az, hogy legyen-e ember a folyamatban, hanem hogy pontosan mely lépéseknél — túl sok jóváhagyásnál az automatizálás már nem térül meg."
+          },
+          "de": {
+            "t": "Human in the Loop",
+            "d": "Menschliche Freigabe vor jeder teuren, unumkehrbaren oder kundenwirksamen Aktion. Die Entwurfsfrage ist nicht ob, sondern an welchen Schritten genau — bei zu vielen Freigaben rechnet sich die Automatisierung nicht mehr."
+          }
+        },
+        {
+          "id": "orchestration",
+          "en": {
+            "t": "Orchestration",
+            "d": "The layer that decides what runs when: retrieval, model calls, tools, retries, fallbacks and state. Frameworks like LangChain or LangGraph live here — useful, but a plain state machine is often the more maintainable choice."
+          },
+          "hu": {
+            "t": "Orkesztráció",
+            "d": "Az a réteg, amely eldönti, mi mikor fut: retrieval, modellhívások, eszközök, újrapróbálkozások, tartalékutak és állapot. Az olyan keretrendszerek, mint a LangChain vagy a LangGraph, itt élnek — hasznosak, de gyakran egy egyszerű állapotgép a karbantarthatóbb választás."
+          },
+          "de": {
+            "t": "Orchestrierung",
+            "d": "Die Schicht, die festlegt, was wann läuft: Retrieval, Modellaufrufe, Werkzeuge, Wiederholungen, Fallbacks und Zustand. Hier leben Frameworks wie LangChain oder LangGraph — nützlich, doch oft ist eine schlichte Zustandsmaschine die wartbarere Wahl."
+          }
+        }
+      ]
+    },
+    {
+      "id": "evaluation",
+      "name": {
+        "en": "Evaluation and quality",
+        "hu": "Kiértékelés és minőség",
+        "de": "Evaluation und Qualität"
+      },
+      "terms": [
+        {
+          "id": "benchmark",
+          "en": {
+            "t": "Benchmark",
+            "d": "A standard test set used to compare models. Useful for a shortlist, misleading as a decision: public benchmarks leak into training data, and none of them measure your documents, your users or your definition of a good answer."
+          },
+          "hu": {
+            "t": "Benchmark",
+            "d": "Szabványos tesztkészlet modellek összehasonlítására. Szűkítéshez hasznos, döntésnek félrevezető: a nyilvános benchmarkok beszivárognak a tanítóadatba, és egyik sem a te dokumentumaidat, felhasználóidat és jó-válasz-definíciódat méri."
+          },
+          "de": {
+            "t": "Benchmark",
+            "d": "Ein Standard-Testsatz zum Vergleich von Modellen. Gut für eine Vorauswahl, irreführend als Entscheidung: Öffentliche Benchmarks sickern in Trainingsdaten, und keiner misst Ihre Dokumente, Ihre Nutzer oder Ihre Definition einer guten Antwort."
+          }
+        },
+        {
+          "id": "eval",
+          "en": {
+            "t": "Eval",
+            "d": "Your own automated test suite for an LLM feature: fixed inputs, expected properties, a score you can watch across model and prompt changes. Without evals you are not engineering an AI feature, you are adjusting it by feel."
+          },
+          "hu": {
+            "t": "Eval (kiértékelés)",
+            "d": "Saját, automatizált tesztkészlet egy LLM-funkcióra: rögzített bemenetek, elvárt tulajdonságok, és egy pontszám, amit modell- és promptváltozásokon át követni tudsz. Evalok nélkül nem mérnökölsz AI-funkciót, hanem érzésre állítgatod."
+          },
+          "de": {
+            "t": "Eval (Evaluation)",
+            "d": "Die eigene automatisierte Testsuite für ein LLM-Feature: feste Eingaben, erwartete Eigenschaften, eine Kennzahl, die man über Modell- und Prompt-Änderungen hinweg verfolgt. Ohne Evals entwickelt man kein KI-Feature, man justiert es nach Gefühl."
+          }
+        },
+        {
+          "id": "golden-dataset",
+          "en": {
+            "t": "Golden dataset",
+            "d": "A curated set of real inputs with verified correct outputs, owned by the domain experts rather than the developers. A hundred well-chosen cases beat ten thousand scraped ones, and it is the single asset that makes every later model change measurable."
+          },
+          "hu": {
+            "t": "Golden dataset (referencia-adathalmaz)",
+            "d": "Gondozott halmaz valódi bemenetekből és ellenőrzött helyes kimenetekből, amelynek a gazdája a szakterületi szakértő, nem a fejlesztő. Száz jól választott eset többet ér tízezer legyűjtöttnél — és ez az az eszköz, amitől minden későbbi modellváltás mérhetővé válik."
+          },
+          "de": {
+            "t": "Golden Dataset",
+            "d": "Ein kuratierter Satz echter Eingaben mit geprüft korrekten Ausgaben, verantwortet von Fachexperten statt von Entwicklern. Hundert gut gewählte Fälle schlagen zehntausend zusammengesammelte — und erst dieses Asset macht jeden späteren Modellwechsel messbar."
+          }
+        },
+        {
+          "id": "llm-as-judge",
+          "en": {
+            "t": "LLM as a judge",
+            "d": "Using a model to grade another model's output against a rubric. It scales evaluation to volumes humans cannot review, but it inherits the judge's biases — so it needs calibrating against human ratings before you trust the numbers."
+          },
+          "hu": {
+            "t": "LLM mint bíró (LLM-as-a-judge)",
+            "d": "Egy modell értékeli egy másik modell kimenetét egy értékelési szempontrendszer alapján. Olyan mennyiségre skálázza a kiértékelést, amit ember nem tud átnézni — de örökli a bíró torzításait, ezért emberi értékelésekhez kell kalibrálni, mielőtt hiszel a számoknak."
+          },
+          "de": {
+            "t": "LLM als Judge",
+            "d": "Ein Modell bewertet die Ausgabe eines anderen anhand eines Kriterienrasters. Das skaliert Evaluation auf Mengen, die Menschen nicht prüfen können — übernimmt aber die Verzerrungen des Judges und muss vor dem Vertrauen an menschlichen Bewertungen kalibriert werden."
+          }
+        },
+        {
+          "id": "determinism",
+          "en": {
+            "t": "Determinism and reproducibility",
+            "d": "Whether the same input reliably produces the same output. Full determinism is not achievable with hosted models, but temperature near zero, fixed prompts, pinned model versions and structured outputs get close enough to test against."
+          },
+          "hu": {
+            "t": "Determinizmus és reprodukálhatóság",
+            "d": "Azt jelenti, hogy ugyanaz a bemenet megbízhatóan ugyanazt a kimenetet adja-e. Teljes determinizmus felhős modellekkel nem érhető el, de a nulla közeli temperature, a rögzített promptok, a kikötött modellverziók és a strukturált kimenet elég közel visz ahhoz, hogy tesztelni lehessen."
+          },
+          "de": {
+            "t": "Determinismus und Reproduzierbarkeit",
+            "d": "Ob dieselbe Eingabe zuverlässig dieselbe Ausgabe erzeugt. Vollständiger Determinismus ist mit gehosteten Modellen nicht erreichbar, doch Temperature nahe null, feste Prompts, fixierte Modellversionen und strukturierte Ausgaben kommen nah genug heran, um dagegen zu testen."
+          }
+        },
+        {
+          "id": "precision-recall",
+          "en": {
+            "t": "Precision and recall",
+            "d": "Precision is how many of the results returned were correct; recall is how many of the correct ones were found. They trade off against each other, and choosing which matters more is a business decision — a missed fraud case and a false accusation do not cost the same."
+          },
+          "hu": {
+            "t": "Pontosság és fedés (precision, recall)",
+            "d": "A precision azt méri, a visszaadott találatok közül hány volt helyes; a recall azt, a helyesek közül hányat találtunk meg. Egymás rovására mennek, és üzleti döntés, melyik számít jobban — egy kihagyott csalás és egy hamis vád nem ugyanannyiba kerül."
+          },
+          "de": {
+            "t": "Precision und Recall",
+            "d": "Precision misst, wie viele der gelieferten Treffer korrekt waren; Recall, wie viele der korrekten gefunden wurden. Beide gehen zulasten des jeweils anderen — welches wichtiger ist, ist eine Geschäftsentscheidung: Ein übersehener Betrugsfall und ein falscher Verdacht kosten nicht dasselbe."
+          }
+        },
+        {
+          "id": "classification",
+          "en": {
+            "t": "LLM-based classification",
+            "d": "Using a model to sort text into categories — tickets, documents, intents — without training a dedicated classifier. Fast to build and strong on messy language; it needs a fixed label set, a confidence threshold and an explicit path for 'none of these'."
+          },
+          "hu": {
+            "t": "LLM-alapú klasszifikáció",
+            "d": "Modell használata szövegek kategóriákba sorolására — ticketek, dokumentumok, szándékok — dedikált osztályozó tanítása nélkül. Gyorsan felépíthető, és jól bírja a rendezetlen nyelvet; kell hozzá rögzített címkekészlet, bizonyossági küszöb és explicit út az „egyik sem” esetre."
+          },
+          "de": {
+            "t": "LLM-basierte Klassifikation",
+            "d": "Ein Modell sortiert Texte in Kategorien — Tickets, Dokumente, Absichten — ohne dass ein eigener Klassifikator trainiert wird. Schnell gebaut und stark bei unsauberer Sprache; nötig sind ein fester Labelsatz, ein Konfidenzschwellwert und ein expliziter Weg für „keines davon“."
+          }
+        },
+        {
+          "id": "observability",
+          "en": {
+            "t": "Observability and tracing",
+            "d": "Recording every prompt, retrieved chunk, tool call, token count and latency for each request. When a user reports a bad answer, this is the difference between reproducing it in minutes and guessing for a day."
+          },
+          "hu": {
+            "t": "Megfigyelhetőség és tracelés",
+            "d": "Minden prompt, behúzott chunk, eszközhívás, tokenszám és késleltetés rögzítése kérésenként. Amikor egy felhasználó rossz választ jelez, ezen múlik, hogy percek alatt reprodukálod-e, vagy egy napig találgatsz."
+          },
+          "de": {
+            "t": "Observability und Tracing",
+            "d": "Jeder Prompt, abgerufene Chunk, Werkzeugaufruf, Tokenzähler und jede Latenz wird pro Anfrage protokolliert. Meldet ein Nutzer eine schlechte Antwort, entscheidet das darüber, ob man sie in Minuten reproduziert oder einen Tag lang rät."
+          }
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "name": {
+        "en": "Integration and operations",
+        "hu": "Integráció és üzemeltetés",
+        "de": "Integration und Betrieb"
+      },
+      "terms": [
+        {
+          "id": "inference-api",
+          "en": {
+            "t": "Inference and inference API",
+            "d": "Inference is a single run of the model on your input; the inference API is the hosted endpoint you call for it. Treat it as a third-party dependency with an SLA: it can be slow, rate-limited or down, and your product has to behave sensibly when it is."
+          },
+          "hu": {
+            "t": "Inferencia és inferencia API",
+            "d": "Az inferencia a modell egyszeri lefuttatása a bemeneteden; az inferencia API az a felhős végpont, amit ehhez hívsz. Kezeld külső függőségként, SLA-val: lehet lassú, korlátozott vagy leállt — és a terméknek ilyenkor is értelmesen kell viselkednie."
+          },
+          "de": {
+            "t": "Inferenz und Inferenz-API",
+            "d": "Inferenz ist ein einzelner Lauf des Modells auf Ihrer Eingabe; die Inferenz-API der gehostete Endpunkt dafür. Behandeln Sie sie als Drittanbieter-Abhängigkeit mit SLA: Sie kann langsam, gedrosselt oder ausgefallen sein — Ihr Produkt muss dann sinnvoll reagieren."
+          }
+        },
+        {
+          "id": "prompt-caching",
+          "en": {
+            "t": "Prompt caching",
+            "d": "Reusing the processed form of a long, unchanged prompt prefix across requests. With a large system prompt or a fixed document set it cuts both cost and time to first token substantially — provided the stable part comes first."
+          },
+          "hu": {
+            "t": "Prompt cache",
+            "d": "Egy hosszú, változatlan prompt-előtag feldolgozott formájának újrahasznosítása kérések között. Nagy rendszerprompt vagy fix dokumentumkészlet mellett jelentősen csökkenti a költséget és az első tokenig eltelt időt — feltéve, hogy a stabil rész van elöl."
+          },
+          "de": {
+            "t": "Prompt Caching",
+            "d": "Die verarbeitete Form eines langen, unveränderten Prompt-Präfixes wird über Anfragen hinweg wiederverwendet. Bei großem System-Prompt oder festem Dokumentensatz senkt das Kosten und Zeit bis zum ersten Token deutlich — sofern der stabile Teil zuerst steht."
+          }
+        },
+        {
+          "id": "streaming",
+          "en": {
+            "t": "Streaming",
+            "d": "Sending tokens to the client as they are generated instead of waiting for the full answer. It does not make generation faster, but it cuts perceived latency dramatically — and it needs your whole stack, proxies included, to pass chunks through unbuffered."
+          },
+          "hu": {
+            "t": "Streamelés",
+            "d": "A tokenek küldése a kliensnek generálás közben, a teljes válasz kivárása helyett. Nem gyorsítja a generálást, de drámaian csökkenti az érzékelt késleltetést — és ahhoz, hogy működjön, a teljes stacknek, a proxykkal együtt, pufferelés nélkül kell továbbítania a darabokat."
+          },
+          "de": {
+            "t": "Streaming",
+            "d": "Tokens werden gesendet, während sie entstehen, statt auf die vollständige Antwort zu warten. Das beschleunigt die Generierung nicht, senkt aber die wahrgenommene Latenz drastisch — und verlangt, dass der gesamte Stack inklusive Proxys ungepuffert durchreicht."
+          }
+        },
+        {
+          "id": "rate-limit",
+          "en": {
+            "t": "Rate limit",
+            "d": "The provider's cap on requests or tokens per minute. It is the most common cause of an AI feature that works in demo and fails at launch, so queueing, backoff and a fallback model belong in the design, not in the incident review."
+          },
+          "hu": {
+            "t": "Rate limit (kérés-korlát)",
+            "d": "A szolgáltató percenkénti kérés- vagy tokenkorlátja. A leggyakoribb oka annak, hogy egy AI-funkció demóban működik, indulásnál viszont elhasal — ezért a sorbaállítás, a visszalépkedés és a tartalék modell a tervezésbe tartozik, nem az incidens utáni elemzésbe."
+          },
+          "de": {
+            "t": "Rate Limit",
+            "d": "Die Obergrenze des Anbieters für Anfragen oder Tokens pro Minute. Sie ist die häufigste Ursache dafür, dass ein KI-Feature in der Demo läuft und zum Start scheitert — Queueing, Backoff und ein Fallback-Modell gehören deshalb ins Design, nicht ins Post-Mortem."
+          }
+        },
+        {
+          "id": "token-cost",
+          "en": {
+            "t": "Token cost",
+            "d": "Billing is per input and output token, at different rates. The practical consequence: retrieved context, long system prompts and chat history are the real cost drivers, and an unbounded conversation is an unbounded invoice."
+          },
+          "hu": {
+            "t": "Tokenköltség",
+            "d": "A számlázás bemeneti és kimeneti tokenenként történik, eltérő díjszabással. Gyakorlati következmény: a behúzott kontextus, a hosszú rendszerpromptok és a beszélgetési előzmény a valódi költséghajtók — egy korlátlan beszélgetés korlátlan számla."
+          },
+          "de": {
+            "t": "Tokenkosten",
+            "d": "Abgerechnet wird pro Eingabe- und Ausgabetoken, zu unterschiedlichen Sätzen. Praktische Folge: Abgerufener Kontext, lange System-Prompts und Chatverlauf sind die echten Kostentreiber — eine unbegrenzte Konversation ist eine unbegrenzte Rechnung."
+          }
+        },
+        {
+          "id": "latency",
+          "en": {
+            "t": "Latency and time to first token",
+            "d": "Total time matters less than when the user sees something happen. Time to first token is the number worth optimising: streaming, prompt caching, smaller models for simple steps, and doing retrieval in parallel rather than in sequence."
+          },
+          "hu": {
+            "t": "Késleltetés és első tokenig eltelt idő",
+            "d": "A teljes idő kevésbé számít, mint az, mikor lát a felhasználó történni valamit. Az első tokenig eltelt idő az igazán optimalizálandó szám: streamelés, prompt cache, kisebb modell az egyszerű lépésekre, és párhuzamos retrieval a soros helyett."
+          },
+          "de": {
+            "t": "Latenz und Time to First Token",
+            "d": "Die Gesamtdauer zählt weniger als der Moment, in dem der Nutzer etwas passieren sieht. Die Zeit bis zum ersten Token ist die Kennzahl, die sich zu optimieren lohnt: Streaming, Prompt Caching, kleinere Modelle für einfache Schritte, paralleles statt sequenzielles Retrieval."
+          }
+        },
+        {
+          "id": "on-premise",
+          "en": {
+            "t": "Self-hosted vs. hosted models",
+            "d": "An open-weights model on your own hardware gives data control, stable pricing and no vendor cut-offs; a hosted frontier model gives higher capability with no ops burden. Most systems end up mixed: local for bulk and sensitive work, hosted for the hard requests."
+          },
+          "hu": {
+            "t": "Saját üzemeltetésű vs. felhős modell",
+            "d": "A saját hardveren futó nyílt súlyú modell adatkontrollt, kiszámítható árat és gyártói kikapcsolásoktól való függetlenséget ad; a felhős élvonalbeli modell nagyobb képességet, üzemeltetési teher nélkül. A legtöbb rendszer vegyes lesz: helyi a tömeges és érzékeny munkára, felhős a nehéz kérésekre."
+          },
+          "de": {
+            "t": "Selbst gehostete vs. gehostete Modelle",
+            "d": "Ein Open-Weights-Modell auf eigener Hardware bietet Datenkontrolle, stabile Preise und keine Anbieter-Abschaltungen; ein gehostetes Spitzenmodell mehr Leistung ohne Betriebsaufwand. Die meisten Systeme werden gemischt: lokal für Masse und Sensibles, gehostet für die harten Fälle."
+          }
+        },
+        {
+          "id": "gdpr",
+          "en": {
+            "t": "Data protection in LLM systems",
+            "d": "Under the GDPR, sending personal data to a model provider is processing by a third party: it needs a legal basis, a data processing agreement, a known storage region and a retention answer. Whether the provider trains on your data is a contract question, not a technical one."
+          },
+          "hu": {
+            "t": "Adatvédelem LLM-rendszerekben",
+            "d": "A GDPR szerint a személyes adat elküldése egy modellszolgáltatónak harmadik fél általi adatkezelés: kell hozzá jogalap, adatfeldolgozói szerződés, ismert tárolási régió és megőrzési válasz. Hogy a szolgáltató tanul-e az adataidon, szerződéses kérdés, nem technikai."
+          },
+          "de": {
+            "t": "Datenschutz in LLM-Systemen",
+            "d": "Nach DSGVO ist das Senden personenbezogener Daten an einen Modellanbieter eine Verarbeitung durch Dritte: Es braucht Rechtsgrundlage, Auftragsverarbeitungsvertrag, bekannte Speicherregion und eine Antwort zur Aufbewahrung. Ob der Anbieter auf Ihren Daten trainiert, ist eine Vertrags-, keine Technikfrage."
+          }
+        },
+        {
+          "id": "aeo",
+          "en": {
+            "t": "AEO and GEO",
+            "d": "Answer Engine Optimization and Generative Engine Optimization: making a site retrievable and quotable by AI assistants rather than only rankable by search engines. In practice it is structured data, machine-readable summaries and content that survives being cut into chunks."
+          },
+          "hu": {
+            "t": "AEO és GEO",
+            "d": "Answer Engine Optimization és Generative Engine Optimization: az oldal olyanná tétele, hogy az AI-asszisztensek visszakereshessék és idézhessék, ne csak a keresők rangsorolhassák. A gyakorlatban strukturált adat, gépi összefoglalók és darabolásbiztos tartalom."
+          },
+          "de": {
+            "t": "AEO und GEO",
+            "d": "Answer Engine Optimization und Generative Engine Optimization: eine Website so aufbauen, dass KI-Assistenten sie abrufen und zitieren können — nicht nur Suchmaschinen sie ranken. Praktisch bedeutet das strukturierte Daten, maschinenlesbare Zusammenfassungen und chunk-sichere Inhalte."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -4,7 +4,8 @@
 // Generates the Open Graph / Twitter share images (1200x630) with Chromium:
 //   src/og-image.jpg            — the site card, built from resume.json so the
 //                                 social preview always matches name + job title
-//   src/og/<lang>-<slug>.jpg    — one card per service landing page, per language
+//   src/og/<lang>-<slug>.jpg    — one card per service landing page and for the
+//                                 glossary, per language
 //
 // These are committed, because the Cloudflare Pages build has no Chromium — the
 // site build only copies them and falls back to the site card if one is missing.
@@ -37,6 +38,7 @@ function findChrome() {
 const rootDir = path.resolve(__dirname, '..');
 const resumePath = path.join(rootDir, 'src', 'resume.json');
 const landingPath = path.join(rootDir, 'src', 'landing.json');
+const glossaryPath = path.join(rootDir, 'src', 'glossary.json');
 const outputPath = path.join(rootDir, 'src', 'og-image.jpg');
 const ogDir = path.join(rootDir, 'src', 'og');
 const profileImagePath = path.join(rootDir, 'src', 'pappfer.webp');
@@ -154,6 +156,7 @@ async function main() {
   if (!fs.existsSync(resumePath)) throw new Error(`Missing ${resumePath}`);
   const resume = JSON.parse(fs.readFileSync(resumePath, 'utf8'));
   const landing = JSON.parse(fs.readFileSync(landingPath, 'utf8'));
+  const glossary = JSON.parse(fs.readFileSync(glossaryPath, 'utf8'));
   const photo = loadProfileImageDataUri();
 
   console.log('Generating Open Graph images with Chromium...');
@@ -171,8 +174,8 @@ async function main() {
 
     fs.mkdirSync(ogDir, { recursive: true });
     for (const lang of LANGUAGES) {
-      for (const entry of landing.pages) {
-        const content = entry[lang];
+      const pages = [...landing.pages.map(p => p[lang]), glossary.meta[lang]];
+      for (const content of pages) {
         const file = path.join(ogDir, `${lang}-${content.slug}.jpg`);
         await shoot(tab, buildServiceCard(content, lang, photo), file);
       }

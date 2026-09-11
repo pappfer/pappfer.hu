@@ -35,12 +35,13 @@ Then open [http://localhost:3000](http://localhost:3000) (`npm run dev`) or [htt
 ├── src/
 │   ├── translations.json     # All content in EN/HU/DE
 │   ├── landing.json          # Service landing page content
+│   ├── glossary.json         # AI & LLM glossary terms (EN/HU/DE)
 │   ├── lastmod.json          # Per-URL content hashes + lastmod dates
 │   ├── og/                   # Per-page share cards (generated, committed)
 │   └── indexnow-key.txt      # IndexNow key (public, must stay stable)
 ├── dist/                     # Build output (deploy this)
 │   ├── index.html            # Root redirect (detects browser language)
-│   ├── en/index.html         # English
+│   ├── en/index.html         # English (+ 9 service pages and the glossary per language)
 │   ├── hu/index.html         # Hungarian
 │   ├── de/index.html         # German
 │   ├── favicon.ico
@@ -62,7 +63,13 @@ Then open [http://localhost:3000](http://localhost:3000) (`npm run dev`) or [htt
 
 ## Editing Content
 
-All translatable content is in `src/translations.json`. Edit the JSON, then run `npm run build` to regenerate. Sections: nav, hero, about, services, tech stack, experience, testimonials, FAQ, contact, footer, and SEO meta tags.
+All translatable content lives in three JSON files. Edit them, then run `npm run build` to regenerate.
+
+- `src/translations.json` — the homepage: nav, hero, about, services, tech stack, experience, testimonials, FAQ, contact, footer and SEO meta tags.
+- `src/landing.json` — the service landing pages (9 per language). Adding a page means adding one entry plus its id in `PAGE_ORDER` and `LANDING_ICONS` in `build.js`.
+- `src/glossary.json` — the AI & LLM glossary: per-language page meta plus categories of terms. Each term has a stable `id` that becomes its anchor (`/hu/ai-szotar/#rag`) and its `@id` in the `DefinedTermSet` schema, so **never rename an id** — you would break every link and citation pointing at that definition.
+
+After a content change, build locally so `src/lastmod.json` is updated in the same commit, and re-run `npm run generate-og` if a page's `h1` or `kicker` changed.
 
 ## Deployment (Cloudflare Pages)
 
@@ -152,7 +159,8 @@ Replace `YOUR_FORMSPREE_ID` in `build.js` with your Formspree form ID after regi
 - Inline CSS with CSS custom properties for theming
 - Inline JS (~2KB): theme toggle, mobile menu, FAQ accordion, scroll animations, form handler
 - JSON-LD: Person, ProfessionalService, FAQPage, WebSite, ProfilePage (home);
-  WebPage, Service, BreadcrumbList, FAQPage (landing pages)
+  WebPage, Service, BreadcrumbList, FAQPage (landing pages);
+  WebPage, DefinedTermSet, BreadcrumbList (glossary)
 - Full SEO: canonical, hreflang, Open Graph, Twitter Cards
 - Accessibility: skip link, ARIA attributes, semantic HTML, keyboard navigation
 - Mobile-first responsive design (breakpoints: 600px, 900px)

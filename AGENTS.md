@@ -437,6 +437,14 @@ push: it waits until the live sitemap matches the built one, then submits only
 the changed URLs. Never ping from the Cloudflare Pages build — it runs before
 the deploy is published. Google does not participate; it uses `sitemap.xml`.
 
+### Glossary (`src/glossary.json`)
+A 50-term AI/LLM glossary at `/en/ai-glossary/`, `/hu/ai-szotar/` and
+`/de/ki-glossar/`. Definition pages are the most quotable content a site can
+publish — assistants answer "what is X" from exactly this shape — so each term
+carries its own anchor id and appears in a `DefinedTermSet` / `DefinedTerm`
+schema as well as in `llms-full.txt`. Term ids are permanent: they are the
+anchor and the schema `@id`, so renaming one breaks every existing citation.
+
 ### lastmod accuracy
 `<lastmod>` must only move when the page's content moves, otherwise Google
 learns to ignore it. `src/lastmod.json` (committed) maps each URL to a hash of
@@ -796,6 +804,7 @@ No manual server configuration needed.
 | `dist/llms.txt` | AI/LLM information file (index) |
 | `dist/llms-full.txt` | Full text of every page, all three languages |
 | `src/lastmod.json` | Per-URL content hashes + lastmod dates (committed) |
+| `src/glossary.json` | AI & LLM glossary terms in EN/HU/DE |
 | `src/og/*.jpg` | Per-landing-page share cards (generated, committed) |
 | `src/indexnow-key.txt` | IndexNow key (committed, public, stable) |
 | `dist/<key>.txt` | IndexNow ownership verification file |

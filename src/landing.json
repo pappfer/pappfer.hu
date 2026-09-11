@@ -496,6 +496,94 @@
         "ctaTitle": "Suchen Sie einen Senior React-Entwickler?",
         "ctaText": "Beschreiben Sie Ihr Projekt — lassen Sie uns sprechen."
       }
+    },
+    {
+      "id": "aeo",
+      "related": ["ai", "python", "web-debrecen"],
+      "en": {
+        "slug": "answer-engine-optimization",
+        "metaTitle": "Answer Engine Optimization (AEO / GEO) — Ferenc Papp",
+        "metaDescription": "Be the source ChatGPT, Claude and Perplexity quote: schema.org entity graphs, llms.txt, retrieval-ready content — from an engineer who builds RAG systems.",
+        "kicker": "AEO & GEO",
+        "h1": "Answer Engine Optimization",
+        "lead": "More and more people ask an assistant instead of a search engine, and the assistant answers from the handful of sources it could parse, trust and retrieve. Answer Engine Optimization (AEO) — also called Generative Engine Optimization (GEO) — is the work of becoming one of those sources.",
+        "body": "This is an engineering problem before it is a marketing one. AI systems crawl, chunk, embed and rank your content, so what decides the outcome is the machine-readable layer underneath the design: a connected schema.org entity graph, sections that still make sense after being cut into chunks, factual claims stated where a retriever can actually find them, and clean access for the AI crawlers themselves.",
+        "doTitle": "What I do",
+        "do": [
+          "AI visibility audit: what assistants say about you today, and the technical reasons why",
+          "schema.org entity graph — Organization, Person, Service, FAQ and breadcrumbs, linked by @id",
+          "llms.txt and llms-full.txt, so assistants can read your site instead of scraping it",
+          "Retrieval-ready content architecture: chunk-safe sections, answer-first phrasing, real anchors",
+          "Crawler and indexing plumbing: AI user-agents in robots.txt, IndexNow, honest sitemap dates",
+          "Measurement: tracking citations and assistant-referred traffic over time"
+        ],
+        "whyTitle": "Why me",
+        "why": "I build the systems that do the answering. RAG pipelines, embeddings, semantic search and LLM evaluation are my day job as a Senior AI Solutions Engineer, so I optimize for how retrieval actually behaves rather than for a checklist. This site is the reference implementation: llms.txt and llms-full.txt, a linked JSON-LD graph, IndexNow submission and sitemap dates that only move when content really changes.",
+        "faq": [
+          { "q": "How is AEO different from SEO?", "a": "They overlap, and neither replaces the other. Classic SEO decides whether you rank; AEO decides whether an assistant can parse, trust and quote you. Clean HTML, structured data and fast pages serve both — AEO adds machine-readable summaries, entity linking, and content written to survive being cut into chunks." },
+          { "q": "Can you guarantee that ChatGPT will recommend me?", "a": "No, and anyone who guarantees it is selling something. These systems have no ranking dial to turn. What I can do is remove every technical reason an assistant would skip or misread you, and make the claims you want quoted explicit, verifiable and easy to retrieve." },
+          { "q": "How long before it shows up in answers?", "a": "Technical changes are picked up in days to weeks: IndexNow notifies Bing (which feeds Copilot) within minutes, while other crawlers re-read on their own schedule. Visible change in assistant answers usually takes weeks and also depends on how much corroborating information about you exists elsewhere on the web." },
+          { "q": "What do I actually get?", "a": "A working implementation in your codebase, not a PDF: the schema graph, the llms.txt files, crawler configuration and content changes — plus a short written rationale for each decision, so your team can maintain it after I'm gone." }
+        ],
+        "ctaTitle": "Want to be the source AI assistants quote?",
+        "ctaText": "Tell me about your site — let's talk."
+      },
+      "hu": {
+        "slug": "ai-keresooptimalizalas",
+        "metaTitle": "AI keresőoptimalizálás (AEO / GEO) — Papp Ferenc",
+        "metaDescription": "Téged idézzen a ChatGPT, a Claude és a Perplexity: schema.org entitásgráf, llms.txt, kinyerhető tartalom — RAG-rendszereket építő fejlesztőtől.",
+        "kicker": "AEO & GEO",
+        "h1": "AI keresőoptimalizálás",
+        "lead": "Egyre többen kérdeznek asszisztenst kereső helyett, az asszisztens pedig abból a néhány forrásból válaszol, amelyet értelmezni, visszakeresni és megbízhatónak ítélni tudott. Az AI keresőoptimalizálás (AEO, más néven GEO) az a munka, amivel bekerülsz ebbe a néhány forrásba.",
+        "body": "Ez elsősorban mérnöki, és csak másodsorban marketingfeladat. Az AI-rendszerek bejárják, darabolják, beágyazzák és rangsorolják a tartalmadat, így a végeredményt a design alatti gépi réteg dönti el: összekötött schema.org entitásgráf, olyan szakaszok, amelyek darabokra vágva is értelmesek maradnak, tényállítások ott, ahol a retrieval tényleg megtalálja őket, és tiszta hozzáférés maguknak az AI-crawlereknek.",
+        "doTitle": "Mit csinálok",
+        "do": [
+          "AI-láthatósági audit: mit mondanak rólad ma az asszisztensek, és technikailag miért",
+          "schema.org entitásgráf — Organization, Person, Service, FAQ, breadcrumb, @id-val összekötve",
+          "llms.txt és llms-full.txt, hogy az asszisztensek olvashassák az oldalad, ne scrapelniük kelljen",
+          "Kinyerhető tartalomszerkezet: darabolásbiztos szakaszok, válasszal kezdő fogalmazás, valódi horgonyok",
+          "Crawler- és indexelési háttér: AI user-agentek a robots.txt-ben, IndexNow, őszinte sitemap-dátumok",
+          "Mérés: az idézések és az asszisztensekből érkező forgalom követése"
+        ],
+        "whyTitle": "Miért velem",
+        "why": "Én azokat a rendszereket építem, amelyek a válaszokat adják. A RAG pipeline-ok, embeddingek, szemantikus keresés és LLM-kiértékelés a napi munkám Senior AI Solutions Engineerként, így arra optimalizálok, ahogy a retrieval valójában viselkedik, nem egy checklistára. Ez az oldal maga a referencia-implementáció: llms.txt és llms-full.txt, összekötött JSON-LD gráf, IndexNow-beküldés, és olyan sitemap-dátumok, amelyek csak valódi tartalomváltozáskor mozdulnak.",
+        "faq": [
+          { "q": "Miben más az AEO, mint a SEO?", "a": "Átfedik egymást, és egyik sem váltja ki a másikat. A klasszikus SEO azt dönti el, hogy rangsorolnak-e; az AEO azt, hogy egy asszisztens tud-e értelmezni, megbízni benned és idézni téged. A tiszta HTML, a strukturált adat és a gyors oldal mindkettőt szolgálja — az AEO ehhez gépi összefoglalókat, entitás-összekötést és darabolásbiztos tartalmat tesz hozzá." },
+          { "q": "Garantálod, hogy a ChatGPT ajánlani fog?", "a": "Nem, és aki ezt garantálja, az elad neked valamit. Ezekben a rendszerekben nincs rangsoroló gomb, amit el lehet tekerni. Amit meg tudok tenni: megszüntetek minden technikai okot, ami miatt egy asszisztens kihagyna vagy félreértene, és explicitté, ellenőrizhetővé és könnyen visszakereshetővé teszem azokat az állításokat, amelyeket idézni szeretnél." },
+          { "q": "Mennyi idő, amíg megjelenik a válaszokban?", "a": "A technikai változásokat napok-hetek alatt veszik át: az IndexNow perceken belül szól a Bingnek (ami a Copilotot táplálja), a többi crawler a saját ütemében olvas újra. Az asszisztensek válaszaiban látható változás jellemzően hetek kérdése, és attól is függ, mennyi megerősítő információ van rólad máshol a weben." },
+          { "q": "Mit kapok a végén?", "a": "Működő implementációt a saját kódbázisodban, nem PDF-et: az entitásgráfot, az llms.txt fájlokat, a crawler-beállításokat és a tartalmi módosításokat — plusz minden döntéshez egy rövid, írásos indoklást, hogy a csapatod utána is karban tudja tartani." }
+        ],
+        "ctaTitle": "Szeretnéd, hogy téged idézzenek az AI-asszisztensek?",
+        "ctaText": "Mesélj az oldaladról — beszéljünk."
+      },
+      "de": {
+        "slug": "ki-suchmaschinenoptimierung",
+        "metaTitle": "KI-Suchmaschinenoptimierung (AEO / GEO) — Ferenc Papp",
+        "metaDescription": "Die Quelle sein, die ChatGPT, Claude und Perplexity zitieren: schema.org-Entitätsgraph, llms.txt, abrufbare Inhalte — von einem Entwickler, der RAG-Systeme baut.",
+        "kicker": "AEO & GEO",
+        "h1": "KI-Suchmaschinenoptimierung",
+        "lead": "Immer mehr Menschen fragen einen Assistenten statt einer Suchmaschine — und der Assistent antwortet aus den wenigen Quellen, die er lesen, abrufen und als vertrauenswürdig einstufen konnte. Answer Engine Optimization (AEO), auch Generative Engine Optimization (GEO) genannt, ist die Arbeit, eine dieser Quellen zu werden.",
+        "body": "Das ist zuerst ein technisches und erst danach ein Marketing-Problem. KI-Systeme crawlen, zerlegen, embedden und bewerten Ihre Inhalte — entscheidend ist deshalb die maschinenlesbare Schicht unter dem Design: ein verbundener schema.org-Entitätsgraph, Abschnitte, die auch als einzelne Chunks verständlich bleiben, Fakten dort, wo ein Retrieval sie tatsächlich findet, und sauberer Zugang für die KI-Crawler selbst.",
+        "doTitle": "Was ich mache",
+        "do": [
+          "KI-Sichtbarkeits-Audit: Was Assistenten heute über Sie sagen — und die technischen Gründe dafür",
+          "schema.org-Entitätsgraph — Organization, Person, Service, FAQ und Breadcrumbs, über @id verknüpft",
+          "llms.txt und llms-full.txt, damit Assistenten Ihre Seite lesen statt sie zu scrapen",
+          "Abrufbare Inhaltsstruktur: chunk-sichere Abschnitte, Antwort zuerst, echte Ankerlinks",
+          "Crawler- und Indexierungs-Setup: KI-User-Agents in der robots.txt, IndexNow, ehrliche Sitemap-Daten",
+          "Messung: Zitate und Assistenten-Traffic über die Zeit verfolgen"
+        ],
+        "whyTitle": "Warum mit mir",
+        "why": "Ich baue genau die Systeme, die diese Antworten erzeugen. RAG-Pipelines, Embeddings, semantische Suche und LLM-Evaluation sind mein Tagesgeschäft als Senior AI Solutions Engineer — ich optimiere danach, wie Retrieval wirklich funktioniert, nicht nach einer Checkliste. Diese Website ist die Referenzimplementierung: llms.txt und llms-full.txt, ein verknüpfter JSON-LD-Graph, IndexNow-Übermittlung und Sitemap-Daten, die sich nur bei echten Inhaltsänderungen bewegen.",
+        "faq": [
+          { "q": "Worin unterscheidet sich AEO von SEO?", "a": "Sie überschneiden sich, und keines ersetzt das andere. Klassisches SEO entscheidet, ob Sie ranken; AEO entscheidet, ob ein Assistent Sie lesen, einordnen und zitieren kann. Sauberes HTML, strukturierte Daten und schnelle Seiten dienen beidem — AEO ergänzt maschinenlesbare Zusammenfassungen, Entitätsverknüpfung und chunk-sichere Inhalte." },
+          { "q": "Garantieren Sie, dass ChatGPT mich empfiehlt?", "a": "Nein — und wer das garantiert, verkauft Ihnen etwas. In diesen Systemen gibt es keinen Ranking-Regler. Was ich tun kann: jeden technischen Grund beseitigen, aus dem ein Assistent Sie überspringt oder falsch versteht, und die Aussagen, die zitiert werden sollen, explizit, überprüfbar und leicht abrufbar machen." },
+          { "q": "Wie lange dauert es bis zur Wirkung?", "a": "Technische Änderungen werden in Tagen bis Wochen übernommen: IndexNow informiert Bing (die Basis von Copilot) innerhalb von Minuten, andere Crawler lesen nach eigenem Takt neu. Sichtbare Veränderungen in Assistenten-Antworten brauchen meist Wochen und hängen auch davon ab, wie viele bestätigende Informationen anderswo im Web über Sie existieren." },
+          { "q": "Was bekomme ich am Ende?", "a": "Eine funktionierende Implementierung in Ihrer Codebasis, kein PDF: den Entitätsgraphen, die llms.txt-Dateien, die Crawler-Konfiguration und die Inhaltsänderungen — dazu eine kurze schriftliche Begründung jeder Entscheidung, damit Ihr Team sie weiterpflegen kann." }
+        ],
+        "ctaTitle": "Möchten Sie die Quelle sein, die KI-Assistenten zitieren?",
+        "ctaText": "Erzählen Sie mir von Ihrer Website — sprechen wir."
+      }
     }
   ]
 }

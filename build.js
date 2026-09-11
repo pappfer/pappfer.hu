@@ -4,8 +4,9 @@ const crypto = require('crypto');
 
 const translations = JSON.parse(fs.readFileSync(path.join(__dirname, 'src', 'translations.json'), 'utf8'));
 const landing = JSON.parse(fs.readFileSync(path.join(__dirname, 'src', 'landing.json'), 'utf8'));
+const glossary = JSON.parse(fs.readFileSync(path.join(__dirname, 'src', 'glossary.json'), 'utf8'));
 // Intentional display/order for footer links, generation and sitemap.
-const PAGE_ORDER = ['laravel', 'vuejs', 'react', 'ai', 'python', 'symfony', 'yii', 'web-debrecen'];
+const PAGE_ORDER = ['laravel', 'vuejs', 'react', 'ai', 'aeo', 'python', 'symfony', 'yii', 'web-debrecen'];
 landing.pages.sort((a, b) => {
   const ia = PAGE_ORDER.indexOf(a.id), ib = PAGE_ORDER.indexOf(b.id);
   return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
@@ -42,7 +43,7 @@ const LANG_FLAGS = {};
 }
 // Header icon per landing page: brand icon where available, else a built-in line icon.
 const LANDING_ICONS = {
-  laravel: 'laravel', vuejs: 'vue', react: 'react', ai: 'ai',
+  laravel: 'laravel', vuejs: 'vue', react: 'react', ai: 'ai', aeo: 'search',
   python: 'python', symfony: 'symfony', yii: 'yii', 'web-debrecen': 'mapPin'
 };
 function landingIcon(id) {
@@ -104,6 +105,11 @@ landing.pages.forEach(page => {
     LASTMOD[urlPath] = trackLastmod(urlPath, page[lang]);
   });
 });
+LANGUAGES.forEach(lang => {
+  const urlPath = `/${lang}/${glossary.meta[lang].slug}/`;
+  // Every language shares the term list, so a definition edit dates all three.
+  LASTMOD[urlPath] = trackLastmod(urlPath, [glossary.meta[lang], glossary.categories]);
+});
 
 // IndexNow: the key is public by design — it is served as /<key>.txt so the
 // search engines can verify that whoever submits URLs controls this host. It
@@ -153,6 +159,8 @@ const icons = {
   mobile: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>',
   consulting: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>',
   research: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6"/><path d="M10 2v6.5L5 18a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9.5V2"/><line x1="7" y1="14" x2="17" y2="14"/></svg>',
+  search: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="7.5"/><line x1="21" y1="21" x2="16" y2="16"/><path d="M10.5 6.5l1.15 2.85L14.5 10.5l-2.85 1.15L10.5 14.5l-1.15-2.85L6.5 10.5l2.85-1.15z"/></svg>',
+  book: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="13" y2="11"/></svg>',
   chevron: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>',
   mail: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>',
   mapPin: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
@@ -400,6 +408,19 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 .lp-related a{display:inline-flex;padding:.6rem 1.1rem;border:1px solid var(--border);border-radius:20px;font-size:.9rem;font-weight:500;color:var(--text-secondary);transition:all .2s}
 .lp-related a:hover{border-color:var(--accent);color:var(--accent)}
 
+/* Glossary */
+.gl-toc{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
+.gl-toc a{display:inline-flex;align-items:baseline;gap:.4rem;padding:.55rem 1rem;border:1px solid var(--border);border-radius:20px;font-size:.88rem;font-weight:600;color:var(--text-secondary);transition:all .2s}
+.gl-toc a:hover{border-color:var(--accent);color:var(--accent)}
+.gl-toc span{font-weight:500;color:var(--text-muted);font-size:.8rem}
+.gl-terms{display:grid;gap:1.75rem;max-width:760px;margin:0}
+.gl-term{scroll-margin-top:calc(var(--nav-height) + 1.5rem)}
+.gl-term dt{font-size:1.05rem;font-weight:700;margin-bottom:.35rem;font-family:var(--font-heading)}
+.gl-term dt a{color:var(--text-primary)}
+.gl-term dt a:hover{color:var(--accent)}
+.gl-term dd{margin:0;color:var(--text-secondary);line-height:1.75}
+.gl-count{color:var(--text-muted);font-size:.9rem;font-weight:500;margin-left:.5rem}
+
 /* Focus styles */
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
@@ -576,7 +597,9 @@ const minHtml = (html) => html.replace(/>\s+</g, '><').replace(/\n+/g, '').trim(
 // Internal links to the service landing pages, shown in every footer.
 function servicesFooterLinks(lang) {
   const lab = landing.labels[lang];
-  const links = landing.pages.map(p => `<a href="/${lang}/${p[lang].slug}/">${p[lang].h1}</a>`).join('');
+  const g = glossary.meta[lang];
+  const links = landing.pages.map(p => `<a href="/${lang}/${p[lang].slug}/">${p[lang].h1}</a>`).join('')
+    + `<a href="/${lang}/${g.slug}/">${g.h1}</a>`;
   return `<nav class="footer-services" aria-label="${lab.servicesFooter}">${links}</nav>`;
 }
 
@@ -1086,7 +1109,7 @@ function generateLandingPage(lang, page) {
   const relatedLinks = landing.pages
     .filter(p => p.id !== page.id)
     .map(p => `<a href="/${lang}/${p[lang].slug}/">${p[lang].h1}</a>`)
-    .join('');
+    .join('') + `<a href="/${lang}/${glossary.meta[lang].slug}/">${glossary.meta[lang].h1}</a>`;
 
   return minHtml(`<!DOCTYPE html>
 <html lang="${t.htmlLang}" data-theme="light">
@@ -1225,6 +1248,214 @@ ${servicesFooterLinks(lang)}
 </html>`);
 }
 
+// ─── Glossary page ──────────────────────────────────────────────────────────────
+// A definition page is the most quotable thing a site can publish: assistants
+// answer "what is X" from exactly this shape of content. Every term gets its own
+// anchor so a single definition can be linked (and cited) on its own, and the
+// whole set is mirrored in a DefinedTermSet so machines don't have to parse prose.
+function generateGlossaryPage(lang) {
+  const t = translations[lang];
+  const lab = landing.labels[lang];
+  const g = glossary.meta[lang];
+  const url = `https://pappfer.hu/${lang}/${g.slug}/`;
+  const footerDisplayName = lang === 'hu' ? 'Papp Ferenc' : (t.footer.name || 'Ferenc Papp');
+  const termCount = glossary.categories.reduce((n, c) => n + c.terms.length, 0);
+  const ogImage = hasLandingOgImage(lang, g.slug)
+    ? `https://pappfer.hu/img/og/${lang}-${g.slug}.jpg`
+    : 'https://pappfer.hu/img/og-image.jpg';
+  const ogImageAlt = `${g.h1} — ${footerDisplayName}`;
+
+  const hreflangs = LANGUAGES.map(l =>
+    `<link rel="alternate" hreflang="${l}" href="https://pappfer.hu/${l}/${glossary.meta[l].slug}/">`
+  ).join('') + `<link rel="alternate" hreflang="x-default" href="https://pappfer.hu/en/${glossary.meta.en.slug}/">`;
+
+  const termSetSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "@id": `${url}#termset`,
+    "name": g.h1,
+    "description": g.metaDescription,
+    "url": url,
+    "inLanguage": lang,
+    "creator": {"@id":"https://pappfer.hu/#ferenc-papp"},
+    "hasDefinedTerm": glossary.categories.flatMap(c => c.terms.map(term => ({
+      "@type": "DefinedTerm",
+      "@id": `${url}#${term.id}`,
+      "name": term[lang].t,
+      "description": term[lang].d,
+      "termCode": term.id,
+      "inDefinedTermSet": {"@id": `${url}#termset`}
+    })))
+  });
+  const breadcrumbSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${url}#breadcrumb`,
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":lab.home,"item":`https://pappfer.hu/${lang}/`},
+      {"@type":"ListItem","position":2,"name":g.h1,"item":url}
+    ]
+  });
+  const webPageSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": url,
+    "url": url,
+    "name": g.metaTitle,
+    "description": g.metaDescription,
+    "inLanguage": lang,
+    "dateModified": LASTMOD[`/${lang}/${g.slug}/`],
+    "isPartOf": {"@id":"https://pappfer.hu/#website"},
+    "about": {"@id": `${url}#termset`},
+    "breadcrumb": {"@id": `${url}#breadcrumb`},
+    "author": {"@id":"https://pappfer.hu/#ferenc-papp"},
+    "primaryImageOfPage": {"@type":"ImageObject","url":ogImage,"width":1200,"height":630}
+  });
+
+  const toc = glossary.categories.map(c =>
+    `<a href="#${c.id}">${c.name[lang]} <span>${c.terms.length}</span></a>`
+  ).join('');
+
+  const sections = glossary.categories.map(c => `<section class="section lp-section" id="${c.id}">
+<div class="lp-inner">
+<h2>${c.name[lang]}<span class="gl-count">${c.terms.length} ${g.termsWord}</span></h2>
+<dl class="gl-terms">
+${c.terms.map(term => `<div class="gl-term" id="${term.id}">
+<dt><a href="#${term.id}">${term[lang].t}</a></dt>
+<dd>${term[lang].d}</dd>
+</div>`).join('')}
+</dl>
+</div>
+</section>`).join('');
+
+  const relatedLinks = landing.pages
+    .map(p => `<a href="/${lang}/${p[lang].slug}/">${p[lang].h1}</a>`)
+    .join('');
+
+  return minHtml(`<!DOCTYPE html>
+<html lang="${t.htmlLang}" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${g.metaTitle}</title>
+<meta name="description" content="${g.metaDescription}">
+<link rel="canonical" href="${url}">
+${hreflangs}
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="${t.locale}">
+<meta property="og:title" content="${g.metaTitle}">
+<meta property="og:description" content="${g.metaDescription}">
+<meta property="og:url" content="${url}">
+<meta property="og:site_name" content="${t.meta.ogSiteName}">
+<meta property="og:image" content="${ogImage}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${ogImageAlt}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@pappfer">
+<meta name="twitter:title" content="${g.metaTitle}">
+<meta name="twitter:description" content="${g.metaDescription}">
+<meta name="twitter:image" content="${ogImage}">
+<meta name="twitter:image:alt" content="${ogImageAlt}">
+<meta http-equiv="Content-Security-Policy" content="${csp}">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#047857">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1117" media="(prefers-color-scheme: dark)">
+<script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');})();</script>
+<style>${minCss}</style>
+<script type="application/ld+json">${webPageSchema}</script>
+<script type="application/ld+json">${termSetSchema}</script>
+<script type="application/ld+json">${breadcrumbSchema}</script>
+</head>
+<body>
+<a href="#main" class="skip-link">${t.nav.skipToContent}</a>
+
+<nav class="nav" role="navigation">
+<div class="nav-inner">
+<a href="/${lang}/" class="nav-logo"><span>papp</span>fer</a>
+<ul class="nav-links">
+<li><a href="/${lang}/#about">${t.nav.about}</a></li>
+<li><a href="/${lang}/#services">${t.nav.services}</a></li>
+<li><a href="/${lang}/#tech">${t.nav.techStack}</a></li>
+<li><a href="/${lang}/#experience">${t.nav.experience}</a></li>
+<li><a href="/${lang}/#contact">${t.nav.contact}</a></li>
+</ul>
+<div class="nav-right">
+<div class="lang-switcher">
+${LANGUAGES.map(l => `<a href="/${l}/${glossary.meta[l].slug}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}><span aria-hidden="true">${LANG_FLAGS[l]}</span> ${l.toUpperCase()}</a>`).join('')}
+</div>
+<button class="theme-toggle" id="theme-toggle" aria-label="${t.nav.toggleTheme}" aria-pressed="false">
+<span class="icon-moon">${icons.moon}</span>
+<span class="icon-sun">${icons.sun}</span>
+</button>
+<button class="menu-toggle" id="menu-toggle" aria-label="${t.nav.openMenu}" aria-controls="mobile-menu" aria-expanded="false" data-open-label="${t.nav.openMenu}" data-close-label="${t.nav.closeMenu}">
+<span class="icon-menu">${icons.menu}</span>
+<span class="icon-close">${icons.close}</span>
+</button>
+</div>
+</div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-hidden="true" aria-label="${t.nav.openMenu}">
+<a href="/${lang}/#about">${t.nav.about}</a>
+<a href="/${lang}/#services">${t.nav.services}</a>
+<a href="/${lang}/#tech">${t.nav.techStack}</a>
+<a href="/${lang}/#experience">${t.nav.experience}</a>
+<a href="/${lang}/#contact">${t.nav.contact}</a>
+<div class="lang-switcher">
+${LANGUAGES.map(l => `<a href="/${l}/${glossary.meta[l].slug}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}><span aria-hidden="true">${LANG_FLAGS[l]}</span> ${l.toUpperCase()}</a>`).join('')}
+</div>
+</div>
+
+<main id="main">
+<section class="lp-hero">
+<div class="lp-inner">
+<div class="lp-corner-icon" aria-hidden="true">${icons.book}</div>
+<nav class="lp-crumbs" aria-label="Breadcrumb"><a href="/${lang}/">${lab.home}</a> › ${g.h1}</nav>
+<p class="section-label">${g.kicker}</p>
+<h1>${g.h1}</h1>
+<p class="lp-lead">${g.lead}</p>
+<p>${g.intro}</p>
+<nav class="gl-toc" aria-label="${g.tocTitle}">${toc}</nav>
+</div>
+</section>
+${sections}
+<section class="section lp-section">
+<div class="lp-inner">
+<h2>${g.ctaTitle}</h2>
+<p>${g.ctaText}</p>
+<div class="lp-actions">
+<a href="/${lang}/#contact" class="btn btn-primary">${lab.cta} ${icons.arrow}</a>
+<a href="/${lang}/" class="btn btn-outline">${lab.backHome}</a>
+</div>
+</div>
+</section>
+<section class="section lp-section">
+<div class="lp-inner">
+<h2>${g.relatedTitle}</h2>
+<div class="lp-related">${relatedLinks}</div>
+</div>
+</section>
+</main>
+
+<footer class="footer">
+${servicesFooterLinks(lang)}
+<p>&copy; ${YEAR} ${footerDisplayName}. ${t.footer.rights}</p>
+<p>${t.footer.legal}</p>
+</footer>
+
+<script>${minJs}</script>
+</body>
+</html>`);
+}
+
 // ─── Root redirect page ─────────────────────────────────────────────────────────
 function generateRoot() {
   return `<!DOCTYPE html>
@@ -1309,7 +1540,18 @@ ${pageHreflangs}
     });
   });
 
-  const urls = [homeUrls, landingUrls.join('\n')].join('\n');
+  const glossaryHreflangs = LANGUAGES.map(l =>
+    `    <xhtml:link rel="alternate" hreflang="${l}" href="https://pappfer.hu/${l}/${glossary.meta[l].slug}/"/>`
+  ).join('\n');
+  const glossaryUrls = LANGUAGES.map(l => `  <url>
+    <loc>https://pappfer.hu/${l}/${glossary.meta[l].slug}/</loc>
+${glossaryHreflangs}
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pappfer.hu/en/${glossary.meta.en.slug}/"/>
+    <lastmod>${LASTMOD[`/${l}/${glossary.meta[l].slug}/`]}</lastmod>
+    <priority>0.7</priority>
+  </url>`).join('\n');
+
+  const urls = [homeUrls, landingUrls.join('\n'), glossaryUrls].join('\n');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -1399,6 +1641,7 @@ Ferenc Papp (Hungarian name order: Papp Ferenc; online handle: pappfer) is a fre
 - [Portfolio (English)](https://pappfer.hu/en/): full profile — about, services, tech stack, experience and contact
 - [Portfolio (Hungarian)](https://pappfer.hu/hu/): teljes magyar nyelvű profil
 - [Portfolio (German)](https://pappfer.hu/de/): vollständiges deutschsprachiges Profil
+${LANGUAGES.map(l => `- [${glossary.meta[l].h1} (${LANGUAGE_NAMES[l]})](https://pappfer.hu/${l}/${glossary.meta[l].slug}/): ${glossary.meta[l].metaDescription}`).join('\n')}
 - [Full site content](https://pappfer.hu/llms-full.txt): every page of the site, all three languages, as one plain-text document
 - [Résumé (JSON Resume)](https://pappfer.hu/resume.json): machine-readable CV in JSON Resume format
 ${HAS_RESUME_PDF ? '- [Résumé (PDF, English)](https://pappfer.hu/resume.pdf): printable CV\n' : ''}${HAS_RESUME_HU_PDF ? '- [Résumé (PDF, Hungarian)](https://pappfer.hu/resume-hu.pdf): nyomtatható önéletrajz\n' : ''}
@@ -1509,6 +1752,26 @@ function generateLlmsFull() {
       c.faq.forEach(f => { out.push(`**${f.q}**`); out.push(''); out.push(f.a); out.push(''); });
       out.push(`${lab.cta}: https://pappfer.hu/${lang}/#contact`);
     });
+
+    const g = glossary.meta[lang];
+    out.push('');
+    out.push(`## ${g.h1}`);
+    out.push('');
+    out.push(`URL: https://pappfer.hu/${lang}/${g.slug}/`);
+    out.push(`Last modified: ${LASTMOD[`/${lang}/${g.slug}/`]}`);
+    out.push('');
+    out.push(g.lead);
+    out.push('');
+    glossary.categories.forEach(c => {
+      out.push(`### ${c.name[lang]}`);
+      out.push('');
+      c.terms.forEach(term => {
+        out.push(`**${term[lang].t}** (https://pappfer.hu/${lang}/${g.slug}/#${term.id})`);
+        out.push('');
+        out.push(term[lang].d);
+        out.push('');
+      });
+    });
   });
 
   out.push('');
@@ -1534,6 +1797,15 @@ LANGUAGES.forEach(lang => {
     fs.writeFileSync(path.join(dir, 'index.html'), generateLandingPage(lang, page));
     console.log(`  ✓ ${lang}/${slug}/index.html`);
   });
+});
+
+// Generate the glossary page
+LANGUAGES.forEach(lang => {
+  const slug = glossary.meta[lang].slug;
+  const dir = path.join(DIST, lang, slug);
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, 'index.html'), generateGlossaryPage(lang));
+  console.log(`  ✓ ${lang}/${slug}/index.html`);
 });
 
 // Generate root redirect
