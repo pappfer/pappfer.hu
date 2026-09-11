@@ -97,7 +97,14 @@ function trackLastmod(urlPath, source) {
 
 const LASTMOD = {};
 LANGUAGES.forEach(lang => {
-  LASTMOD[`/${lang}/`] = trackLastmod(`/${lang}/`, translations[lang]);
+  // The homepage also renders the service/glossary titles it links to, so those
+  // belong in its hash — renaming or adding a landing page changes this page too.
+  LASTMOD[`/${lang}/`] = trackLastmod(`/${lang}/`, [
+    translations[lang],
+    landing.labels[lang],
+    landing.pages.map(p => p[lang].h1),
+    glossary.meta[lang].h1
+  ]);
 });
 landing.pages.forEach(page => {
   LANGUAGES.forEach(lang => {
@@ -408,6 +415,9 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 .lp-related a{display:inline-flex;padding:.6rem 1.1rem;border:1px solid var(--border);border-radius:20px;font-size:.9rem;font-weight:500;color:var(--text-secondary);transition:all .2s}
 .lp-related a:hover{border-color:var(--accent);color:var(--accent)}
 
+.services-explore{margin-top:3rem}
+.services-explore h3{font-size:1rem;font-weight:700;margin-bottom:1rem;color:var(--text-secondary)}
+
 /* Glossary */
 .gl-toc{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
 .gl-toc a{display:inline-flex;align-items:baseline;gap:.4rem;padding:.55rem 1rem;border:1px solid var(--border);border-radius:20px;font-size:.88rem;font-weight:600;color:var(--text-secondary);transition:all .2s}
@@ -595,6 +605,13 @@ const csp = "default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'se
 const minHtml = (html) => html.replace(/>\s+</g, '><').replace(/\n+/g, '').trim();
 
 // Internal links to the service landing pages, shown in every footer.
+// The landing pages used to be reachable only from the footer link list, which
+// is a poor home for the pages meant to sell the work. Same chips, three places.
+function landingChips(lang) {
+  return landing.pages.map(p => `<a href="/${lang}/${p[lang].slug}/">${p[lang].h1}</a>`).join('')
+    + `<a href="/${lang}/${glossary.meta[lang].slug}/">${glossary.meta[lang].h1}</a>`;
+}
+
 function servicesFooterLinks(lang) {
   const lab = landing.labels[lang];
   const g = glossary.meta[lang];
@@ -882,6 +899,10 @@ ${t.services.items.map(s => `<div class="service-card">
 <h3>${s.title}</h3>
 <p>${s.description}</p>
 </div>`).join('\n')}
+</div>
+<div class="services-explore fade-up">
+<h3>${landing.labels[lang].exploreTitle}</h3>
+<div class="lp-related">${landingChips(lang)}</div>
 </div>
 </div>
 </section>
