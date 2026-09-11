@@ -1483,23 +1483,14 @@ function generateRoot() {
 }
 
 // ─── robots.txt ─────────────────────────────────────────────────────────────────
-// AI crawlers, answer engines and the AI-training opt-in tokens (Google-Extended,
-// Applebot-Extended) are listed explicitly and allowed: being quotable in AI
-// answers is a goal here, and a named group makes that intent unambiguous —
-// several of these bots read only their own group, never the wildcard one.
-const AI_AGENTS = [
-  'GPTBot', 'OAI-SearchBot', 'ChatGPT-User',
-  'ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'anthropic-ai',
-  'PerplexityBot', 'Perplexity-User',
-  'Google-Extended', 'Applebot-Extended',
-  'Amazonbot', 'Applebot', 'DuckAssistBot', 'meta-externalagent', 'cohere-ai'
-];
-
+// One wildcard group, deliberately. Per RFC 9309 a crawler falls back to the
+// `*` group when no group names it, so listing GPTBot, ClaudeBot, PerplexityBot
+// and friends explicitly would grant exactly the access they already have — and
+// groups don't merge, so a future `Disallow:` added here would silently not
+// apply to any bot that had its own group. The AI crawlers are welcome; the way
+// to say so is to allow everything and point them at the files written for them.
 function generateRobots() {
   return `User-agent: *
-Allow: /
-
-${AI_AGENTS.map(a => `User-agent: ${a}`).join('\n')}
 Allow: /
 
 Sitemap: https://pappfer.hu/sitemap.xml
