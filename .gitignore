@@ -5,3 +5,4 @@ src/pappfer-400.jpg
 .idea/
 .env
 vendor/
+.indexnow-pending.json

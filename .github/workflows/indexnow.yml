@@ -1,0 +1,56 @@
+# Pings IndexNow after a push to master has actually gone live on Cloudflare
+# Pages. Cloudflare's own build can't do this — it runs *before* the deploy is
+# published, so a ping from there would point the crawlers at the old content.
+#
+# The job rebuilds the site (build.js has no dependencies, so no install step),
+# waits until the sitemap served by pappfer.hu matches the one it just built —
+# that is the signal the deploy is live — and then submits only the URLs whose
+# content actually changed.
+name: IndexNow
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'src/**'
+      - 'build.js'
+      - 'scripts/indexnow-submit.js'
+  workflow_dispatch:
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # --since needs the previous revision of the manifest
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Build
+        run: node build.js
+
+      - name: Wait for the Cloudflare Pages deploy to go live
+        run: |
+          for attempt in $(seq 1 40); do
+            if curl -fsS https://pappfer.hu/sitemap.xml -o /tmp/live-sitemap.xml \
+               && diff -q /tmp/live-sitemap.xml dist/sitemap.xml >/dev/null; then
+              echo "Deploy is live (attempt $attempt)."
+              exit 0
+            fi
+            echo "Not live yet (attempt $attempt) — retrying in 15s."
+            sleep 15
+          done
+          echo "Timed out waiting for the deploy; skipping the IndexNow ping."
+          exit 1
+
+      # --since compares the committed src/lastmod.json against the revision
+      # this push started from, which is what identifies the changed pages here
+      # (the rebuild alone can't: the manifest arrives already updated).
+      - name: Submit changed URLs to IndexNow
+        run: node scripts/indexnow-submit.js --changed --since="${BEFORE:-HEAD~1}"
+        env:
+          BEFORE: ${{ github.event.before }}

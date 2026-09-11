@@ -27,10 +27,16 @@ Then open [http://localhost:3000](http://localhost:3000) (`npm run dev`) or [htt
 
 ```
 ├── build.js                  # Build script (Node.js, zero deps)
+├── .github/workflows/
+│   └── indexnow.yml          # Pings IndexNow once a deploy is live
 ├── scripts/
-│   └── indexnow-submit.js    # Pings IndexNow after a deploy
+│   ├── generate-og-image.js  # Share cards (needs Chromium)
+│   └── indexnow-submit.js    # Submits URLs to IndexNow
 ├── src/
 │   ├── translations.json     # All content in EN/HU/DE
+│   ├── landing.json          # Service landing page content
+│   ├── lastmod.json          # Per-URL content hashes + lastmod dates
+│   ├── og/                   # Per-page share cards (generated, committed)
 │   └── indexnow-key.txt      # IndexNow key (public, must stay stable)
 ├── dist/                     # Build output (deploy this)
 │   ├── index.html            # Root redirect (detects browser language)
@@ -40,7 +46,8 @@ Then open [http://localhost:3000](http://localhost:3000) (`npm run dev`) or [htt
 │   ├── favicon.ico
 │   ├── robots.txt
 │   ├── sitemap.xml
-│   ├── llms.txt              # AI/LLM visibility file
+│   ├── llms.txt              # AI/LLM visibility file (index)
+│   ├── llms-full.txt         # Full site content, all languages, plain text
 │   ├── <key>.txt             # IndexNow ownership key
 │   └── img/
 │       ├── pappfer.webp      # Profile photo
@@ -75,17 +82,57 @@ the rest of the network re-crawl changed pages within minutes instead of days.
 The key lives in `src/indexnow-key.txt` (committed, public by design) and the build
 publishes it as `dist/<key>.txt`, which is how the engines verify domain ownership.
 
-After a deploy is live:
+**Automatic:** `.github/workflows/indexnow.yml` runs on every push to `master` that
+touches content. It rebuilds the site, waits until `pappfer.hu/sitemap.xml` matches
+the freshly built one (that's the "Cloudflare deploy is live" signal), then submits
+only the changed URLs. Nothing to run by hand, and no secrets — the key is public.
+
+The Cloudflare Pages build itself deliberately does *not* ping: it runs **before**
+the deploy is published, so the crawlers would arrive at the old content.
+
+**Manual**, from your own machine (or anywhere — it's just an HTTPS POST), once the
+deploy is live:
 
 ```bash
 npm run indexnow                      # submit every URL in dist/sitemap.xml
+npm run indexnow -- --changed         # only what the last local build changed
 npm run indexnow -- /hu/ /en/laravel-developer/   # submit only these
 npm run indexnow -- --dry-run         # show the payload, send nothing
 ```
 
-Submit only once the new build is actually deployed — the engines fetch the URLs
-right after the ping. The script verifies that `/<key>.txt` is live first and
-refuses to submit if it isn't.
+The script verifies that `/<key>.txt` is live before submitting and refuses if it
+isn't, so a premature ping fails loudly instead of silently wasting the submission.
+
+## Content freshness (`src/lastmod.json`)
+
+`<lastmod>` in the sitemap must be truthful — Google ignores sitemap dates it finds
+unreliable, and "everything changed today, again" is exactly that. So each URL gets
+a hash of the content that feeds it (its slice of `translations.json` /
+`landing.json`, not the rendered HTML), and the date only moves when that hash does.
+A CSS change or a new footer year touches no dates.
+
+`src/lastmod.json` holds those hashes and dates and **is committed**. Build locally
+before committing a content change so the manifest travels with it:
+
+```bash
+npm run build   # updates src/lastmod.json if content changed
+git add src/lastmod.json
+```
+
+The same hashes drive `dateModified` in the JSON-LD and the `--changed` URL list
+for IndexNow.
+
+## Share images
+
+`npm run generate-og` renders the share cards with Chromium (`puppeteer-core`):
+
+- `src/og-image.jpg` — the site card, from `resume.json`
+- `src/og/<lang>-<slug>.jpg` — one card per service landing page, per language
+
+They're committed, because the Cloudflare Pages build has no Chromium — it only
+copies them into `dist/img/og/`. A landing page with no card falls back to the site
+card, so a missing image never breaks the build. Re-run after changing an `h1`,
+a `kicker`, the photo, or `resume.json`.
 
 ## Configuration
 
@@ -104,7 +151,8 @@ Replace `YOUR_FORMSPREE_ID` in `build.js` with your Formspree form ID after regi
 - Zero runtime dependencies
 - Inline CSS with CSS custom properties for theming
 - Inline JS (~2KB): theme toggle, mobile menu, FAQ accordion, scroll animations, form handler
-- 4 JSON-LD schemas: Person, ProfessionalService, FAQPage, WebSite
+- JSON-LD: Person, ProfessionalService, FAQPage, WebSite, ProfilePage (home);
+  WebPage, Service, BreadcrumbList, FAQPage (landing pages)
 - Full SEO: canonical, hreflang, Open Graph, Twitter Cards
 - Accessibility: skip link, ARIA attributes, semantic HTML, keyboard navigation
 - Mobile-first responsive design (breakpoints: 600px, 900px)

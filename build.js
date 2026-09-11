@@ -65,6 +65,46 @@ function fileVersion(relPath) {
   return hash.slice(0, 10);
 }
 
+// ─── lastmod tracking ──────────────────────────────────────────────────────────
+// A <lastmod> that moves on every build is worse than none: Google drops
+// sitemap dates it finds unreliable. So each URL gets a hash of the *content*
+// that feeds it (its slice of translations.json / landing.json — deliberately
+// not the rendered HTML, so a CSS tweak or the footer year doesn't touch it),
+// and the date only moves when that hash changes.
+//
+// src/lastmod.json is committed. Build locally before committing a content
+// change and the dates stay exact; if a content change is pushed unbuilt, the
+// CI build still dates that one page correctly for that deploy — its write-back
+// is simply thrown away with the CI container, so the date re-derives to the
+// build date until the manifest is committed.
+const LASTMOD_PATH = path.join(__dirname, 'src', 'lastmod.json');
+const lastmodStore = fs.existsSync(LASTMOD_PATH)
+  ? JSON.parse(fs.readFileSync(LASTMOD_PATH, 'utf8'))
+  : {};
+const changedPaths = [];
+let lastmodDirty = false;
+
+function trackLastmod(urlPath, source) {
+  const hash = crypto.createHash('sha1').update(JSON.stringify(source)).digest('hex').slice(0, 16);
+  const prev = lastmodStore[urlPath];
+  if (prev && prev.hash === hash) return prev.date;
+  lastmodStore[urlPath] = { hash, date: BUILD_DATE };
+  changedPaths.push(urlPath);
+  lastmodDirty = true;
+  return BUILD_DATE;
+}
+
+const LASTMOD = {};
+LANGUAGES.forEach(lang => {
+  LASTMOD[`/${lang}/`] = trackLastmod(`/${lang}/`, translations[lang]);
+});
+landing.pages.forEach(page => {
+  LANGUAGES.forEach(lang => {
+    const urlPath = `/${lang}/${page[lang].slug}/`;
+    LASTMOD[urlPath] = trackLastmod(urlPath, page[lang]);
+  });
+});
+
 // IndexNow: the key is public by design — it is served as /<key>.txt so the
 // search engines can verify that whoever submits URLs controls this host. It
 // must stay stable across builds, so it lives in src/ and is committed; a build
@@ -90,9 +130,17 @@ const RESUME_HU_PDF_VERSION = HAS_RESUME_HU_PDF ? fileVersion('src/resume-hu.pdf
 const RESUME_JSON_VERSION = HAS_RESUME_JSON ? fileVersion('src/resume.json') : BUILD_DATE;
 
 // Ensure dist directories
-[DIST, ...LANGUAGES.map(l => path.join(DIST, l)), path.join(DIST, 'img')].forEach(dir => {
+[DIST, ...LANGUAGES.map(l => path.join(DIST, l)), path.join(DIST, 'img'), path.join(DIST, 'img', 'og')].forEach(dir => {
   fs.mkdirSync(dir, { recursive: true });
 });
+
+// Per-landing-page share cards live in src/og/<lang>-<slug>.jpg and are produced
+// by `npm run generate-og` (needs Chromium, so it can't run in the CI build) —
+// they are committed, and anything missing falls back to the generic card.
+const OG_DIR = path.join(__dirname, 'src', 'og');
+function hasLandingOgImage(lang, slug) {
+  return fs.existsSync(path.join(OG_DIR, `${lang}-${slug}.jpg`));
+}
 
 // ─── SVG Icons ──────────────────────────────────────────────────────────────────
 const icons = {
@@ -635,9 +683,13 @@ function generatePage(lang) {
     "@type": "ProfilePage",
     "@id": `https://pappfer.hu/${lang}/#profile`,
     "url": `https://pappfer.hu/${lang}/`,
+    "name": t.meta.title,
+    "description": t.meta.description,
     "inLanguage": lang,
+    "dateModified": LASTMOD[`/${lang}/`],
     "mainEntity": {"@id":"https://pappfer.hu/#ferenc-papp"},
-    "isPartOf": {"@id":"https://pappfer.hu/#website"}
+    "isPartOf": {"@id":"https://pappfer.hu/#website"},
+    "primaryImageOfPage": {"@type":"ImageObject","url":"https://pappfer.hu/img/og-image.jpg","width":1200,"height":630}
   });
 
   return minHtml(`<!DOCTYPE html>
@@ -974,6 +1026,12 @@ function generateLandingPage(lang, page) {
   const c = page[lang];
   const url = `https://pappfer.hu/${lang}/${c.slug}/`;
   const footerDisplayName = lang === 'hu' ? 'Papp Ferenc' : (t.footer.name || 'Ferenc Papp');
+  // Per-page share card if `npm run generate-og` has produced one, otherwise
+  // the generic site card — so the build never breaks on a missing image.
+  const ogImage = hasLandingOgImage(lang, c.slug)
+    ? `https://pappfer.hu/img/og/${lang}-${c.slug}.jpg`
+    : 'https://pappfer.hu/img/og-image.jpg';
+  const ogImageAlt = `${c.h1} — ${footerDisplayName}`;
 
   const hreflangs = LANGUAGES.map(l =>
     `<link rel="alternate" hreflang="${l}" href="https://pappfer.hu/${l}/${page[l].slug}/">`
@@ -982,6 +1040,7 @@ function generateLandingPage(lang, page) {
   const serviceSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${url}#service`,
     "name": c.h1,
     "serviceType": c.h1,
     "description": c.metaDescription,
@@ -998,10 +1057,25 @@ function generateLandingPage(lang, page) {
   const breadcrumbSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": `${url}#breadcrumb`,
     "itemListElement": [
       {"@type":"ListItem","position":1,"name":lab.home,"item":`https://pappfer.hu/${lang}/`},
       {"@type":"ListItem","position":2,"name":c.h1,"item":url}
     ]
+  });
+  const webPageSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": url,
+    "url": url,
+    "name": c.metaTitle,
+    "description": c.metaDescription,
+    "inLanguage": lang,
+    "dateModified": LASTMOD[`/${lang}/${c.slug}/`],
+    "isPartOf": {"@id":"https://pappfer.hu/#website"},
+    "about": {"@id": `${url}#service`},
+    "breadcrumb": {"@id": `${url}#breadcrumb`},
+    "primaryImageOfPage": {"@type":"ImageObject","url":ogImage,"width":1200,"height":630}
   });
   const faqSchema = JSON.stringify({
     "@context": "https://schema.org",
@@ -1030,15 +1104,16 @@ ${hreflangs}
 <meta property="og:description" content="${c.metaDescription}">
 <meta property="og:url" content="${url}">
 <meta property="og:site_name" content="${t.meta.ogSiteName}">
-<meta property="og:image" content="https://pappfer.hu/img/og-image.jpg">
+<meta property="og:image" content="${ogImage}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="${t.meta.ogImageAlt}">
+<meta property="og:image:alt" content="${ogImageAlt}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@pappfer">
 <meta name="twitter:title" content="${c.metaTitle}">
 <meta name="twitter:description" content="${c.metaDescription}">
-<meta name="twitter:image" content="https://pappfer.hu/img/og-image.jpg">
+<meta name="twitter:image" content="${ogImage}">
+<meta name="twitter:image:alt" content="${ogImageAlt}">
 <meta http-equiv="Content-Security-Policy" content="${csp}">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -1051,6 +1126,7 @@ ${hreflangs}
 <meta name="theme-color" content="#0f1117" media="(prefers-color-scheme: dark)">
 <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');})();</script>
 <style>${minCss}</style>
+<script type="application/ld+json">${webPageSchema}</script>
 <script type="application/ld+json">${serviceSchema}</script>
 <script type="application/ld+json">${breadcrumbSchema}</script>
 <script type="application/ld+json">${faqSchema}</script>
@@ -1198,6 +1274,7 @@ Allow: /
 Sitemap: https://pappfer.hu/sitemap.xml
 
 # Structured summary for LLMs: https://pappfer.hu/llms.txt
+# Full site content as plain text: https://pappfer.hu/llms-full.txt
 # Machine-readable CV (JSON Resume): https://pappfer.hu/resume.json
 `;
 }
@@ -1212,7 +1289,7 @@ function generateSitemap() {
     <loc>https://pappfer.hu/${l}/</loc>
 ${hreflangs}
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pappfer.hu/en/"/>
-    <lastmod>${BUILD_DATE}</lastmod>
+    <lastmod>${LASTMOD[`/${l}/`]}</lastmod>
     <priority>1.0</priority>
   </url>`).join('\n');
 
@@ -1226,7 +1303,7 @@ ${hreflangs}
     <loc>https://pappfer.hu/${l}/${page[l].slug}/</loc>
 ${pageHreflangs}
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pappfer.hu/en/${page.en.slug}/"/>
-    <lastmod>${BUILD_DATE}</lastmod>
+    <lastmod>${LASTMOD[`/${l}/${page[l].slug}/`]}</lastmod>
     <priority>0.8</priority>
   </url>`);
     });
@@ -1322,6 +1399,7 @@ Ferenc Papp (Hungarian name order: Papp Ferenc; online handle: pappfer) is a fre
 - [Portfolio (English)](https://pappfer.hu/en/): full profile — about, services, tech stack, experience and contact
 - [Portfolio (Hungarian)](https://pappfer.hu/hu/): teljes magyar nyelvű profil
 - [Portfolio (German)](https://pappfer.hu/de/): vollständiges deutschsprachiges Profil
+- [Full site content](https://pappfer.hu/llms-full.txt): every page of the site, all three languages, as one plain-text document
 - [Résumé (JSON Resume)](https://pappfer.hu/resume.json): machine-readable CV in JSON Resume format
 ${HAS_RESUME_PDF ? '- [Résumé (PDF, English)](https://pappfer.hu/resume.pdf): printable CV\n' : ''}${HAS_RESUME_HU_PDF ? '- [Résumé (PDF, Hungarian)](https://pappfer.hu/resume-hu.pdf): nyomtatható önéletrajz\n' : ''}
 ${LANGUAGES.map(l => `## Service pages (${LANGUAGE_NAMES[l]})
@@ -1339,6 +1417,102 @@ ${landing.pages.map(p => `- [${p[l].h1}](https://pappfer.hu/${l}/${p[l].slug}/):
 
 - [Email](mailto:pappfer@pappfer.hu): direct contact for freelance, consulting, and collaboration enquiries
 `;
+}
+
+// ─── llms-full.txt ──────────────────────────────────────────────────────────────
+// The whole site as one plain-text document. llms.txt is the index an LLM reads
+// to decide what to fetch; this is the "fetch everything at once" companion, so
+// an assistant that grabs a single file still gets the complete picture instead
+// of scraping 27 HTML pages. Generated from the same JSON as the pages, so it
+// can never drift from what is published.
+function generateLlmsFull() {
+  const out = [];
+  out.push(`# Ferenc Papp — Senior Full-Stack Developer & AI Solutions Engineer — full site content`);
+  out.push('');
+  out.push(`> Complete text of https://pappfer.hu in English, Hungarian and German. Index version: https://pappfer.hu/llms.txt`);
+  out.push('');
+  out.push(`Last generated: ${BUILD_DATE}`);
+
+  LANGUAGES.forEach(lang => {
+    const t = translations[lang];
+    const lab = landing.labels[lang];
+    out.push('');
+    out.push('---');
+    out.push('');
+    out.push(`# ${LANGUAGE_NAMES[lang]} (${lang})`);
+    out.push('');
+    out.push(`## ${t.meta.title}`);
+    out.push('');
+    out.push(`URL: https://pappfer.hu/${lang}/`);
+    out.push(`Last modified: ${LASTMOD[`/${lang}/`]}`);
+    out.push('');
+    out.push(t.meta.description);
+    out.push('');
+    out.push(`### ${t.hero.name} — ${t.hero.title}`);
+    out.push('');
+    out.push(t.hero.description);
+    out.push('');
+    out.push(`Availability: ${t.hero.availability}`);
+    out.push('');
+    out.push(`### ${t.about.title}`);
+    out.push('');
+    [t.about.p1, t.about.p2, t.about.p3].filter(Boolean).forEach(p => { out.push(p); out.push(''); });
+    out.push(`### ${t.services.title}`);
+    out.push('');
+    t.services.items.forEach(s => out.push(`- **${s.title}**: ${s.description}`));
+    out.push('');
+    out.push(`### ${t.techStack.title}`);
+    out.push('');
+    t.techStack.categories.forEach(c => out.push(`- **${c.name}**: ${c.items.join(', ')}`));
+    out.push('');
+    out.push(`### ${t.experience.title}`);
+    out.push('');
+    t.experience.timeline.forEach(e => out.push(`- **${e.period} — ${e.company} — ${e.role}**: ${e.description}`));
+    out.push('');
+    out.push(`### ${t.testimonials.title}`);
+    out.push('');
+    t.testimonials.items.forEach(r => out.push(`- "${r.quote}" — ${r.name}${r.company ? `, ${r.company}` : ''}`));
+    out.push('');
+    out.push(`### ${t.faq.title}`);
+    out.push('');
+    t.faq.items.forEach(f => { out.push(`**${f.question}**`); out.push(''); out.push(f.answer); out.push(''); });
+    out.push(`### ${t.contact.title}`);
+    out.push('');
+    out.push(t.contact.description);
+    out.push('');
+    out.push(`- ${t.contact.info.emailLabel}: ${t.contact.info.email}`);
+    out.push(`- ${t.contact.info.locationLabel}: ${t.contact.info.location}`);
+    out.push(`- ${t.contact.info.responseLabel}: ${t.contact.info.response}`);
+
+    landing.pages.forEach(page => {
+      const c = page[lang];
+      out.push('');
+      out.push(`## ${c.h1}`);
+      out.push('');
+      out.push(`URL: https://pappfer.hu/${lang}/${c.slug}/`);
+      out.push(`Last modified: ${LASTMOD[`/${lang}/${c.slug}/`]}`);
+      out.push('');
+      out.push(c.lead);
+      out.push('');
+      out.push(c.body);
+      out.push('');
+      out.push(`### ${c.doTitle}`);
+      out.push('');
+      c.do.forEach(i => out.push(`- ${i}`));
+      out.push('');
+      out.push(`### ${c.whyTitle}`);
+      out.push('');
+      out.push(c.why);
+      out.push('');
+      out.push(`### ${t.faq.title} — ${c.h1}`);
+      out.push('');
+      c.faq.forEach(f => { out.push(`**${f.q}**`); out.push(''); out.push(f.a); out.push(''); });
+      out.push(`${lab.cta}: https://pappfer.hu/${lang}/#contact`);
+    });
+  });
+
+  out.push('');
+  return out.join('\n').replace(/<[^>]+>/g, '') + '\n';
 }
 
 // ─── Build ──────────────────────────────────────────────────────────────────────
@@ -1376,6 +1550,9 @@ console.log('  ✓ sitemap.xml');
 fs.writeFileSync(path.join(DIST, 'llms.txt'), generateLlms());
 console.log('  ✓ llms.txt');
 
+fs.writeFileSync(path.join(DIST, 'llms-full.txt'), generateLlmsFull());
+console.log('  ✓ llms-full.txt');
+
 fs.writeFileSync(path.join(DIST, 'manifest.webmanifest'), generateManifest());
 console.log('  ✓ manifest.webmanifest');
 
@@ -1387,6 +1564,21 @@ console.log('  ✓ 404.html');
 
 fs.writeFileSync(path.join(DIST, `${INDEXNOW_KEY}.txt`), `${INDEXNOW_KEY}\n`);
 console.log(`  ✓ ${INDEXNOW_KEY}.txt (IndexNow key)`);
+
+// Drop URLs that no longer exist, then persist. Keys are sorted so the diff of
+// a content change stays readable.
+const prunedStore = {};
+Object.keys(LASTMOD).sort().forEach(urlPath => { prunedStore[urlPath] = lastmodStore[urlPath]; });
+if (lastmodDirty || Object.keys(prunedStore).length !== Object.keys(lastmodStore).length) {
+  fs.writeFileSync(LASTMOD_PATH, JSON.stringify(prunedStore, null, 2) + '\n');
+  console.log(`  ✓ src/lastmod.json (${changedPaths.length} page(s) changed — commit this file)`);
+}
+
+// Consumed by `npm run indexnow -- --changed`.
+fs.writeFileSync(
+  path.join(__dirname, '.indexnow-pending.json'),
+  JSON.stringify({ generated: new Date().toISOString(), urls: changedPaths.map(p => `https://pappfer.hu${p}`) }, null, 2) + '\n'
+);
 
 // Copy static assets from src/ if they exist
 const staticAssets = [
@@ -1403,6 +1595,13 @@ const staticAssets = [
   { src: 'src/resume-hu.pdf', dest: 'dist/resume-hu.pdf' },
   { src: 'src/resume.json', dest: 'dist/resume.json' }
 ];
+// Per-page share cards (whatever `npm run generate-og` has produced)
+if (fs.existsSync(OG_DIR)) {
+  const cards = fs.readdirSync(OG_DIR).filter(f => f.endsWith('.jpg'));
+  cards.forEach(f => fs.copyFileSync(path.join(OG_DIR, f), path.join(DIST, 'img', 'og', f)));
+  if (cards.length) console.log(`  ✓ dist/img/og/ (${cards.length} per-page share cards)`);
+}
+
 staticAssets.forEach(({ src, dest }) => {
   const srcPath = path.join(__dirname, src);
   const destPath = path.join(__dirname, dest);

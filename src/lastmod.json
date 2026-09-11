@@ -1,0 +1,110 @@
+{
+  "/de/": {
+    "hash": "c02c5c35b44eb28b",
+    "date": "2026-07-09"
+  },
+  "/de/ki-integration/": {
+    "hash": "dbce2b37e795f65c",
+    "date": "2026-08-10"
+  },
+  "/de/laravel-entwickler/": {
+    "hash": "3bdb9a12e2eb8b63",
+    "date": "2026-08-10"
+  },
+  "/de/python-entwickler/": {
+    "hash": "d858c22cc1c86aa8",
+    "date": "2026-08-10"
+  },
+  "/de/react-entwickler/": {
+    "hash": "1d82f0922b756728",
+    "date": "2026-08-10"
+  },
+  "/de/symfony-entwickler/": {
+    "hash": "72a6060ea27a503f",
+    "date": "2026-08-10"
+  },
+  "/de/vuejs-entwickler/": {
+    "hash": "6e29a4d18e148f6c",
+    "date": "2026-08-10"
+  },
+  "/de/webentwickler-debrecen/": {
+    "hash": "34e382459eb0c696",
+    "date": "2026-08-10"
+  },
+  "/de/yii2-entwickler/": {
+    "hash": "af9b011f0459c6c2",
+    "date": "2026-08-10"
+  },
+  "/en/": {
+    "hash": "d30c36b402b9eb27",
+    "date": "2026-07-09"
+  },
+  "/en/ai-llm-integration/": {
+    "hash": "28499259fdf9c152",
+    "date": "2026-08-10"
+  },
+  "/en/laravel-developer/": {
+    "hash": "aa43c7731d18ab12",
+    "date": "2026-08-10"
+  },
+  "/en/python-developer/": {
+    "hash": "f4b0acabbac2a962",
+    "date": "2026-08-10"
+  },
+  "/en/react-developer/": {
+    "hash": "9d5518e65d9eafc0",
+    "date": "2026-08-10"
+  },
+  "/en/symfony-developer/": {
+    "hash": "116941b1eb75bbc8",
+    "date": "2026-08-10"
+  },
+  "/en/vuejs-developer/": {
+    "hash": "93dd029f94cb91d1",
+    "date": "2026-08-10"
+  },
+  "/en/web-developer-debrecen/": {
+    "hash": "da36d9c1cabb745f",
+    "date": "2026-08-10"
+  },
+  "/en/yii2-developer/": {
+    "hash": "e83573064686f8c9",
+    "date": "2026-08-10"
+  },
+  "/hu/": {
+    "hash": "77a9b55eb84bf1b2",
+    "date": "2026-07-09"
+  },
+  "/hu/ai-integracio/": {
+    "hash": "49fbf2af1fa82ffe",
+    "date": "2026-08-10"
+  },
+  "/hu/laravel-fejleszto/": {
+    "hash": "7923494fc21de48d",
+    "date": "2026-08-10"
+  },
+  "/hu/python-fejleszto/": {
+    "hash": "6445e3587e3e298e",
+    "date": "2026-08-10"
+  },
+  "/hu/react-fejleszto/": {
+    "hash": "68c60c073918ef14",
+    "date": "2026-08-10"
+  },
+  "/hu/symfony-fejleszto/": {
+    "hash": "117e041f4f348365",
+    "date": "2026-08-10"
+  },
+  "/hu/vuejs-fejleszto/": {
+    "hash": "ef35abe75b5b0d5d",
+    "date": "2026-08-10"
+  },
+  "/hu/webfejleszto-debrecen/": {
+    "hash": "348934aadf81b706",
+    "date": "2026-08-10"
+  },
+  "/hu/yii2-fejleszto/": {
+    "hash": "fe0e95465c5553b5",
+    "date": "2026-08-10"
+  }
+}

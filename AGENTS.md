@@ -432,7 +432,19 @@ Bing/Yandex/Seznam/Naver re-crawl on notification instead of on their own
 schedule. The key lives in `src/indexnow-key.txt` (committed — it is public by
 design and must stay stable), the build publishes it as `dist/<key>.txt` for
 domain verification, and `npm run indexnow` submits the sitemap URLs after a
-deploy is live. Google does not participate; it uses `sitemap.xml`.
+deploy is live. `.github/workflows/indexnow.yml` does this automatically on
+push: it waits until the live sitemap matches the built one, then submits only
+the changed URLs. Never ping from the Cloudflare Pages build — it runs before
+the deploy is published. Google does not participate; it uses `sitemap.xml`.
+
+### lastmod accuracy
+`<lastmod>` must only move when the page's content moves, otherwise Google
+learns to ignore it. `src/lastmod.json` (committed) maps each URL to a hash of
+its source content — its slice of `translations.json` / `landing.json`, never
+the rendered HTML — plus the date that hash last changed. `build.js` updates it,
+and the same dates feed `dateModified` in the JSON-LD and the IndexNow
+`--changed` list. Build locally before committing a content change so the
+manifest ships with it.
 
 ### sitemap.xml
 Generate during build:
@@ -781,7 +793,10 @@ No manual server configuration needed.
 | `dist/de/index.html` | German page |
 | `dist/robots.txt` | Crawler instructions |
 | `dist/sitemap.xml` | Sitemap with hreflang |
-| `dist/llms.txt` | AI/LLM information file |
+| `dist/llms.txt` | AI/LLM information file (index) |
+| `dist/llms-full.txt` | Full text of every page, all three languages |
+| `src/lastmod.json` | Per-URL content hashes + lastmod dates (committed) |
+| `src/og/*.jpg` | Per-landing-page share cards (generated, committed) |
 | `src/indexnow-key.txt` | IndexNow key (committed, public, stable) |
 | `dist/<key>.txt` | IndexNow ownership verification file |
 | `scripts/indexnow-submit.js` | Submits changed URLs to IndexNow after deploy |
