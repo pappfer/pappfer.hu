@@ -27,8 +27,11 @@ Then open [http://localhost:3000](http://localhost:3000) (`npm run dev`) or [htt
 
 ```
 ├── build.js                  # Build script (Node.js, zero deps)
+├── scripts/
+│   └── indexnow-submit.js    # Pings IndexNow after a deploy
 ├── src/
-│   └── translations.json     # All content in EN/HU/DE
+│   ├── translations.json     # All content in EN/HU/DE
+│   └── indexnow-key.txt      # IndexNow key (public, must stay stable)
 ├── dist/                     # Build output (deploy this)
 │   ├── index.html            # Root redirect (detects browser language)
 │   ├── en/index.html         # English
@@ -38,6 +41,7 @@ Then open [http://localhost:3000](http://localhost:3000) (`npm run dev`) or [htt
 │   ├── robots.txt
 │   ├── sitemap.xml
 │   ├── llms.txt              # AI/LLM visibility file
+│   ├── <key>.txt             # IndexNow ownership key
 │   └── img/
 │       ├── pappfer.webp      # Profile photo
 │       └── og-image.jpg      # Social sharing image (1200x630)
@@ -61,6 +65,27 @@ All translatable content is in `src/translations.json`. Edit the JSON, then run 
 4. Add custom domain: `pappfer.hu`
 
 Cloudflare Pages provides automatic Brotli compression, global CDN, HTTP/3, and HTTPS.
+
+## IndexNow
+
+The site pings [IndexNow](https://www.indexnow.org) so Bing, Yandex, Seznam, Naver and
+the rest of the network re-crawl changed pages within minutes instead of days.
+(Google doesn't participate in IndexNow — it still picks changes up via `sitemap.xml`.)
+
+The key lives in `src/indexnow-key.txt` (committed, public by design) and the build
+publishes it as `dist/<key>.txt`, which is how the engines verify domain ownership.
+
+After a deploy is live:
+
+```bash
+npm run indexnow                      # submit every URL in dist/sitemap.xml
+npm run indexnow -- /hu/ /en/laravel-developer/   # submit only these
+npm run indexnow -- --dry-run         # show the payload, send nothing
+```
+
+Submit only once the new build is actually deployed — the engines fetch the URLs
+right after the ping. The script verifies that `/<key>.txt` is live first and
+refuses to submit if it isn't.
 
 ## Configuration
 

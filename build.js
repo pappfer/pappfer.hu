@@ -56,6 +56,7 @@ const HAS_RESUME_JSON = fs.existsSync(path.join(__dirname, 'src', 'resume.json')
 const BUILD_DATE = new Date().toISOString().split('T')[0];
 const YEAR = new Date().getFullYear();
 const LANGUAGES = ['en', 'hu', 'de'];
+const LANGUAGE_NAMES = { en: 'English', hu: 'Hungarian', de: 'German' };
 
 function fileVersion(relPath) {
   const fullPath = path.join(__dirname, relPath);
@@ -63,6 +64,26 @@ function fileVersion(relPath) {
   const hash = crypto.createHash('sha1').update(fs.readFileSync(fullPath)).digest('hex');
   return hash.slice(0, 10);
 }
+
+// IndexNow: the key is public by design — it is served as /<key>.txt so the
+// search engines can verify that whoever submits URLs controls this host. It
+// must stay stable across builds, so it lives in src/ and is committed; a build
+// on a clean clone (Cloudflare Pages) reuses it instead of minting a new one.
+const INDEXNOW_KEY_PATH = path.join(__dirname, 'src', 'indexnow-key.txt');
+function indexNowKey() {
+  if (fs.existsSync(INDEXNOW_KEY_PATH)) {
+    const key = fs.readFileSync(INDEXNOW_KEY_PATH, 'utf8').trim();
+    if (!/^[A-Za-z0-9-]{8,128}$/.test(key)) {
+      throw new Error(`Invalid IndexNow key in src/indexnow-key.txt: must be 8-128 chars of [A-Za-z0-9-]`);
+    }
+    return key;
+  }
+  const key = crypto.randomBytes(16).toString('hex');
+  fs.writeFileSync(INDEXNOW_KEY_PATH, key + '\n');
+  console.log(`  ! generated src/indexnow-key.txt (${key}) — commit this file`);
+  return key;
+}
+const INDEXNOW_KEY = indexNowKey();
 
 const RESUME_PDF_VERSION = HAS_RESUME_PDF ? fileVersion('src/resume.pdf') : BUILD_DATE;
 const RESUME_HU_PDF_VERSION = HAS_RESUME_HU_PDF ? fileVersion('src/resume-hu.pdf') : BUILD_DATE;
@@ -631,7 +652,7 @@ function generatePage(lang) {
 <link rel="alternate" hreflang="hu" href="https://pappfer.hu/hu/">
 <link rel="alternate" hreflang="de" href="https://pappfer.hu/de/">
 <link rel="alternate" hreflang="x-default" href="https://pappfer.hu/en/">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="${t.locale}">
 <meta property="og:title" content="${t.meta.title}">
@@ -1002,7 +1023,7 @@ function generateLandingPage(lang, page) {
 <meta name="description" content="${c.metaDescription}">
 <link rel="canonical" href="${url}">
 ${hreflangs}
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="${t.locale}">
 <meta property="og:title" content="${c.metaTitle}">
@@ -1155,11 +1176,29 @@ function generateRoot() {
 }
 
 // ─── robots.txt ─────────────────────────────────────────────────────────────────
+// AI crawlers, answer engines and the AI-training opt-in tokens (Google-Extended,
+// Applebot-Extended) are listed explicitly and allowed: being quotable in AI
+// answers is a goal here, and a named group makes that intent unambiguous —
+// several of these bots read only their own group, never the wildcard one.
+const AI_AGENTS = [
+  'GPTBot', 'OAI-SearchBot', 'ChatGPT-User',
+  'ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'anthropic-ai',
+  'PerplexityBot', 'Perplexity-User',
+  'Google-Extended', 'Applebot-Extended',
+  'Amazonbot', 'Applebot', 'DuckAssistBot', 'meta-externalagent', 'cohere-ai'
+];
+
 function generateRobots() {
   return `User-agent: *
 Allow: /
 
+${AI_AGENTS.map(a => `User-agent: ${a}`).join('\n')}
+Allow: /
+
 Sitemap: https://pappfer.hu/sitemap.xml
+
+# Structured summary for LLMs: https://pappfer.hu/llms.txt
+# Machine-readable CV (JSON Resume): https://pappfer.hu/resume.json
 `;
 }
 
@@ -1283,10 +1322,11 @@ Ferenc Papp (Hungarian name order: Papp Ferenc; online handle: pappfer) is a fre
 - [Portfolio (English)](https://pappfer.hu/en/): full profile — about, services, tech stack, experience and contact
 - [Portfolio (Hungarian)](https://pappfer.hu/hu/): teljes magyar nyelvű profil
 - [Portfolio (German)](https://pappfer.hu/de/): vollständiges deutschsprachiges Profil
-- [Freelance web developer in Debrecen (Hungarian)](https://pappfer.hu/hu/webfejleszto-debrecen/): local services, expertise, availability and contact
-- [Web developer in Debrecen (English)](https://pappfer.hu/en/web-developer-debrecen/): local custom web development and AI integration services
-- [Freelance web developer in Debrecen (German)](https://pappfer.hu/de/webentwickler-debrecen/): lokale individuelle Webentwicklung, KI-Integration und technische Beratung
 - [Résumé (JSON Resume)](https://pappfer.hu/resume.json): machine-readable CV in JSON Resume format
+${HAS_RESUME_PDF ? '- [Résumé (PDF, English)](https://pappfer.hu/resume.pdf): printable CV\n' : ''}${HAS_RESUME_HU_PDF ? '- [Résumé (PDF, Hungarian)](https://pappfer.hu/resume-hu.pdf): nyomtatható önéletrajz\n' : ''}
+${LANGUAGES.map(l => `## Service pages (${LANGUAGE_NAMES[l]})
+
+${landing.pages.map(p => `- [${p[l].h1}](https://pappfer.hu/${l}/${p[l].slug}/): ${p[l].metaDescription}`).join('\n')}`).join('\n\n')}
 
 ## Profiles
 
@@ -1344,6 +1384,9 @@ console.log('  ✓ _headers');
 
 fs.writeFileSync(path.join(DIST, '404.html'), generate404());
 console.log('  ✓ 404.html');
+
+fs.writeFileSync(path.join(DIST, `${INDEXNOW_KEY}.txt`), `${INDEXNOW_KEY}\n`);
+console.log(`  ✓ ${INDEXNOW_KEY}.txt (IndexNow key)`);
 
 // Copy static assets from src/ if they exist
 const staticAssets = [

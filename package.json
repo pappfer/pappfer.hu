@@ -6,7 +6,8 @@
     "dev": "npx serve dist",
     "build": "node build.js",
     "generate-pdf": "node scripts/generate-resume-pdf.js",
-    "generate-og": "node scripts/generate-og-image.js"
+    "generate-og": "node scripts/generate-og-image.js",
+    "indexnow": "node scripts/indexnow-submit.js"
   },
   "devDependencies": {
     "puppeteer-core": "^25.0.0"
