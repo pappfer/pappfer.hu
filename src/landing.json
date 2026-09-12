@@ -34,14 +34,14 @@
         "kicker": "Backend & full-stack",
         "h1": "Laravel fejlesztő",
         "lead": "Papp Ferenc vagyok, senior full-stack fejlesztő 15+ év tapasztalattal, a Laravel a fő backend eszközöm. Skálázható, jól tesztelt Laravel alkalmazásokat tervezek és építek — API-któl és multi-tenant SaaS platformoktól a nagy teljesítményű Progresszív Webalkalmazások backendjéig.",
-        "body": "A teljes folyamatot viszem: architektúra, adatbázis-tervezés, sorok és háttérfeladatok, külső integrációk, tesztelés és bevezetés. Akár új terméket indítasz, akár egy meglévő Laravel kódbázishoz kell senior fejlesztő, tiszta, karbantartható és skálázható kódot adok.",
+        "body": "A teljes folyamatot viszem: architektúra, adatbázis-tervezés, queue-k és háttérfeladatok, külső integrációk, tesztelés és élesítés. Akár új terméket indítasz, akár egy meglévő Laravel kódbázishoz kell senior fejlesztő, tiszta, karbantartható és skálázható kódot adok.",
         "doTitle": "Mit építek Laravelben",
-        "do": ["REST és JSON API-k web- és mobilklienseknek", "Multi-tenant SaaS platformok és admin felületek", "Skálázható backend Progresszív Webalkalmazásokhoz (Vue.js-szel)", "Fizetési, CRM és külső API integrációk", "Sorok, ütemezett és háttérben futó feladatok", "AI / LLM funkciók beépítése Laravel alkalmazásokba"],
+        "do": ["REST és JSON API-k web- és mobilklienseknek", "Multi-tenant SaaS platformok és admin felületek", "Skálázható backend Progresszív Webalkalmazásokhoz (Vue.js-szel)", "Fizetési, CRM és külső API integrációk", "Queue-k, ütemezett és háttérben futó feladatok", "AI / LLM funkciók beépítése Laravel alkalmazásokba"],
         "whyTitle": "Miért velem",
-        "why": "MVP-től multi-tenant SaaS-ig terveztem és szállítottam Laravel rendszereket, így a nehéz részekhez — adatmodellezés, teljesítmény, sorok, biztonság — senior döntéseket kapsz, nem csak működő kódot. A munkát végig viszem, tesztelten és karbantarthatóan.",
+        "why": "MVP-től multi-tenant SaaS-ig terveztem és szállítottam Laravel rendszereket, így a nehéz részekhez — adatmodellezés, teljesítmény, queue-k, biztonság — senior döntéseket kapsz, nem csak működő kódot. A munkát végig viszem, tesztelten és karbantarthatóan.",
         "faq": [
           { "q": "Dolgozol meglévő Laravel projekteken?", "a": "Igen — rendszeresen csatlakozom meglévő kódbázisokhoz: új funkciók, teljesítményjavítás, tesztlefedettség növelése vagy legacy kód rendberakása." },
-          { "q": "Milyen Laravel eszközökkel dolgozol?", "a": "Modern Laravel: Eloquent, sorok, Horizon, Sanctum/Passport, Pest/PHPUnit és CI/CD. Szükség esetén Symfony és Yii2 is." }
+          { "q": "Milyen Laravel eszközökkel dolgozol?", "a": "Modern Laravel: Eloquent, queue-k, Horizon, Sanctum/Passport, Pest/PHPUnit és CI/CD. Szükség esetén Symfony és Yii2 is." }
         ],
         "ctaTitle": "Senior Laravel fejlesztőt keresel?",
         "ctaText": "Írd le a projekted, és nézzük meg, hogyan segíthetek."
@@ -158,11 +158,11 @@
         "lead": "Nagy nyelvi modelleket integrálok valódi termékekbe — nem demókba. RAG pipeline-ok, szemantikus keresés vektor adatbázisokkal és embeddingekkel, LLM-alapú klasszifikáció, és az a mérnöki fegyelem, amitől a generatív AI megbízható, megfigyelhető és költségtudatos lesz.",
         "body": "Pythonban dolgozom (FastAPI, LangChain, LangGraph), és az AI funkciókat meglévő webalkalmazásokba kötöm (Laravel, Vue.js). Hangolom a hiperparamétereket (temperature, top-k/top-p), retrievallel alapozom meg a válaszokat, és kiértékelést meg védőkorlátokat építek, hogy ugyanaz a bemenet megbízható, ismételhető eredményt adjon.",
         "doTitle": "Mit építek",
-        "do": ["RAG pipeline-ok a dokumentumaidra és adataidra", "Szemantikus keresés vektor adatbázisokkal és embeddingekkel", "LLM-alapú klasszifikációs és kinyerő rendszerek", "Finomhangolás, benchmark és modell-összehasonlítás", "Determinisztikus, kiértékelt LLM funkciók (temperature, top-k/top-p)", "AI funkciók beépítése Laravel / Vue appokba és API-kba"],
+        "do": ["RAG pipeline-ok a dokumentumaidra és adataidra", "Szemantikus keresés vektor adatbázisokkal és embeddingekkel", "LLM-alapú klasszifikáció és adatkinyerés", "Finomhangolás, benchmark és modell-összehasonlítás", "Determinisztikus, kiértékelt LLM funkciók (temperature, top-k/top-p)", "AI funkciók beépítése Laravel / Vue appokba és API-kba"],
         "whyTitle": "Miért velem",
         "why": "15+ év éles webfejlesztést ötvözök gyakorlati generatív AI kutatás-fejlesztéssel (jelenleg Senior AI Solutions Engineerként). Ez olyan AI funkciókat jelent, amelyek tényleg élesbe kerülnek, tisztán integrálódnak és kibírják az éles terhelést — nem megrekedt proof-of-conceptek.",
         "faq": [
-          { "q": "Milyen modelleket és eszközöket használsz?", "a": "OpenAI és Anthropic API-k, LangChain / LangGraph, FastAPI, és vektor adatbázisok (pl. Pinecone vagy pgvector) — a feladathoz és kerethez igazítva." },
+          { "q": "Milyen modelleket és eszközöket használsz?", "a": "OpenAI és Anthropic API-k, LangChain / LangGraph, FastAPI, és vektor adatbázisok (pl. Pinecone vagy pgvector) — a feladathoz és a költségkerethez igazítva." },
           { "q": "Be tudod építeni az AI-t a meglévő appomba?", "a": "Igen. LLM funkciókat (keresés, chat, klasszifikáció, automatizálás) integrálok meglévő Laravel, Vue.js vagy Python rendszerekbe, a hozzá tartozó backenddel együtt." }
         ],
         "ctaTitle": "Éles környezetbe szánt AI-t szeretnél a termékedbe?",
@@ -217,9 +217,9 @@
         "kicker": "Backend & full-stack",
         "h1": "Symfony fejlesztő",
         "lead": "Senior PHP fejlesztő, mély Symfony tapasztalattal. Robusztus, jól strukturált Symfony alkalmazásokat és API-kat építek, és ugyanúgy otthon vagyok meglévő vállalati kódbázisok modernizálásában vagy bővítésében.",
-        "body": "A bundle-architektúrától és a Doctrine-tól a Messenger sorokig, a security-ig és az API Platformig karbantartható Symfony kódot adok automatizált tesztekkel és tiszta integrációkkal. Szükség esetén Laravelben és Yii2-ben is dolgozom.",
+        "body": "A bundle-architektúrától és a Doctrine-tól a Messenger queue-kig, a security-ig és az API Platformig karbantartható Symfony kódot adok automatizált tesztekkel és tiszta integrációkkal. Szükség esetén Laravelben és Yii2-ben is dolgozom.",
         "doTitle": "Mit építek Symfonyban",
-        "do": ["REST / API Platform backendek és szolgáltatások", "Vállalati webalkalmazások és admin eszközök", "Doctrine adatmodellezés és migrációk", "Messenger sorok és háttérfeldolgozás", "Külső és legacy rendszerek integrációja", "Meglévő Symfony appok refaktorálása és modernizálása"],
+        "do": ["REST / API Platform backendek és szolgáltatások", "Vállalati webalkalmazások és admin eszközök", "Doctrine adatmodellezés és migrációk", "Messenger queue-k és háttérfeldolgozás", "Külső és legacy rendszerek integrációja", "Meglévő Symfony appok refaktorálása és modernizálása"],
         "whyTitle": "Miért velem",
         "why": "Három PHP keretrendszer éles használata (Symfony, Laravel, Yii2) azt jelenti, hogy nem vagyok dogmatikus — úgy dolgozom, ahogy a csapatod és a kódbázisod már működik, és otthon vagyok a nagy, hosszú életű vállalati rendszerekben, ahol a struktúra és a stabilitás a legfontosabb.",
         "faq": [
@@ -282,7 +282,7 @@
         "lead": "Papp Ferenc vagyok, debreceni szabadúszó senior full-stack webfejlesztő és egyéni vállalkozó, 15+ év szakmai tapasztalattal. Egyedi webalkalmazásokat és AI-alapú funkciókat építek helyi, európai és amerikai cégeknek.",
         "body": "Debrecenből dolgozom, így a helyi cégekkel akár személyesen is egyeztetek, vagy teljesen távmunkában. Az ötlettől az architektúrán át a fejlesztésig és az élesítésig viszem a projektet, és tiszta, megbízható, karbantartható kódot adok.",
         "doTitle": "Miben tudok segíteni",
-        "do": ["Egyedi webalkalmazások és belső eszközök", "Modern, gyors, SEO-barát weboldalak", "Laravel / PHP backend és API-k", "Vue.js / React frontend és PWA-k", "AI és LLM integráció a termékedbe", "Technikai tanácsadás és kód-átvizsgálás"],
+        "do": ["Egyedi webalkalmazások és belső eszközök", "Modern, gyors, SEO-barát weboldalak", "Laravel / PHP backend és API-k", "Vue.js / React frontend és PWA-k", "AI és LLM integráció a termékedbe", "Technikai tanácsadás és code review"],
         "whyTitle": "Miért egy helyi senior fejlesztő",
         "why": "Megbízható, senior partner, akivel akár személyesen is találkozhatsz — magyarul és angolul is gördülékenyen, 15+ év éles tapasztalattal. Átlátható kommunikáció, őszinte becslések, hosszú távra épített kód.",
         "faq": [
@@ -404,7 +404,7 @@
         "kicker": "Backend & full-stack",
         "h1": "Yii2 fejlesztő",
         "lead": "Senior PHP fejlesztő, mély, gyakorlati Yii2 tapasztalattal — API-k, webalkalmazások, konzol parancsok és ütemezett feladatok. Új Yii appokat építek, meglévőket modernizálok és bővítek.",
-        "body": "Éles Yii2 rendszereket szállítottam és Yii-alapú fejlesztést vezettem. A megjelent új Yii3-mal a Yii3 projekteket is vállalom, az évek Yii tapasztalatára építve — és szükség esetén Laravelben és Symfonyban is dolgozom.",
+        "body": "Éles Yii2 rendszereket szállítottam és Yii-alapú fejlesztést vezettem. A Yii3 megjelenése óta Yii3 projekteket is vállalok, az évek Yii tapasztalatára építve — és szükség esetén Laravelben és Symfonyban is dolgozom.",
         "doTitle": "Mit építek Yii-vel",
         "do": ["REST és JSON API-k Yii2-vel", "Webalkalmazások, admin felületek és back-office eszközök", "Yii konzol alkalmazások és ütemezett feladatok", "Külső és fizetési integrációk", "Legacy Yii appok karbantartása, refaktorálása és frissítése", "Yii3 projektek, a mély Yii2 tapasztalatra építve"],
         "whyTitle": "Miért velem",
@@ -465,13 +465,13 @@
         "kicker": "Frontend & mobil",
         "h1": "React fejlesztő",
         "lead": "Modern frontendeket építek Reacttel — Next.js webalkalmazásokat és React Native mobilappokat. Senior full-stack fejlesztő 15+ év tapasztalattal, a frontendet stabil Laravel vagy Python backendhez kötve.",
-        "body": "A szerver-oldalon renderelt Next.js oldalaktól és SPA-któl a cross-platform React Native appokig tiszta komponens-architektúrát, stabil állapotkezelést és jó teljesítményt adok. Egy fejlesztő, aki a React terméket a webtől a mobilig viszi, és összeköti a backenddel.",
+        "body": "A szerveroldalon renderelt Next.js oldalaktól és SPA-któl a cross-platform React Native appokig tiszta komponens-architektúrát, stabil állapotkezelést és jó teljesítményt adok. Egy fejlesztő, aki a React terméket a webtől a mobilig viszi, és összeköti a backenddel.",
         "doTitle": "Mit építek Reacttel",
         "do": ["React single-page appok és dashboardok", "Next.js webalkalmazások (SSR / SSG) jó Core Web Vitals értékekkel", "React Native cross-platform mobilappok", "Komponenskönyvtárak és design rendszerek", "Laravel / FastAPI backendhez kötött frontendek", "AI-alapú UI funkciók (chat, keresés, asszisztensek)"],
         "whyTitle": "Miért velem",
         "why": "Full-stack a React ökoszisztémában és a mögötte lévő backendben is, így a web, a mobil és az API szinkronban marad. 15+ év éles szoftverfejlesztés, végig TypeScripttel, átlátható kommunikáció magyarul és angolul.",
         "faq": [
-          { "q": "React, Next.js vagy React Native?", "a": "Mindhárom — React az SPA-khoz, Next.js a szerver-oldalon renderelt webappokhoz, React Native a cross-platform mobilhoz. A termékedhez a megfelelőt választom." },
+          { "q": "React, Next.js vagy React Native?", "a": "Mindhárom — React az SPA-khoz, Next.js a szerveroldalon renderelt webappokhoz, React Native a cross-platform mobilhoz. A termékedhez a megfelelőt választom." },
           { "q": "A backendet is megcsinálod?", "a": "Igen — full-stack vagyok. A React frontendet (vagy mobilappot) és a Laravel vagy Python backendet együtt is szállítom." }
         ],
         "ctaTitle": "Senior React fejlesztőt keresel?",
@@ -514,7 +514,7 @@
           "schema.org entity graph — Organization, Person, Service, FAQ and breadcrumbs, linked by @id",
           "llms.txt and llms-full.txt, so assistants can read your site instead of scraping it",
           "Retrieval-ready content architecture: chunk-safe sections, answer-first phrasing, real anchors",
-          "Crawler and indexing plumbing: AI user-agents in robots.txt, IndexNow, honest sitemap dates",
+          "Crawler and indexing plumbing: a correct robots.txt, IndexNow submission, honest sitemap dates",
           "Measurement: tracking citations and assistant-referred traffic over time"
         ],
         "whyTitle": "Why me",
@@ -542,7 +542,7 @@
           "schema.org entitásgráf — Organization, Person, Service, FAQ, breadcrumb, @id-val összekötve",
           "llms.txt és llms-full.txt, hogy az asszisztensek olvashassák az oldalad, ne scrapelniük kelljen",
           "Kinyerhető tartalomszerkezet: darabolásbiztos szakaszok, válasszal kezdő fogalmazás, valódi horgonyok",
-          "Crawler- és indexelési háttér: AI user-agentek a robots.txt-ben, IndexNow, őszinte sitemap-dátumok",
+          "Crawler- és indexelési háttér: helyes robots.txt, IndexNow-beküldés, pontos sitemap-dátumok",
           "Mérés: az idézések és az asszisztensekből érkező forgalom követése"
         ],
         "whyTitle": "Miért velem",
@@ -570,7 +570,7 @@
           "schema.org-Entitätsgraph — Organization, Person, Service, FAQ und Breadcrumbs, über @id verknüpft",
           "llms.txt und llms-full.txt, damit Assistenten Ihre Seite lesen statt sie zu scrapen",
           "Abrufbare Inhaltsstruktur: chunk-sichere Abschnitte, Antwort zuerst, echte Ankerlinks",
-          "Crawler- und Indexierungs-Setup: KI-User-Agents in der robots.txt, IndexNow, ehrliche Sitemap-Daten",
+          "Crawler- und Indexierungs-Setup: eine korrekte robots.txt, IndexNow-Übermittlung, ehrliche Sitemap-Daten",
           "Messung: Zitate und Assistenten-Traffic über die Zeit verfolgen"
         ],
         "whyTitle": "Warum mit mir",

@@ -4,16 +4,16 @@
     "date": "2026-09-11"
   },
   "/de/ki-glossar/": {
-    "hash": "1b6da19ebb7833ee",
-    "date": "2026-09-11"
+    "hash": "285f72044422d631",
+    "date": "2026-09-12"
   },
   "/de/ki-integration/": {
     "hash": "dbce2b37e795f65c",
     "date": "2026-08-10"
   },
   "/de/ki-suchmaschinenoptimierung/": {
-    "hash": "591058edfce1ab70",
-    "date": "2026-09-11"
+    "hash": "06a0e423bf24dc91",
+    "date": "2026-09-12"
   },
   "/de/laravel-entwickler/": {
     "hash": "3bdb9a12e2eb8b63",
@@ -48,16 +48,16 @@
     "date": "2026-09-11"
   },
   "/en/ai-glossary/": {
-    "hash": "55122ec0db938cd2",
-    "date": "2026-09-11"
+    "hash": "bf2e1ba307ba9248",
+    "date": "2026-09-12"
   },
   "/en/ai-llm-integration/": {
     "hash": "28499259fdf9c152",
     "date": "2026-08-10"
   },
   "/en/answer-engine-optimization/": {
-    "hash": "4d3b8f653b6144b7",
-    "date": "2026-09-11"
+    "hash": "24c64d0d55e726ab",
+    "date": "2026-09-12"
   },
   "/en/laravel-developer/": {
     "hash": "aa43c7731d18ab12",
@@ -92,43 +92,43 @@
     "date": "2026-09-11"
   },
   "/hu/ai-integracio/": {
-    "hash": "49fbf2af1fa82ffe",
-    "date": "2026-08-10"
+    "hash": "14d8611612be6ce7",
+    "date": "2026-09-12"
   },
   "/hu/ai-keresooptimalizalas/": {
-    "hash": "9873f135e562b3b5",
-    "date": "2026-09-11"
+    "hash": "4abd93a2743e6027",
+    "date": "2026-09-12"
   },
   "/hu/ai-szotar/": {
-    "hash": "fe3d73b2039fd7de",
-    "date": "2026-09-11"
+    "hash": "2a541e7263149a8d",
+    "date": "2026-09-12"
   },
   "/hu/laravel-fejleszto/": {
-    "hash": "7923494fc21de48d",
-    "date": "2026-08-10"
+    "hash": "5421185d8e2957f3",
+    "date": "2026-09-12"
   },
   "/hu/python-fejleszto/": {
     "hash": "6445e3587e3e298e",
     "date": "2026-08-10"
   },
   "/hu/react-fejleszto/": {
-    "hash": "68c60c073918ef14",
-    "date": "2026-08-10"
+    "hash": "c9de156d1115450f",
+    "date": "2026-09-12"
   },
   "/hu/symfony-fejleszto/": {
-    "hash": "117e041f4f348365",
-    "date": "2026-08-10"
+    "hash": "a573406627264b41",
+    "date": "2026-09-12"
   },
   "/hu/vuejs-fejleszto/": {
     "hash": "ef35abe75b5b0d5d",
     "date": "2026-08-10"
   },
   "/hu/webfejleszto-debrecen/": {
-    "hash": "348934aadf81b706",
-    "date": "2026-08-10"
+    "hash": "bc8fa4b16f828a39",
+    "date": "2026-09-12"
   },
   "/hu/yii2-fejleszto/": {
-    "hash": "fe0e95465c5553b5",
-    "date": "2026-08-10"
+    "hash": "7b06d46b3ac568a8",
+    "date": "2026-09-12"
   }
 }

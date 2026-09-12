@@ -12,7 +12,19 @@
       "termsWord": "terms",
       "ctaTitle": "Building something with an LLM?",
       "ctaText": "I design and ship production AI systems — RAG pipelines, semantic search, evaluation and the engineering around them.",
-      "relatedTitle": "Related services"
+      "relatedTitle": "Related services",
+      "searchLabel": "Search the glossary and the site",
+      "searchPlaceholder": "Search or ask — e.g. “what is RAG”",
+      "searchHint": "Searches all 50 definitions and every page, in this language. Runs entirely in your browser.",
+      "searchLoading": "Loading index…",
+      "searchEmpty": "Nothing found. Try another word — the search matches word beginnings, so “embed” finds “embedding”.",
+      "searchCountOne": "1 result",
+      "searchCountMany": "{n} results",
+      "searchClear": "Clear search",
+      "kindTerm": "Glossary",
+      "kindPage": "Page",
+      "kindSection": "Homepage",
+      "searchError": "The search index could not be loaded. Reload the page and try again."
     },
     "hu": {
       "slug": "ai-szotar",
@@ -26,7 +38,19 @@
       "termsWord": "fogalom",
       "ctaTitle": "Építesz valamit LLM-mel?",
       "ctaText": "Éles környezetbe szánt AI-rendszereket tervezek és adok át — RAG pipeline-ok, szemantikus keresés, kiértékelés és a köré épülő mérnöki munka.",
-      "relatedTitle": "Kapcsolódó szolgáltatások"
+      "relatedTitle": "Kapcsolódó szolgáltatások",
+      "searchLabel": "Keresés a szótárban és az oldalon",
+      "searchPlaceholder": "Keress vagy kérdezz — pl. „mi az a RAG”",
+      "searchHint": "Mind az 50 definícióban és minden oldalon keres, ezen a nyelven. Teljes egészében a böngésződben fut.",
+      "searchLoading": "Index betöltése…",
+      "searchEmpty": "Nincs találat. Próbáld más szóval — a kereső szókezdetre illeszt, így az „embed” megtalálja az „embedding”-et.",
+      "searchCountOne": "1 találat",
+      "searchCountMany": "{n} találat",
+      "searchClear": "Keresés törlése",
+      "kindTerm": "Szótár",
+      "kindPage": "Oldal",
+      "kindSection": "Főoldal",
+      "searchError": "A keresési index nem töltődött be. Frissítsd az oldalt, és próbáld újra."
     },
     "de": {
       "slug": "ki-glossar",
@@ -40,7 +64,19 @@
       "termsWord": "Begriffe",
       "ctaTitle": "Bauen Sie etwas mit einem LLM?",
       "ctaText": "Ich entwerfe und liefere produktionsreife KI-Systeme — RAG-Pipelines, semantische Suche, Evaluation und die Technik drumherum.",
-      "relatedTitle": "Verwandte Leistungen"
+      "relatedTitle": "Verwandte Leistungen",
+      "searchLabel": "Glossar und Website durchsuchen",
+      "searchPlaceholder": "Suchen oder fragen — z. B. „was ist RAG“",
+      "searchHint": "Durchsucht alle 50 Definitionen und jede Seite in dieser Sprache. Läuft vollständig in Ihrem Browser.",
+      "searchLoading": "Index wird geladen…",
+      "searchEmpty": "Nichts gefunden. Versuchen Sie ein anderes Wort — die Suche trifft Wortanfänge, „Embed“ findet also „Embedding“.",
+      "searchCountOne": "1 Treffer",
+      "searchCountMany": "{n} Treffer",
+      "searchClear": "Suche löschen",
+      "kindTerm": "Glossar",
+      "kindPage": "Seite",
+      "kindSection": "Startseite",
+      "searchError": "Der Suchindex konnte nicht geladen werden. Laden Sie die Seite neu und versuchen Sie es erneut."
     }
   },
   "categories": [

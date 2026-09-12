@@ -50,6 +50,15 @@ function landingIcon(id) {
   const key = LANDING_ICONS[id] || 'code';
   return BRAND_ICONS[key] || icons[key] || icons.code;
 }
+// Browser-side search for the glossary page. Kept in src/ as a real .js file so
+// it stays lintable and free of template-literal escaping, and deliberately not
+// run through minJs — that minifier collapses whitespace around punctuation,
+// which is fine for the small inline script but not for regex-heavy code.
+const SEARCH_JS = fs.readFileSync(path.join(__dirname, 'src', 'search.js'), 'utf8')
+  .replace(/^\s*\/\/.*$/gm, '')
+  .replace(/\n{2,}/g, '\n')
+  .trim();
+
 const DIST = path.join(__dirname, 'dist');
 const HAS_RESUME_PDF = fs.existsSync(path.join(__dirname, 'src', 'resume.pdf'));
 const HAS_RESUME_HU_PDF = fs.existsSync(path.join(__dirname, 'src', 'resume-hu.pdf'));
@@ -168,6 +177,7 @@ const icons = {
   research: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6"/><path d="M10 2v6.5L5 18a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9.5V2"/><line x1="7" y1="14" x2="17" y2="14"/></svg>',
   search: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="7.5"/><line x1="21" y1="21" x2="16" y2="16"/><path d="M10.5 6.5l1.15 2.85L14.5 10.5l-2.85 1.15L10.5 14.5l-1.15-2.85L6.5 10.5l2.85-1.15z"/></svg>',
   book: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="13" y2="11"/></svg>',
+  searchSmall: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
   chevron: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>',
   mail: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>',
   mapPin: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
@@ -417,6 +427,29 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 
 .services-explore{margin-top:3rem}
 .services-explore h3{font-size:1rem;font-weight:700;margin-bottom:1rem;color:var(--text-secondary)}
+
+/* Glossary search */
+.gl-search{position:relative;margin-top:2rem;max-width:640px}
+.gl-search-field{position:relative;display:flex;align-items:center}
+.gl-search input{width:100%;padding:.95rem 3rem .95rem 2.9rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-secondary);color:var(--text-primary);font-family:var(--font-body);font-size:1rem;transition:border-color .2s}
+.gl-search input:focus{outline:none;border-color:var(--accent)}
+.gl-search input::-webkit-search-cancel-button{display:none}
+.gl-search-icon{position:absolute;left:1rem;color:var(--text-muted);line-height:0;pointer-events:none}
+.gl-search-icon svg{width:18px;height:18px}
+.gl-clear{position:absolute;right:.7rem;display:flex;align-items:center;justify-content:center;width:28px;height:28px;border:none;border-radius:50%;background:transparent;color:var(--text-muted);cursor:pointer;line-height:0}
+.gl-clear:hover{color:var(--accent)}
+.gl-clear svg{width:16px;height:16px}
+.gl-hint{font-size:.82rem;color:var(--text-muted);margin-top:.6rem}
+.gl-status{font-size:.82rem;color:var(--text-muted);margin-top:.6rem;min-height:1.2em}
+.gl-results{position:absolute;z-index:50;left:0;right:0;top:calc(100% + .5rem);max-height:60vh;overflow-y:auto;background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 18px 44px rgba(0,0,0,.28)}
+.gl-hit{display:block;padding:.85rem 1.1rem;border-bottom:1px solid var(--border)}
+.gl-hit:last-child{border-bottom:none}
+.gl-hit:hover,.gl-hit.active{background:var(--bg-primary)}
+.gl-hit-kind{display:block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.2rem}
+.gl-hit-title{display:block;font-weight:700;color:var(--text-primary);margin-bottom:.25rem}
+.gl-hit-text{display:block;font-size:.87rem;color:var(--text-secondary);line-height:1.6}
+.gl-hit mark{background:transparent;color:var(--accent);font-weight:700}
+.gl-empty{padding:1rem 1.1rem;font-size:.9rem;color:var(--text-secondary);margin:0}
 
 /* Glossary */
 .gl-toc{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
@@ -1269,6 +1302,66 @@ ${servicesFooterLinks(lang)}
 </html>`);
 }
 
+// ─── Search index ───────────────────────────────────────────────────────────────
+// One JSON per language, fetched lazily on the first keystroke so it costs the
+// page nothing on load. Retrieval runs in the browser: for a corpus this size
+// (~100 short documents) BM25 over the raw text is instant and needs no server,
+// no API key and no per-query cost. The chunk boundaries are the same ones an
+// embedding index would use, so swapping in vectors later is a data change.
+function stripTags(html) {
+  return String(html).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function generateSearchIndex(lang) {
+  const t = translations[lang];
+  const g = glossary.meta[lang];
+  const docs = [];
+
+  glossary.categories.forEach(c => {
+    c.terms.forEach(term => docs.push({
+      k: 'term',
+      t: term[lang].t,
+      s: c.name[lang],
+      u: `/${lang}/${g.slug}/#${term.id}`,
+      x: term[lang].d
+    }));
+  });
+
+  landing.pages.forEach(p => {
+    const c = p[lang];
+    docs.push({
+      k: 'page',
+      t: c.h1,
+      s: c.kicker,
+      u: `/${lang}/${c.slug}/`,
+      x: [c.lead, c.body, c.do.join(' '), c.why, c.faq.map(f => `${f.q} ${f.a}`).join(' ')].join(' ')
+    });
+  });
+
+  docs.push({
+    k: 'section', t: t.about.title, s: t.about.label, u: `/${lang}/#about`,
+    x: [t.hero.description, t.about.p1, t.about.p2, t.about.p3].filter(Boolean).map(stripTags).join(' ')
+  });
+  docs.push({
+    k: 'section', t: t.services.title, s: t.services.label, u: `/${lang}/#services`,
+    x: t.services.items.map(s => `${s.title}. ${s.description}`).join(' ')
+  });
+  docs.push({
+    k: 'section', t: t.experience.title, s: t.experience.label, u: `/${lang}/#experience`,
+    x: t.experience.timeline.map(e => `${e.period} ${e.company} ${e.role}. ${e.description}`).join(' ')
+  });
+  docs.push({
+    k: 'section', t: t.techStack.title, s: t.techStack.label, u: `/${lang}/#tech`,
+    x: t.techStack.categories.map(c => `${c.name}: ${c.items.join(', ')}`).join(' ')
+  });
+  t.faq.items.forEach((item, i) => docs.push({
+    k: 'section', t: item.question, s: t.faq.title, u: `/${lang}/#faq`,
+    x: stripTags(item.answer)
+  }));
+
+  return JSON.stringify({ lang, built: BUILD_DATE, docs });
+}
+
 // ─── Glossary page ──────────────────────────────────────────────────────────────
 // A definition page is the most quotable thing a site can publish: assistants
 // answer "what is X" from exactly this shape of content. Every term gets its own
@@ -1444,6 +1537,21 @@ ${LANGUAGES.map(l => `<a href="/${l}/${glossary.meta[l].slug}/" hreflang="${l}" 
 <h1>${g.h1}</h1>
 <p class="lp-lead">${g.lead}</p>
 <p>${g.intro}</p>
+<div class="gl-search">
+<div class="gl-search-field">
+<span class="gl-search-icon" aria-hidden="true">${icons.searchSmall}</span>
+<input type="search" id="gl-q" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="false" aria-controls="gl-results" aria-autocomplete="list" aria-label="${g.searchLabel}" placeholder="${g.searchPlaceholder}" data-index="/search-${lang}.json">
+<button type="button" class="gl-clear" id="gl-clear" hidden aria-label="${g.searchClear}">${icons.close}</button>
+</div>
+<div class="gl-results" id="gl-results" role="listbox" aria-label="${g.searchLabel}" hidden></div>
+<p class="gl-hint">${g.searchHint}</p>
+<p class="gl-status" id="gl-status" role="status" aria-live="polite"></p>
+</div>
+<script type="application/json" id="gl-i18n">${JSON.stringify({
+  searchLoading: g.searchLoading, searchEmpty: g.searchEmpty, searchError: g.searchError,
+  searchCountOne: g.searchCountOne, searchCountMany: g.searchCountMany,
+  kindTerm: g.kindTerm, kindPage: g.kindPage, kindSection: g.kindSection
+})}</script>
 <nav class="gl-toc" aria-label="${g.tocTitle}">${toc}</nav>
 </div>
 </section>
@@ -1473,6 +1581,7 @@ ${servicesFooterLinks(lang)}
 </footer>
 
 <script>${minJs}</script>
+<script>${SEARCH_JS}</script>
 </body>
 </html>`);
 }
@@ -1809,6 +1918,12 @@ LANGUAGES.forEach(lang => {
     fs.writeFileSync(path.join(dir, 'index.html'), generateLandingPage(lang, page));
     console.log(`  ✓ ${lang}/${slug}/index.html`);
   });
+});
+
+// Generate the search index
+LANGUAGES.forEach(lang => {
+  fs.writeFileSync(path.join(DIST, `search-${lang}.json`), generateSearchIndex(lang));
+  console.log(`  ✓ search-${lang}.json`);
 });
 
 // Generate the glossary page
