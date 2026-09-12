@@ -459,7 +459,8 @@ for the page, not pages themselves.
 ### Root redirect
 `/` is redirected by **Cloudflare Redirect Rules configured in the dashboard**,
 not by anything in this repository: three rules scoped to `path eq "/"` send a
-302 to `/hu/`, `/de/` or `/en/` based on `Accept-Language`. `dist/index.html` is
+302 to `/hu/`, `/de/` or `/en/` based on `Accept-Language` (matched with
+`contains` — the editor rejects `starts_with`, and regex needs a paid plan). `dist/index.html` is
 only the fallback if those rules disappear — keep it working (language chooser +
 JS redirect, no meta refresh) and do not reintroduce a meta refresh or a Pages
 Function for this. Full table of rules in README, "Root redirect".

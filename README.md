@@ -141,9 +141,14 @@ The rules, in this order (the catch-all must be last):
 
 | # | Expression | Action |
 |---|------------|--------|
-| 1 | `http.request.uri.path eq "/" and lower(http.request.headers["accept-language"][0]) starts_with "hu"` | 302 → `https://pappfer.hu/hu/` |
-| 2 | `http.request.uri.path eq "/" and lower(http.request.headers["accept-language"][0]) starts_with "de"` | 302 → `https://pappfer.hu/de/` |
+| 1 | `http.request.uri.path eq "/" and lower(http.request.headers["accept-language"][0]) contains "hu"` | 302 → `https://pappfer.hu/hu/` |
+| 2 | `http.request.uri.path eq "/" and lower(http.request.headers["accept-language"][0]) contains "de"` | 302 → `https://pappfer.hu/de/` |
 | 3 | `http.request.uri.path eq "/"` | 302 → `https://pappfer.hu/en/` |
+
+`contains`, not `starts_with`: the rule editor rejects `starts_with` here, and
+`matches` (regex) needs a paid plan. The practical cost is that a browser asking
+for `en-DE` — English UI in Germany — matches rule 2 and gets the German page.
+Hungarian first, German second, because no other language tag contains "hu".
 
 302, never 301: the destination depends on the visitor, so it must not be cached
 as permanent. Scope every rule to `path eq "/"` — an unscoped rule redirects the
