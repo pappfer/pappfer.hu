@@ -137,13 +137,19 @@ the Cloudflare dashboard, not in this repository** — three Redirect Rules on t
 zone answer `/` with a 302 before the request ever reaches Pages, so there is no
 HTML round trip and Googlebot gets a real redirect instead of a soft one.
 
-The rules, in this order (the catch-all must be last):
+The rules, in this order (the pre-existing www→apex rule stays first, and the
+catch-all must be last):
 
 | # | Expression | Action |
 |---|------------|--------|
 | 1 | `http.request.uri.path eq "/" and lower(http.request.headers["accept-language"][0]) contains "hu"` | 302 → `https://pappfer.hu/hu/` |
 | 2 | `http.request.uri.path eq "/" and lower(http.request.headers["accept-language"][0]) contains "de"` | 302 → `https://pappfer.hu/de/` |
 | 3 | `http.request.uri.path eq "/"` | 302 → `https://pappfer.hu/en/` |
+
+Verified live after setup: `hu`/`de`/`en`/`fr` and a request with no
+`Accept-Language` all land on the right page, every other path still answers 200
+(no redirect loop), query strings survive the redirect, and www visitors chain
+www→apex→language in two hops.
 
 `contains`, not `starts_with`: the rule editor rejects `starts_with` here, and
 `matches` (regex) needs a paid plan. The practical cost is that a browser asking
