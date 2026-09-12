@@ -130,6 +130,30 @@ language: all 50 definitions, the nine service pages and the homepage sections.
 Everything runs in the browser. There is no search backend, no API key and no
 per-query cost.
 
+## Root redirect
+
+`https://pappfer.hu/` sends visitors to their language. **This is configured in
+the Cloudflare dashboard, not in this repository** — three Redirect Rules on the
+zone answer `/` with a 302 before the request ever reaches Pages, so there is no
+HTML round trip and Googlebot gets a real redirect instead of a soft one.
+
+The rules, in this order (the catch-all must be last):
+
+| # | Expression | Action |
+|---|------------|--------|
+| 1 | `http.request.uri.path eq "/" and lower(http.request.headers["accept-language"][0]) starts_with "hu"` | 302 → `https://pappfer.hu/hu/` |
+| 2 | `http.request.uri.path eq "/" and lower(http.request.headers["accept-language"][0]) starts_with "de"` | 302 → `https://pappfer.hu/de/` |
+| 3 | `http.request.uri.path eq "/"` | 302 → `https://pappfer.hu/en/` |
+
+302, never 301: the destination depends on the visitor, so it must not be cached
+as permanent. Scope every rule to `path eq "/"` — an unscoped rule redirects the
+whole site into a loop.
+
+`dist/index.html` stays as a **fallback** for the case where those rules are
+removed or fail. It is a real language chooser (three links, native names) with
+a JavaScript redirect on top — deliberately no `<meta http-equiv="refresh">`,
+which Google reads as a soft redirect.
+
 ## Content freshness (`src/lastmod.json`)
 
 `<lastmod>` in the sitemap must be truthful — Google ignores sitemap dates it finds

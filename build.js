@@ -1587,15 +1587,31 @@ ${servicesFooterLinks(lang)}
 
 // ─── Root redirect page ─────────────────────────────────────────────────────────
 function generateRoot() {
+  // Fallback only. In production a Cloudflare redirect rule answers "/" with a
+  // 302 straight to the right language, so this file is never served — but if
+  // that rule is ever removed, this has to degrade well on its own. Hence no
+  // meta refresh (Google reads that as a soft redirect): JavaScript moves people
+  // on instantly, and without it the page is a real language chooser rather than
+  // a dead end saying "Redirecting…". See README, "Root redirect".
+  const native = { en: 'English', hu: 'Magyar', de: 'Deutsch' };
+  const links = LANGUAGES.map(l =>
+    `<a href="/${l}/" hreflang="${l}" lang="${l}">${native[l]}</a>`
+  ).join('');
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ferenc Papp — Senior Full-Stack Developer & AI Solutions Engineer</title>
-<meta name="description" content="Redirecting to your preferred language...">
+<title>${translations.en.meta.title}</title>
+<meta name="description" content="${translations.en.meta.description}">
 <link rel="canonical" href="https://pappfer.hu/en/">
-<meta http-equiv="refresh" content="0;url=/en/">
+<link rel="alternate" hreflang="en" href="https://pappfer.hu/en/">
+<link rel="alternate" hreflang="hu" href="https://pappfer.hu/hu/">
+<link rel="alternate" hreflang="de" href="https://pappfer.hu/de/">
+<link rel="alternate" hreflang="x-default" href="https://pappfer.hu/en/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.ico">
+<style>body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:#fafafa;color:#1a1a2e;min-height:100vh;display:grid;place-items:center;padding:2rem;margin:0}main{max-width:34rem;text-align:center}h1{font-size:1.5rem;line-height:1.3;margin:0 0 1.5rem}nav{display:grid;gap:.75rem}a{display:block;padding:.85rem 1.25rem;border-radius:.6rem;text-decoration:none;background:#047857;color:#fff;font-weight:600}a:hover{background:#065f46}</style>
 <script>
 (function(){
   var l=navigator.language||navigator.userLanguage||'en';
@@ -1606,7 +1622,10 @@ function generateRoot() {
 </script>
 </head>
 <body>
-<p>Redirecting... <a href="/en/">Click here</a> if not redirected.</p>
+<main>
+<h1>Choose a language · Válassz nyelvet · Sprache wählen</h1>
+<nav>${links}</nav>
+</main>
 </body>
 </html>`;
 }
