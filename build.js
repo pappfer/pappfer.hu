@@ -450,16 +450,6 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 .gl-hit-text{display:block;font-size:.87rem;color:var(--text-secondary);line-height:1.6}
 .gl-hit mark{background:transparent;color:var(--accent);font-weight:700}
 .gl-empty{padding:1rem 1.1rem;font-size:.9rem;color:var(--text-secondary);margin:0}
-.gl-ask{margin-top:.9rem;padding:.6rem 1.1rem;font-size:.88rem}
-.gl-ask svg{width:15px;height:15px}
-.gl-answer{margin-top:1rem;padding:1.15rem 1.3rem;border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);background:var(--bg-secondary)}
-.gl-answer-title{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem}
-.gl-answer-text{color:var(--text-primary);line-height:1.75;margin:0 0 .8rem}
-.gl-answer-sources{font-size:.85rem;color:var(--text-muted);margin:0 0 .5rem;display:flex;flex-wrap:wrap;gap:.5rem}
-.gl-answer-sources a{color:var(--text-secondary)}
-.gl-answer-sources a:hover{color:var(--accent)}
-.gl-answer-note{font-size:.78rem;color:var(--text-muted);margin:0;line-height:1.5}
-
 /* Glossary */
 .gl-toc{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
 .gl-toc a{display:inline-flex;align-items:baseline;gap:.4rem;padding:.55rem 1rem;border:1px solid var(--border);border-radius:20px;font-size:.88rem;font-weight:600;color:var(--text-secondary);transition:all .2s}
@@ -1555,15 +1545,11 @@ ${LANGUAGES.map(l => `<a href="/${l}/${glossary.meta[l].slug}/" hreflang="${l}" 
 <div class="gl-results" id="gl-results" role="listbox" aria-label="${g.searchLabel}" hidden></div>
 <p class="gl-hint">${g.searchHint}</p>
 <p class="gl-status" id="gl-status" role="status" aria-live="polite"></p>
-<button type="button" class="btn btn-outline gl-ask" id="gl-ask" hidden>${icons.searchSmall} ${g.askButton}</button>
-<div class="gl-answer" id="gl-answer" role="status" aria-live="polite" hidden></div>
 </div>
 <script type="application/json" id="gl-i18n">${JSON.stringify({
   searchLoading: g.searchLoading, searchEmpty: g.searchEmpty, searchError: g.searchError,
   searchCountOne: g.searchCountOne, searchCountMany: g.searchCountMany,
-  kindTerm: g.kindTerm, kindPage: g.kindPage, kindSection: g.kindSection,
-  askTitle: g.askTitle, askRunning: g.askRunning, askError: g.askError,
-  askSources: g.askSources, askNote: g.askNote
+  kindTerm: g.kindTerm, kindPage: g.kindPage, kindSection: g.kindSection
 })}</script>
 <nav class="gl-toc" aria-label="${g.tocTitle}">${toc}</nav>
 </div>

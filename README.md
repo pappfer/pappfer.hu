@@ -27,8 +27,6 @@ Then open [http://localhost:3000](http://localhost:3000) (`npm run dev`) or [htt
 
 ```
 ├── build.js                  # Build script (Node.js, zero deps)
-├── functions/
-│   └── api/ask.js            # Grounded answers (needs a Workers AI binding)
 ├── .github/workflows/
 │   └── indexnow.yml          # Pings IndexNow once a deploy is live
 ├── scripts/
@@ -113,7 +111,7 @@ npm run indexnow -- --dry-run         # show the payload, send nothing
 The script verifies that `/<key>.txt` is live before submitting and refuses if it
 isn't, so a premature ping fails loudly instead of silently wasting the submission.
 
-## Search and grounded answers
+## Search
 
 The glossary page carries a search box over everything the site publishes in that
 language: all 50 definitions, the nine service pages and the homepage sections.
@@ -123,25 +121,14 @@ language: all 50 definitions, the nine service pages and the homepage sections.
   unaffected.
 - **Retrieval** — `src/search.js`, inlined on the glossary page only. BM25 with
   prefix matching in both directions, which is what makes Hungarian and German
-  compounding work; question words are dropped before scoring, and results below
-  a relevance floor are discarded rather than shown as weak guesses.
-- **Answers** — `functions/api/ask.js` (Cloudflare Pages Function) generates a
-  short answer from the passages the browser already found, with citations.
+  compounding work — "embeddingeket" finds "embedding" and "embed" finds it too.
+  Question words are dropped before scoring, and results below a relevance floor
+  are discarded rather than shown as weak guesses: the site has no pricing page,
+  so "mennyibe kerül" should find nothing instead of returning whatever happens
+  to share a common word.
 
-The answer step is **off until it is configured**, and the page is fully usable
-without it — the button only appears if `GET /api/ask` reports `ready: true`:
-
-1. Cloudflare dashboard → Workers & Pages → pappfer.hu → Settings → Functions →
-   Bindings → add a **Workers AI** binding named `AI`.
-2. Optionally set `ASK_MODEL` to override the default
-   (`@cf/meta/llama-3.1-8b-instruct`).
-3. Add a WAF rate-limiting rule for `/api/ask` (e.g. 10 requests per minute per
-   IP). The function caps question length, passage count and output tokens, but
-   it cannot count requests by itself.
-
-Retrieval stays in the browser, so the server never runs a search and never
-trusts client text: the request carries only passage **ids**, which the function
-re-reads from the published index before showing them to the model.
+Everything runs in the browser. There is no search backend, no API key and no
+per-query cost.
 
 ## Content freshness (`src/lastmod.json`)
 
