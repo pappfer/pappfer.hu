@@ -801,7 +801,7 @@ No manual server configuration needed.
 - Don't use percentage-based skill bars (outdated pattern)
 
 ### IMPORTANT REMINDERS:
-- The Formspree form ID (`YOUR_FORMSPREE_ID`) is a placeholder — owner will replace it
+- The Formspree form ID in `build.js` is live — do not replace it with a placeholder
 - The OG image (`og-image.jpg`) and profile photo (`pappfer.webp`) are placeholders — owner will provide
 - The resume link can point to `resume.json` or `resume.pdf` — owner will provide the file
 - Run the build and verify the output HTML is valid before considering the task complete

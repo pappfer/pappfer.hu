@@ -41,7 +41,7 @@ Then open [http://localhost:3000](http://localhost:3000) (`npm run dev`) or [htt
 │   ├── og/                   # Per-page share cards (generated, committed)
 │   └── indexnow-key.txt      # IndexNow key (public, must stay stable)
 ├── dist/                     # Build output (deploy this)
-│   ├── index.html            # Root redirect (detects browser language)
+│   ├── index.html            # Language chooser — fallback for the Cloudflare rules
 │   ├── en/index.html         # English (+ 9 service pages and the glossary per language)
 │   ├── hu/index.html         # Hungarian
 │   ├── de/index.html         # German
@@ -51,9 +51,12 @@ Then open [http://localhost:3000](http://localhost:3000) (`npm run dev`) or [htt
 │   ├── llms.txt              # AI/LLM visibility file (index)
 │   ├── llms-full.txt         # Full site content, all languages, plain text
 │   ├── <key>.txt             # IndexNow ownership key
+│   ├── search-{en,hu,de}.json  # Search index, fetched on first keystroke
+│   ├── _headers              # Security headers + noindex for the search index
 │   └── img/
 │       ├── pappfer.webp      # Profile photo
-│       └── og-image.jpg      # Social sharing image (1200x630)
+│       ├── og-image.jpg      # Social sharing image (1200x630)
+│       └── og/               # Per-page share cards
 ├── AGENTS.md                 # Full specification for AI agents
 └── README.md                 # This file
 ```
@@ -198,7 +201,12 @@ a `kicker`, the photo, or `resume.json`.
 
 ## Configuration
 
-Replace `YOUR_FORMSPREE_ID` in `build.js` with your Formspree form ID after registering at [formspree.io](https://formspree.io).
+The contact form posts to Formspree; the form id lives in `build.js` and is already
+set. Two things live outside this repository and are easy to forget:
+
+- the **root redirect rules** in the Cloudflare dashboard (see above), and
+- the **Workers AI binding** is deliberately *not* configured — there is no
+  backend, and the site does not need one.
 
 ## Validation Checklist
 
@@ -212,7 +220,9 @@ Replace `YOUR_FORMSPREE_ID` in `build.js` with your Formspree form ID after regi
 
 - Zero runtime dependencies
 - Inline CSS with CSS custom properties for theming
-- Inline JS (~2KB): theme toggle, mobile menu, FAQ accordion, scroll animations, form handler
+- Inline JS (~2 kB on every page): theme toggle, mobile menu, FAQ accordion, scroll
+  animations, form handler. The glossary page additionally inlines `src/search.js`
+  (~4 kB) for in-browser search
 - JSON-LD: Person, ProfessionalService, FAQPage, WebSite, ProfilePage (home);
   WebPage, Service, BreadcrumbList, FAQPage (landing pages);
   WebPage, DefinedTermSet, BreadcrumbList (glossary)
