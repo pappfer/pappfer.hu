@@ -24,7 +24,13 @@
       "kindTerm": "Glossary",
       "kindPage": "Page",
       "kindSection": "Homepage",
-      "searchError": "The search index could not be loaded. Reload the page and try again."
+      "searchError": "The search index could not be loaded. Reload the page and try again.",
+      "askButton": "Answer this from the results",
+      "askRunning": "Reading the sources…",
+      "askError": "The answer service is unavailable right now. The results above still stand.",
+      "askSources": "Sources",
+      "askNote": "Generated from the passages found above, by a small model, in this language. Check the sources.",
+      "askTitle": "Answer"
     },
     "hu": {
       "slug": "ai-szotar",
@@ -50,7 +56,13 @@
       "kindTerm": "Szótár",
       "kindPage": "Oldal",
       "kindSection": "Főoldal",
-      "searchError": "A keresési index nem töltődött be. Frissítsd az oldalt, és próbáld újra."
+      "searchError": "A keresési index nem töltődött be. Frissítsd az oldalt, és próbáld újra.",
+      "askButton": "Válasz a találatokból",
+      "askRunning": "Olvasom a forrásokat…",
+      "askError": "A válaszszolgáltatás most nem elérhető. A fenti találatok továbbra is érvényesek.",
+      "askSources": "Források",
+      "askNote": "A fenti találatokból generálva, kis modellel, ezen a nyelven. Nézd meg a forrásokat is.",
+      "askTitle": "Válasz"
     },
     "de": {
       "slug": "ki-glossar",
@@ -76,7 +88,13 @@
       "kindTerm": "Glossar",
       "kindPage": "Seite",
       "kindSection": "Startseite",
-      "searchError": "Der Suchindex konnte nicht geladen werden. Laden Sie die Seite neu und versuchen Sie es erneut."
+      "searchError": "Der Suchindex konnte nicht geladen werden. Laden Sie die Seite neu und versuchen Sie es erneut.",
+      "askButton": "Antwort aus den Treffern",
+      "askRunning": "Quellen werden gelesen…",
+      "askError": "Der Antwortdienst ist gerade nicht erreichbar. Die Treffer oben gelten weiterhin.",
+      "askSources": "Quellen",
+      "askNote": "Aus den gefundenen Passagen generiert, von einem kleinen Modell, in dieser Sprache. Prüfen Sie die Quellen.",
+      "askTitle": "Antwort"
     }
   },
   "categories": [

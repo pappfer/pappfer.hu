@@ -7,6 +7,9 @@
   var L = JSON.parse(document.getElementById('gl-i18n').textContent);
   var indexUrl = input.getAttribute('data-index');
   var idx = null, loading = false, timer = null, active = -1, hits = [];
+  var askBtn = document.getElementById('gl-ask');
+  var askOut = document.getElementById('gl-answer');
+  var askReady = false, asking = false, lastQuery = '';
   // People type questions, not keywords. Left in, "mi az a RAG" scores every
   // document containing a word starting with "mi", which buries the one term
   // actually being asked about.
@@ -189,9 +192,67 @@
   function run() {
     var q = input.value.trim();
     clearBtn.hidden = !q;
-    if (q.length < 2) { close(); return; }
+    lastQuery = q;
+    if (q.length < 2) { close(); hideAsk(); return; }
     if (!idx) { load(q); return; }
     render(search(q));
+    // Only offer a generated answer when there is something to ground it in.
+    askBtn.hidden = !(askReady && hits.length);
+  }
+
+  function hideAsk() {
+    askBtn.hidden = true;
+    askOut.hidden = true;
+    askOut.innerHTML = '';
+  }
+
+  // The endpoint reports whether it is configured; if it isn't (or isn't
+  // deployed at all), the button never appears and search works as before.
+  function probeAsk() {
+    fetch('/api/ask').then(function (r) {
+      return r.ok ? r.json() : { ready: false };
+    }).then(function (d) {
+      askReady = !!(d && d.ready);
+      if (askReady && hits.length && input.value.trim()) askBtn.hidden = false;
+    })['catch'](function () { askReady = false; });
+  }
+
+  function ask() {
+    if (asking || !hits.length) return;
+    asking = true;
+    askBtn.disabled = true;
+    askOut.hidden = false;
+    askOut.innerHTML = '<p class="gl-answer-note">' + esc(L.askRunning) + '</p>';
+    fetch('/api/ask', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        question: lastQuery,
+        lang: document.documentElement.lang.slice(0, 2),
+        ids: hits.slice(0, 5).map(function (h) { return h.d.u; })
+      })
+    }).then(function (r) {
+      if (!r.ok) throw new Error(String(r.status));
+      return r.json();
+    }).then(function (d) {
+      var cites = (d.sources || []).map(function (sr) {
+        return '<a href="' + sr.url + '">[' + sr.n + '] ' + esc(sr.title) + '</a>';
+      }).join('');
+      askOut.innerHTML = '<h3 class="gl-answer-title">' + esc(L.askTitle) + '</h3>' +
+        '<p class="gl-answer-text">' + esc(d.answer).replace(/\n+/g, '<br>') + '</p>' +
+        '<p class="gl-answer-sources"><span>' + esc(L.askSources) + ':</span> ' + cites + '</p>' +
+        '<p class="gl-answer-note">' + esc(L.askNote) + '</p>';
+    })['catch'](function () {
+      askOut.innerHTML = '<p class="gl-answer-note">' + esc(L.askError) + '</p>';
+    })['finally'](function () {
+      asking = false;
+      askBtn.disabled = false;
+    });
+  }
+
+  if (askBtn) {
+    askBtn.addEventListener('click', ask);
+    probeAsk();
   }
 
   // The index is only fetched once someone actually types, so the page costs
@@ -230,6 +291,7 @@
     input.value = '';
     clearBtn.hidden = true;
     close();
+    hideAsk();
     input.focus();
   });
 

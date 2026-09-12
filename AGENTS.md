@@ -446,6 +446,18 @@ carries its own anchor id and appears in a `DefinedTermSet` / `DefinedTerm`
 schema as well as in `llms-full.txt`. Term ids are permanent: they are the
 anchor and the schema `@id`, so renaming one breaks every existing citation.
 
+### Search (`src/search.js`, `functions/api/ask.js`)
+Retrieval runs in the browser over `dist/search-<lang>.json`, fetched on the
+first keystroke so the page load stays unchanged. Scoring is BM25 with two-way
+prefix matching (Hungarian and German glue suffixes onto words), question words
+are dropped, and a relevance floor turns weak matches into "nothing found" —
+answering "how much does it cost" with an unrelated definition is worse than
+answering nothing. The optional Pages Function generates an answer from the
+passages the client already found; it takes **ids only** and re-reads the text
+from the published index, so a crafted request cannot feed the model content
+that isn't on the site. It is inert until a Workers AI binding named `AI`
+exists, and the UI hides itself when `GET /api/ask` reports it isn't ready.
+
 ### lastmod accuracy
 `<lastmod>` must only move when the page's content moves, otherwise Google
 learns to ignore it. `src/lastmod.json` (committed) maps each URL to a hash of
