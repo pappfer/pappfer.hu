@@ -1711,7 +1711,10 @@ function generateManifest() {
 // ha./go2rtc.pappfer.hu both serve valid HTTPS, and mobiloapps.pappfer.hu
 // doesn't resolve in DNS at all (so it can't be broken by an HTTPS-only rule).
 function generateHeaders() {
-  return `/*
+  return `/search-*.json
+  X-Robots-Tag: noindex
+
+/*
   Content-Security-Policy: ${csp}; frame-ancestors 'none'
   X-Frame-Options: DENY
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload

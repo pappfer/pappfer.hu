@@ -453,7 +453,8 @@ prefix matching (Hungarian and German glue suffixes onto words), question words
 are dropped, and a relevance floor turns weak matches into "nothing found" —
 answering "how much does it cost" with an unrelated definition is worse than
 answering nothing. There is no search backend: keep it that way unless the owner
-asks otherwise.
+asks otherwise. The index files carry `X-Robots-Tag: noindex` — they are data
+for the page, not pages themselves.
 
 ### lastmod accuracy
 `<lastmod>` must only move when the page's content moves, otherwise Google
