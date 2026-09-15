@@ -145,9 +145,9 @@ catch-all must be last):
 
 | # | Expression | Action |
 |---|------------|--------|
-| 1 | `http.request.uri.path eq "/" and lower(http.request.headers["accept-language"][0]) contains "hu"` | 302 → `https://pappfer.hu/hu/` |
-| 2 | `http.request.uri.path eq "/" and lower(http.request.headers["accept-language"][0]) contains "de"` | 302 → `https://pappfer.hu/de/` |
-| 3 | `http.request.uri.path eq "/"` | 302 → `https://pappfer.hu/en/` |
+| 1 | `http.host eq "pappfer.hu" and http.request.uri.path eq "/" and lower(http.request.headers["accept-language"][0]) contains "hu"` | 302 → `https://pappfer.hu/hu/` |
+| 2 | `http.host eq "pappfer.hu" and http.request.uri.path eq "/" and lower(http.request.headers["accept-language"][0]) contains "de"` | 302 → `https://pappfer.hu/de/` |
+| 3 | `http.host eq "pappfer.hu" and http.request.uri.path eq "/"` | 302 → `https://pappfer.hu/en/` |
 
 Verified live after setup: `hu`/`de`/`en`/`fr` and a request with no
 `Accept-Language` all land on the right page, every other path still answers 200
@@ -160,8 +160,11 @@ for `en-DE` — English UI in Germany — matches rule 2 and gets the German pag
 Hungarian first, German second, because no other language tag contains "hu".
 
 302, never 301: the destination depends on the visitor, so it must not be cached
-as permanent. Scope every rule to `path eq "/"` — an unscoped rule redirects the
-whole site into a loop.
+as permanent. Scope every rule to `path eq "/"` **and** `http.host eq "pappfer.hu"`
+— these are zone-level rules, so without the host check they also match `/` on
+every other hostname in the zone (e.g. `ha.pappfer.hu`, the Home Assistant
+tunnel), redirecting it into the site. An unscoped path-only rule also redirects
+the whole apex site into a loop.
 
 `dist/index.html` stays as a **fallback** for the case where those rules are
 removed or fail. It is a real language chooser (three links, native names) with

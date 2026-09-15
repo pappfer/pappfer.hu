@@ -458,12 +458,16 @@ for the page, not pages themselves.
 
 ### Root redirect
 `/` is redirected by **Cloudflare Redirect Rules configured in the dashboard**,
-not by anything in this repository: three rules scoped to `path eq "/"` send a
-302 to `/hu/`, `/de/` or `/en/` based on `Accept-Language` (matched with
-`contains` — the editor rejects `starts_with`, and regex needs a paid plan). `dist/index.html` is
-only the fallback if those rules disappear — keep it working (language chooser +
-JS redirect, no meta refresh) and do not reintroduce a meta refresh or a Pages
-Function for this. Full table of rules in README, "Root redirect".
+not by anything in this repository: three rules scoped to `http.host eq
+"pappfer.hu" and http.request.uri.path eq "/"` send a 302 to `/hu/`, `/de/` or
+`/en/` based on `Accept-Language` (matched with `contains` — the editor rejects
+`starts_with`, and regex needs a paid plan). The host check is required — these
+are zone-level rules, and without it they also match `/` on other hostnames in
+the zone (this bit `ha.pappfer.hu`, the Home Assistant tunnel, until it was
+added). `dist/index.html` is only the fallback if those rules disappear — keep
+it working (language chooser + JS redirect, no meta refresh) and do not
+reintroduce a meta refresh or a Pages Function for this. Full table of rules in
+README, "Root redirect".
 
 ### lastmod accuracy
 `<lastmod>` must only move when the page's content moves, otherwise Google
