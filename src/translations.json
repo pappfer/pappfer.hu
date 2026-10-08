@@ -36,6 +36,11 @@
       "cv": "Download CV",
       "cvEn": "English CV (PDF)",
       "cvJson": "Machine-readable CV (JSON)",
+      "search": {
+        "title": "Ask this site",
+        "tryLabel": "Try:",
+        "examples": ["RAG", "Laravel", "fine-tuning", "PWA"]
+      },
       "stats": {
         "experience": "15+ years experience",
         "clients": "Clients across the EU & US",
@@ -264,7 +269,7 @@
     },
 
     "hero": {
-      "availability": "Nyitott szabadúszó és tanácsadói projektekre",
+      "availability": "Válogatott szabadúszó és tanácsadói projektekre nyitott",
       "greeting": "Üdvözöllek!",
       "name": "Papp Ferenc",
       "title": "Senior full-stack fejlesztő & AI Solutions Engineer",
@@ -273,6 +278,11 @@
       "cv": "Önéletrajz letöltése",
       "cvEn": "English CV (PDF)",
       "cvJson": "JSON önéletrajz",
+      "search": {
+        "title": "Kérdezz az oldaltól",
+        "tryLabel": "Próbáld ki:",
+        "examples": ["RAG", "Laravel", "finomhangolás", "PWA"]
+      },
       "stats": {
         "experience": "15+ év tapasztalat",
         "clients": "Ügyfelek az EU-ban és az USA-ban",
@@ -510,6 +520,11 @@
       "cv": "Lebenslauf herunterladen",
       "cvEn": "English CV (PDF)",
       "cvJson": "Maschinenlesbarer Lebenslauf (JSON)",
+      "search": {
+        "title": "Fragen Sie die Website",
+        "tryLabel": "Zum Beispiel:",
+        "examples": ["RAG", "Laravel", "Fine-Tuning", "PWA"]
+      },
       "stats": {
         "experience": "15+ Jahre Erfahrung",
         "clients": "Kunden in der EU & den USA",

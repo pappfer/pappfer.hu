@@ -56,14 +56,15 @@ dist/
 
 ### JavaScript Strategy
 - **Inline all JS** before `</body>` — minimal, no external dependencies
-- JS is only for: theme toggle, mobile menu, FAQ accordion, scroll animations, contact form submission
-- Total JS should be under 2KB minified
-- Use `IntersectionObserver` for scroll animations (no scroll event listeners)
+- JS is only for: theme toggle, mobile menu, FAQ accordion, active nav link, contact form submission
+- Keep the inline script small (it is ~5KB minified today; do not grow it casually)
+- One exception to "inline": on the homepage `search.js` is a separate file, fetched the first time the hero search field is focused. The glossary page, where search is the point, still inlines it
+- No scroll-triggered animations (see Animations)
 
 ### Fonts
-- **Self-host** the chosen font OR use `font-display: swap` with Google Fonts preconnect
-- Preferred: use a system font stack as primary, with one distinctive display font for headings only
-- Suggested: `font-family: system-ui, -apple-system, 'Segoe UI', sans-serif` for body, one Google Font for headings
+- Body: system font stack (`system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif`)
+- Headings: **Bricolage Grotesque Bold**, self-hosted as `src/fonts/bricolage-grotesque-700.woff2` (~24KB, OFL, licence alongside). It is a subset: Latin-1 plus ő/ű and the punctuation the copy uses, one static weight. A character outside that set falls back to the system font, so re-subset if the copy ever needs one (README, "Heading font")
+- Preloaded in `<head>`, `font-display: swap`, served with an immutable cache header. No third-party font requests — the CSP is `font-src 'self'`
 
 ### Images
 - Profile photo: WebP format, explicitly set `width` and `height` attributes, lazy-load below fold
@@ -142,6 +143,7 @@ Design:
 - Full viewport height
 - Staggered fade-up animations on load (CSS `@keyframes` + `animation-delay`)
 - No background image (performance)
+- Beside the text (below it on mobile): the site's own search as a small "Ask this site" panel with a few example queries. It is the real BM25 search from the glossary, not a mock-up — do not replace it with a decorative code window
 
 ### 4.3 About Section
 3 paragraphs covering:
@@ -211,7 +213,7 @@ Vertical timeline, left-aligned, with dot markers:
 Use `<blockquote>` with `<footer>` for semantic markup.
 
 ### 4.8 FAQ Section (CRITICAL for AI visibility)
-FAQ with accordion (one open at a time). Must include both JSON-LD FAQPage schema AND microdata attributes.
+FAQ with accordion (one open at a time), mirrored in a JSON-LD FAQPage schema. JSON-LD only — no microdata attributes; marking the same questions up twice adds weight without adding anything a parser needs.
 
 Questions (translate to all 3 languages):
 
@@ -622,7 +624,7 @@ Clean, professional, modern — but NOT generic. The site should look like it wa
 - **Whitespace is your friend** — generous padding, breathing room between elements, don't cram content
 - **Visual hierarchy** — the eye should flow naturally: Hero name → title → CTA → scroll down
 - **Subtle depth** — light shadows, border separations, alternating backgrounds to create layers
-- **Micro-interactions** — hover states on every interactive element (buttons lift, cards elevate, links color-shift)
+- **Micro-interactions** — hover states on interactive elements only (buttons lift, links color-shift). Things that are not clickable — service cards, testimonials, plain tech tags — do not react to hover
 - **Consistency** — same border-radius, same spacing scale, same transition timing everywhere
 - **Typography contrast** — big bold headings vs lightweight body text creates visual interest
 
@@ -641,7 +643,6 @@ Clean, professional, modern — but NOT generic. The site should look like it wa
 - Dot markers on timeline with accent color
 - Hover transitions that feel smooth (200-300ms ease-out)
 - Active language in switcher highlighted with accent background
-- Section labels (small, uppercase, accent color) above section titles
 - Alternating section backgrounds (white/off-white in light, dark/darker in dark mode)
 
 ### Color System (CSS Custom Properties)
@@ -691,7 +692,8 @@ Clean, professional, modern — but NOT generic. The site should look like it wa
 ```
 
 ### Typography
-- Headings: One distinctive Google Font (suggestion: "DM Sans" 700/800, or "General Sans", or "Satoshi") — self-host or preconnect
+- Headings: Bricolage Grotesque Bold, self-hosted (see Fonts). No eyebrow labels above section titles — the title is the label
+- Running text is capped at ~68 characters per line
 - Body: System font stack: `system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif`
 - Base size: 16px
 - Line height: 1.7 for body text
@@ -706,9 +708,9 @@ Clean, professional, modern — but NOT generic. The site should look like it wa
 
 ### Animations
 - Hero: staggered fade-up on load (CSS `@keyframes fadeUp` with `animation-delay`)
-- Sections: fade-up on scroll into view (IntersectionObserver adding `.visible` class)
+- That is the only motion that starts by itself. No fade-in on scroll, no pulsing dots
 - Buttons: subtle `translateY(-1px)` + shadow on hover
-- Cards: `translateY(-2px)` + elevated shadow on hover
+- Cards do not move on hover (they are not links)
 - Keep all animations under 600ms, use `ease-out`
 
 ### Responsive Breakpoints
@@ -829,6 +831,8 @@ No manual server configuration needed.
 | `dist/llms-full.txt` | Full text of every page, all three languages |
 | `src/lastmod.json` | Per-URL content hashes + lastmod dates (committed) |
 | `src/glossary.json` | AI & LLM glossary terms in EN/HU/DE |
+| `src/fonts/` | Heading font subset (woff2) + its OFL licence |
+| `dist/search.js` | Search script, loaded on demand by the homepage |
 | `src/og/*.jpg` | Per-landing-page share cards (generated, committed) |
 | `src/indexnow-key.txt` | IndexNow key (committed, public, stable) |
 | `dist/<key>.txt` | IndexNow ownership verification file |

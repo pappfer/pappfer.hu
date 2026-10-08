@@ -173,7 +173,7 @@ const icons = {
   code: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
   ai: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><path d="M16 14h.01"/><path d="M8 14h.01"/><path d="M12 18v4"/><path d="M8 22h8"/><rect x="4" y="10" width="16" height="8" rx="2"/></svg>',
   mobile: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>',
-  consulting: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>',
+  consulting: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>',
   research: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6"/><path d="M10 2v6.5L5 18a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9.5V2"/><line x1="7" y1="14" x2="17" y2="14"/></svg>',
   search: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="7.5"/><line x1="21" y1="21" x2="16" y2="16"/><path d="M10.5 6.5l1.15 2.85L14.5 10.5l-2.85 1.15L10.5 14.5l-1.15-2.85L6.5 10.5l2.85-1.15z"/></svg>',
   book: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="13" y2="11"/></svg>',
@@ -186,34 +186,42 @@ const icons = {
   github: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>',
   stackoverflow: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.725 0l-1.72 1.277 6.39 8.588 1.72-1.277L15.725 0zm-3.94 3.418l-1.369 1.644 8.225 6.85 1.369-1.644-8.225-6.85zm-3.15 4.465l-.905 1.94 9.702 4.517.905-1.94-9.702-4.517zm-1.85 4.86l-.44 2.093 10.473 2.201.44-2.092-10.473-2.203zM1.89 15.47V24h19.19v-8.53h-2.133v6.397H4.021v-6.396H1.89zm4.265 2.133v2.13h10.66v-2.13H6.154z"/></svg>',
   x: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
-  arrow: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>',
   send: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>'
 };
 
 // ─── CSS ────────────────────────────────────────────────────────────────────────
-const css = `
+// Heading typeface: Bricolage Grotesque Bold, subset to the Latin + Hungarian
+// characters the three languages use (see README, "Heading font"). Self-hosted,
+// so the CSP stays at font-src 'self' and no third party sees the visitor.
+const HEADING_FONT = '/fonts/bricolage-grotesque-700.woff2';
+const FONT_PRELOAD = `<link rel="preload" href="${HEADING_FONT}" as="font" type="font/woff2" crossorigin>`;
+
+// The stylesheet is inlined, so every page pays for every rule it carries. It is
+// kept in chunks and each page type gets only the ones it uses (see CSS below).
+const cssBase = `
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+@font-face{font-family:'Bricolage Grotesque';src:url(${HEADING_FONT}) format('woff2');font-weight:600 800;font-style:normal;font-display:swap}
 :root{
 --bg-primary:#fafafa;--bg-secondary:#ffffff;--bg-tertiary:#f0f0f0;
 --text-primary:#1a1a2e;--text-secondary:#4a4a6a;--text-muted:#5c5c7a;
 --accent:#047857;--accent-hover:#065f46;--accent-subtle:rgba(4,120,87,0.1);
---border:#e2e2ee;--shadow:0 1px 3px rgba(0,0,0,0.06);--shadow-lg:0 8px 30px rgba(0,0,0,0.08);
+--border:#e2e2ee;--border-strong:#8c8ca3;--field-bg:#ffffff;--shadow:0 1px 3px rgba(0,0,0,0.06);--shadow-lg:0 8px 30px rgba(0,0,0,0.08);
 --radius:10px;--nav-height:64px;
---font-heading:ui-rounded,'Avenir Next','Segoe UI',system-ui,-apple-system,Roboto,sans-serif;
+--font-heading:'Bricolage Grotesque',ui-rounded,'Avenir Next','Segoe UI',system-ui,-apple-system,Roboto,sans-serif;
 --font-body:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
 }
 [data-theme="dark"]{
 --bg-primary:#0f1117;--bg-secondary:#1a1d2e;--bg-tertiary:#232740;
 --text-primary:#e8e8f0;--text-secondary:#a0a0c0;--text-muted:#8a8aaa;
 --accent:#34d399;--accent-hover:#6ee7b7;--accent-subtle:rgba(52,211,153,0.1);
---border:#2a2d40;--shadow:0 1px 3px rgba(0,0,0,0.2);--shadow-lg:0 8px 30px rgba(0,0,0,0.3);
+--border:#2a2d40;--border-strong:#6b6f8c;--field-bg:#0f1117;--shadow:0 1px 3px rgba(0,0,0,0.2);--shadow-lg:0 8px 30px rgba(0,0,0,0.3);
 }
 html{scroll-behavior:smooth;scroll-padding-top:var(--nav-height)}
 body{font-family:var(--font-body);font-size:16px;line-height:1.7;color:var(--text-primary);background:var(--bg-primary);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:var(--accent);text-decoration:none;transition:color .2s}
 a:hover{color:var(--accent-hover)}
 img{max-width:100%;height:auto;display:block}
-h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03em;line-height:1.2;color:var(--text-primary)}
+h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.02em;line-height:1.15;color:var(--text-primary)}
 .skip-link{position:absolute;top:-100%;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;padding:.5rem 1.5rem;border-radius:0 0 var(--radius) var(--radius);z-index:1000;font-weight:600;transition:top .2s}
 .skip-link:focus{top:0}
 
@@ -222,7 +230,7 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 [data-theme="dark"] .nav{background:rgba(15,17,23,0.85)}
 .nav.hidden{transform:translateY(-100%)}
 .nav-inner{max-width:1100px;margin:0 auto;padding:0 2rem;height:100%;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--text-primary);text-decoration:none}
+.nav-logo{font-family:var(--font-heading);font-size:1.45rem;font-weight:700;letter-spacing:-0.02em;color:var(--text-primary);text-decoration:none}
 .nav-logo span{color:var(--accent)}
 .nav-links{display:none;list-style:none;gap:1.75rem;align-items:center}
 .nav-links a{color:var(--text-secondary);font-size:.875rem;font-weight:500;transition:color .2s}
@@ -252,55 +260,70 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 .mobile-menu a{font-size:1.5rem;font-weight:600;color:var(--text-primary);font-family:var(--font-heading)}
 .mobile-menu a:hover{color:var(--accent)}
 
-/* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;padding:calc(var(--nav-height) + 3rem) 2rem 3rem;background:var(--bg-primary)}
-.hero-inner{max-width:1100px;margin:0 auto;width:100%}
-.hero-availability{display:inline-flex;align-items:center;gap:.5rem;padding:.375rem 1rem;background:var(--accent-subtle);border:1px solid var(--accent);border-radius:20px;font-size:.8rem;font-weight:600;color:var(--accent);margin-bottom:1.25rem}
-[data-theme="dark"] .hero-availability{color:var(--accent);background:var(--accent-subtle);border-color:var(--accent)}
-.hero-availability::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.hero-greeting{font-size:1.125rem;color:var(--text-muted);margin-bottom:.5rem;font-weight:500}
-.hero h1{font-size:clamp(2.5rem,6vw,4rem);margin-bottom:.75rem}
-.hero-title{font-size:clamp(1.125rem,3vw,1.5rem);color:var(--accent);font-weight:600;margin-bottom:1.5rem;font-family:var(--font-heading)}
-.hero-desc{font-size:1.125rem;color:var(--text-secondary);max-width:600px;margin-bottom:2rem;line-height:1.8}
-.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem}
-.hero-cv-links{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;margin-bottom:3rem}
-.hero-cv-links a{font-size:.85rem;color:var(--text-muted);font-weight:500;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border)}
-.hero-cv-links a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+/* BUTTONS */
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.875rem 2rem;border-radius:var(--radius);font-weight:600;font-size:.95rem;transition:all .2s ease-out;border:none;cursor:pointer;font-family:var(--font-body);text-decoration:none}
 .btn:disabled{cursor:not-allowed;opacity:.65;transform:none;box-shadow:none}
 .btn-primary{background:#065f46;color:#fff}
 .btn-primary:hover{background:#064e3b;color:#fff;transform:translateY(-1px);box-shadow:0 4px 12px rgba(6,95,70,0.35)}
-[data-theme="dark"] .btn-primary{background:#065f46}
-[data-theme="dark"] .btn-primary:hover{background:#064e3b;box-shadow:0 4px 12px rgba(6,95,70,0.35)}
-.btn-primary:disabled,.btn-primary:disabled:hover,[data-theme="dark"] .btn-primary:disabled,[data-theme="dark"] .btn-primary:disabled:hover{background:var(--bg-tertiary);color:var(--text-muted);border:1px solid var(--border);cursor:wait;opacity:1;transform:none;box-shadow:none}
-.btn-outline{background:transparent;color:var(--text-primary);border:1.5px solid var(--border)}
+.btn-primary:disabled,.btn-primary:disabled:hover{background:var(--bg-tertiary);color:var(--text-muted);border:1px solid var(--border);cursor:wait;opacity:1;transform:none;box-shadow:none}
+.btn-outline{background:var(--bg-secondary);color:var(--text-primary);border:1.5px solid var(--border)}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
-.hero .btn-outline{background:var(--bg-secondary)}
-[data-theme="dark"] .hero .btn-outline{background:var(--bg-secondary)}
-.hero-stats{display:flex;gap:2rem;flex-wrap:wrap}
-.hero-stat{font-size:.9rem;color:var(--text-muted);font-weight:500;padding-left:1rem;border-left:2px solid var(--accent)}
-.hero-content{min-width:0}
-.hero-visual{display:none}
-.code-card{background:#0d1117;border:1px solid #1f2430;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.35);overflow:hidden;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-.code-bar{display:flex;align-items:center;gap:.45rem;padding:.7rem 1rem;background:#161b22;border-bottom:1px solid #1f2430}
-.code-dot{width:11px;height:11px;border-radius:50%;display:inline-block}
-.code-dot.r{background:#ff5f56}.code-dot.y{background:#ffbd2e}.code-dot.g{background:#27c93f}
-.code-file{margin-left:.4rem;color:#8b949e;font-size:.78rem}
-.code-body{margin:0;padding:1.1rem 1.25rem;font-size:.82rem;line-height:1.7;color:#e6edf3;overflow-x:auto}
-.code-body .cl{display:block;white-space:nowrap}
-.code-body .ind{padding-left:1.7em}
-.code-body .ind2{padding-left:3.4em}
-.code-body .tok-key{color:#ff7b72}
-[data-theme="dark"] .code-card{background:#1a2030;border-color:#323d54}
-[data-theme="dark"] .code-bar{background:#232c40;border-bottom-color:#323d54}
-.code-body .tok-com{color:#8b949e}.code-body .tok-str{color:#7ee787}.code-body .tok-fn{color:#d2a8ff}.code-body .tok-num{color:#79c0ff}.code-body .tok-cls{color:#ffa657}
 
-/* Animations */
+/* SECTIONS */
+.section{padding:5rem 2rem}
+.section:nth-child(odd){background:var(--bg-primary)}
+.section:nth-child(even){background:var(--bg-secondary)}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-title{font-size:clamp(1.9rem,4.2vw,2.75rem);margin-bottom:2rem}
+.section-title+p{color:var(--text-secondary);max-width:600px;margin-top:-1.25rem;margin-bottom:2.5rem}
+
+/* Chip links to the service pages (homepage, landing pages, glossary) */
+.lp-related{display:flex;flex-wrap:wrap;gap:.75rem}
+.lp-related a{display:inline-flex;padding:.6rem 1.1rem;border:1px solid var(--border);border-radius:20px;font-size:.9rem;font-weight:500;color:var(--text-secondary);transition:border-color .2s,color .2s}
+.lp-related a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* FOOTER */
+.footer{padding:2rem;text-align:center;border-top:1px solid var(--border);background:var(--bg-secondary)}
+.footer p{font-size:.85rem;color:var(--text-muted)}
+.footer p+p{margin-top:.25rem;font-size:.8rem}
+.footer-services{display:flex;flex-wrap:wrap;gap:.1rem 1.25rem;justify-content:center;margin-bottom:1.25rem}
+.footer-services a{display:inline-block;padding:.2rem 0;font-size:.85rem;color:var(--text-muted);font-weight:500}
+.footer-services a:hover{color:var(--accent)}
+`;
+
+const cssHome = `
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:calc(var(--nav-height) + 3rem) 2rem 3rem;background:var(--bg-primary)}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%}
+.hero-content{min-width:0}
+.hero-availability{display:inline-flex;align-items:center;gap:.5rem;padding:.375rem 1rem;background:var(--accent-subtle);border:1px solid var(--accent);border-radius:20px;font-size:.8rem;font-weight:600;color:var(--accent);margin-bottom:1.25rem}
+.hero-availability::before{content:'';flex-shrink:0;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.hero-greeting{font-size:1.125rem;color:var(--text-muted);margin-bottom:.25rem;font-weight:500}
+.hero h1{font-size:clamp(2.9rem,8vw,4.75rem);line-height:1;margin-bottom:1rem}
+.hero-title{font-size:clamp(1.2rem,3vw,1.6rem);line-height:1.25;letter-spacing:-0.01em;color:var(--accent);font-weight:700;margin-bottom:1.5rem;font-family:var(--font-heading)}
+.hero-desc{font-size:1.125rem;color:var(--text-secondary);max-width:600px;margin-bottom:2rem;line-height:1.8}
+.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.25rem}
+.hero-cv-links{display:flex;gap:.25rem 1.5rem;flex-wrap:wrap;align-items:center;margin-bottom:2.75rem}
+.hero-cv-links a{display:inline-block;padding:.25rem 0;font-size:.85rem;color:var(--text-muted);font-weight:500;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border-strong)}
+.hero-cv-links a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+.hero-stats{display:flex;gap:1rem 2rem;flex-wrap:wrap}
+.hero-stat{font-size:.9rem;color:var(--text-muted);font-weight:500;padding-left:1rem;border-left:2px solid var(--accent)}
+
+/* Hero search panel: the site's own in-browser search, not a mock-up */
+.hero-visual{min-width:0;margin-top:3rem;animation:fadeUp .7s ease-out .4s both}
+.ask{background:var(--bg-secondary);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow-lg);padding:1.5rem}
+.ask h2{font-size:1.4rem;margin-bottom:1rem}
+.ask .gl-search{margin-top:0;max-width:none}
+.ask .gl-search input{background:var(--field-bg);border-color:var(--border-strong);padding-right:2.6rem;font-size:.95rem;text-overflow:ellipsis}
+.ask .gl-search input:focus{border-color:var(--accent)}
+.ask .gl-status{min-height:0;margin-top:0}
+.ask .gl-status:not(:empty){margin-top:.6rem}
+.ask-try{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin-top:1rem;font-size:.85rem;color:var(--text-muted)}
+.ask-try button{min-height:32px;padding:.3rem .85rem;border:1px solid var(--border);border-radius:20px;background:transparent;color:var(--text-secondary);font-family:var(--font-body);font-size:.85rem;font-weight:500;cursor:pointer;transition:border-color .2s,color .2s}
+.ask-try button:hover{border-color:var(--accent);color:var(--accent)}
+
+/* The one orchestrated moment: the hero settles in on load. Nothing else moves by itself. */
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.fade-up{opacity:1;transform:none}
-.fade-up.js-animate{opacity:0;transform:translateY(24px);transition:opacity .6s ease-out,transform .6s ease-out}
-.fade-up.js-animate.visible{opacity:1;transform:translateY(0)}
 .hero .fade-up{animation:fadeUp .7s ease-out forwards;opacity:0}
 .hero .fade-up:nth-child(1){animation-delay:0s}
 .hero .fade-up:nth-child(2){animation-delay:.1s}
@@ -311,62 +334,54 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 .hero .fade-up:nth-child(7){animation-delay:.55s}
 .hero .fade-up:nth-child(8){animation-delay:.65s}
 
-/* SECTIONS */
-.section{padding:5rem 2rem}
-.section:nth-child(odd){background:var(--bg-primary)}
-.section:nth-child(even){background:var(--bg-secondary)}
-.section-inner{max-width:1100px;margin:0 auto}
-.section-label{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:.5rem}
-.section-title{font-size:clamp(1.75rem,4vw,2.5rem);margin-bottom:1rem}
-.section-title+p{color:var(--text-secondary);max-width:600px;margin-bottom:3rem}
-
 /* ABOUT */
 .about-grid{display:grid;gap:2.5rem;align-items:start}
 .about-photo{width:180px;height:180px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow:var(--shadow-lg);margin:0 auto}
 .about-text{display:flex;flex-direction:column;gap:1.25rem}
-.about-text p{color:var(--text-secondary);font-size:1.05rem}
+.about-text p{color:var(--text-secondary);font-size:1.05rem;max-width:68ch}
 
 /* SERVICES */
 .services-grid{display:grid;gap:1.5rem}
-.service-card{background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;transition:transform .2s ease-out,box-shadow .2s ease-out}
-.service-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.service-card{background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius);padding:2rem}
 .service-icon{color:var(--accent);margin-bottom:1rem}
-.service-card h3{font-size:1.15rem;margin-bottom:.75rem}
+.service-card h3{font-size:1.25rem;margin-bottom:.75rem}
 .service-card p{color:var(--text-secondary);font-size:.95rem;line-height:1.7}
+.services-explore{margin-top:3rem}
+.services-explore h3{font-size:1.15rem;margin-bottom:1rem}
 
-/* TECH STACK */
-.tech-categories{display:flex;flex-direction:column;gap:2rem}
-.tech-category h3{font-size:1rem;color:var(--text-muted);font-weight:600;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em;font-size:.85rem}
+/* TECH STACK: linked tags have their own service page, plain ones are just listed */
+.tech-categories{display:grid;gap:1.75rem}
+.tech-category h3{font-size:1.1rem;margin-bottom:.75rem}
 .tech-tags{display:flex;flex-wrap:wrap;gap:.5rem}
-.tech-tag{padding:.4rem 1rem;background:var(--accent-subtle);color:var(--accent);border-radius:20px;font-size:.85rem;font-weight:500;border:1px solid transparent;transition:all .2s}
-.tech-tag:hover{border-color:var(--accent);background:var(--accent);color:#fff}
+.tech-tag{display:inline-flex;align-items:center;min-height:32px;padding:.2rem .9rem;background:var(--bg-primary);color:var(--text-secondary);border:1px solid var(--border);border-radius:20px;font-size:.875rem;font-weight:500}
+a.tech-tag{background:var(--accent-subtle);border-color:transparent;color:var(--accent);font-weight:600;transition:border-color .2s,color .2s}
+a.tech-tag:hover{border-color:var(--accent);color:var(--accent-hover)}
 
 /* TIMELINE */
 .timeline{position:relative;padding-left:2rem}
 .timeline::before{content:'';position:absolute;left:5px;top:8px;bottom:8px;width:2px;background:var(--border)}
-.timeline-item{position:relative;padding-bottom:2.5rem}
+.timeline-item{position:relative;padding-bottom:2.25rem}
 .timeline-item:last-child{padding-bottom:0}
 .timeline-dot{position:absolute;left:-2rem;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-primary);z-index:1}
 .timeline-period{font-size:.85rem;font-weight:600;color:var(--accent);margin-bottom:.25rem}
-.timeline-role{font-size:1.1rem;font-weight:700;margin-bottom:.15rem;font-family:var(--font-heading)}
+.timeline-role{font-size:1.2rem;font-weight:700;line-height:1.3;letter-spacing:-0.01em;margin-bottom:.15rem;font-family:var(--font-heading)}
 .timeline-company{font-size:.9rem;color:var(--text-muted);margin-bottom:.5rem}
-.timeline-desc{color:var(--text-secondary);font-size:.95rem}
+.timeline-desc{color:var(--text-secondary);font-size:.95rem;max-width:68ch}
 
 /* TESTIMONIALS */
 .testimonials-grid{display:grid;gap:1.5rem}
-.testimonial-card{background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;position:relative;transition:transform .22s ease-out,box-shadow .22s ease-out,border-color .22s ease-out}
-.testimonial-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--accent)}
+.testimonial-card{background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;position:relative}
 .testimonial-card::before{content:'\\201C';position:absolute;top:.5rem;left:1.25rem;font-size:4rem;color:var(--accent);opacity:.38;font-family:Georgia,serif;line-height:1}
 [data-theme="dark"] .testimonial-card::before{color:var(--accent-hover);opacity:.7}
 .testimonial-quote{font-style:italic;color:var(--text-secondary);margin-bottom:1.25rem;padding-top:1.5rem;line-height:1.8;font-size:1rem}
-.testimonial-author{font-weight:700;font-size:.95rem;font-family:var(--font-heading)}
+.testimonial-author{font-weight:700;font-size:1.05rem;font-family:var(--font-heading)}
 .testimonial-company{font-size:.85rem;color:var(--text-muted)}
 
 /* FAQ */
 .faq-list{display:flex;flex-direction:column;gap:.75rem;max-width:800px}
 .faq-item{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .2s}
 .faq-item.active{border-color:var(--accent)}
-.faq-btn{width:100%;padding:1.25rem 1.5rem;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:1rem;font-weight:600;color:var(--text-primary);font-family:var(--font-heading);text-align:left}
+.faq-btn{width:100%;padding:1.25rem 1.5rem;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:1.1rem;font-weight:700;line-height:1.3;letter-spacing:-0.01em;color:var(--text-primary);font-family:var(--font-heading);text-align:left}
 .faq-btn:hover{color:var(--accent)}
 .faq-btn svg{flex-shrink:0;transition:transform .3s;color:var(--text-muted)}
 .faq-item.active .faq-btn svg{transform:rotate(180deg);color:var(--accent)}
@@ -376,59 +391,82 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 /* CONTACT */
 .contact-grid{display:grid;gap:3rem}
 .contact-form{display:flex;flex-direction:column;gap:1rem}
-.form-group label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:.375rem}
-.form-group input,.form-group textarea{width:100%;padding:.875rem 1rem;background:var(--bg-tertiary);border:1.5px solid var(--border);border-radius:8px;color:var(--text-primary);font-size:.95rem;font-family:var(--font-body);transition:border-color .2s;outline:none}
-.form-group input:focus,.form-group textarea:focus{border-color:var(--accent)}
+.form-group label{display:block;font-size:.9rem;font-weight:600;color:var(--text-primary);margin-bottom:.375rem}
+.form-group input,.form-group textarea{width:100%;padding:.875rem 1rem;background:var(--field-bg);border:1.5px solid var(--border-strong);border-radius:8px;color:var(--text-primary);font-size:1rem;font-family:var(--font-body);transition:border-color .2s,box-shadow .2s;outline:none}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-subtle)}
 .form-group textarea{resize:vertical;min-height:140px}
+.contact-form .btn{align-self:flex-start}
 .form-status{padding:1rem;border-radius:8px;font-size:.9rem;display:none}
 .form-status.success{display:block;background:var(--accent-subtle);color:var(--accent);border:1px solid var(--accent)}
-.form-status.error{display:block;background:rgba(239,68,68,0.1);color:#ef4444;border:1px solid rgba(239,68,68,0.2)}
+.form-status.error{display:block;background:rgba(239,68,68,0.1);color:#b91c1c;border:1px solid rgba(239,68,68,0.3)}
+[data-theme="dark"] .form-status.error{color:#fca5a5}
 .ohnohoney{position:absolute;left:-9999px}
 .contact-info{display:flex;flex-direction:column;gap:1.5rem}
 .contact-info-item{display:flex;align-items:flex-start;gap:.75rem}
 .contact-info-icon{color:var(--accent);flex-shrink:0;margin-top:2px}
-.contact-info-label{font-size:.8rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.contact-info-label{font-size:.85rem;color:var(--text-muted);font-weight:600}
 .contact-info-value{color:var(--text-primary);font-weight:500}
-.contact-notice{background:var(--accent-subtle);border:1px solid var(--accent);border-left-width:4px;border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:2.5rem;max-width:760px;color:var(--text-secondary);line-height:1.7;font-size:.95rem}
+a.contact-info-value{display:inline-block;padding:.15rem 0;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border-strong)}
+a.contact-info-value:hover{color:var(--accent);text-decoration-color:var(--accent)}
+.contact-notice{background:var(--accent-subtle);border-left:4px solid var(--accent);border-radius:4px var(--radius) var(--radius) 4px;padding:1rem 1.25rem;margin-bottom:2.5rem;max-width:68ch;color:var(--text-secondary);line-height:1.7;font-size:.95rem}
 .social-links{display:flex;gap:.75rem;margin-top:.5rem}
-.social-link{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;color:var(--text-secondary);border:1px solid var(--border);transition:all .2s}
+.social-link{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:8px;color:var(--text-secondary);border:1px solid var(--border);transition:all .2s}
 .social-link:hover{color:var(--accent);border-color:var(--accent);background:var(--accent-subtle);transform:translateY(-1px)}
 
-/* FOOTER */
-.footer{padding:2rem;text-align:center;border-top:1px solid var(--border);background:var(--bg-secondary)}
-.footer p{font-size:.85rem;color:var(--text-muted)}
-.footer p+p{margin-top:.25rem;font-size:.8rem}
-.footer-services{display:flex;flex-wrap:wrap;gap:.4rem 1.25rem;justify-content:center;margin-bottom:1.25rem}
-.footer-services a{font-size:.85rem;color:var(--text-muted);font-weight:500}
-.footer-services a:hover{color:var(--accent)}
+@media(max-width:479px){
+  .hero-buttons{flex-direction:column}
+  .hero-buttons .btn{width:100%;justify-content:center}
+  .contact-form .btn{align-self:stretch;justify-content:center}
+}
+@media(min-width:600px){
+  .services-grid,.testimonials-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:180px 1fr}
+  .about-photo{margin:0}
+}
+@media(min-width:900px){
+  .hero-inner{display:grid;grid-template-columns:1fr minmax(360px,430px);gap:3rem;align-items:center}
+  .hero-visual{margin-top:0}
+  .testimonials-grid{grid-template-columns:repeat(3,1fr)}
+  .tech-category{display:grid;grid-template-columns:11rem 1fr;gap:1.5rem;align-items:baseline}
+  .tech-category h3{margin-bottom:0}
+  /* Dates get their own column, so the eye can run down the years */
+  .timeline{padding-left:0}
+  .timeline::before{left:calc(11rem + 1.5rem - 1px)}
+  .timeline-item{display:grid;grid-template-columns:11rem 1fr;column-gap:3rem}
+  .timeline-item>p{grid-column:2}
+  .timeline-item .timeline-period{grid-column:1;grid-row:1 / span 3;text-align:right;margin:0;padding-top:.3rem}
+  .timeline-item .timeline-dot{left:calc(11rem + 1.5rem - 6px);top:9px}
+}
+`;
+
+const cssLanding = `
 .lp-hero{padding:calc(var(--nav-height) + 3.5rem) 2rem 2.5rem;background:var(--bg-primary)}
 .lp-inner{max-width:820px;margin:0 auto;position:relative}
 .lp-crumbs{font-size:.85rem;color:var(--text-muted);margin-bottom:1.25rem}
-.lp-crumbs a{color:var(--text-muted)}
+.lp-crumbs a{display:inline-block;padding:.2rem 0;color:var(--text-muted)}
 .lp-crumbs a:hover{color:var(--accent)}
+.lp-kicker{font-size:.95rem;font-weight:600;color:var(--accent);padding-right:5rem}
 .lp-corner-icon{position:absolute;top:0;right:0;color:var(--accent);line-height:0}
 .lp-corner-icon svg{width:72px;height:72px;display:block}
 @media(max-width:600px){.lp-corner-icon svg{width:48px;height:48px}}
-.lp-hero h1{font-size:clamp(2rem,5vw,3rem);margin:.25rem 0 1rem}
+.lp-hero h1{font-size:clamp(2.25rem,6vw,3.5rem);line-height:1.05;margin:.25rem 0 1.25rem}
 .lp-lead{font-size:1.15rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1.25rem}
 .lp-hero p{color:var(--text-secondary);line-height:1.8}
+.lp-hero .lp-kicker{color:var(--accent);line-height:1.5}
 .lp-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}
-.lp-section h2{font-size:clamp(1.4rem,3vw,1.9rem);margin-bottom:1.5rem}
+.lp-section h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:1.5rem}
 .lp-section p{color:var(--text-secondary);line-height:1.8;max-width:720px}
 .lp-list{list-style:none;display:grid;gap:.85rem;max-width:720px}
 .lp-list li{position:relative;padding-left:1.85rem;color:var(--text-secondary);line-height:1.6}
 .lp-list li::before{content:'✓';position:absolute;left:0;top:0;color:var(--accent);font-weight:700}
 .lp-faq{display:flex;flex-direction:column;gap:1.5rem;max-width:720px;margin-top:1rem}
-.lp-faq h3{font-size:1.05rem;margin-bottom:.4rem}
+.lp-faq h3{font-size:1.15rem;margin-bottom:.4rem}
 .lp-faq p{color:var(--text-secondary);line-height:1.7}
-.lp-related{display:flex;flex-wrap:wrap;gap:.75rem}
-.lp-related a{display:inline-flex;padding:.6rem 1.1rem;border:1px solid var(--border);border-radius:20px;font-size:.9rem;font-weight:500;color:var(--text-secondary);transition:all .2s}
-.lp-related a:hover{border-color:var(--accent);color:var(--accent)}
+`;
 
-.services-explore{margin-top:3rem}
-.services-explore h3{font-size:1rem;font-weight:700;margin-bottom:1rem;color:var(--text-secondary)}
-
-/* Glossary search */
+const cssSearch = `
+/* Site search (glossary page and homepage hero) */
 .gl-search{position:relative;margin-top:2rem;max-width:640px}
 .gl-search-field{position:relative;display:flex;align-items:center}
 .gl-search input{width:100%;padding:.95rem 3rem .95rem 2.9rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-secondary);color:var(--text-primary);font-family:var(--font-body);font-size:1rem;transition:border-color .2s}
@@ -437,6 +475,7 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 .gl-search-icon{position:absolute;left:1rem;color:var(--text-muted);line-height:0;pointer-events:none}
 .gl-search-icon svg{width:18px;height:18px}
 .gl-clear{position:absolute;right:.7rem;display:flex;align-items:center;justify-content:center;width:28px;height:28px;border:none;border-radius:50%;background:transparent;color:var(--text-muted);cursor:pointer;line-height:0}
+.gl-clear[hidden]{display:none}
 .gl-clear:hover{color:var(--accent)}
 .gl-clear svg{width:16px;height:16px}
 .gl-hint{font-size:.82rem;color:var(--text-muted);margin-top:.6rem}
@@ -445,24 +484,28 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;letter-spacing:-0.03
 .gl-hit{display:block;padding:.85rem 1.1rem;border-bottom:1px solid var(--border)}
 .gl-hit:last-child{border-bottom:none}
 .gl-hit:hover,.gl-hit.active{background:var(--bg-primary)}
-.gl-hit-kind{display:block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.2rem}
+.gl-hit-kind{display:block;font-size:.78rem;font-weight:700;color:var(--accent);margin-bottom:.1rem}
 .gl-hit-title{display:block;font-weight:700;color:var(--text-primary);margin-bottom:.25rem}
 .gl-hit-text{display:block;font-size:.87rem;color:var(--text-secondary);line-height:1.6}
 .gl-hit mark{background:transparent;color:var(--accent);font-weight:700}
 .gl-empty{padding:1rem 1.1rem;font-size:.9rem;color:var(--text-secondary);margin:0}
-/* Glossary */
+`;
+
+const cssGlossary = `
 .gl-toc{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
-.gl-toc a{display:inline-flex;align-items:baseline;gap:.4rem;padding:.55rem 1rem;border:1px solid var(--border);border-radius:20px;font-size:.88rem;font-weight:600;color:var(--text-secondary);transition:all .2s}
+.gl-toc a{display:inline-flex;align-items:baseline;gap:.4rem;padding:.55rem 1rem;border:1px solid var(--border);border-radius:20px;font-size:.88rem;font-weight:600;color:var(--text-secondary);transition:border-color .2s,color .2s}
 .gl-toc a:hover{border-color:var(--accent);color:var(--accent)}
 .gl-toc span{font-weight:500;color:var(--text-muted);font-size:.8rem}
 .gl-terms{display:grid;gap:1.75rem;max-width:760px;margin:0}
 .gl-term{scroll-margin-top:calc(var(--nav-height) + 1.5rem)}
-.gl-term dt{font-size:1.05rem;font-weight:700;margin-bottom:.35rem;font-family:var(--font-heading)}
+.gl-term dt{font-size:1.2rem;font-weight:700;line-height:1.3;letter-spacing:-0.01em;margin-bottom:.35rem;font-family:var(--font-heading)}
 .gl-term dt a{color:var(--text-primary)}
 .gl-term dt a:hover{color:var(--accent)}
 .gl-term dd{margin:0;color:var(--text-secondary);line-height:1.75}
 .gl-count{color:var(--text-muted);font-size:.9rem;font-weight:500;margin-left:.5rem}
+`;
 
+const cssTail = `
 /* Focus styles */
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
@@ -470,8 +513,7 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 /* A11y: reduced motion */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}
-  .fade-up,.fade-up.js-animate{opacity:1;transform:none}
-  .hero .fade-up{animation:none;opacity:1}
+  .hero .fade-up,.hero-visual{animation:none;opacity:1}
 }
 /* A11y: high contrast */
 @media(forced-colors:active){
@@ -483,22 +525,11 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 /* Responsive */
 @media(max-width:479px){
   .nav .lang-switcher{display:none}
-  .hero-buttons{flex-direction:column}
-  .hero-buttons .btn{width:100%;justify-content:center}
-}
-@media(min-width:600px){
-  .services-grid,.testimonials-grid{grid-template-columns:repeat(2,1fr)}
-  .contact-grid{grid-template-columns:1fr 1fr}
-  .about-grid{grid-template-columns:180px 1fr}
-  .about-photo{margin:0}
 }
 @media(min-width:900px){
   .nav-links{display:flex}
   .menu-toggle{display:none}
-  .hero h1{font-size:3.5rem}
   .section{padding:6rem 2rem}
-  .hero-inner{display:grid;grid-template-columns:1fr minmax(360px,430px);gap:3rem;align-items:center}
-  .hero-visual{display:block;animation:fadeUp .7s ease-out .4s both}
 }
 `;
 
@@ -579,19 +610,6 @@ const js = `
     });
   });
 
-  // Scroll animations
-  var sectionFade=document.querySelectorAll('.section .fade-up');
-  var shouldAnimateSections=!window.location.hash;
-  if(shouldAnimateSections)sectionFade.forEach(function(el){el.classList.add('js-animate');});
-  if('IntersectionObserver'in window){
-    var obs=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-    },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-    if(shouldAnimateSections)sectionFade.forEach(function(el){obs.observe(el);});
-  }else{
-    sectionFade.forEach(function(el){el.classList.add('visible');});
-  }
-
   // Contact form
   var form=document.getElementById('contact-form');
   if(form){
@@ -622,12 +640,17 @@ const js = `
 `;
 
 // Small build-time minification helpers for inline payloads.
-const minCss = css
+const minifyCss = (src) => src
   .replace(/\/\*[\s\S]*?\*\//g, '')
   .replace(/\s+/g, ' ')
   .replace(/\s*([{}:;,>])\s*/g, '$1')
   .replace(/;}/g, '}')
   .trim();
+const CSS = {
+  home: minifyCss(cssBase + cssHome + cssSearch + cssTail),
+  landing: minifyCss(cssBase + cssLanding + cssTail),
+  glossary: minifyCss(cssBase + cssLanding + cssSearch + cssGlossary + cssTail)
+};
 const minJs = js
   .replace(/^\s*\/\/.*$/gm, '')
   .replace(/\s+/g, ' ')
@@ -635,6 +658,41 @@ const minJs = js
   .trim();
 const csp = "default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://cloudflareinsights.com; form-action https://formspree.io; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; upgrade-insecure-requests";
 const minHtml = (html) => html.replace(/>\s+</g, '><').replace(/\n+/g, '').trim();
+
+// The search field, its results box and the strings search.js needs. Used by the
+// glossary page (script inline) and the homepage hero (script loaded on demand).
+function searchBox(lang) {
+  const g = glossary.meta[lang];
+  return `<div class="gl-search">
+<div class="gl-search-field">
+<span class="gl-search-icon" aria-hidden="true">${icons.searchSmall}</span>
+<input type="search" id="gl-q" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="false" aria-controls="gl-results" aria-autocomplete="list" aria-label="${g.searchLabel}" placeholder="${g.searchPlaceholder}" data-index="/search-${lang}.json">
+<button type="button" class="gl-clear" id="gl-clear" hidden aria-label="${g.searchClear}">${icons.close}</button>
+</div>
+<div class="gl-results" id="gl-results" role="listbox" aria-label="${g.searchLabel}" hidden></div>
+<p class="gl-hint">${g.searchHint}</p>
+<p class="gl-status" id="gl-status" role="status" aria-live="polite"></p>
+</div>
+<script type="application/json" id="gl-i18n">${JSON.stringify({
+  searchLoading: g.searchLoading, searchEmpty: g.searchEmpty, searchError: g.searchError,
+  searchCountOne: g.searchCountOne, searchCountMany: g.searchCountMany,
+  kindTerm: g.kindTerm, kindPage: g.kindPage, kindSection: g.kindSection
+})}</script>`;
+}
+
+// On the homepage the search script is not worth 7 KB of every visit: it is
+// fetched the first time someone focuses the field or picks an example query.
+const SEARCH_LOADER = `(function(){var i=document.getElementById('gl-q');if(!i)return;var st=0;function go(){i.dispatchEvent(new Event('input'));}function ld(){if(st)return;st=1;var e=document.createElement('script');e.src='/search.js';e.onload=function(){st=2;if(i.value)go();};document.head.appendChild(e);}i.addEventListener('focus',ld);document.querySelectorAll('[data-q]').forEach(function(b){b.addEventListener('click',function(){i.value=b.getAttribute('data-q');i.focus();if(st===2)go();});});})();`;
+
+// Technologies that have their own service page link to it from the tech stack;
+// the rest stay plain text, so nothing looks clickable that is not.
+const TECH_PAGES = { 'Laravel': 'laravel', 'Vue.js': 'vuejs', 'React': 'react', 'Python': 'python', 'Symfony': 'symfony', 'Yii2': 'yii' };
+function techTag(lang, item) {
+  const page = landing.pages.find(p => p.id === TECH_PAGES[item]);
+  return page
+    ? `<a class="tech-tag" href="/${lang}/${page[lang].slug}/">${item}</a>`
+    : `<span class="tech-tag">${item}</span>`;
+}
 
 // Internal links to the service landing pages, shown in every footer.
 // The landing pages used to be reachable only from the footer link list, which
@@ -800,11 +858,12 @@ function generatePage(lang) {
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#047857">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="manifest" href="/manifest.webmanifest">
+${FONT_PRELOAD}
 <link rel="preconnect" href="https://formspree.io">
 <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0f1117" media="(prefers-color-scheme: dark)">
 <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');})();</script>
-<style>${minCss}</style>
+<style>${CSS.home}</style>
 <script type="application/ld+json">${personSchema}</script>
 <script type="application/ld+json">${serviceSchema}</script>
 <script type="application/ld+json">${faqSchema}</script>
@@ -869,7 +928,7 @@ ${t.hero.greeting ? `<p class="hero-greeting fade-up">${t.hero.greeting}</p>` : 
 <p class="hero-title fade-up">${t.hero.title}</p>
 <p class="hero-desc fade-up">${t.hero.description}</p>
 <div class="hero-buttons fade-up">
-<a href="#contact" class="btn btn-primary">${t.hero.cta} ${icons.arrow}</a>
+<a href="#contact" class="btn btn-primary">${t.hero.cta}</a>
 <a href="${cvPrimaryHref}" class="btn btn-outline">${t.hero.cv}</a>
 </div>
 <div class="hero-cv-links fade-up">
@@ -882,19 +941,11 @@ ${lang === 'hu' && HAS_RESUME_PDF ? `<a href="/resume.pdf?v=${RESUME_PDF_VERSION
 <span class="hero-stat">${t.hero.stats.languages}</span>
 </div>
 </div>
-<div class="hero-visual" aria-hidden="true">
-<div class="code-card">
-<div class="code-bar"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span><span class="code-file">rag_service.py</span></div>
-<div class="code-body">
-<span class="cl"><span class="tok-com"># RAG over a vector store, deterministic output</span></span>
-<span class="cl"><span class="tok-fn">@app.post</span>(<span class="tok-str">"/ask"</span>)</span>
-<span class="cl"><span class="tok-key">async def </span><span class="tok-fn">ask</span>(q: <span class="tok-cls">Query</span>):</span>
-<span class="cl ind">docs = store.<span class="tok-fn">search</span>(q.text, k=<span class="tok-num">5</span>)</span>
-<span class="cl ind"><span class="tok-key">return</span> graph.<span class="tok-fn">invoke</span>(</span>
-<span class="cl ind2">{<span class="tok-str">"question"</span>: q.text, <span class="tok-str">"context"</span>: docs},</span>
-<span class="cl ind2">{<span class="tok-str">"temperature"</span>: <span class="tok-num">0.2</span>},</span>
-<span class="cl ind">)</span>
-</div>
+<div class="hero-visual">
+<div class="ask">
+<h2>${t.hero.search.title}</h2>
+${searchBox(lang)}
+<p class="ask-try"><span>${t.hero.search.tryLabel}</span>${t.hero.search.examples.map(q => `<button type="button" data-q="${q}">${q}</button>`).join('')}</p>
 </div>
 </div>
 </div>
@@ -903,11 +954,10 @@ ${lang === 'hu' && HAS_RESUME_PDF ? `<a href="/resume.pdf?v=${RESUME_PDF_VERSION
 <!-- ABOUT -->
 <section class="section" id="about" aria-label="${t.nav.about}">
 <div class="section-inner">
-<div class="fade-up">
-<p class="section-label">${t.about.label}</p>
+<div>
 <h2 class="section-title">${t.about.title}</h2>
 </div>
-<div class="about-grid fade-up">
+<div class="about-grid">
 <img src="/img/pappfer.webp" alt="${t.hero.name} — ${t.hero.title}" class="about-photo" width="180" height="180" loading="lazy">
 <div class="about-text">
 <p>${t.about.p1}</p>
@@ -921,18 +971,17 @@ ${lang === 'hu' && HAS_RESUME_PDF ? `<a href="/resume.pdf?v=${RESUME_PDF_VERSION
 <!-- SERVICES -->
 <section class="section" id="services" aria-label="${t.nav.services}">
 <div class="section-inner">
-<div class="fade-up">
-<p class="section-label">${t.services.label}</p>
+<div>
 <h2 class="section-title">${t.services.title}</h2>
 </div>
-<div class="services-grid fade-up">
+<div class="services-grid">
 ${t.services.items.map(s => `<div class="service-card">
 <div class="service-icon">${icons[s.icon]}</div>
 <h3>${s.title}</h3>
 <p>${s.description}</p>
 </div>`).join('\n')}
 </div>
-<div class="services-explore fade-up">
+<div class="services-explore">
 <h3>${landing.labels[lang].exploreTitle}</h3>
 <div class="lp-related">${landingChips(lang)}</div>
 </div>
@@ -942,15 +991,14 @@ ${t.services.items.map(s => `<div class="service-card">
 <!-- TECH STACK -->
 <section class="section" id="tech" aria-label="${t.nav.techStack}">
 <div class="section-inner">
-<div class="fade-up">
-<p class="section-label">${t.techStack.label}</p>
+<div>
 <h2 class="section-title">${t.techStack.title}</h2>
 </div>
-<div class="tech-categories fade-up">
+<div class="tech-categories">
 ${t.techStack.categories.map(cat => `<div class="tech-category">
 <h3>${cat.name}</h3>
 <div class="tech-tags">
-${cat.items.map(item => `<span class="tech-tag">${item}</span>`).join('\n')}
+${cat.items.map(item => techTag(lang, item)).join('\n')}
 </div>
 </div>`).join('\n')}
 </div>
@@ -960,11 +1008,10 @@ ${cat.items.map(item => `<span class="tech-tag">${item}</span>`).join('\n')}
 <!-- EXPERIENCE -->
 <section class="section" id="experience" aria-label="${t.nav.experience}">
 <div class="section-inner">
-<div class="fade-up">
-<p class="section-label">${t.experience.label}</p>
+<div>
 <h2 class="section-title">${t.experience.title}</h2>
 </div>
-<div class="timeline fade-up">
+<div class="timeline">
 ${t.experience.timeline.map(item => `<div class="timeline-item">
 <div class="timeline-dot"></div>
 <p class="timeline-period">${item.period}</p>
@@ -979,11 +1026,10 @@ ${t.experience.timeline.map(item => `<div class="timeline-item">
 <!-- TESTIMONIALS -->
 <section class="section" id="testimonials" aria-label="${t.nav.testimonials}">
 <div class="section-inner">
-<div class="fade-up">
-<p class="section-label">${t.testimonials.label}</p>
+<div>
 <h2 class="section-title">${t.testimonials.title}</h2>
 </div>
-<div class="testimonials-grid fade-up">
+<div class="testimonials-grid">
 ${t.testimonials.items.map(item => `<blockquote class="testimonial-card">
 <p class="testimonial-quote">${item.quote}</p>
 <footer>
@@ -998,11 +1044,10 @@ ${t.testimonials.items.map(item => `<blockquote class="testimonial-card">
 <!-- FAQ -->
 <section class="section" id="faq">
 <div class="section-inner">
-<div class="fade-up">
-<p class="section-label">${t.faq.label}</p>
+<div>
 <h2 class="section-title">${t.faq.title}</h2>
 </div>
-<div class="faq-list fade-up">
+<div class="faq-list">
 ${t.faq.items.map((item, i) => `<div class="faq-item">
 <button class="faq-btn" id="faq-button-${i}" aria-expanded="false" aria-controls="faq-${i}">
 <span>${item.question}</span>
@@ -1019,13 +1064,12 @@ ${icons.chevron}
 <!-- CONTACT -->
 <section class="section" id="contact" aria-label="${t.nav.contact}">
 <div class="section-inner">
-<div class="fade-up">
-<p class="section-label">${t.contact.label}</p>
+<div>
 <h2 class="section-title">${t.contact.title}</h2>
 <p>${t.contact.description}</p>
 </div>
-${t.contact.notice ? `<div class="contact-notice fade-up">${t.contact.notice}</div>` : ''}
-<div class="contact-grid fade-up">
+${t.contact.notice ? `<div class="contact-notice">${t.contact.notice}</div>` : ''}
+<div class="contact-grid">
 <form class="contact-form" id="contact-form" action="https://formspree.io/f/xjgeeqzr" method="POST">
 <label for="_gotcha" class="ohnohoney">Leave empty</label><input type="text" id="_gotcha" name="_gotcha" class="ohnohoney" tabindex="-1" autocomplete="off">
 <div class="form-group">
@@ -1091,6 +1135,7 @@ ${servicesFooterLinks(lang)}
 </footer>
 
 <script>${minJs}</script>
+<script>${SEARCH_LOADER}</script>
 </body>
 </html>`);
 }
@@ -1198,10 +1243,11 @@ ${hreflangs}
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#047857">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="manifest" href="/manifest.webmanifest">
+${FONT_PRELOAD}
 <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0f1117" media="(prefers-color-scheme: dark)">
 <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');})();</script>
-<style>${minCss}</style>
+<style>${CSS.landing}</style>
 <script type="application/ld+json">${webPageSchema}</script>
 <script type="application/ld+json">${serviceSchema}</script>
 <script type="application/ld+json">${breadcrumbSchema}</script>
@@ -1254,12 +1300,12 @@ ${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l
 <div class="lp-inner">
 <div class="lp-corner-icon" aria-hidden="true">${landingIcon(page.id)}</div>
 <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="/${lang}/">${lab.home}</a> › ${c.h1}</nav>
-<p class="section-label">${c.kicker}</p>
+<p class="lp-kicker">${c.kicker}</p>
 <h1>${c.h1}</h1>
 <p class="lp-lead">${c.lead}</p>
 <p>${c.body}</p>
 <div class="lp-actions">
-<a href="/${lang}/#contact" class="btn btn-primary">${lab.cta} ${icons.arrow}</a>
+<a href="/${lang}/#contact" class="btn btn-primary">${lab.cta}</a>
 <a href="/${lang}/" class="btn btn-outline">${lab.backHome}</a>
 </div>
 </div>
@@ -1479,10 +1525,11 @@ ${hreflangs}
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#047857">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="manifest" href="/manifest.webmanifest">
+${FONT_PRELOAD}
 <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0f1117" media="(prefers-color-scheme: dark)">
 <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');})();</script>
-<style>${minCss}</style>
+<style>${CSS.glossary}</style>
 <script type="application/ld+json">${webPageSchema}</script>
 <script type="application/ld+json">${termSetSchema}</script>
 <script type="application/ld+json">${breadcrumbSchema}</script>
@@ -1532,25 +1579,11 @@ ${LANGUAGES.map(l => `<a href="/${l}/${glossary.meta[l].slug}/" hreflang="${l}" 
 <div class="lp-inner">
 <div class="lp-corner-icon" aria-hidden="true">${icons.book}</div>
 <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="/${lang}/">${lab.home}</a> › ${g.h1}</nav>
-<p class="section-label">${g.kicker}</p>
+<p class="lp-kicker">${g.kicker}</p>
 <h1>${g.h1}</h1>
 <p class="lp-lead">${g.lead}</p>
 <p>${g.intro}</p>
-<div class="gl-search">
-<div class="gl-search-field">
-<span class="gl-search-icon" aria-hidden="true">${icons.searchSmall}</span>
-<input type="search" id="gl-q" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="false" aria-controls="gl-results" aria-autocomplete="list" aria-label="${g.searchLabel}" placeholder="${g.searchPlaceholder}" data-index="/search-${lang}.json">
-<button type="button" class="gl-clear" id="gl-clear" hidden aria-label="${g.searchClear}">${icons.close}</button>
-</div>
-<div class="gl-results" id="gl-results" role="listbox" aria-label="${g.searchLabel}" hidden></div>
-<p class="gl-hint">${g.searchHint}</p>
-<p class="gl-status" id="gl-status" role="status" aria-live="polite"></p>
-</div>
-<script type="application/json" id="gl-i18n">${JSON.stringify({
-  searchLoading: g.searchLoading, searchEmpty: g.searchEmpty, searchError: g.searchError,
-  searchCountOne: g.searchCountOne, searchCountMany: g.searchCountMany,
-  kindTerm: g.kindTerm, kindPage: g.kindPage, kindSection: g.kindSection
-})}</script>
+${searchBox(lang)}
 <nav class="gl-toc" aria-label="${g.tocTitle}">${toc}</nav>
 </div>
 </section>
@@ -1560,7 +1593,7 @@ ${sections}
 <h2>${g.ctaTitle}</h2>
 <p>${g.ctaText}</p>
 <div class="lp-actions">
-<a href="/${lang}/#contact" class="btn btn-primary">${lab.cta} ${icons.arrow}</a>
+<a href="/${lang}/#contact" class="btn btn-primary">${lab.cta}</a>
 <a href="/${lang}/" class="btn btn-outline">${lab.backHome}</a>
 </div>
 </div>
@@ -1732,6 +1765,9 @@ function generateManifest() {
 function generateHeaders() {
   return `/search-*.json
   X-Robots-Tag: noindex
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
 
 /*
   Content-Security-Policy: ${csp}; frame-ancestors 'none'
@@ -1977,6 +2013,7 @@ fs.writeFileSync(path.join(DIST, 'manifest.webmanifest'), generateManifest());
 console.log('  ✓ manifest.webmanifest');
 
 fs.writeFileSync(path.join(DIST, '_headers'), generateHeaders());
+fs.writeFileSync(path.join(DIST, 'search.js'), SEARCH_JS + '\n');
 console.log('  ✓ _headers');
 
 fs.writeFileSync(path.join(DIST, '404.html'), generate404());
@@ -2004,6 +2041,7 @@ fs.writeFileSync(
 const staticAssets = [
   { src: 'src/pappfer.webp', dest: 'dist/img/pappfer.webp' },
   { src: 'src/og-image.jpg', dest: 'dist/img/og-image.jpg' },
+  { src: `src${HEADING_FONT}`, dest: `dist${HEADING_FONT}` },
   { src: 'src/favicon.svg', dest: 'dist/favicon.svg' },
   { src: 'src/favicon-32x32.png', dest: 'dist/favicon-32x32.png' },
   { src: 'src/favicon-16x16.png', dest: 'dist/favicon-16x16.png' },
@@ -2026,6 +2064,7 @@ staticAssets.forEach(({ src, dest }) => {
   const srcPath = path.join(__dirname, src);
   const destPath = path.join(__dirname, dest);
   if (fs.existsSync(srcPath)) {
+    fs.mkdirSync(path.dirname(destPath), { recursive: true });
     fs.copyFileSync(srcPath, destPath);
     console.log(`  ✓ ${dest} (copied from ${src})`);
   }

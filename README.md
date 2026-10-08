@@ -36,7 +36,8 @@ Then open [http://localhost:3000](http://localhost:3000) (`npm run dev`) or [htt
 │   ├── translations.json     # All content in EN/HU/DE
 │   ├── landing.json          # Service landing page content
 │   ├── glossary.json         # AI & LLM glossary terms (EN/HU/DE)
-│   ├── search.js             # Browser-side search for the glossary page
+│   ├── search.js             # Browser-side search (glossary page + homepage hero)
+│   ├── fonts/                # Heading font subset (woff2) + OFL licence
 │   ├── lastmod.json          # Per-URL content hashes + lastmod dates
 │   ├── og/                   # Per-page share cards (generated, committed)
 │   └── indexnow-key.txt      # IndexNow key (public, must stay stable)
@@ -63,7 +64,7 @@ Then open [http://localhost:3000](http://localhost:3000) (`npm run dev`) or [htt
 
 ## How It Works
 
-`build.js` reads `src/translations.json` and generates static HTML for each language. All CSS and JS are inlined — no external dependencies except Google Fonts (DM Sans). The output in `dist/` is ready for deployment as-is.
+`build.js` reads `src/translations.json` and generates static HTML for each language. All CSS and JS are inlined, with two same-origin exceptions: the heading font (`/fonts/`) and, on the homepage, `search.js`, which is fetched when the search field is first used. Nothing is loaded from a third party. The output in `dist/` is ready for deployment as-is.
 
 ## Editing Content
 
@@ -122,7 +123,9 @@ language: all 50 definitions, the nine service pages and the homepage sections.
 - **Index** — `build.js` writes `dist/search-<lang>.json` (~14 kB gzipped, 69
   documents). The browser fetches it on the first keystroke, so page load is
   unaffected.
-- **Retrieval** — `src/search.js`, inlined on the glossary page only. BM25 with
+- **Retrieval** — `src/search.js`, inlined on the glossary page; the homepage
+  hero has the same search box and loads the script from `/search.js` on first
+  focus. BM25 with
   prefix matching in both directions, which is what makes Hungarian and German
   compounding work — "embeddingeket" finds "embedding" and "embed" finds it too.
   Question words are dropped before scoring, and results below a relevance floor
@@ -219,13 +222,26 @@ set. Two things live outside this repository and are easy to forget:
 - [HTML Validator](https://validator.w3.org)
 - [OG Preview](https://www.opengraph.xyz)
 
+## Heading font
+
+`src/fonts/bricolage-grotesque-700.woff2` is a subset of Bricolage Grotesque
+(SIL OFL, licence in the same folder): one static instance (wght 700, wdth 100,
+opsz 36) limited to U+0020–007E, U+00A0–00FF, `ŐőŰű` and `–—‘’“”„…•·›‹€→`.
+That covers English, German and Hungarian in ~24 kB. To regenerate it — for a
+new character or another weight — subset the upstream variable TTF from
+google/fonts (`ofl/bricolagegrotesque`) with `subset-font` or `pyftsubset` using
+those settings. If the file name changes, update `HEADING_FONT` in `build.js`;
+`/fonts/*` is served with an immutable one-year cache.
+
 ## Tech Details
 
 - Zero runtime dependencies
-- Inline CSS with CSS custom properties for theming
-- Inline JS (~2 kB on every page): theme toggle, mobile menu, FAQ accordion, scroll
-  animations, form handler. The glossary page additionally inlines `src/search.js`
-  (~4 kB) for in-browser search
+- Inline CSS with CSS custom properties for theming, built per page type: the
+  homepage, the landing pages and the glossary each get only the rules they use
+- Inline JS (~5 kB on every page): theme toggle, mobile menu, FAQ accordion,
+  active nav link, form handler. The glossary page additionally inlines
+  `src/search.js` (~7.5 kB); the homepage loads it on demand
+- Heading font: Bricolage Grotesque Bold, self-hosted (see "Heading font")
 - JSON-LD: Person, ProfessionalService, FAQPage, WebSite, ProfilePage (home);
   WebPage, Service, BreadcrumbList, FAQPage (landing pages);
   WebPage, DefinedTermSet, BreadcrumbList (glossary)
