@@ -298,16 +298,13 @@ const cssHome = `
 .hero-content{min-width:0}
 .hero-availability{display:inline-flex;align-items:center;gap:.5rem;padding:.375rem 1rem;background:var(--accent-subtle);border:1px solid var(--accent);border-radius:20px;font-size:.8rem;font-weight:600;color:var(--accent);margin-bottom:1.25rem}
 .hero-availability::before{content:'';flex-shrink:0;width:8px;height:8px;border-radius:50%;background:var(--accent)}
-.hero-greeting{font-size:1.125rem;color:var(--text-muted);margin-bottom:.25rem;font-weight:500}
 .hero h1{font-size:clamp(2.9rem,8vw,4.75rem);line-height:1;margin-bottom:1rem}
 .hero-title{font-size:clamp(1.2rem,3vw,1.6rem);line-height:1.25;letter-spacing:-0.01em;color:var(--accent);font-weight:700;margin-bottom:1.5rem;font-family:var(--font-heading)}
 .hero-desc{font-size:1.125rem;color:var(--text-secondary);max-width:600px;margin-bottom:2rem;line-height:1.8}
 .hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.25rem}
-.hero-cv-links{display:flex;gap:.25rem 1.5rem;flex-wrap:wrap;align-items:center;margin-bottom:2.75rem}
+.hero-cv-links{display:flex;gap:.25rem 1.5rem;flex-wrap:wrap;align-items:center}
 .hero-cv-links a{display:inline-block;padding:.25rem 0;font-size:.85rem;color:var(--text-muted);font-weight:500;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border-strong)}
 .hero-cv-links a:hover{color:var(--accent);text-decoration-color:var(--accent)}
-.hero-stats{display:flex;gap:1rem 2rem;flex-wrap:wrap}
-.hero-stat{font-size:.9rem;color:var(--text-muted);font-weight:500;padding-left:1rem;border-left:2px solid var(--accent)}
 
 /* Hero search panel: the site's own in-browser search, dressed as the call it
    makes. Dark in both themes, like an editor; the colours are syntax colours. */
@@ -407,15 +404,15 @@ a.tech-tag:hover{border-color:var(--accent);color:var(--accent-hover)}
 .testimonial-featured .testimonial-quote{font-family:var(--font-heading);font-weight:700;font-size:clamp(1.45rem,3.2vw,2.1rem);line-height:1.2;letter-spacing:-0.02em;color:var(--text-primary);margin-bottom:1.5rem}
 
 /* FAQ */
-.faq-list{display:flex;flex-direction:column;gap:.75rem;max-width:800px}
-.faq-item{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .2s}
-.faq-item.active{border-color:var(--accent)}
-.faq-btn{width:100%;padding:1.25rem 1.5rem;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:1.1rem;font-weight:700;line-height:1.3;letter-spacing:-0.01em;color:var(--text-primary);font-family:var(--font-heading);text-align:left}
+.faq-list{max-width:800px}
+.faq-item{border-top:1px solid var(--border)}
+.faq-item:last-child{border-bottom:1px solid var(--border)}
+.faq-btn{width:100%;padding:1.25rem 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:1.1rem;font-weight:700;line-height:1.3;letter-spacing:-0.01em;color:var(--text-primary);font-family:var(--font-heading);text-align:left}
 .faq-btn:hover{color:var(--accent)}
 .faq-btn svg{flex-shrink:0;transition:transform .3s;color:var(--text-muted)}
 .faq-item.active .faq-btn svg{transform:rotate(180deg);color:var(--accent)}
 .faq-answer{max-height:0;overflow:hidden;transition:max-height .3s ease-out}
-.faq-answer-inner{padding:0 1.5rem 1.25rem;color:var(--text-secondary);line-height:1.8}
+.faq-answer-inner{padding:0 2.5rem 1.5rem 0;color:var(--text-secondary);line-height:1.8}
 
 /* CONTACT */
 .contact-grid{display:grid;gap:3rem}
@@ -437,7 +434,8 @@ a.tech-tag:hover{border-color:var(--accent);color:var(--accent-hover)}
 .contact-info-value{color:var(--text-primary);font-weight:500}
 a.contact-info-value{display:inline-block;padding:.15rem 0;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border-strong)}
 a.contact-info-value:hover{color:var(--accent);text-decoration-color:var(--accent)}
-.contact-notice{background:var(--accent-subtle);border-left:4px solid var(--accent);border-radius:4px var(--radius) var(--radius) 4px;padding:1rem 1.25rem;margin-bottom:2.5rem;max-width:68ch;color:var(--text-secondary);line-height:1.7;font-size:.95rem}
+div:has(+.contact-notice) .section-title+p{margin-bottom:.75rem}
+.contact-notice{max-width:68ch;margin-bottom:2.5rem;color:var(--text-secondary)}
 .social-links{display:flex;gap:.75rem;margin-top:.5rem}
 .social-link{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:8px;color:var(--text-secondary);border:1px solid var(--border);transition:all .2s}
 .social-link:hover{color:var(--accent);border-color:var(--accent);background:var(--accent-subtle);transform:translateY(-1px)}
@@ -489,10 +487,12 @@ const cssLanding = `
 .lp-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}
 .lp-section h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:1.5rem}
 .lp-section p{color:var(--text-secondary);line-height:1.8;max-width:720px}
-.lp-list{list-style:none;display:grid;gap:.85rem;max-width:720px}
-.lp-list li{position:relative;padding-left:1.85rem;color:var(--text-secondary);line-height:1.6}
-.lp-list li::before{content:'✓';position:absolute;left:0;top:0;color:var(--accent);font-weight:700}
-.lp-faq{display:flex;flex-direction:column;gap:1.5rem;max-width:720px;margin-top:1rem}
+.lp-list{list-style:none;max-width:720px}
+.lp-list li{padding:.8rem 0;border-top:1px solid var(--border);color:var(--text-secondary);line-height:1.6}
+.lp-list li:last-child{border-bottom:1px solid var(--border)}
+.lp-faq{max-width:720px}
+.lp-faq>div{padding:1.25rem 0;border-top:1px solid var(--border)}
+.lp-faq>div:last-child{border-bottom:1px solid var(--border)}
 .lp-faq h3{font-size:1.15rem;margin-bottom:.4rem}
 .lp-faq p{color:var(--text-secondary);line-height:1.7}
 `;
@@ -550,7 +550,6 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 /* A11y: high contrast */
 @media(forced-colors:active){
   .btn-primary,.lang-btn.active{border:2px solid ButtonText}
-  .faq-item{border:2px solid ButtonText}
   .timeline-dot{forced-color-adjust:none}
 }
 
@@ -962,7 +961,6 @@ ${LANGUAGES.map(l => `<a href="/${l}/" hreflang="${l}" lang="${l}" class="lang-b
 <div class="hero-inner">
 <div class="hero-content">
 <div class="hero-availability fade-up">${t.hero.availability}</div>
-${t.hero.greeting ? `<p class="hero-greeting fade-up">${t.hero.greeting}</p>` : ''}
 <h1 class="fade-up">${t.hero.name}</h1>
 <p class="hero-title fade-up">${t.hero.title}</p>
 <p class="hero-desc fade-up">${t.hero.description}</p>
@@ -973,11 +971,6 @@ ${t.hero.greeting ? `<p class="hero-greeting fade-up">${t.hero.greeting}</p>` : 
 <div class="hero-cv-links fade-up">
 ${lang === 'hu' && HAS_RESUME_PDF ? `<a href="/resume.pdf?v=${RESUME_PDF_VERSION}">${t.hero.cvEn}</a>` : ''}
 <a href="/resume.json?v=${RESUME_JSON_VERSION}">${t.hero.cvJson}</a>
-</div>
-<div class="hero-stats fade-up">
-<span class="hero-stat">${t.hero.stats.experience}</span>
-<span class="hero-stat">${t.hero.stats.clients}</span>
-<span class="hero-stat">${t.hero.stats.languages}</span>
 </div>
 </div>
 <div class="hero-visual">
@@ -1110,7 +1103,7 @@ ${icons.chevron}
 <h2 class="section-title">${t.contact.title}</h2>
 <p>${t.contact.description}</p>
 </div>
-${t.contact.notice ? `<div class="contact-notice">${t.contact.notice}</div>` : ''}
+${t.contact.notice ? `<p class="contact-notice">${t.contact.notice}</p>` : ''}
 <div class="contact-grid">
 <form class="contact-form" id="contact-form" action="https://formspree.io/f/xjgeeqzr" method="POST">
 <label for="_gotcha" class="ohnohoney">Leave empty</label><input type="text" id="_gotcha" name="_gotcha" class="ohnohoney" tabindex="-1" autocomplete="off">

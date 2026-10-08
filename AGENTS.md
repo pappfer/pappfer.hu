@@ -131,13 +131,13 @@ The root `index.html` should detect `navigator.language` and redirect:
 **This is the most important section for conversions and AI visibility.**
 
 Content:
-- Greeting: "Hello, I'm" / "Üdvözlöm, én vagyok" / "Hallo, ich bin"
+- No greeting line — the name opens the page
 - Name: **Ferenc Papp** (in `<h1>`)
 - Title: **Full-Stack Developer & AI Integration Specialist** (prominent, colored)
 - Value proposition (1-2 sentences): "I build fast, scalable web applications and integrate AI solutions that give your business a competitive edge. 15+ years of experience, clients worldwide."
 - CTA button: "Let's Talk" → scrolls to #contact
 - Secondary: "Download CV" → link to resume.json or PDF
-- Stats bar: "15+ years experience" | "Clients worldwide" | "EN / HU / DE"
+- No stats strip — years of experience, client regions and languages are stated in the About section
 
 Design:
 - Full viewport height
@@ -213,7 +213,7 @@ Vertical timeline, left-aligned, with dot markers:
 Use `<blockquote>` with `<footer>` for semantic markup.
 
 ### 4.8 FAQ Section (CRITICAL for AI visibility)
-FAQ with accordion (one open at a time), mirrored in a JSON-LD FAQPage schema. JSON-LD only — no microdata attributes; marking the same questions up twice adds weight without adding anything a parser needs.
+FAQ with accordion (one open at a time), drawn as a ruled list rather than boxed items, mirrored in a JSON-LD FAQPage schema. JSON-LD only — no microdata attributes; marking the same questions up twice adds weight without adding anything a parser needs.
 
 Questions (translate to all 3 languages):
 

@@ -28,7 +28,6 @@
 
     "hero": {
       "availability": "Open to select freelance & consulting projects",
-      "greeting": "Hello, I'm",
       "name": "Ferenc Papp",
       "title": "Senior Full-Stack Developer & AI Solutions Engineer",
       "description": "Building scalable web ecosystems and production-ready AI integrations. Since October 2024 I work dedicatedly with DataExpert and its sister company Rubiklab on flagship projects — pairing full-stack engineering (Laravel, Vue.js, Python) with applied generative AI and large language model systems.",
@@ -40,11 +39,6 @@
         "title": "Ask this site",
         "tryLabel": "Try:",
         "examples": ["RAG", "Laravel", "fine-tuning", "PWA"]
-      },
-      "stats": {
-        "experience": "15+ years experience",
-        "clients": "Clients across the EU & US",
-        "languages": "EN / HU / DE"
       }
     },
 
@@ -270,7 +264,6 @@
 
     "hero": {
       "availability": "Válogatott szabadúszó és tanácsadói projektekre nyitott",
-      "greeting": "Üdvözöllek!",
       "name": "Papp Ferenc",
       "title": "Senior full-stack fejlesztő & AI Solutions Engineer",
       "description": "Skálázható webes ökoszisztémákat és éles környezetbe szánt AI integrációkat építek. 2024 októbere óta dedikáltan a DataExpert és testvércége, a Rubiklab kiemelt projektjein dolgozom — ötvözve a full-stack fejlesztést (Laravel, Vue.js, Python) az alkalmazott generatív AI-jal és a nagy nyelvi modellekkel.",
@@ -282,11 +275,6 @@
         "title": "Kérdezz az oldaltól",
         "tryLabel": "Próbáld ki:",
         "examples": ["RAG", "Laravel", "finomhangolás", "PWA"]
-      },
-      "stats": {
-        "experience": "15+ év tapasztalat",
-        "clients": "Ügyfelek az EU-ban és az USA-ban",
-        "languages": "EN / HU / DE"
       }
     },
 
@@ -512,7 +500,6 @@
 
     "hero": {
       "availability": "Offen für ausgewählte Freelance- & Beratungsprojekte",
-      "greeting": "Hallo, ich bin",
       "name": "Ferenc Papp",
       "title": "Senior Full-Stack Entwickler & AI Solutions Engineer",
       "description": "Ich entwickle skalierbare Web-Ökosysteme und produktionsreife KI-Integrationen. Seit Oktober 2024 arbeite ich dediziert mit DataExpert und der Schwesterfirma Rubiklab an Vorzeigeprojekten — und verbinde Full-Stack-Engineering (Laravel, Vue.js, Python) mit angewandter generativer KI und Large Language Models.",
@@ -524,11 +511,6 @@
         "title": "Fragen Sie die Website",
         "tryLabel": "Zum Beispiel:",
         "examples": ["RAG", "Laravel", "Fine-Tuning", "PWA"]
-      },
-      "stats": {
-        "experience": "15+ Jahre Erfahrung",
-        "clients": "Kunden in der EU & den USA",
-        "languages": "EN / HU / DE"
       }
     },
 
