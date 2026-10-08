@@ -309,18 +309,40 @@ const cssHome = `
 .hero-stats{display:flex;gap:1rem 2rem;flex-wrap:wrap}
 .hero-stat{font-size:.9rem;color:var(--text-muted);font-weight:500;padding-left:1rem;border-left:2px solid var(--accent)}
 
-/* Hero search panel: the site's own in-browser search, not a mock-up */
+/* Hero search panel: the site's own in-browser search, dressed as the call it
+   makes. Dark in both themes, like an editor; the colours are syntax colours. */
 .hero-visual{min-width:0;margin-top:3rem;animation:fadeUp .7s ease-out .4s both}
-.ask{background:var(--bg-secondary);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow-lg);padding:1.5rem}
-.ask h2{font-size:1.4rem;margin-bottom:1rem}
+.ask{--c-bg:#0d1117;--c-field:#161b22;--c-line:#30363d;--c-text:#e6edf3;--c-com:#8b949e;--c-str:#7ee787;--c-fn:#d2a8ff;--c-num:#79c0ff;--c-cls:#ffa657;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--c-bg);border:1px solid #1f2430;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.35);padding:1.4rem 1.5rem 1.5rem;color:var(--c-text)}
+[data-theme="dark"] .ask{--c-bg:#1a2030;--c-field:#232c40;--c-line:#3a4660;border-color:#323d54}
+.ask h2{font-size:1.4rem;margin-bottom:1rem;color:#fff}
 .ask .gl-search{margin-top:0;max-width:none}
-.ask .gl-search input{background:var(--field-bg);border-color:var(--border-strong);padding-right:2.6rem;font-size:.95rem;text-overflow:ellipsis}
-.ask .gl-search input:focus{border-color:var(--accent)}
-.ask .gl-status{min-height:0;margin-top:0}
-.ask .gl-status:not(:empty){margin-top:.6rem}
-.ask-try{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin-top:1rem;font-size:.85rem;color:var(--text-muted)}
-.ask-try button{min-height:32px;padding:.3rem .85rem;border:1px solid var(--border);border-radius:20px;background:transparent;color:var(--text-secondary);font-family:var(--font-body);font-size:.85rem;font-weight:500;cursor:pointer;transition:border-color .2s,color .2s}
-.ask-try button:hover{border-color:var(--accent);color:var(--accent)}
+.ask .gl-search-field{background:var(--c-field);border:1px solid var(--c-line);border-radius:8px;padding:.7rem .9rem;font-family:var(--mono);font-size:.9rem;color:var(--c-text);transition:border-color .2s}
+.ask .gl-search-field:focus-within{border-color:var(--c-str)}
+.ask .gl-search-field::before{content:'search(';color:var(--c-fn)}
+.ask .gl-search-field::after{content:'")';order:1}
+.ask .gl-search-icon{position:static;color:inherit;line-height:inherit}
+.ask .gl-search-icon svg{display:none}
+.ask .gl-search-icon::after{content:'"'}
+.ask .gl-search input{flex:0 1 auto;field-sizing:content;min-width:2ch;width:auto;padding:0;border:0;border-radius:0;background:transparent;color:var(--c-str);font-family:inherit;font-size:inherit;text-overflow:ellipsis}
+.ask .gl-search input::placeholder{color:var(--c-com);opacity:1}
+.ask .gl-clear{position:static;order:2;margin:-4px -4px -4px auto;color:var(--c-com)}
+.ask .gl-clear:hover{color:var(--c-text)}
+.ask .gl-hint{color:var(--c-com);font-family:var(--mono);font-size:.78rem;margin-top:.75rem}
+.ask .gl-hint::before{content:'// '}
+.ask .gl-status{min-height:0;margin-top:0;color:var(--c-num);font-family:var(--mono);font-size:.78rem}
+.ask .gl-status:not(:empty){margin-top:.5rem}
+.ask .gl-results{background:var(--c-field);border-color:var(--c-line)}
+.ask .gl-hit{border-bottom-color:var(--c-line)}
+.ask .gl-hit:hover,.ask .gl-hit.active{background:var(--c-bg)}
+.ask .gl-hit-kind{color:var(--c-cls);font-family:var(--mono)}
+.ask .gl-hit-title{color:var(--c-text)}
+.ask .gl-hit-text,.ask .gl-empty{color:#b1bac4}
+.ask .gl-hit mark{color:var(--c-str)}
+.ask-try{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin-top:1rem;font-family:var(--mono);font-size:.82rem;color:var(--c-com)}
+.ask-try button{min-height:32px;padding:.25rem .7rem;border:1px solid var(--c-line);border-radius:6px;background:transparent;color:var(--c-str);font-family:inherit;font-size:inherit;cursor:pointer;transition:border-color .2s,background .2s}
+.ask-try button::before,.ask-try button::after{content:'"'}
+.ask-try button:hover{border-color:var(--c-str);background:var(--c-field)}
+.ask :focus-visible{outline-color:var(--c-str)}
 
 /* The one orchestrated moment: the hero settles in on load. Nothing else moves by itself. */
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
@@ -1094,7 +1116,7 @@ ${icons.send} ${t.contact.form.send}
 <span class="contact-info-icon">${icons.mail}</span>
 <div>
 <p class="contact-info-label">${t.contact.info.emailLabel}</p>
-<a href="mailto:pappfer@pappfer.hu" class="contact-info-value">${t.contact.info.email}</a>
+<!--email_off--><a href="mailto:pappfer@pappfer.hu" class="contact-info-value">${t.contact.info.email}</a><!--/email_off-->
 </div>
 </div>
 <div class="contact-info-item">
