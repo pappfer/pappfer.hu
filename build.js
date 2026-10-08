@@ -314,6 +314,12 @@ const cssHome = `
 .hero-visual{min-width:0;margin-top:3rem;animation:fadeUp .7s ease-out .4s both}
 .ask{--c-bg:#0d1117;--c-field:#161b22;--c-line:#30363d;--c-text:#e6edf3;--c-com:#8b949e;--c-str:#7ee787;--c-fn:#d2a8ff;--c-num:#79c0ff;--c-cls:#ffa657;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--c-bg);border:1px solid #1f2430;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.35);padding:1.4rem 1.5rem 1.5rem;color:var(--c-text)}
 [data-theme="dark"] .ask{--c-bg:#1a2030;--c-field:#232c40;--c-line:#3a4660;border-color:#323d54}
+.ask{padding:0;overflow:visible}
+.ask-bar{display:flex;align-items:center;gap:.45rem;padding:.7rem 1rem;background:var(--c-field);border-bottom:1px solid var(--c-line);border-radius:11px 11px 0 0;font-family:var(--mono);font-size:.78rem;color:var(--c-com)}
+.ask-bar i{width:11px;height:11px;border-radius:50%;background:#ff5f56}
+.ask-bar i:nth-child(2){background:#ffbd2e}
+.ask-bar i:nth-child(3){background:#27c93f;margin-right:.4rem}
+.ask-body{padding:1.25rem 1.5rem 1.5rem}
 .ask h2{font-size:1.4rem;margin-bottom:1rem;color:#fff}
 .ask .gl-search{margin-top:0;max-width:none}
 .ask .gl-search-field{background:var(--c-field);border:1px solid var(--c-line);border-radius:8px;padding:.7rem .9rem;font-family:var(--mono);font-size:.9rem;color:var(--c-text);transition:border-color .2s}
@@ -358,16 +364,16 @@ const cssHome = `
 
 /* ABOUT */
 .about-grid{display:grid;gap:2.5rem;align-items:start}
-.about-photo{width:180px;height:180px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow:var(--shadow-lg);margin:0 auto}
+.about-photo{width:220px;height:275px;border-radius:14px;object-fit:cover;box-shadow:var(--shadow-lg);margin:0 auto}
 .about-text{display:flex;flex-direction:column;gap:1.25rem}
 .about-text p{color:var(--text-secondary);font-size:1.05rem;max-width:68ch}
 
-/* SERVICES */
-.services-grid{display:grid;gap:1.5rem}
-.service-card{background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius);padding:2rem}
-.service-icon{color:var(--accent);margin-bottom:1rem}
-.service-card h3{font-size:1.25rem;margin-bottom:.75rem}
-.service-card p{color:var(--text-secondary);font-size:.95rem;line-height:1.7}
+/* SERVICES: a ruled list, not a grid of boxes */
+.service-row{display:grid;grid-template-columns:auto 1fr;gap:.5rem 1rem;align-items:center;padding:1.75rem 0;border-top:1px solid var(--border)}
+.service-row:last-child{border-bottom:1px solid var(--border)}
+.service-icon{color:var(--accent);line-height:0}
+.service-row h3{font-size:1.35rem}
+.service-row p{grid-column:1 / -1;color:var(--text-secondary);line-height:1.7;max-width:68ch}
 .services-explore{margin-top:3rem}
 .services-explore h3{font-size:1.15rem;margin-bottom:1rem}
 
@@ -390,14 +396,15 @@ a.tech-tag:hover{border-color:var(--accent);color:var(--accent-hover)}
 .timeline-company{font-size:.9rem;color:var(--text-muted);margin-bottom:.5rem}
 .timeline-desc{color:var(--text-secondary);font-size:.95rem;max-width:68ch}
 
-/* TESTIMONIALS */
-.testimonials-grid{display:grid;gap:1.5rem}
-.testimonial-card{background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;position:relative}
-.testimonial-card::before{content:'\\201C';position:absolute;top:.5rem;left:1.25rem;font-size:4rem;color:var(--accent);opacity:.38;font-family:Georgia,serif;line-height:1}
-[data-theme="dark"] .testimonial-card::before{color:var(--accent-hover);opacity:.7}
-.testimonial-quote{font-style:italic;color:var(--text-secondary);margin-bottom:1.25rem;padding-top:1.5rem;line-height:1.8;font-size:1rem}
+/* TESTIMONIALS: one quote set large, the others quietly beside it */
+.testimonials-grid{display:grid;gap:2.5rem}
+.testimonial-quote{color:var(--text-secondary);line-height:1.75;margin-bottom:1rem}
 .testimonial-author{font-weight:700;font-size:1.05rem;font-family:var(--font-heading)}
 .testimonial-company{font-size:.85rem;color:var(--text-muted)}
+.testimonial{padding-top:1.5rem;border-top:1px solid var(--border)}
+.testimonial-featured{padding-top:0;border-top:0}
+.testimonial-featured::before{content:'\\201C';display:block;height:3.25rem;margin-bottom:.6rem;font-size:6rem;line-height:1;color:var(--accent);font-family:Georgia,serif}
+.testimonial-featured .testimonial-quote{font-family:var(--font-heading);font-weight:700;font-size:clamp(1.45rem,3.2vw,2.1rem);line-height:1.2;letter-spacing:-0.02em;color:var(--text-primary);margin-bottom:1.5rem}
 
 /* FAQ */
 .faq-list{display:flex;flex-direction:column;gap:.75rem;max-width:800px}
@@ -441,15 +448,18 @@ a.contact-info-value:hover{color:var(--accent);text-decoration-color:var(--accen
   .contact-form .btn{align-self:stretch;justify-content:center}
 }
 @media(min-width:600px){
-  .services-grid,.testimonials-grid{grid-template-columns:repeat(2,1fr)}
   .contact-grid{grid-template-columns:1fr 1fr}
-  .about-grid{grid-template-columns:180px 1fr}
+  .about-grid{grid-template-columns:220px 1fr;gap:3rem}
   .about-photo{margin:0}
 }
 @media(min-width:900px){
   .hero-inner{display:grid;grid-template-columns:1fr minmax(360px,430px);gap:3rem;align-items:center}
   .hero-visual{margin-top:0}
-  .testimonials-grid{grid-template-columns:repeat(3,1fr)}
+  .testimonials-grid{grid-template-columns:1.5fr 1fr;column-gap:4.5rem;align-items:start}
+  .testimonial-featured{grid-row:1 / span 2}
+  .service-row{grid-template-columns:2.5rem 17rem 1fr;gap:0 1.5rem;align-items:start}
+  .service-row p{grid-column:auto}
+  .service-icon{padding-top:.1rem}
   .tech-category{display:grid;grid-template-columns:11rem 1fr;gap:1.5rem;align-items:baseline}
   .tech-category h3{margin-bottom:0}
   /* Dates get their own column, so the eye can run down the years */
@@ -540,7 +550,7 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 /* A11y: high contrast */
 @media(forced-colors:active){
   .btn-primary,.lang-btn.active{border:2px solid ButtonText}
-  .service-card,.testimonial-card,.faq-item{border:2px solid ButtonText}
+  .faq-item{border:2px solid ButtonText}
   .timeline-dot{forced-color-adjust:none}
 }
 
@@ -705,6 +715,13 @@ function searchBox(lang) {
 // On the homepage the search script is not worth 7 KB of every visit: it is
 // fetched the first time someone focuses the field or picks an example query.
 const SEARCH_LOADER = `(function(){var i=document.getElementById('gl-q');if(!i)return;var st=0;function go(){i.dispatchEvent(new Event('input'));}function ld(){if(st)return;st=1;var e=document.createElement('script');e.src='/search.js';e.onload=function(){st=2;if(i.value)go();};document.head.appendChild(e);}i.addEventListener('focus',ld);document.querySelectorAll('[data-q]').forEach(function(b){b.addEventListener('click',function(){i.value=b.getAttribute('data-q');i.focus();if(st===2)go();});});})();`;
+
+// The testimonial set large on the homepage: the one that names concrete
+// strengths and comes from a named founder. Index into testimonials.items.
+const FEATURED_TESTIMONIAL = 1;
+function featuredFirst(items) {
+  return [items[FEATURED_TESTIMONIAL], ...items.filter((_, i) => i !== FEATURED_TESTIMONIAL)];
+}
 
 // Technologies that have their own service page link to it from the tech stack;
 // the rest stay plain text, so nothing looks clickable that is not.
@@ -965,9 +982,12 @@ ${lang === 'hu' && HAS_RESUME_PDF ? `<a href="/resume.pdf?v=${RESUME_PDF_VERSION
 </div>
 <div class="hero-visual">
 <div class="ask">
+<div class="ask-bar" aria-hidden="true"><i></i><i></i><i></i>search.js</div>
+<div class="ask-body">
 <h2>${t.hero.search.title}</h2>
 ${searchBox(lang)}
 <p class="ask-try"><span>${t.hero.search.tryLabel}</span>${t.hero.search.examples.map(q => `<button type="button" data-q="${q}">${q}</button>`).join('')}</p>
+</div>
 </div>
 </div>
 </div>
@@ -980,7 +1000,7 @@ ${searchBox(lang)}
 <h2 class="section-title">${t.about.title}</h2>
 </div>
 <div class="about-grid">
-<img src="/img/pappfer.webp" alt="${t.hero.name} — ${t.hero.title}" class="about-photo" width="180" height="180" loading="lazy">
+<img src="/img/pappfer.webp" alt="${t.hero.name} — ${t.hero.title}" class="about-photo" width="220" height="275" loading="lazy">
 <div class="about-text">
 <p>${t.about.p1}</p>
 <p>${t.about.p2}</p>
@@ -997,7 +1017,7 @@ ${searchBox(lang)}
 <h2 class="section-title">${t.services.title}</h2>
 </div>
 <div class="services-grid">
-${t.services.items.map(s => `<div class="service-card">
+${t.services.items.map(s => `<div class="service-row">
 <div class="service-icon">${icons[s.icon]}</div>
 <h3>${s.title}</h3>
 <p>${s.description}</p>
@@ -1052,7 +1072,7 @@ ${t.experience.timeline.map(item => `<div class="timeline-item">
 <h2 class="section-title">${t.testimonials.title}</h2>
 </div>
 <div class="testimonials-grid">
-${t.testimonials.items.map(item => `<blockquote class="testimonial-card">
+${featuredFirst(t.testimonials.items).map((item, i) => `<blockquote class="testimonial${i === 0 ? ' testimonial-featured' : ''}">
 <p class="testimonial-quote">${item.quote}</p>
 <footer>
 <p class="testimonial-author">${item.name}</p>

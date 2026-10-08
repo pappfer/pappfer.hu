@@ -143,7 +143,7 @@ Design:
 - Full viewport height
 - Staggered fade-up animations on load (CSS `@keyframes` + `animation-delay`)
 - No background image (performance)
-- Beside the text (below it on mobile): the site's own search as a small "Ask this site" panel with a few example queries. It is the real BM25 search from the glossary, not a mock-up — do not replace it with a decorative code window
+- Beside the text (below it on mobile): the site's own search as a small "Ask this site" panel, styled as a dark editor window with syntax colours (the query is the string inside a `search("…")` call) with a few example queries. It is the real BM25 search from the glossary, not a mock-up — do not replace it with a decorative code window
 
 ### 4.3 About Section
 3 paragraphs covering:
@@ -154,7 +154,7 @@ Design:
 **Important for AI visibility**: Write in clear, factual, third-person-friendly sentences that LLMs can extract. Example: "Ferenc Papp is a freelance full-stack web developer based in Debrecen, Hungary, with over 15 years of professional experience."
 
 ### 4.4 Services Section (CRITICAL for lead generation)
-4 service cards with icon, title, description:
+4 services with icon, title, description — a ruled list (title left, description right), not a grid of boxed cards:
 
 1. **Custom Web Applications**
    - Laravel, Symfony, Vue.js, React
@@ -199,7 +199,7 @@ Vertical timeline, left-aligned, with dot markers:
 | 2009–2012 | British Telecom / IT Services | Network & System Admin | Global network management. Created PHP automation saving 3+ hours/day — innovation award. |
 
 ### 4.7 Testimonials
-3 client testimonials in a grid (not a carousel — carousels hurt accessibility and SEO):
+3 client testimonials (not a carousel — carousels hurt accessibility and SEO). One is set large as a pull quote (`FEATURED_TESTIMONIAL` in `build.js`), the other two sit beside it in normal text:
 
 1. **Mészáros Tibor** — Sentonard Media
    "Reliable and fast. We have been working with him for years. He built several of our websites from scratch. I can only recommend him."
