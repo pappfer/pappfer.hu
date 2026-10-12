@@ -16,7 +16,7 @@ Build a static, multilingual (EN/HU/DE) personal developer portfolio for **Feren
 5. **Professional design** — clean, modern, mobile-first with dark/light toggle
 
 ### Non-Goals
-- No CMS, no database, no server-side runtime
+- No CMS, no database, no server-side runtime — with one exception: the contact form's Pages Function (see Contact Form)
 - No client-side frameworks (React, Vue, etc.) — this is a static site
 - No bloat: no jQuery, no Bootstrap, no Tailwind, no icon libraries loaded via CDN
 - No cookie banners needed (no tracking cookies used)
@@ -73,11 +73,13 @@ dist/
 - NO hero background images — use CSS gradients or solid colors for performance
 
 ### Contact Form
-- Use **Formspree** (https://formspree.io) — zero backend needed
-- Form action: `https://formspree.io/f/{FORM_ID}` (owner will register and replace)
-- Submit via `fetch()` with JSON, show success/error inline
+- The form posts JSON to `/api/contact`, a Cloudflare Pages Function (`functions/api/contact.js`). It verifies a **Cloudflare Turnstile** token, then relays the message to **Formspree**, which sends the email
+- The Formspree form id must never appear in the pages or in this repository: a spam bot that can read it posts to Formspree directly and skips every check. It lives in the Pages project as the `FORMSPREE_ID` secret, next to `TURNSTILE_SECRET`. Only the Turnstile site key (`TURNSTILE_SITEKEY` in `build.js`) is public
+- The Turnstile script is fetched the first time the form receives focus, never on page load, and the widget is `interaction-only`: most visitors never see it
+- Show success/error inline
 - Fields: Name, Email, Message (all required)
-- Include honeypot field for spam prevention
+- The honeypot field stays, checked in the Function
+- `dist/_routes.json` limits Functions to `/api/*`, so every other request is still a plain static asset
 
 ### Hosting Target
 - **Recommended: Cloudflare Pages** — free, global CDN, automatic HTTPS, git-based deploy
@@ -807,7 +809,7 @@ No manual server configuration needed.
 - Don't use percentage-based skill bars (outdated pattern)
 
 ### IMPORTANT REMINDERS:
-- The Formspree form ID in `build.js` is live — do not replace it with a placeholder
+- The Turnstile site key in `build.js` is live — do not replace it with a placeholder. The Formspree form id is a Pages secret and does not belong in the repo
 - The OG image (`og-image.jpg`) and profile photo (`pappfer.webp`) are placeholders — owner will provide
 - The resume link can point to `resume.json` or `resume.pdf` — owner will provide the file
 - Run the build and verify the output HTML is valid before considering the task complete
@@ -821,6 +823,7 @@ No manual server configuration needed.
 |------|---------|
 | `build.js` | Node.js build script |
 | `src/translations.json` | All translatable strings (EN/HU/DE) |
+| `functions/api/contact.js` | Contact form backend: Turnstile check, relay to Formspree |
 | `dist/index.html` | Root redirect page |
 | `dist/en/index.html` | English page |
 | `dist/hu/index.html` | Hungarian page |

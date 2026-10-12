@@ -207,9 +207,14 @@ a `kicker`, the photo, or `resume.json`.
 
 ## Configuration
 
-The contact form posts to Formspree; the form id lives in `build.js` and is already
-set. Two things live outside this repository and are easy to forget:
+The contact form posts to `/api/contact` (`functions/api/contact.js`), which checks
+a Cloudflare Turnstile token and then relays the message to Formspree. The Turnstile
+site key is in `build.js`. Three things live outside this repository and are easy to
+forget:
 
+- the **`TURNSTILE_SECRET` and `FORMSPREE_ID` secrets** in the Pages project
+  (Settings → Variables and secrets). The form id is kept out of the pages on
+  purpose, so bots cannot post to Formspree directly,
 - the **root redirect rules** in the Cloudflare dashboard (see above), and
 - the **Workers AI binding** is deliberately *not* configured — there is no
   backend, and the site does not need one.

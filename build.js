@@ -66,6 +66,9 @@ const HAS_RESUME_JSON = fs.existsSync(path.join(__dirname, 'src', 'resume.json')
 const BUILD_DATE = new Date().toISOString().split('T')[0];
 const YEAR = new Date().getFullYear();
 const LANGUAGES = ['en', 'hu', 'de'];
+// Cloudflare Turnstile site key for the contact form. Public by design; the
+// matching secret is TURNSTILE_SECRET in the Pages project settings.
+const TURNSTILE_SITEKEY = process.env.TURNSTILE_SITEKEY || '0x4AAAAAAFU-wktOtcfYmPNj';
 const LANGUAGE_NAMES = { en: 'English', hu: 'Hungarian', de: 'German' };
 
 function fileVersion(relPath) {
@@ -641,31 +644,63 @@ const js = `
     });
   });
 
-  // Contact form
+  // Contact form. Posts to /api/contact (functions/api/contact.js), which checks
+  // the Turnstile token before relaying the message. The Turnstile script is
+  // fetched the first time the form is touched, never on page load.
   var form=document.getElementById('contact-form');
   if(form){
-    var submitBtn=form.querySelector('button[type=submit]');
+    var submitBtn=form.querySelector('button[type=submit]'),status=document.getElementById('form-status');
+    var origHtml=submitBtn.innerHTML,tsId=null,tsToken='',tsPending=null,tsLoading=false,tsTimer;
     function syncSubmitButton(){submitBtn.disabled=!form.checkValidity();}
     form.addEventListener('input',syncSubmitButton);
     form.addEventListener('change',syncSubmitButton);
     syncSubmitButton();
+    function finish(ok){
+      clearTimeout(tsTimer);tsPending=null;
+      status.className='form-status '+(ok?'success':'error');
+      status.textContent=submitBtn.getAttribute(ok?'data-success':'data-error');
+      status.style.display='block';
+      if(ok){form.reset();}
+      submitBtn.innerHTML=origHtml;form.removeAttribute('aria-busy');
+      if(tsId!==null){tsToken='';turnstile.reset(tsId);}
+      syncSubmitButton();
+    }
+    function send(){
+      var data=new FormData(form);
+      fetch(form.action,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({name:data.get('name'),email:data.get('email'),message:data.get('message'),_gotcha:data.get('_gotcha'),token:tsToken})})
+      .then(function(r){finish(r.ok);})
+      .catch(function(){finish(false);});
+    }
+    function loadTurnstile(){
+      if(tsLoading){return;}
+      tsLoading=true;
+      window.onTurnstileLoad=function(){
+        tsId=turnstile.render('#cf-ts',{
+          sitekey:form.getAttribute('data-sitekey'),
+          appearance:'interaction-only',
+          theme:document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light',
+          language:document.documentElement.lang,
+          callback:function(t){tsToken=t;if(tsPending){var p=tsPending;tsPending=null;p();}},
+          'expired-callback':function(){tsToken='';},
+          'error-callback':function(){tsToken='';if(tsPending){finish(false);}}
+        });
+      };
+      var s=document.createElement('script');
+      s.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoad';
+      s.async=true;
+      s.onerror=function(){tsLoading=false;if(tsPending){finish(false);}};
+      document.head.appendChild(s);
+    }
+    form.addEventListener('focusin',loadTurnstile);
     form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var data=new FormData(form);
-    if(data.get('_gotcha')){return;}
-    var btn=submitBtn,status=document.getElementById('form-status');
-    var origHtml=btn.innerHTML;
-    btn.disabled=true;btn.textContent=btn.getAttribute('data-sending');
-    form.setAttribute('aria-busy','true');
-    status.className='form-status';status.style.display='none';
-    fetch(form.action,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({name:data.get('name'),email:data.get('email'),message:data.get('message')})})
-    .then(function(r){
-      if(r.ok){status.className='form-status success';status.textContent=btn.getAttribute('data-success');status.style.display='block';form.reset();}
-      else{status.className='form-status error';status.textContent=btn.getAttribute('data-error');status.style.display='block';}
-    })
-    .catch(function(){status.className='form-status error';status.textContent=btn.getAttribute('data-error');status.style.display='block';})
-    .finally(function(){btn.innerHTML=origHtml;form.removeAttribute('aria-busy');syncSubmitButton();});
-  });
+      e.preventDefault();
+      if(form.getAttribute('aria-busy')){return;}
+      submitBtn.disabled=true;submitBtn.textContent=submitBtn.getAttribute('data-sending');
+      form.setAttribute('aria-busy','true');
+      status.className='form-status';status.style.display='none';
+      if(tsToken){send();}
+      else{tsPending=send;loadTurnstile();tsTimer=setTimeout(function(){if(tsPending){finish(false);}},30000);}
+    });
   }
 })();
 `;
@@ -687,7 +722,7 @@ const minJs = js
   .replace(/\s+/g, ' ')
   .replace(/\s*([{}();,:])\s*/g, '$1')
   .trim();
-const csp = "default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://cloudflareinsights.com; form-action https://formspree.io; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; upgrade-insecure-requests";
+const csp = "default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; connect-src 'self' https://cloudflareinsights.com; form-action 'self'; frame-src https://challenges.cloudflare.com; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; font-src 'self'; upgrade-insecure-requests";
 const minHtml = (html) => html.replace(/>\s+</g, '><').replace(/\n+/g, '').trim();
 
 // The search field, its results box and the strings search.js needs. Used by the
@@ -897,7 +932,6 @@ function generatePage(lang) {
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="manifest" href="/manifest.webmanifest">
 ${FONT_PRELOAD}
-<link rel="preconnect" href="https://formspree.io">
 <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0f1117" media="(prefers-color-scheme: dark)">
 <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');})();</script>
@@ -1105,7 +1139,7 @@ ${icons.chevron}
 </div>
 ${t.contact.notice ? `<p class="contact-notice">${t.contact.notice}</p>` : ''}
 <div class="contact-grid">
-<form class="contact-form" id="contact-form" action="https://formspree.io/f/xjgeeqzr" method="POST">
+<form class="contact-form" id="contact-form" action="/api/contact" method="POST" data-sitekey="${TURNSTILE_SITEKEY}">
 <label for="_gotcha" class="ohnohoney">Leave empty</label><input type="text" id="_gotcha" name="_gotcha" class="ohnohoney" tabindex="-1" autocomplete="off">
 <div class="form-group">
 <label for="name">${t.contact.form.name}</label>
@@ -1122,6 +1156,7 @@ ${t.contact.notice ? `<p class="contact-notice">${t.contact.notice}</p>` : ''}
 <button type="submit" class="btn btn-primary" data-sending="${t.contact.form.sending}" data-success="${t.contact.form.success}" data-error="${t.contact.form.error}">
 ${icons.send} ${t.contact.form.send}
 </button>
+<div id="cf-ts"></div>
 <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
 </form>
 <div class="contact-info">
@@ -2048,6 +2083,8 @@ fs.writeFileSync(path.join(DIST, 'manifest.webmanifest'), generateManifest());
 console.log('  ✓ manifest.webmanifest');
 
 fs.writeFileSync(path.join(DIST, '_headers'), generateHeaders());
+// Only /api/* reaches the Pages Function; every other request stays a static asset.
+fs.writeFileSync(path.join(DIST, '_routes.json'), JSON.stringify({ version: 1, include: ['/api/*'], exclude: [] }));
 fs.writeFileSync(path.join(DIST, 'search.js'), SEARCH_JS + '\n');
 console.log('  ✓ _headers');
 
