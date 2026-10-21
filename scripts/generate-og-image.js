@@ -6,6 +6,7 @@
 //                                 social preview always matches name + job title
 //   src/og/<lang>-<slug>.jpg    — one card per service landing page and for the
 //                                 glossary, per language
+//   src/og/<lang>-blog-<slug>.jpg — one card per blog article translation
 //
 // These are committed, because the Cloudflare Pages build has no Chromium — the
 // site build only copies them and falls back to the site card if one is missing.
@@ -13,6 +14,7 @@
 // Usage:
 //   npm run generate-og                  # every card
 //   npm run generate-og -- --site-only   # just src/og-image.jpg
+//   npm run generate-og -- --blog-only   # just the blog article cards
 
 const fs = require('fs');
 const path = require('path');
@@ -41,6 +43,7 @@ const landingPath = path.join(rootDir, 'src', 'landing.json');
 const glossaryPath = path.join(rootDir, 'src', 'glossary.json');
 const outputPath = path.join(rootDir, 'src', 'og-image.jpg');
 const ogDir = path.join(rootDir, 'src', 'og');
+const blogDir = path.join(rootDir, 'src', 'blog');
 const profileImagePath = path.join(rootDir, 'src', 'pappfer.webp');
 
 const WIDTH = 1200;
@@ -136,6 +139,18 @@ function buildServiceCard(content, lang, photo) {
 `);
 }
 
+// Front matter of src/blog/<id>.<lang>.md, mapped to the fields the card uses.
+function blogCards() {
+  return fs.readdirSync(blogDir).flatMap(file => {
+    const m = file.match(/^.+\.([a-z]{2})\.md$/);
+    const fm = m && fs.readFileSync(path.join(blogDir, file), 'utf8').match(/^---\n([\s\S]*?)\n---/);
+    if (!fm) return [];
+    const meta = {};
+    fm[1].split('\n').forEach(l => { const kv = l.match(/^(\w+):\s*(.*)$/); if (kv) meta[kv[1]] = kv[2]; });
+    return [{ lang: m[1], file: `${m[1]}-blog-${meta.slug}.jpg`, content: { kicker: meta.kicker, h1: meta.title } }];
+  });
+}
+
 async function shoot(page_, html, file) {
   // 'load' + document.fonts.ready rather than networkidle0: the webfont is what
   // we actually have to wait for, and keep-alive sockets from the font CDN mean
@@ -153,6 +168,7 @@ async function shoot(page_, html, file) {
 
 async function main() {
   const siteOnly = process.argv.includes('--site-only');
+  const blogOnly = process.argv.includes('--blog-only');
   if (!fs.existsSync(resumePath)) throw new Error(`Missing ${resumePath}`);
   const resume = JSON.parse(fs.readFileSync(resumePath, 'utf8'));
   const landing = JSON.parse(fs.readFileSync(landingPath, 'utf8'));
@@ -169,10 +185,14 @@ async function main() {
     const tab = await browser.newPage();
     await tab.setViewport({ width: WIDTH, height: HEIGHT, deviceScaleFactor: 1 });
 
-    await shoot(tab, buildSiteCard(resume.basics.name, resume.basics.label, photo), outputPath);
+    if (!blogOnly) await shoot(tab, buildSiteCard(resume.basics.name, resume.basics.label, photo), outputPath);
     if (siteOnly) return;
 
     fs.mkdirSync(ogDir, { recursive: true });
+    for (const card of blogCards()) {
+      await shoot(tab, buildServiceCard(card.content, card.lang, photo), path.join(ogDir, card.file));
+    }
+    if (blogOnly) return;
     for (const lang of LANGUAGES) {
       const pages = [...landing.pages.map(p => p[lang]), glossary.meta[lang]];
       for (const content of pages) {

@@ -1,0 +1,32 @@
+{
+  "en": {
+    "slug": "blog",
+    "h1": "Blog",
+    "kicker": "Notes from the work",
+    "metaTitle": "Blog — PHP, Laravel and AI integration in practice | Ferenc Papp",
+    "metaDescription": "Practical articles by Ferenc Papp, a freelance full-stack developer: PHP and Laravel security, legacy upgrades, and AI integration from real production work.",
+    "lead": "Practical write-ups from real projects: PHP and Laravel, security, legacy upgrades and AI integration. Written for the people who have to make the call, not just the people who write the code.",
+    "published": "Published",
+    "updated": "Updated",
+    "by": "by",
+    "readMore": "Read the article",
+    "allPosts": "All articles",
+    "ctaTitle": "Need help with something like this?",
+    "ctaText": "I'm a freelance full-stack developer with 15+ years of PHP, Laravel and AI integration work. Tell me what you're dealing with, and I'll tell you honestly whether I can help."
+  },
+  "hu": {
+    "slug": "blog",
+    "h1": "Blog",
+    "kicker": "Jegyzetek a munkából",
+    "metaTitle": "Blog — PHP, Laravel és AI-integráció a gyakorlatban | Papp Ferenc",
+    "metaDescription": "Gyakorlati cikkek Papp Ferenc szabadúszó full-stack fejlesztőtől: PHP- és Laravel-biztonság, régi rendszerek frissítése és AI-integráció éles projektekből.",
+    "lead": "Gyakorlati írások valódi projektekből: PHP és Laravel, biztonság, régi rendszerek frissítése és AI-integráció. Azoknak szólnak, akiknek dönteniük kell, nem csak azoknak, akik a kódot írják.",
+    "published": "Megjelent",
+    "updated": "Frissítve",
+    "by": "írta",
+    "readMore": "Tovább a cikkre",
+    "allPosts": "Összes cikk",
+    "ctaTitle": "Segítség kellene valami hasonlóban?",
+    "ctaText": "Szabadúszó full-stack fejlesztő vagyok, több mint 15 év PHP-, Laravel- és AI-integrációs tapasztalattal. Írd meg, mivel küzdesz, és őszintén megmondom, tudok-e segíteni."
+  }
+}

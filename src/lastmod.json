@@ -59,6 +59,14 @@
     "hash": "24c64d0d55e726ab",
     "date": "2026-09-12"
   },
+  "/en/blog/": {
+    "hash": "53b2899718576682",
+    "date": "2026-10-21"
+  },
+  "/en/blog/php2shell/": {
+    "hash": "63a93af093b3225b",
+    "date": "2026-10-21"
+  },
   "/en/laravel-developer/": {
     "hash": "aa43c7731d18ab12",
     "date": "2026-08-10"
@@ -102,6 +110,14 @@
   "/hu/ai-szotar/": {
     "hash": "2a541e7263149a8d",
     "date": "2026-09-12"
+  },
+  "/hu/blog/": {
+    "hash": "e1c0dfb01f310e02",
+    "date": "2026-10-21"
+  },
+  "/hu/blog/php2shell/": {
+    "hash": "9bf27c5d5c8726f6",
+    "date": "2026-10-21"
   },
   "/hu/laravel-fejleszto/": {
     "hash": "5421185d8e2957f3",
