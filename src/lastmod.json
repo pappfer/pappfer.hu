@@ -1,7 +1,7 @@
 {
   "/de/": {
-    "hash": "7c044e17036d3a8b",
-    "date": "2026-10-08"
+    "hash": "cf1fec10de3dabe4",
+    "date": "2026-10-21"
   },
   "/de/ki-glossar/": {
     "hash": "285f72044422d631",
@@ -44,8 +44,8 @@
     "date": "2026-08-10"
   },
   "/en/": {
-    "hash": "326f17227206d1aa",
-    "date": "2026-10-08"
+    "hash": "16536670f77b80f4",
+    "date": "2026-10-21"
   },
   "/en/ai-glossary/": {
     "hash": "bf2e1ba307ba9248",
@@ -60,7 +60,7 @@
     "date": "2026-09-12"
   },
   "/en/blog/": {
-    "hash": "08c7b6651504a054",
+    "hash": "4685511eb3accef2",
     "date": "2026-10-21"
   },
   "/en/blog/php2shell/": {
@@ -96,8 +96,8 @@
     "date": "2026-08-10"
   },
   "/hu/": {
-    "hash": "0b0ba68cf5dadf35",
-    "date": "2026-10-08"
+    "hash": "cc44d8de493326c7",
+    "date": "2026-10-21"
   },
   "/hu/ai-integracio/": {
     "hash": "14d8611612be6ce7",
@@ -112,7 +112,7 @@
     "date": "2026-09-12"
   },
   "/hu/blog/": {
-    "hash": "a6e75fe1c4c27436",
+    "hash": "3cbf3d8fc62add4b",
     "date": "2026-10-21"
   },
   "/hu/blog/php2shell/": {

@@ -75,6 +75,11 @@ const BLOG_LANGS = LANGUAGES.filter(l => blogMeta[l]);
 const posts = loadPosts();
 const blogIndexPath = (lang) => `/${lang}/${blogMeta[lang].slug}/`;
 const postPath = (lang, post) => `${blogIndexPath(lang)}${post.langs[lang].slug}/`;
+const latestPosts = (lang) => posts.filter(p => p.langs[lang]).slice(0, 3).map(p => ({ ...p.langs[lang], path: postPath(lang, p) }));
+const hasBlog = (lang) => Boolean(blogMeta[lang]) && posts.some(p => p.langs[lang]);
+// The "Blog" entry for the nav and mobile menu; nothing where a language has no articles.
+const blogNavItem = (lang) => hasBlog(lang) ? `<li><a href="${blogIndexPath(lang)}">${blogMeta[lang].h1}</a></li>` : '';
+const blogMenuLink = (lang) => hasBlog(lang) ? `<a href="${blogIndexPath(lang)}">${blogMeta[lang].h1}</a>` : '';
 // Cloudflare Turnstile site key for the contact form. Public by design; the
 // matching secret is TURNSTILE_SECRET in the Pages project settings.
 const TURNSTILE_SITEKEY = process.env.TURNSTILE_SITEKEY || '0x4AAAAAAFU-wktOtcfYmPNj';
@@ -124,7 +129,8 @@ LANGUAGES.forEach(lang => {
     translations[lang],
     landing.labels[lang],
     landing.pages.map(p => p[lang].h1),
-    glossary.meta[lang].h1
+    glossary.meta[lang].h1,
+    hasBlog(lang) ? [blogMeta[lang].homeTitle, latestPosts(lang).map(p => [p.slug, p.title, p.description, p.date])] : null
   ]);
 });
 landing.pages.forEach(page => {
@@ -563,7 +569,6 @@ const cssGlossary = `
 `;
 
 const cssBlog = `
-.post-meta{font-size:.9rem;color:var(--text-muted)}
 .lp-hero .post-meta{margin-top:-.25rem}
 .post-meta a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}
 .post-meta a:hover{color:var(--accent)}
@@ -581,13 +586,19 @@ const cssBlog = `
 .post-body pre{padding:1rem 1.15rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-tertiary);overflow-x:auto;line-height:1.6}
 .post-body pre code{padding:0;background:none;font-size:.85rem;overflow-wrap:normal;white-space:pre}
 .post-body hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
+`;
+
+// Article list: the blog index and the homepage's latest-articles section.
+const cssPostList = `
+.post-meta{font-size:.9rem;color:var(--text-muted)}
 .post-list{display:grid;gap:0;max-width:720px}
 .post-card{padding:1.5rem 0;border-top:1px solid var(--border)}
 .post-card:last-child{border-bottom:1px solid var(--border)}
-.post-card h2{font-size:1.35rem;line-height:1.3;margin:.35rem 0 .5rem}
-.post-card h2 a{color:var(--text-primary)}
-.post-card h2 a:hover{color:var(--accent)}
+.post-card h2,.post-card h3{font-size:1.35rem;line-height:1.3;margin:.35rem 0 .5rem}
+.post-card h2 a,.post-card h3 a{color:var(--text-primary)}
+.post-card h2 a:hover,.post-card h3 a:hover{color:var(--accent)}
 .post-card p{color:var(--text-secondary);line-height:1.7}
+.post-all{margin-top:1.5rem;font-weight:600}
 `;
 
 const cssTail = `
@@ -611,9 +622,12 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   .nav .lang-switcher{display:none}
 }
 @media(min-width:900px){
-  .nav-links{display:flex}
+  .nav-links{display:flex;gap:1.1rem;margin:0 1.25rem}
   .menu-toggle{display:none}
   .section{padding:6rem 2rem}
+}
+@media(min-width:1100px){
+  .nav-links{gap:1.75rem}
 }
 `;
 
@@ -763,10 +777,10 @@ const minifyCss = (src) => src
   .replace(/;}/g, '}')
   .trim();
 const CSS = {
-  home: minifyCss(cssBase + cssHome + cssSearch + cssTail),
+  home: minifyCss(cssBase + cssHome + cssSearch + cssPostList + cssTail),
   landing: minifyCss(cssBase + cssLanding + cssTail),
   glossary: minifyCss(cssBase + cssLanding + cssSearch + cssGlossary + cssTail),
-  blog: minifyCss(cssBase + cssLanding + cssBlog + cssTail)
+  blog: minifyCss(cssBase + cssLanding + cssBlog + cssPostList + cssTail)
 };
 const minJs = js
   .replace(/^\s*\/\/.*$/gm, '')
@@ -1008,6 +1022,7 @@ ${FONT_PRELOAD}
 <li><a href="#experience">${t.nav.experience}</a></li>
 <li><a href="#testimonials">${t.nav.testimonials}</a></li>
 <li><a href="#faq">${t.nav.faq}</a></li>
+${blogNavItem(lang)}
 <li><a href="#contact">${t.nav.contact}</a></li>
 </ul>
 <div class="nav-right">
@@ -1034,6 +1049,7 @@ ${LANGUAGES.map(l => `<a href="/${l}/" hreflang="${l}" lang="${l}" class="lang-b
 <a href="#experience">${t.nav.experience}</a>
 <a href="#testimonials">${t.nav.testimonials}</a>
 <a href="#faq">${t.nav.faq}</a>
+${blogMenuLink(lang)}
 <a href="#contact">${t.nav.contact}</a>
 <div class="lang-switcher">
 ${LANGUAGES.map(l => `<a href="/${l}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}><span aria-hidden="true">${LANG_FLAGS[l]}</span> ${l.toUpperCase()}</a>`).join('')}
@@ -1162,7 +1178,24 @@ ${featuredFirst(t.testimonials.items).map((item, i) => `<blockquote class="testi
 </div>
 </section>
 
-<!-- FAQ -->
+${hasBlog(lang) ? `<!-- LATEST ARTICLES -->
+<section class="section" id="blog" aria-labelledby="blog-title">
+<div class="section-inner">
+<div>
+<h2 class="section-title" id="blog-title">${blogMeta[lang].homeTitle}</h2>
+</div>
+<div class="post-list">
+${latestPosts(lang).map(c => `<article class="post-card">
+<p class="post-meta"><time datetime="${c.date}">${formatDate(lang, c.date)}</time> · ${escapeHtml(c.kicker)}</p>
+<h3><a href="${c.path}">${mdInline(c.title)}</a></h3>
+<p>${escapeHtml(c.description)}</p>
+</article>`).join('')}
+</div>
+<p class="post-all"><a href="${blogIndexPath(lang)}">${blogMeta[lang].allPosts} →</a></p>
+</div>
+</section>
+
+` : ''}<!-- FAQ -->
 <section class="section" id="faq">
 <div class="section-inner">
 <div>
@@ -1387,6 +1420,7 @@ ${FONT_PRELOAD}
 <li><a href="/${lang}/#services">${t.nav.services}</a></li>
 <li><a href="/${lang}/#tech">${t.nav.techStack}</a></li>
 <li><a href="/${lang}/#experience">${t.nav.experience}</a></li>
+${blogNavItem(lang)}
 <li><a href="/${lang}/#contact">${t.nav.contact}</a></li>
 </ul>
 <div class="nav-right">
@@ -1411,6 +1445,7 @@ ${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l
 <a href="/${lang}/#services">${t.nav.services}</a>
 <a href="/${lang}/#tech">${t.nav.techStack}</a>
 <a href="/${lang}/#experience">${t.nav.experience}</a>
+${blogMenuLink(lang)}
 <a href="/${lang}/#contact">${t.nav.contact}</a>
 <div class="lang-switcher">
 ${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}><span aria-hidden="true">${LANG_FLAGS[l]}</span> ${l.toUpperCase()}</a>`).join('')}
@@ -1672,6 +1707,7 @@ ${FONT_PRELOAD}
 <li><a href="/${lang}/#services">${t.nav.services}</a></li>
 <li><a href="/${lang}/#tech">${t.nav.techStack}</a></li>
 <li><a href="/${lang}/#experience">${t.nav.experience}</a></li>
+${blogNavItem(lang)}
 <li><a href="/${lang}/#contact">${t.nav.contact}</a></li>
 </ul>
 <div class="nav-right">
@@ -1695,6 +1731,7 @@ ${LANGUAGES.map(l => `<a href="/${l}/${glossary.meta[l].slug}/" hreflang="${l}" 
 <a href="/${lang}/#services">${t.nav.services}</a>
 <a href="/${lang}/#tech">${t.nav.techStack}</a>
 <a href="/${lang}/#experience">${t.nav.experience}</a>
+${blogMenuLink(lang)}
 <a href="/${lang}/#contact">${t.nav.contact}</a>
 <div class="lang-switcher">
 ${LANGUAGES.map(l => `<a href="/${l}/${glossary.meta[l].slug}/" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}><span aria-hidden="true">${LANG_FLAGS[l]}</span> ${l.toUpperCase()}</a>`).join('')}
@@ -1856,7 +1893,7 @@ function blogPage(lang, o) {
   const switcher = altLangs.length > 1 ? `<div class="lang-switcher">
 ${altLangs.map(l => `<a href="${o.alternates[l]}" hreflang="${l}" lang="${l}" class="lang-btn${l === lang ? ' active' : ''}"${l === lang ? ' aria-current="page"' : ''}><span aria-hidden="true">${LANG_FLAGS[l]}</span> ${l.toUpperCase()}</a>`).join('')}
 </div>` : '';
-  const navLinks = [['about', t.nav.about], ['services', t.nav.services], ['tech', t.nav.techStack], ['experience', t.nav.experience], ['contact', t.nav.contact]];
+  const navLinks = [['about', t.nav.about], ['services', t.nav.services], ['tech', t.nav.techStack], ['experience', t.nav.experience]];
 
   return minHtml(`<!DOCTYPE html>
 <html lang="${t.htmlLang}" data-theme="light">
@@ -1910,6 +1947,8 @@ ${o.schemas.map(s => `<script type="application/ld+json">${JSON.stringify(s)}</s
 <a href="/${lang}/" class="nav-logo"><span>papp</span>fer</a>
 <ul class="nav-links">
 ${navLinks.map(([id, label]) => `<li><a href="/${lang}/#${id}">${label}</a></li>`).join('')}
+<li><a href="${blogIndexPath(lang)}"${o.path === blogIndexPath(lang) ? ' aria-current="page"' : ''}>${blogMeta[lang].h1}</a></li>
+<li><a href="/${lang}/#contact">${t.nav.contact}</a></li>
 </ul>
 <div class="nav-right">
 ${switcher}
@@ -1927,6 +1966,8 @@ ${switcher}
 
 <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-hidden="true" aria-label="${t.nav.openMenu}">
 ${navLinks.map(([id, label]) => `<a href="/${lang}/#${id}">${label}</a>`).join('')}
+<a href="${blogIndexPath(lang)}">${blogMeta[lang].h1}</a>
+<a href="/${lang}/#contact">${t.nav.contact}</a>
 ${switcher}
 </div>
 
