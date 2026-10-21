@@ -3,13 +3,13 @@ slug: php2shell
 date: 2026-10-21
 kicker: Security advisory
 keywords: PHP, PHP2Shell, CVE-2026-109618, CVE-2026-109619, PHP-FPM, Laravel, WordPress, remote code execution
-title: PHP2Shell: what to do today if your business runs on PHP
-metaTitle: PHP2Shell (CVE-2026-109618/109619): what to do today | Ferenc Papp
-description: Two critical, unauthenticated PHP RCEs were patched on 21 October 2026. How to check if you're affected, update safely, and what to do on PHP 8.1 or older.
+title: PHP2Shell: an urgent checklist for every PHP server
+metaTitle: PHP2Shell: how to check and patch your PHP server | Ferenc Papp
+description: Two critical PHP RCEs were patched on 21 October 2026. Check your server, update safely, investigate compromise, and find fixes for older PHP releases.
 ---
-On 21 October the PHP project shipped fixes for two critical vulnerabilities, CVE-2026-109618 and CVE-2026-109619, which the security community has named **PHP2Shell**. Both let an attacker run code on your server without logging in, and both are rated 9.2 out of 10. In at least one setup the attack fires before a single line of your application runs. That means no framework, plugin or application-level firewall rule can catch it.
+On 21 October the PHP project shipped emergency fixes for two critical vulnerabilities, CVE-2026-109618 and CVE-2026-109619, collectively known as **PHP2Shell**. Both can lead to remote code execution without authentication, and both have a CVSS 4.0 score of 9.2. A demonstrated mod_php exploit runs before application code starts, so updating WordPress, Laravel or a plugin does not fix the underlying problem. PHP itself has to be patched.
 
-The reactions show how seriously big operators take this. The Wikimedia Foundation took some of its systems offline until they were patched. Several BBC programme pages went dark. Pinboard, 4chan and a number of European government sites disappeared for a while too. Security firms are already seeing exploitation attempts.
+This is not a theoretical bug that can wait for the next maintenance window. Details leaked before the official release, public proof-of-concept code is circulating, Cloudflare has observed attack traffic, and European cybersecurity authorities have urged organisations to apply the updates, starting with internet-facing systems. Cloudflare's WAF rules add a useful layer of protection, but Cloudflare itself still tells customers to update PHP.
 
 If your business runs on Laravel, Symfony, WordPress, Drupal, Magento or anything else built on PHP, here is the checklist for today.
 
@@ -17,11 +17,12 @@ If your business runs on Laravel, Symfony, WordPress, Drupal, Magento or anythin
 
 1. Update PHP to **8.5.12, 8.4.27, 8.3.36 or 8.2.35**, or to your Linux distribution's patched package.
 2. **Restart** PHP-FPM or Apache, so the patched binary is the one actually serving requests.
-3. On PHP 8.1 or older? Read the last section. You have a bigger problem.
+3. Check logs and running processes for signs of compromise; patching does not undo an earlier intrusion.
+4. On PHP 8.1 or older? Read the last section. You have a bigger problem.
 
 ## Are you affected?
 
-Almost certainly, if PHP serves your web traffic. The advisory covers PHP-FPM, Apache with mod_php, php-cgi, FrankenPHP and LiteSpeed. The PHP team rates the risk highest for **mod_php**, where a working exploit needs nothing more than one unauthenticated request.
+If a vulnerable PHP version serves web traffic, treat it as exposed until you have checked the exact package and configuration. The advisory covers PHP-FPM, Apache with mod_php, php-cgi, FrankenPHP and LiteSpeed. The PHP team rates the risk highest for **mod_php**, where a demonstrated exploit needs only an unauthenticated request.
 
 Two things trip people up when they check:
 
@@ -36,13 +37,13 @@ php-fpm8.3 -v                      # substitute your version
 
 ```bash
 # Debian / Ubuntu
-apt changelog php8.3-fpm | grep -m1 CVE-2026-109618
+apt changelog php8.3-fpm | grep -E 'CVE-2026-10961(8|9)'
 
 # RHEL / Alma / Rocky
-rpm -q --changelog php-fpm | grep -m1 CVE-2026-109618
+rpm -q --changelog php-fpm | grep -E 'CVE-2026-10961(8|9)'
 ```
 
-If you get a line back, you have the fix. No output means you're not patched yet.
+You need confirmation for **both** CVEs. A changelog search is a useful first check, not universal proof: repositories format changelogs differently and some omit CVE identifiers. If either CVE is missing, compare the installed package version with your vendor's security notice. On Ubuntu, for example, Canonical publishes the exact fixed package version for every supported release.
 
 ## How to update
 
@@ -67,6 +68,12 @@ Then redeploy. If you pin base images by digest, bump the digest first.
 
 **Serverless and PaaS.** Move to your provider's patched runtime as soon as it's published, then redeploy.
 
+## After patching, check for compromise
+
+An update closes the vulnerability; it does not tell you whether somebody reached the server first. Review web-server, PHP, authentication and endpoint logs from at least the hours before the public disclosure. Look for unusual child processes spawned by PHP or the web server, unexpected files and accounts, unfamiliar scheduled jobs and outbound connections that your application does not normally make.
+
+If you find something suspicious, preserve the logs and isolate the host before cleaning it. Restoring only the website files is not enough if an attacker obtained the PHP worker's permissions or stole application secrets. Rotate credentials and API keys from a known-clean machine, and rebuild the server from a trusted image where possible.
+
 ## If you can't update today
 
 The PHP team lists mitigations for teams that need a few hours or days. They narrow specific attack paths. **They do not make you safe.** Treat them as a bridge to the update, not a replacement for it.
@@ -87,15 +94,19 @@ In an FPM pool, write each setting as `php_admin_value[session.upload_progress.e
 
 Also cap request sizes at the web server or proxy (for example `client_max_body_size 8m;` in Nginx), and fix any fatal errors or timeouts an attacker can trigger from outside: upload handlers, importers, callbacks.
 
-## Still on PHP 7.4, 8.0 or 8.1?
+## Running an older PHP release?
 
-This is the uncomfortable part. These versions no longer receive official updates. Because this bug is so severe, the PHP security team published minimal source-code backports for 7.4 through 8.1. Those help only if you compile PHP yourself.
+The PHP project no longer supports the 7.4, 8.0 and 8.1 branches, but it made an exception for these vulnerabilities and published minimal source backports for all three. That also gave third-party package maintainers a basis for patched binary builds.
+
+If you use [Deb.Sury.org](https://deb.sury.org/) on Debian or the `ondrej/php` PPA on Ubuntu, Ondřej Surý has backported the fixes to packages for older PHP branches as well. You do not need to compile PHP yourself in that case: upgrade from the repository, restart every affected FPM pool or Apache instance, then verify the **installed package** version and changelog. A fixed package existing in the repository does not mean it is already installed on your server. Mirrors can lag, too: on release day the Launchpad PPA still served an unfixed build for some branches, so run `apt-cache policy php8.3-fpm` (with your version) and check that the candidate is the fixed one before you rely on it.
+
+This addresses these two CVEs; it does not make PHP 7.4, 8.0 or 8.1 generally supported again. Fixes for other known or future vulnerabilities are not guaranteed, so plan the move to a supported branch separately.
 
 Your realistic options:
 
-- **Check your vendor.** Some Linux distributions and long-term-support vendors ship backported fixes. Use the changelog check above.
+- **Update from your package source.** Ubuntu (on 20.04 and older through Ubuntu Pro's Expanded Security Maintenance), Deb.Sury/`ondrej/php` and some LTS vendors provide patched packages for older PHP branches. Verify them with both the changelog check above and the vendor advisory.
 - **Apply the mitigations today** and treat them as temporary.
-- **Upgrade to PHP 8.3 or 8.4.** For a typical Laravel or custom PHP application, that is usually a matter of days or a few weeks, not months. The hard part is rarely PHP itself. It's the dependencies that haven't been touched in years.
+- **Upgrade to a currently supported PHP branch.** How long that takes depends on the application and its dependencies. A maintained Laravel project may move quickly; an old custom system needs testing before anyone can make an honest estimate.
 
 If you've been postponing that upgrade, this week is the reminder that postponing has a price.
 
@@ -117,9 +128,13 @@ I'm Ferenc Papp, a freelance full-stack developer from Debrecen, Hungary. I've b
 
 **Sources**
 
-- [php.net: security advisory and downloads](https://www.php.net/)
+- [php.net: official security advisory](https://www.php.net/archive/2026.php#2026-10-21-5)
+- [ENISA: joint statement on the critical PHP vulnerabilities](https://www.enisa.europa.eu/news/joint-statement-on-critical-php-vulnerabilities)
+- [Ubuntu: fixed package versions and update instructions](https://ubuntu.com/blog/php2shell-vulnerability-fixes-available)
+- [Cloudflare: WAF protection and observed attack traffic](https://blog.cloudflare.com/php-vulnerabilities-waf-protection/)
+- [Sansec: PHP2Shell analysis and public exploit](https://sansec.io/research/php2shell)
+- [deb.sury.org: release-day discussion of the backports](https://codeberg.org/oerdnj/deb.sury.org/issues/145)
 - [Tenable: PHP2Shell FAQ](https://www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619-frequently-asked-questions-about-critical-php-remote)
 - [watchTowr: exploitation activity](https://watchtowr.com/intelligence/php-remote-code-execution-php2shell/)
 - [Huntress: rapid response](https://www.huntress.com/blog/php2shell-leaked-critical-php-vulnerabilities)
 - [Computer Weekly: critical PHP flaws put millions of websites at risk](https://www.computerweekly.com/news/366652446/Critical-PHP-flaws-puts-millions-of-websites-at-risk-of-takeover)
-- [How-To Geek: sites taken offline](https://www.howtogeek.com/your-favorite-websites-are-down-due-to-an-internet-breaking-security-failure/)

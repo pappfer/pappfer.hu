@@ -3,13 +3,13 @@ slug: php2shell
 date: 2026-10-21
 kicker: Biztonsági figyelmeztetés
 keywords: PHP, PHP2Shell, CVE-2026-109618, CVE-2026-109619, PHP-FPM, Laravel, WordPress, távoli kódfuttatás
-title: PHP2Shell: mit tegyél ma, ha a weboldalad PHP-n fut
-metaTitle: PHP2Shell (CVE-2026-109618/109619): teendők most | Papp Ferenc
-description: Két kritikus, bejelentkezés nélkül kihasználható PHP-hibát javítottak 2026. október 21-én. Így nézheted meg, érintett vagy-e, és így frissíts biztonságosan.
+title: PHP2Shell: azonnali teendők minden PHP-szerveren
+metaTitle: PHP2Shell: így ellenőrizd és javítsd a PHP-szervert | Papp Ferenc
+description: Két kritikus PHP-hibát javítottak 2026. október 21-én. Ellenőrzés, biztonságos frissítés, behatolásvizsgálat és javítások régi PHP-verziókhoz.
 ---
-Október 21-én a PHP fejlesztői javítást adtak ki két kritikus sebezhetőségre, a CVE-2026-109618-ra és a CVE-2026-109619-re. A biztonsági szakma **PHP2Shell** néven emlegeti őket. Mindkettővel bejelentkezés nélkül lehet kódot futtatni a szervereden, és mindkettő 9,2 pontot kapott a tízes skálán. Legalább egy beállításnál a támadás még azelőtt lefut, hogy az alkalmazásod egyetlen sora elindulna. Vagyis ez ellen semmilyen keretrendszer, bővítmény vagy alkalmazásszintű tűzfal nem véd.
+Október 21-én a PHP fejlesztői soron kívüli javítást adtak ki két kritikus sebezhetőségre, a CVE-2026-109618-ra és a CVE-2026-109619-re. A két hibát összefoglalóan **PHP2Shell** néven emlegetik. Mindkettő lehetővé teheti, hogy a támadó bejelentkezés nélkül kódot futtasson a szerveren; a CVSS 4.0 szerinti értékelésük 9,2. A mod_php-hoz bemutatott támadás még az alkalmazáskód indulása előtt lefut, ezért egy WordPress-, Laravel- vagy bővítményfrissítés önmagában nem oldja meg a problémát. Magát a PHP-t kell javítani.
 
-Hogy mennyire komoly, azt a nagyok reakciója mutatja. A Wikimedia Alapítvány a javításig lekapcsolta egyes rendszereit. A BBC több műsoroldala elsötétült. Egy időre leállt a Pinboard, a 4chan és több európai kormányzati oldal is. A biztonsági cégek már kihasználási kísérleteket látnak.
+Ez nem az a hiba, amely ráér a következő karbantartási ablakig. A részletek már a hivatalos kiadás előtt kiszivárogtak, nyilvános exploitkód kering, a Cloudflare támadási forgalmat észlelt, az európai kiberbiztonsági szervezetek pedig a javítások telepítésére szólítanak fel, az internet felől elérhető rendszerekkel kezdve. A Cloudflare WAF-szabályai hasznos plusz védelmet adnak, de a PHP frissítését nem váltják ki.
 
 Ha a céged weboldala vagy webalkalmazása Laravelen, Symfonyn, WordPressen, Drupalon, Magentón vagy bármilyen más PHP-alapú rendszeren fut, ez a mai teendőlistád.
 
@@ -17,11 +17,12 @@ Ha a céged weboldala vagy webalkalmazása Laravelen, Symfonyn, WordPressen, Dru
 
 1. Frissítsd a PHP-t **8.5.12, 8.4.27, 8.3.36 vagy 8.2.35** verzióra, vagy a Linux-disztribúciód javított csomagjára.
 2. **Indítsd újra** a PHP-FPM-et vagy az Apache-ot, hogy tényleg a javított verzió szolgálja ki a kéréseket.
-3. PHP 8.1-en vagy régebbin vagy? Olvasd el az utolsó részt, mert neked nagyobb a gondod.
+3. Nézd át a naplókat és a futó folyamatokat is: a frissítés nem tesz semmissé egy korábbi betörést.
+4. PHP 8.1-en vagy régebbin vagy? Olvasd el az utolsó részt, mert neked nagyobb a gondod.
 
 ## Érintett vagy?
 
-Szinte biztosan, ha a weboldaladat PHP szolgálja ki. A figyelmeztetés kiterjed a PHP-FPM-re, az Apache mod_php-ra, a php-cgi-re, a FrankenPHP-ra és a LiteSpeedre. A PHP csapata a **mod_php**-nál tartja a legnagyobbnak a kockázatot: ott egyetlen, bejelentkezés nélküli kérés elég a működő támadáshoz.
+Ha sérülékeny PHP-verzió szolgálja ki a webes kéréseket, kezeld érintettként a rendszert addig, amíg a pontos csomagot és konfigurációt nem ellenőrizted. A figyelmeztetés kiterjed a PHP-FPM-re, az Apache mod_php-ra, a php-cgi-re, a FrankenPHP-ra és a LiteSpeedre. A PHP csapata a **mod_php**-nál tartja a legnagyobbnak a kockázatot: a bemutatott támadáshoz ott egyetlen, bejelentkezés nélküli kérés is elég.
 
 Ellenőrzéskor két dolgon szoktak elcsúszni:
 
@@ -36,13 +37,13 @@ php-fpm8.3 -v                      # a saját verzióddal
 
 ```bash
 # Debian / Ubuntu
-apt changelog php8.3-fpm | grep -m1 CVE-2026-109618
+apt changelog php8.3-fpm | grep -E 'CVE-2026-10961(8|9)'
 
 # RHEL / Alma / Rocky
-rpm -q --changelog php-fpm | grep -m1 CVE-2026-109618
+rpm -q --changelog php-fpm | grep -E 'CVE-2026-10961(8|9)'
 ```
 
-Ha kapsz egy sort, megvan a javítás. Ha nincs kimenet, még nem frissítettél.
+Mindkét CVE-hez kell megerősítés. A changelog átnézése jó első ellenőrzés, de nem mindenhol döntő bizonyíték: a tárolók eltérően vezetik a változásnaplót, néhol pedig a CVE-azonosító sem kerül bele. Ha bármelyik hiányzik, vesd össze a telepített csomag pontos verzióját a disztribúció biztonsági közleményével. Az Ubuntu például minden támogatott kiadáshoz külön megadja a már javított csomagverziót.
 
 ## Hogyan frissíts?
 
@@ -67,6 +68,12 @@ Utána telepítsd újra. Ha digest alapján rögzíted az alap image-et, előbb 
 
 **Serverless és PaaS.** Válts a szolgáltatód javított futtatókörnyezetére, amint elérhető, és telepítsd újra az alkalmazást.
 
+## Frissítés után keress behatolásra utaló nyomokat
+
+A frissítés bezárja a hibát, de nem mondja meg, hogy valaki megelőzött-e. Nézd át legalább a nyilvános bejelentést megelőző óráktól kezdve a webszerver, a PHP, a hitelesítési rendszer és a végpontvédelem naplóit. Gyanús lehet a PHP vagy a webszerver által indított szokatlan folyamat, egy ismeretlen fájl, felhasználó vagy időzített feladat, illetve olyan kimenő kapcsolat, amelyet az alkalmazás normálisan nem kezdeményez.
+
+Ha találsz valamit, előbb őrizd meg a naplókat és válaszd le a gépet a hálózatról. A weboldal fájljainak visszamásolása nem elég, ha a támadó megszerezte a PHP worker jogosultságait vagy hozzáfért az alkalmazás titkaihoz. A jelszavakat és API-kulcsokat tiszta gépről cseréld le; ha lehet, a szervert megbízható image-ből építsd újra.
+
 ## Ha ma nem tudsz frissíteni
 
 A PHP csapata ideiglenes védekezést is javasol, ha néhány óra vagy nap kell a frissítésig. Ezek egyes támadási útvonalakat zárnak le, de **nem tesznek biztonságossá**. Tekintsd őket átmeneti megoldásnak a frissítésig, ne helyette.
@@ -87,15 +94,19 @@ FPM-poolban így add meg az egyes beállításokat: `php_admin_value[session.upl
 
 Korlátozd a kérések méretét a webszerveren vagy a proxyn is (Nginxben például `client_max_body_size 8m;`). Javítsd ki azokat a végzetes hibákat és időtúllépéseket is, amelyeket kívülről ki lehet váltani: a feltöltés- és importkezelőkben vagy a callbackekben.
 
-## Még PHP 7.4-en, 8.0-n vagy 8.1-en vagy?
+## Régi PHP-verziót használsz?
 
-Ez a kellemetlen rész. Ezek a verziók már nem kapnak hivatalos frissítést. A hiba súlyossága miatt a PHP biztonsági csapata most kivételesen kiadott minimális forráskód-szintű javításokat a 7.4–8.1 verziókhoz, de ezek csak annak segítenek, aki maga fordítja a PHP-t.
+A PHP projekt a 7.4, 8.0 és 8.1 ágakat már nem támogatja, de ennél a hibánál kivételt tett: mindháromhoz kiadott minimális forráskód-visszaportolást. Erre építve a külső csomagkarbantartók is tudtak javított binárisokat készíteni.
+
+Ha Debianon a [Deb.Sury.org](https://deb.sury.org/) csomagjait, Ubuntun pedig az `ondrej/php` PPA-t használod, Ondřej Surý a javítást a régi PHP-ágak csomagjaiba is visszaportolta. Vagyis itt nem kell saját PHP-t fordítanod: frissíts a tárolóból, indítsd újra az összes érintett FPM-poolt vagy Apache-ot, majd ellenőrizd a **telepített csomag** verzióját és változásnaplóját. Attól, hogy a tárolóban már megjelent a javítás, a szervered még nem frissül automatikusan. A tükrök is késhetnek: a kiadás napján a Launchpad PPA néhány ágnál még javítatlan csomagot adott. Az `apt-cache policy php8.3-fpm` paranccsal (a saját verzióddal) nézd meg, hogy a telepítésre jelölt verzió már a javított-e.
+
+Ez a két CVE-t kezeli, de nem teszi újra támogatottá a PHP 7.4-et, 8.0-t vagy 8.1-et. Más ismert és később felfedezett hibák javítása továbbra sem garantált, ezért a verzióváltást érdemes külön feladatként betervezni.
 
 A reális lehetőségeid:
 
-- **Kérdezd meg a szolgáltatódat.** Egyes Linux-disztribúciók és hosszú távú támogatást nyújtó cégek kiadnak javított csomagokat. Ellenőrizd a fenti changelog-paranccsal.
+- **Frissíts a csomagforrásodból.** Az Ubuntu (20.04-en és régebbin az Ubuntu Pro kiterjesztett biztonsági támogatásával), a Deb.Sury/`ondrej/php` és egyes LTS-szolgáltatók már régi PHP-ágakhoz is adnak javított csomagokat. Ellenőrizd a fenti changelog-paranccsal és a szolgáltató közleményével is.
 - **Állítsd be ma az ideiglenes védekezést**, de csak átmeneti megoldásnak tekintsd.
-- **Frissíts PHP 8.3-ra vagy 8.4-re.** Egy átlagos Laravel- vagy egyedi PHP-alkalmazásnál ez jellemzően néhány nap vagy pár hét munka, nem hónapoké. Ritkán maga a PHP a nehéz rész. Inkább az évek óta nem frissített függőségek.
+- **Válts jelenleg támogatott PHP-ágra.** Hogy ez mennyi idő, az alkalmazástól és a függőségeitől függ. Egy karbantartott Laravel-projekt gyorsan mozdulhat; egy régi egyedi rendszert előbb fel kell mérni és tesztelni, csak utána lehet felelősen becsülni.
 
 Ha eddig halogattad ezt a frissítést, ez a hét megmutatta, hogy a halogatásnak ára van.
 
@@ -117,9 +128,13 @@ Papp Ferenc vagyok, debreceni szabadúszó full-stack fejlesztő. Több mint 15 
 
 **Források**
 
-- [php.net: biztonsági figyelmeztetés és letöltések](https://www.php.net/)
+- [php.net: hivatalos biztonsági közlemény](https://www.php.net/archive/2026.php#2026-10-21-5)
+- [ENISA: közös közlemény a kritikus PHP-hibákról](https://www.enisa.europa.eu/news/joint-statement-on-critical-php-vulnerabilities)
+- [Ubuntu: javított csomagverziók és frissítési útmutató](https://ubuntu.com/blog/php2shell-vulnerability-fixes-available)
+- [Cloudflare: WAF-védelem és észlelt támadási forgalom](https://blog.cloudflare.com/php-vulnerabilities-waf-protection/)
+- [Sansec: PHP2Shell-elemzés és nyilvános exploit](https://sansec.io/research/php2shell)
+- [deb.sury.org: egyeztetés a backportokról a kiadás napján](https://codeberg.org/oerdnj/deb.sury.org/issues/145)
 - [Tenable: PHP2Shell GYIK](https://www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619-frequently-asked-questions-about-critical-php-remote)
 - [watchTowr: kihasználási kísérletek](https://watchtowr.com/intelligence/php-remote-code-execution-php2shell/)
 - [Huntress: gyorsreagálású elemzés](https://www.huntress.com/blog/php2shell-leaked-critical-php-vulnerabilities)
 - [Computer Weekly: kritikus PHP-hibák weboldalak millióit veszélyeztetik](https://www.computerweekly.com/news/366652446/Critical-PHP-flaws-puts-millions-of-websites-at-risk-of-takeover)
-- [How-To Geek: lekapcsolt oldalak](https://www.howtogeek.com/your-favorite-websites-are-down-due-to-an-internet-breaking-security-failure/)
