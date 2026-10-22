@@ -2009,7 +2009,12 @@ function generateBlogPost(lang, post) {
   const url = `https://pappfer.hu${urlPath}`;
   const name = lang === 'hu' ? 'Papp Ferenc' : 'Ferenc Papp';
   const ogSlug = `blog-${p.slug}`;
-  const ogImage = hasLandingOgImage(lang, ogSlug) ? `https://pappfer.hu/img/og/${lang}-${ogSlug}.jpg` : undefined;
+  // Unlike a landing page, an article gets shared the day it goes out, so a
+  // missing card is an error rather than a silent fall back to the site card.
+  if (!hasLandingOgImage(lang, ogSlug)) {
+    throw new Error(`src/og/${lang}-${ogSlug}.jpg is missing: run "npm run generate-og -- --blog-only" and commit it`);
+  }
+  const ogImage = `https://pappfer.hu/img/og/${lang}-${ogSlug}.jpg`;
   const modified = [p.updated, LASTMOD[urlPath], p.date].filter(Boolean).sort().pop();
   const alternates = {};
   BLOG_LANGS.filter(l => post.langs[l]).forEach(l => { alternates[l] = postPath(l, post); });
@@ -2028,7 +2033,7 @@ function generateBlogPost(lang, post) {
     "author": {"@id":"https://pappfer.hu/#ferenc-papp"},
     "publisher": {"@id":"https://pappfer.hu/#ferenc-papp"},
     "isPartOf": {"@id": `https://pappfer.hu${blogIndexPath(lang)}#blog`},
-    "image": {"@type":"ImageObject","url":ogImage || 'https://pappfer.hu/img/og-image.jpg',"width":1200,"height":630},
+    "image": {"@type":"ImageObject","url":ogImage,"width":1200,"height":630},
     "wordCount": p.md.split(/\s+/).length
   };
   if (p.keywords) article.keywords = p.keywords;

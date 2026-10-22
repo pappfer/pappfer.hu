@@ -450,6 +450,16 @@ carries its own anchor id and appears in a `DefinedTermSet` / `DefinedTerm`
 schema as well as in `llms-full.txt`. Term ids are permanent: they are the
 anchor and the schema `@id`, so renaming one breaks every existing citation.
 
+### Blog (`src/blog/`)
+Articles are `src/blog/<id>.<lang>.md` (front matter + markdown), EN and HU, at
+`/<lang>/blog/<slug>/`. The build wires each one into the nav, the homepage,
+the sitemap, llms.txt and search on its own. When the owner asks for an article
+(usually a link plus a line or two of his own take), follow
+`src/blog/WORKFLOW.md` step by step and write to `src/blog/STYLE.md`: it is
+published under his name and must read as his own writing. Articles go to a
+`draft/<slug>` branch for his review first, never straight to master. A slug
+never changes once live, and an article without its share card fails the build.
+
 ### Search (`src/search.js`)
 Retrieval runs in the browser over `dist/search-<lang>.json`, fetched on the
 first keystroke so the page load stays unchanged. Scoring is BM25 with two-way

@@ -202,7 +202,8 @@ for IndexNow.
 
 They're committed, because the Cloudflare Pages build has no Chromium — it only
 copies them into `dist/img/og/`. A landing page with no card falls back to the site
-card, so a missing image never breaks the build. Re-run after changing an `h1`,
+card, so a missing image never breaks the build. Blog articles are the exception:
+a missing article card fails the build (`npm run generate-og -- --blog-only`). Re-run after changing an `h1`,
 a `kicker`, the photo, or `resume.json`.
 
 ## Configuration
