@@ -100,11 +100,11 @@
     "date": "2026-08-10"
   },
   "/hu/": {
-    "hash": "f927f6b546f261fb",
+    "hash": "056a8a35275bc504",
     "date": "2026-10-23"
   },
   "/hu/ai-integracio/": {
-    "hash": "b010f3c1ef3780f7",
+    "hash": "33a4bf32908cc5eb",
     "date": "2026-10-23"
   },
   "/hu/ai-keresooptimalizalas/": {
@@ -116,11 +116,11 @@
     "date": "2026-09-12"
   },
   "/hu/blog/": {
-    "hash": "5929eb91fed06b24",
+    "hash": "bd83e4a86709596d",
     "date": "2026-10-23"
   },
   "/hu/blog/llm-guardrails-woocommerce/": {
-    "hash": "524e57ff2ba5f3f5",
+    "hash": "767c2e07b9fb0236",
     "date": "2026-10-23"
   },
   "/hu/blog/php2shell/": {
@@ -132,7 +132,7 @@
     "date": "2026-09-12"
   },
   "/hu/python-fejleszto/": {
-    "hash": "895403fad30dbe4f",
+    "hash": "cd7144bc4b24e05b",
     "date": "2026-10-23"
   },
   "/hu/react-fejleszto/": {
