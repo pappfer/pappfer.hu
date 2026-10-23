@@ -13,7 +13,10 @@
     "allPosts": "All articles",
     "ctaTitle": "Need help with something like this?",
     "ctaText": "I'm a freelance full-stack developer with 15+ years of PHP, Laravel and AI integration work. Tell me what you're dealing with, and I'll tell you honestly whether I can help.",
-    "homeTitle": "Latest articles"
+    "homeTitle": "Latest articles",
+    "copy": "Copy",
+    "copied": "Copied",
+    "copyFailed": "Press Ctrl+C"
   },
   "hu": {
     "slug": "blog",
@@ -29,6 +32,9 @@
     "allPosts": "Összes cikk",
     "ctaTitle": "Segítség kellene valami hasonlóban?",
     "ctaText": "Szabadúszó full-stack fejlesztő vagyok, több mint 15 év PHP-, Laravel- és AI-integrációs tapasztalattal. Írd meg, mivel küzdesz, és őszintén megmondom, tudok-e segíteni.",
-    "homeTitle": "Legfrissebb cikkek"
+    "homeTitle": "Legfrissebb cikkek",
+    "copy": "Másolás",
+    "copied": "Másolva",
+    "copyFailed": "Nyomj Ctrl+C-t"
   }
 }

@@ -152,8 +152,10 @@ posts.forEach(post => {
 });
 BLOG_LANGS.forEach(lang => {
   // The index lists every article's title, date and summary, so it moves with them.
+  // The copy-button labels only appear on article pages, so they stay out.
+  const { copy, copied, copyFailed, ...indexLabels } = blogMeta[lang];
   LASTMOD[blogIndexPath(lang)] = trackLastmod(blogIndexPath(lang), [
-    blogMeta[lang],
+    indexLabels,
     posts.filter(p => p.langs[lang]).map(p => [p.langs[lang].slug, p.langs[lang].title, p.langs[lang].description, p.langs[lang].date])
   ]);
 });
@@ -583,7 +585,12 @@ const cssBlog = `
 .post-body ul,.post-body ol{padding-left:1.4rem}
 .post-body li+li{margin-top:.4rem}
 .post-body code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em;padding:.1em .35em;border-radius:4px;background:var(--bg-tertiary);color:var(--text-primary);overflow-wrap:anywhere}
-.post-body pre{padding:1rem 1.15rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-tertiary);overflow-x:auto;line-height:1.6}
+.post-body .code{border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-tertiary);overflow:hidden}
+.code-head{display:flex;align-items:center;justify-content:space-between;min-height:2.25rem;padding:0 .5rem 0 1.15rem;border-bottom:1px solid var(--border);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.75rem;color:var(--text-muted)}
+.code-copy{padding:.3rem .65rem;border:1px solid var(--border);border-radius:6px;background:var(--bg-secondary);color:var(--text-secondary);font:inherit;cursor:pointer;transition:color .2s ease-out,border-color .2s ease-out}
+.code-copy:hover{color:var(--accent);border-color:var(--accent)}
+.code-copy.done{color:var(--accent);border-color:var(--accent)}
+.post-body pre{padding:1rem 1.15rem;overflow-x:auto;line-height:1.6}
 .post-body pre code{padding:0;background:none;font-size:.85rem;overflow-wrap:normal;white-space:pre}
 .post-body hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
 `;
@@ -1807,7 +1814,7 @@ function mdInline(text) {
   return s.replace(/\u0000(\d+)\u0000/g, (_, i) => `<code>${codes[i]}</code>`);
 }
 
-function markdownToHtml(md) {
+function markdownToHtml(md, lang) {
   const lines = md.split('\n');
   const out = [];
   let i = 0;
@@ -1820,7 +1827,10 @@ function markdownToHtml(md) {
       for (i++; i < lines.length && !lines[i].startsWith('```'); i++) code.push(lines[i]);
       i++;
       // minHtml strips newlines, so code keeps its line breaks as entities.
-      out.push(`<pre tabindex="0"${fence[1] ? ` data-lang="${fence[1]}"` : ''}><code>${escapeHtml(code.join('\n')).replace(/\n/g, '&#10;')}</code></pre>`);
+      // The copy button stays hidden until the page script finds a clipboard
+      // to write to; rendering it here keeps the layout from shifting.
+      out.push(`<div class="code"><div class="code-head"><span>${fence[1]}</span><button type="button" class="code-copy" aria-live="polite" hidden>${blogMeta[lang].copy}</button></div>` +
+        `<pre tabindex="0"><code>${escapeHtml(code.join('\n')).replace(/\n/g, '&#10;')}</code></pre></div>`);
       continue;
     }
     const heading = line.match(/^(#{2,4}) (.+)$/);
@@ -1866,7 +1876,7 @@ function loadPosts() {
       if (!meta[k]) throw new Error(`${file}: front matter needs "${k}"`);
     });
     byId[id] = byId[id] || { id, langs: {} };
-    byId[id].langs[lang] = { ...meta, md: fm[2].trim(), html: markdownToHtml(fm[2]) };
+    byId[id].langs[lang] = { ...meta, md: fm[2].trim(), html: markdownToHtml(fm[2], lang) };
   });
   return Object.values(byId).map(p => {
     p.date = (p.langs.en || Object.values(p.langs)[0]).date;
@@ -1981,9 +1991,16 @@ ${servicesFooterLinks(lang)}
 <p>${t.footer.legal}</p>
 </footer>
 
-<script>${minJs}</script>
+<script>${minJs}${o.js || ''}</script>
 </body>
 </html>`);
+}
+
+// Copy buttons on article code blocks. Written pre-minified: it is appended
+// to minJs as is.
+function copyJs(lang) {
+  const b = blogMeta[lang];
+  return `(function(){if(!navigator.clipboard)return;document.querySelectorAll('.code-copy').forEach(function(btn){btn.hidden=false;var t;btn.addEventListener('click',function(){var el=btn.closest('.code').querySelector('code');var done=function(msg,ok){btn.textContent=msg;btn.classList.toggle('done',ok);clearTimeout(t);t=setTimeout(function(){btn.textContent=${JSON.stringify(b.copy)};btn.classList.remove('done');},2000);};navigator.clipboard.writeText(el.textContent).then(function(){done(${JSON.stringify(b.copied)},true);},function(){var r=document.createRange(),sel=getSelection();r.selectNodeContents(el);sel.removeAllRanges();sel.addRange(r);done(${JSON.stringify(b.copyFailed)},false);});});});})();`;
 }
 
 function blogCta(lang) {
@@ -2072,6 +2089,7 @@ ${p.html}
 </article>`;
 
   return blogPage(lang, {
+    js: copyJs(lang),
     path: urlPath,
     metaTitle: p.metaTitle,
     ogTitle: p.title,
