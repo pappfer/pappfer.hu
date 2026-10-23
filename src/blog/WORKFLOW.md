@@ -49,7 +49,10 @@ Nyitó bekezdés…
 ```
 
 - Kötelező: `slug`, `date`, `title`, `metaTitle`, `description`, `kicker`.
-  Opcionális: `keywords`, `updated` (lásd 7. pont).
+  Opcionális: `keywords`, `updated` (lásd 7. pont), `related` (szolgáltatásoldalak
+  azonosítói a `src/landing.json`-ből, pl. `related: python, ai`: a cikk ezeken az
+  oldalakon „A blogból” blokkban jelenik meg; a német oldalak az angol változatra
+  linkelnek).
 - `date`: a megjelenés napja, **UTC** szerint, `YYYY-MM-DD`.
 - A slug nem ütközhet meglévővel (`ls src/blog`), és élesítés után **soha nem
   változik**.
@@ -97,7 +100,9 @@ git push -u origin draft/<slug>
 ```
 
 A Cloudflare Pages a branchet külön előnézetként építi meg:
-`https://draft-<slug>.pappfer-hu.pages.dev/en/blog/<slug>/` (és `/hu/…`). Az
+`https://draft-<slug>.pappfer-hu.pages.dev/en/blog/<slug>/` (és `/hu/…`). A Cloudflare
+az aliast 28 karakterre vágja, hosszú slugnál tehát `draft-` + a slug első 22
+karaktere lesz a cím. Az
 előnézeti címeket a Cloudflare nem engedi indexelni. Ha az előnézet nem jön
 létre (a branch-buildek ki vannak kapcsolva), szólj Ferencnek, és addig a helyi
 buildet mutasd.

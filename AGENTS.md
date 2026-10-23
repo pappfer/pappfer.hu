@@ -459,6 +459,11 @@ the sitemap, llms.txt and search on its own. When the owner asks for an article
 published under his name and must read as his own writing. Articles go to a
 `draft/<slug>` branch for his review first, never straight to master. A slug
 never changes once live, and an article without its share card fails the build.
+An optional `related: python, ai` front-matter line (service-page ids from
+`src/landing.json`) lists the article under "From the blog" on those service
+pages; DE pages, which have no articles, link the English version. Cloudflare
+truncates the preview alias to 28 characters, so a long `draft/<slug>` branch
+previews at `draft-<first 22 chars of the slug>.pappfer-hu.pages.dev`.
 
 ### Search (`src/search.js`)
 Retrieval runs in the browser over `dist/search-<lang>.json`, fetched on the

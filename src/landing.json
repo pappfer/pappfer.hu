@@ -1,8 +1,8 @@
 {
   "labels": {
-    "en": { "home": "Home", "related": "Related services", "cta": "Get in touch", "backHome": "Back to homepage", "servicesFooter": "Services", "exploreTitle": "Explore a specific area" },
-    "hu": { "home": "Főoldal", "related": "Kapcsolódó szolgáltatások", "cta": "Kapcsolatfelvétel", "backHome": "Vissza a főoldalra", "servicesFooter": "Szolgáltatások", "exploreTitle": "Nézz meg egy konkrét területet" },
-    "de": { "home": "Startseite", "related": "Verwandte Leistungen", "cta": "Kontakt aufnehmen", "backHome": "Zurück zur Startseite", "servicesFooter": "Leistungen", "exploreTitle": "Ein konkreter Bereich" }
+    "en": { "home": "Home", "related": "Related services", "cta": "Get in touch", "backHome": "Back to homepage", "servicesFooter": "Services", "articles": "From the blog", "inEnglish": "in English", "exploreTitle": "Explore a specific area" },
+    "hu": { "home": "Főoldal", "related": "Kapcsolódó szolgáltatások", "cta": "Kapcsolatfelvétel", "backHome": "Vissza a főoldalra", "servicesFooter": "Szolgáltatások", "articles": "A blogból", "inEnglish": "angolul", "exploreTitle": "Nézz meg egy konkrét területet" },
+    "de": { "home": "Startseite", "related": "Verwandte Leistungen", "cta": "Kontakt aufnehmen", "backHome": "Zurück zur Startseite", "servicesFooter": "Leistungen", "articles": "Aus dem Blog", "inEnglish": "auf Englisch", "exploreTitle": "Ein konkreter Bereich" }
   },
   "pages": [
     {

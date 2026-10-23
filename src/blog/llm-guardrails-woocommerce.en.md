@@ -1,6 +1,7 @@
 ---
 slug: llm-guardrails-woocommerce
 date: 2026-10-23
+related: python, ai
 kicker: Case study
 keywords: FastAPI, LLM integration, WooCommerce, Vue 3, PWA, structured outputs, AI SEO, Python
 title: The AI writes the listing, the code checks it: a WooCommerce case study

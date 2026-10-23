@@ -1,6 +1,7 @@
 ---
 slug: llm-guardrails-woocommerce
 date: 2026-10-23
+related: python, ai
 kicker: Esettanulmány
 keywords: FastAPI, AI-integráció, LLM, WooCommerce, Vue 3, PWA, structured outputs, AI SEO, Python
 title: Az AI megírja, a kód ellenőrzi: esettanulmány egy WooCommerce-appról

@@ -158,6 +158,12 @@ const blogIndexPath = (lang) => `/${lang}/${blogMeta[lang].slug}/`;
 const postPath = (lang, post) => `${blogIndexPath(lang)}${post.langs[lang].slug}/`;
 const latestPosts = (lang) => posts.filter(p => p.langs[lang]).slice(0, 3).map(p => ({ ...p.langs[lang], path: postPath(lang, p) }));
 const hasBlog = (lang) => Boolean(blogMeta[lang]) && posts.some(p => p.langs[lang]);
+// Articles whose front matter lists a service page id in `related:` are linked
+// from that page. A language without its own version (DE) gets the English one,
+// flagged with `inEnglish`.
+const relatedPosts = (lang, pageId) => posts
+  .filter(p => (p.langs[lang] || p.langs.en).related?.split(',').map(s => s.trim()).includes(pageId))
+  .map(p => p.langs[lang] ? { ...p.langs[lang], path: postPath(lang, p) } : { ...p.langs.en, path: postPath('en', p), inEnglish: true });
 // The "Blog" entry for the nav and mobile menu; nothing where a language has no articles.
 const blogNavItem = (lang) => hasBlog(lang) ? `<li><a href="${blogIndexPath(lang)}">${blogMeta[lang].h1}</a></li>` : '';
 const blogMenuLink = (lang) => hasBlog(lang) ? `<a href="${blogIndexPath(lang)}">${blogMeta[lang].h1}</a>` : '';
@@ -217,7 +223,9 @@ LANGUAGES.forEach(lang => {
 landing.pages.forEach(page => {
   LANGUAGES.forEach(lang => {
     const urlPath = `/${lang}/${page[lang].slug}/`;
-    LASTMOD[urlPath] = trackLastmod(urlPath, page[lang]);
+    // Only pages that link an article hash it too, so the others keep their lastmod.
+    const rel = relatedPosts(lang, page.id).map(p => [p.path, p.title, p.description]);
+    LASTMOD[urlPath] = trackLastmod(urlPath, rel.length ? [page[lang], rel] : page[lang]);
   });
 });
 LANGUAGES.forEach(lang => {
@@ -604,6 +612,7 @@ const cssLanding = `
 .lp-list{list-style:none;max-width:720px}
 .lp-list li{padding:.8rem 0;border-top:1px solid var(--border);color:var(--text-secondary);line-height:1.6}
 .lp-list li:last-child{border-bottom:1px solid var(--border)}
+.lp-list a{text-decoration:underline;text-underline-offset:3px}
 .lp-faq{max-width:720px}
 .lp-faq>div{padding:1.25rem 0;border-top:1px solid var(--border)}
 .lp-faq>div:last-child{border-bottom:1px solid var(--border)}
@@ -1458,6 +1467,9 @@ function generateLandingPage(lang, page) {
     .filter(p => p.id !== page.id)
     .map(p => `<a href="/${lang}/${p[lang].slug}/">${p[lang].h1}</a>`)
     .join('') + `<a href="/${lang}/${glossary.meta[lang].slug}/">${glossary.meta[lang].h1}</a>`;
+  const articleLinks = relatedPosts(lang, page.id)
+    .map(p => `<li><a href="${p.path}"${p.inEnglish ? ' hreflang="en"' : ''}>${escapeHtml(p.title)}</a>${p.inEnglish ? ` (${lab.inEnglish})` : ''}. ${escapeHtml(p.description)}</li>`)
+    .join('');
 
   return minHtml(`<!DOCTYPE html>
 <html lang="${t.htmlLang}" data-theme="light">
@@ -1580,6 +1592,12 @@ ${LANGUAGES.map(l => `<a href="/${l}/${page[l].slug}/" hreflang="${l}" lang="${l
 <div class="lp-faq">${c.faq.map(f => `<div><h3>${f.q}</h3><p>${f.a}</p></div>`).join('')}</div>
 </div>
 </section>
+${articleLinks ? `<section class="section lp-section">
+<div class="lp-inner">
+<h2>${lab.articles}</h2>
+<ul class="lp-list">${articleLinks}</ul>
+</div>
+</section>` : ''}
 <section class="section lp-section">
 <div class="lp-inner">
 <h2>${lab.related}</h2>

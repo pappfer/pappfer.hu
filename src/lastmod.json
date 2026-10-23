@@ -1,15 +1,15 @@
 {
   "/de/": {
-    "hash": "cf1fec10de3dabe4",
-    "date": "2026-10-21"
+    "hash": "0508ad16db55873f",
+    "date": "2026-10-23"
   },
   "/de/ki-glossar/": {
     "hash": "285f72044422d631",
     "date": "2026-09-12"
   },
   "/de/ki-integration/": {
-    "hash": "dbce2b37e795f65c",
-    "date": "2026-08-10"
+    "hash": "766bd11268a9a53b",
+    "date": "2026-10-23"
   },
   "/de/ki-suchmaschinenoptimierung/": {
     "hash": "06a0e423bf24dc91",
@@ -20,8 +20,8 @@
     "date": "2026-08-10"
   },
   "/de/python-entwickler/": {
-    "hash": "d858c22cc1c86aa8",
-    "date": "2026-08-10"
+    "hash": "5415bfb04548532a",
+    "date": "2026-10-23"
   },
   "/de/react-entwickler/": {
     "hash": "1d82f0922b756728",
@@ -44,7 +44,7 @@
     "date": "2026-08-10"
   },
   "/en/": {
-    "hash": "f0f5545b599049f7",
+    "hash": "27ed4f9c3dcbbc9a",
     "date": "2026-10-23"
   },
   "/en/ai-glossary/": {
@@ -52,8 +52,8 @@
     "date": "2026-09-12"
   },
   "/en/ai-llm-integration/": {
-    "hash": "28499259fdf9c152",
-    "date": "2026-08-10"
+    "hash": "632afb90c8d67bca",
+    "date": "2026-10-23"
   },
   "/en/answer-engine-optimization/": {
     "hash": "24c64d0d55e726ab",
@@ -64,7 +64,7 @@
     "date": "2026-10-23"
   },
   "/en/blog/llm-guardrails-woocommerce/": {
-    "hash": "da48b47e84f97ec5",
+    "hash": "0471fde3c81bcca0",
     "date": "2026-10-23"
   },
   "/en/blog/php2shell/": {
@@ -76,8 +76,8 @@
     "date": "2026-08-10"
   },
   "/en/python-developer/": {
-    "hash": "f4b0acabbac2a962",
-    "date": "2026-08-10"
+    "hash": "e8f81294ba4354c4",
+    "date": "2026-10-23"
   },
   "/en/react-developer/": {
     "hash": "9d5518e65d9eafc0",
@@ -100,12 +100,12 @@
     "date": "2026-08-10"
   },
   "/hu/": {
-    "hash": "d022081686e1f0a9",
+    "hash": "f927f6b546f261fb",
     "date": "2026-10-23"
   },
   "/hu/ai-integracio/": {
-    "hash": "14d8611612be6ce7",
-    "date": "2026-09-12"
+    "hash": "b010f3c1ef3780f7",
+    "date": "2026-10-23"
   },
   "/hu/ai-keresooptimalizalas/": {
     "hash": "4abd93a2743e6027",
@@ -120,7 +120,7 @@
     "date": "2026-10-23"
   },
   "/hu/blog/llm-guardrails-woocommerce/": {
-    "hash": "aaddebf0fb9704f7",
+    "hash": "524e57ff2ba5f3f5",
     "date": "2026-10-23"
   },
   "/hu/blog/php2shell/": {
@@ -132,8 +132,8 @@
     "date": "2026-09-12"
   },
   "/hu/python-fejleszto/": {
-    "hash": "6445e3587e3e298e",
-    "date": "2026-08-10"
+    "hash": "895403fad30dbe4f",
+    "date": "2026-10-23"
   },
   "/hu/react-fejleszto/": {
     "hash": "c9de156d1115450f",
