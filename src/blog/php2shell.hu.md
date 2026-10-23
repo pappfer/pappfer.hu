@@ -1,12 +1,15 @@
 ---
 slug: php2shell
 date: 2026-10-21
+updated: 2026-10-23
 kicker: Biztonsági figyelmeztetés
-keywords: PHP, PHP2Shell, CVE-2026-109618, CVE-2026-109619, PHP-FPM, Laravel, WordPress, távoli kódfuttatás
+keywords: PHP, PHP2Shell, CVE-2026-109618, CVE-2026-109619, CVE-2026-115560, PHP-FPM, Laravel, WordPress, távoli kódfuttatás
 title: PHP2Shell: azonnali teendők minden PHP-szerveren
 metaTitle: PHP2Shell: így ellenőrizd és javítsd a PHP-szervert | Papp Ferenc
 description: Két kritikus PHP-hibát javítottak 2026. október 21-én. Ellenőrzés, biztonságos frissítés, behatolásvizsgálat és javítások régi PHP-verziókhoz.
 ---
+**Frissítés, október 23.:** A PHP csapata egy harmadik hibára is figyelmeztetett (CVE-2026-115560), amit az október 21-i kiadások nem javítanak. Csak egy szokatlan beállításnál jön elő (részletek [lent](#ha-ma-nem-tudsz-frissiteni)), a PHP szerint valószínűtlen, és támadásról sem tudni. A következő rendes kiadásig egyetlen sor véd ellene, ami lehet, hogy már be is van állítva nálad: `session.upload_progress.enabled = 0`. Ha 21-én beállítottad, hagyd bent, akkor is, ha már frissítettél.
+
 Október 21-én a PHP fejlesztői soron kívüli javítást adtak ki két kritikus sebezhetőségre, a CVE-2026-109618-ra és a CVE-2026-109619-re. A két hibát összefoglalóan **PHP2Shell** néven emlegetik. Mindkettő lehetővé teheti, hogy a támadó bejelentkezés nélkül kódot futtasson a szerveren; a CVSS 4.0 szerinti értékelésük 9,2. A mod_php-hoz bemutatott támadás még az alkalmazáskód indulása előtt lefut, ezért egy WordPress-, Laravel- vagy bővítményfrissítés önmagában nem oldja meg a problémát. Magát a PHP-t kell javítani.
 
 Ez nem az a hiba, amely ráér a következő karbantartási ablakig. A részletek már a hivatalos kiadás előtt kiszivárogtak, nyilvános exploitkód kering, a Cloudflare támadási forgalmat észlelt, az európai kiberbiztonsági szervezetek pedig a javítások telepítésére szólítanak fel, az internet felől elérhető rendszerekkel kezdve. A Cloudflare WAF-szabályai hasznos plusz védelmet adnak, de a PHP frissítését nem váltják ki.
@@ -17,8 +20,9 @@ Ha a céged weboldala vagy webalkalmazása Laravelen, Symfonyn, WordPressen, Dru
 
 1. Frissítsd a PHP-t **8.5.12, 8.4.27, 8.3.36 vagy 8.2.35** verzióra, vagy a Linux-disztribúciód javított csomagjára.
 2. **Indítsd újra** a PHP-FPM-et vagy az Apache-ot, hogy tényleg a javított verzió szolgálja ki a kéréseket.
-3. Nézd át a naplókat és a futó folyamatokat is: a frissítés nem tesz semmissé egy korábbi betörést.
-4. PHP 8.1-en vagy régebbin vagy? Olvasd el az utolsó részt, mert neked nagyobb a gondod.
+3. Állítsd be a `session.upload_progress.enabled = 0` sort, és hagyd bent a PHP következő rendes kiadásáig, akár frissítettél, akár nem.
+4. Nézd át a naplókat és a futó folyamatokat is: a frissítés nem tesz semmissé egy korábbi betörést.
+5. PHP 8.1-en vagy régebbin vagy? Olvasd el az utolsó részt, mert neked nagyobb a gondod.
 
 ## Érintett vagy?
 
@@ -90,6 +94,12 @@ fatal_error_backtraces = 0  ; csak PHP 8.5
 
 FPM-poolban így add meg az egyes beállításokat: `php_admin_value[session.upload_progress.enabled] = 0`. Így az alkalmazás nem tudja felülírni őket. Utána indíts újra minden workert.
 
+**Az első sort frissítés után is hagyd bent.** Október 23-án a PHP egy újabb közleményt adott ki a CVE-2026-115560-ról, amit a sürgősségi kiadások nem javítanak. Ehhez az kell, hogy az alkalmazás a konfigurációban `php_binary`-re vagy `php_serialize`-ra állítsa a `session.serialize_handler`-t, majd a `session_start()` előtt `ini_set()`-tel visszaváltsa `php`-ra, és közben a session upload progress funkció is be legyen kapcsolva. Ez ritka, de nem kell minden alkalmazást átnézned ahhoz, hogy biztonságban légy: a `session.upload_progress.enabled = 0` ezt is lezárja, a javítás pedig a következő rendes kiadásban jön. Ha kíváncsi vagy, hogy valamelyik alkalmazásod csinál-e ilyet, keress rá a kódban:
+
+```bash
+grep -rn 'serialize_handler' --include='*.php' .
+```
+
 **A `memory_limit = -1`-ről:** furcsán hangzik, és valóban kompromisszum. Megszünteti azt a memórialimit-hibát, amelyre az egyik sebezhetőség épül, cserébe viszont egyetlen kérés felélheti az összes memóriát. Ezért párosítsd egy konténer- vagy cgroup-memórialimittel, amely csak a túlfutó workert állítja le. A figyelmeztetés kifejezetten óv attól, hogy erre `RLIMIT_AS`-t vagy `RLIMIT_DATA`-t használj, mert azok maguk is kiválthatják a sebezhető hibát.
 
 Korlátozd a kérések méretét a webszerveren vagy a proxyn is (Nginxben például `client_max_body_size 8m;`). Javítsd ki azokat a végzetes hibákat és időtúllépéseket is, amelyeket kívülről ki lehet váltani: a feltöltés- és importkezelőkben vagy a callbackekben.
@@ -129,6 +139,7 @@ Papp Ferenc vagyok, debreceni szabadúszó full-stack fejlesztő. Több mint 15 
 **Források**
 
 - [php.net: hivatalos biztonsági közlemény](https://www.php.net/archive/2026.php#2026-10-21-5)
+- [php.net: tájékoztató közlemény a session upload progressről (CVE-2026-115560)](https://www.php.net/archive/2026.php#2026-10-23-1)
 - [ENISA: közös közlemény a kritikus PHP-hibákról](https://www.enisa.europa.eu/news/joint-statement-on-critical-php-vulnerabilities)
 - [Ubuntu: javított csomagverziók és frissítési útmutató](https://ubuntu.com/blog/php2shell-vulnerability-fixes-available)
 - [Cloudflare: WAF-védelem és észlelt támadási forgalom](https://blog.cloudflare.com/php-vulnerabilities-waf-protection/)
