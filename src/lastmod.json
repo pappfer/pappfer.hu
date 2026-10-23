@@ -44,8 +44,8 @@
     "date": "2026-08-10"
   },
   "/en/": {
-    "hash": "16536670f77b80f4",
-    "date": "2026-10-21"
+    "hash": "f0f5545b599049f7",
+    "date": "2026-10-23"
   },
   "/en/ai-glossary/": {
     "hash": "bf2e1ba307ba9248",
@@ -60,8 +60,12 @@
     "date": "2026-09-12"
   },
   "/en/blog/": {
-    "hash": "4685511eb3accef2",
-    "date": "2026-10-21"
+    "hash": "1718d51e3c9005d2",
+    "date": "2026-10-23"
+  },
+  "/en/blog/llm-guardrails-woocommerce/": {
+    "hash": "da48b47e84f97ec5",
+    "date": "2026-10-23"
   },
   "/en/blog/php2shell/": {
     "hash": "8223564c697e7747",
@@ -96,8 +100,8 @@
     "date": "2026-08-10"
   },
   "/hu/": {
-    "hash": "cc44d8de493326c7",
-    "date": "2026-10-21"
+    "hash": "d022081686e1f0a9",
+    "date": "2026-10-23"
   },
   "/hu/ai-integracio/": {
     "hash": "14d8611612be6ce7",
@@ -112,8 +116,12 @@
     "date": "2026-09-12"
   },
   "/hu/blog/": {
-    "hash": "3cbf3d8fc62add4b",
-    "date": "2026-10-21"
+    "hash": "5929eb91fed06b24",
+    "date": "2026-10-23"
+  },
+  "/hu/blog/llm-guardrails-woocommerce/": {
+    "hash": "aaddebf0fb9704f7",
+    "date": "2026-10-23"
   },
   "/hu/blog/php2shell/": {
     "hash": "9e61e45ff7aab45e",
