@@ -67,6 +67,87 @@ const BUILD_DATE = new Date().toISOString().split('T')[0];
 const YEAR = new Date().getFullYear();
 const LANGUAGES = ['en', 'hu', 'de'];
 
+// Build-time syntax highlighting for article code blocks, so no highlighter
+// ships to the browser. Each language is an ordered list of [class, regex]
+// rules tried at every position; the first match wins and anything no rule
+// matches is plain text. Classes: c comment, s string, k keyword, f command or
+// function, v variable, n number, p property or key, a flag, i inserted, d deleted.
+// Clipboard and check icons for the copy button; CSS shows one or the other.
+const HL_COPY_ICONS = '<svg class="i-copy" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>' +
+  '<svg class="i-done" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+const HL_SHELL_CMD = String.raw`(?<=(?:^|[|;&(]|&&|\bsudo|\bxargs|\bwatch)[ \t]*)[A-Za-z_][\w.+-]*`;
+const HL_RULES = {
+  bash: [
+    ['c', /(?<=^|\s)#.*/m],
+    ['s', /"(?:\\.|[^"\\])*"|'[^']*'/],
+    ['v', /\$\{[^}]*\}|\$[\w@#?*!$-]+/],
+    ['f', new RegExp(HL_SHELL_CMD, 'm')],
+    ['a', /(?<=\s)--?[\w][\w-]*(?:=\S*)?/],
+    ['n', /(?<![\w.-])\d+(?:\.\d+)*(?![\w-])/]
+  ],
+  ini: [
+    ['c', /(?<=^|\s)[;#].*/m],
+    ['k', /^[ \t]*\[[^\]\n]+\]/m],
+    ['p', /^[ \t]*[\w.\-[\]]+(?=[ \t]*=)/m],
+    ['s', /"[^"\n]*"|'[^'\n]*'/],
+    ['n', /(?<![\w.])-?\d+(?:\.\d+)?[KMGkmg]?(?![\w.])/]
+  ],
+  php: [
+    ['c', /\/\/.*|#(?!\[).*|\/\*[\s\S]*?\*\//],
+    ['s', /"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'/],
+    ['v', /\$[A-Za-z_]\w*/],
+    ['k', /\b(?:abstract|and|array|as|break|case|catch|class|clone|const|continue|declare|default|do|echo|else|elseif|enum|extends|false|final|finally|fn|for|foreach|function|global|if|implements|include|include_once|instanceof|interface|match|namespace|new|null|or|private|protected|public|readonly|require|require_once|return|static|switch|throw|trait|true|try|use|while|yield)\b/],
+    ['f', /\b[A-Za-z_]\w*(?=\s*\()/],
+    ['n', /\b\d+(?:\.\d+)?\b/]
+  ],
+  js: [
+    ['c', /\/\/.*|\/\*[\s\S]*?\*\//],
+    ['s', /"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|`(?:\\.|[^`\\])*`/],
+    ['k', /\b(?:async|await|break|case|catch|class|const|continue|default|delete|do|else|export|extends|false|finally|for|from|function|if|import|in|instanceof|let|new|null|of|return|static|super|switch|this|throw|true|try|typeof|undefined|var|void|while|yield)\b/],
+    ['f', /\b[A-Za-z_$][\w$]*(?=\s*\()/],
+    ['n', /\b\d+(?:\.\d+)?\b/]
+  ],
+  json: [
+    ['p', /"(?:\\.|[^"\\])*"(?=\s*:)/],
+    ['s', /"(?:\\.|[^"\\])*"/],
+    ['k', /\b(?:true|false|null)\b/],
+    ['n', /-?\b\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b/]
+  ],
+  yaml: [
+    ['c', /(?<=^|\s)#.*/m],
+    ['p', /^[ \t]*(?:- )?[\w.\-/]+(?=:(?:\s|$))/m],
+    ['s', /"(?:\\.|[^"\\])*"|'[^'\n]*'/],
+    ['k', /\b(?:true|false|null|yes|no)\b/],
+    ['n', /(?<![\w.])-?\d+(?:\.\d+)?(?![\w.])/]
+  ],
+  nginx: [
+    ['c', /(?<=^|\s)#.*/m],
+    ['s', /"[^"\n]*"|'[^'\n]*'/],
+    ['v', /\$\w+/],
+    ['k', /^[ \t]*[a-z_]+(?=[\s{;])/m],
+    ['n', /(?<![\w.])\d+[kmgsKMG]?(?![\w.])/]
+  ],
+  sql: [
+    ['c', /--.*|\/\*[\s\S]*?\*\//],
+    ['s', /'(?:''|[^'])*'/],
+    ['k', /\b(?:add|alter|and|as|asc|by|case|column|create|delete|desc|distinct|drop|else|end|exists|from|group|having|if|in|index|inner|insert|into|is|join|key|left|like|limit|not|null|on|or|order|primary|references|right|select|set|table|then|union|unique|update|values|when|where|with)\b/i],
+    ['n', /\b\d+(?:\.\d+)?\b/]
+  ],
+  diff: [
+    ['k', /^@@.*/m],
+    ['i', /^\+.*/m],
+    ['d', /^-.*/m]
+  ]
+};
+Object.assign(HL_RULES, {
+  sh: HL_RULES.bash, shell: HL_RULES.bash, console: HL_RULES.bash,
+  javascript: HL_RULES.js, ts: HL_RULES.js, typescript: HL_RULES.js,
+  yml: HL_RULES.yaml, conf: HL_RULES.ini, env: HL_RULES.ini
+});
+// Sticky copies, built once: each is tried at the current position only.
+const HL_STICKY = Object.fromEntries(Object.entries(HL_RULES).map(([lang, rules]) =>
+  [lang, rules.map(([cls, re]) => [cls, new RegExp(re.source, re.flags.replace('g', '') + 'y')])]));
+
 // Blog articles (src/blog/<id>.<lang>.md, see "Blog" below). Loaded up here
 // because their URLs feed lastmod tracking, the sitemap and the footer.
 const BLOG_DIR = path.join(__dirname, 'src', 'blog');
@@ -585,13 +666,20 @@ const cssBlog = `
 .post-body ul,.post-body ol{padding-left:1.4rem}
 .post-body li+li{margin-top:.4rem}
 .post-body code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em;padding:.1em .35em;border-radius:4px;background:var(--bg-tertiary);color:var(--text-primary);overflow-wrap:anywhere}
-.post-body .code{border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-tertiary);overflow:hidden}
-.code-head{display:flex;align-items:center;justify-content:space-between;min-height:2.25rem;padding:0 .5rem 0 1.15rem;border-bottom:1px solid var(--border);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.75rem;color:var(--text-muted)}
-.code-copy{padding:.3rem .65rem;border:1px solid var(--border);border-radius:6px;background:var(--bg-secondary);color:var(--text-secondary);font:inherit;cursor:pointer;transition:color .2s ease-out,border-color .2s ease-out}
-.code-copy:hover{color:var(--accent);border-color:var(--accent)}
-.code-copy.done{color:var(--accent);border-color:var(--accent)}
+.post-body .code{--c-bg:#0d1117;--c-field:#161b22;--c-line:#30363d;--c-text:#e6edf3;--c-com:#8b949e;border:1px solid #1f2430;border-radius:var(--radius);background:var(--c-bg);color:var(--c-text);overflow:hidden}
+[data-theme="dark"] .post-body .code{--c-bg:#1a2030;--c-field:#232c40;--c-line:#3a4660;border-color:#323d54}
+.code-head{display:flex;align-items:center;justify-content:space-between;min-height:2.25rem;padding:0 .5rem 0 1.15rem;background:var(--c-field);border-bottom:1px solid var(--c-line);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.75rem;color:var(--c-com)}
+.code-copy{display:inline-flex;align-items:center;gap:.4rem;min-width:32px;min-height:32px;justify-content:center;padding:0 .45rem;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--c-com);font:inherit;cursor:pointer;transition:color .2s ease-out,border-color .2s ease-out,opacity .2s ease-out}
+.code-copy[hidden]{display:none}
+.code-copy:hover{color:var(--c-text);border-color:var(--c-line)}
+.code-copy.done{color:#7ee787}
+.code-copy .i-done,.code-copy.done .i-copy{display:none}
+.code-copy.done .i-done{display:block}
+.code-msg:empty{display:none}
+@media(hover:hover){.code-copy{opacity:0}.code:hover .code-copy,.code-copy:focus-visible,.code-copy.done,.code-copy.fail{opacity:1}}
 .post-body pre{padding:1rem 1.15rem;overflow-x:auto;line-height:1.6}
-.post-body pre code{padding:0;background:none;font-size:.85rem;overflow-wrap:normal;white-space:pre}
+.post-body pre code{padding:0;background:none;color:inherit;font-size:.85rem;overflow-wrap:normal;white-space:pre}
+.t-c{color:var(--c-com);font-style:italic}.t-s{color:#a5d6ff}.t-k{color:#ff7b72}.t-f{color:#d2a8ff}.t-v{color:#ffa657}.t-n,.t-a{color:#79c0ff}.t-p,.t-i{color:#7ee787}.t-d{color:#ffa198}
 .post-body hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
 `;
 
@@ -1814,6 +1902,27 @@ function mdInline(text) {
   return s.replace(/\u0000(\d+)\u0000/g, (_, i) => `<code>${codes[i]}</code>`);
 }
 
+// Build-time syntax highlighting: the rules (HL_RULES) are defined near the top,
+// because the articles are loaded and rendered there.
+function highlight(code, lang) {
+  const rules = HL_STICKY[lang];
+  if (!rules) return escapeHtml(code);
+  let out = '', plain = '';
+  for (let i = 0; i < code.length;) {
+    let hit = null;
+    for (const [cls, re] of rules) {
+      re.lastIndex = i;
+      const m = re.exec(code);
+      if (m && m[0]) { hit = [cls, m[0]]; break; }
+    }
+    if (!hit) { plain += code[i++]; continue; }
+    out += escapeHtml(plain) + `<span class="t-${hit[0]}">${escapeHtml(hit[1])}</span>`;
+    plain = '';
+    i += hit[1].length;
+  }
+  return out + escapeHtml(plain);
+}
+
 function markdownToHtml(md, lang) {
   const lines = md.split('\n');
   const out = [];
@@ -1829,8 +1938,11 @@ function markdownToHtml(md, lang) {
       // minHtml strips newlines, so code keeps its line breaks as entities.
       // The copy button stays hidden until the page script finds a clipboard
       // to write to; rendering it here keeps the layout from shifting.
-      out.push(`<div class="code"><div class="code-head"><span>${fence[1]}</span><button type="button" class="code-copy" aria-live="polite" hidden>${blogMeta[lang].copy}</button></div>` +
-        `<pre tabindex="0"><code>${escapeHtml(code.join('\n')).replace(/\n/g, '&#10;')}</code></pre></div>`);
+      out.push(`<div class="code"><div class="code-head"><span>${fence[1]}</span><button type="button" class="code-copy" aria-label="${blogMeta[lang].copy}" title="${blogMeta[lang].copy}" hidden><span class="code-msg" aria-live="polite"></span>${HL_COPY_ICONS}</button></div>` +
+        `<pre tabindex="0"><code>${highlight(code.join('\n'), fence[1].toLowerCase())
+          .replace(/\n/g, '&#10;')
+          // minHtml drops whitespace between tags, which here is alignment.
+          .replace(/>([ \t]+)</g, (_, ws) => `>${ws.replace(/ /g, '&#32;').replace(/\t/g, '&#9;')}<`)}</code></pre></div>`);
       continue;
     }
     const heading = line.match(/^(#{2,4}) (.+)$/);
@@ -2000,7 +2112,7 @@ ${servicesFooterLinks(lang)}
 // to minJs as is.
 function copyJs(lang) {
   const b = blogMeta[lang];
-  return `(function(){if(!navigator.clipboard)return;document.querySelectorAll('.code-copy').forEach(function(btn){btn.hidden=false;var t;btn.addEventListener('click',function(){var el=btn.closest('.code').querySelector('code');var done=function(msg,ok){btn.textContent=msg;btn.classList.toggle('done',ok);clearTimeout(t);t=setTimeout(function(){btn.textContent=${JSON.stringify(b.copy)};btn.classList.remove('done');},2000);};navigator.clipboard.writeText(el.textContent).then(function(){done(${JSON.stringify(b.copied)},true);},function(){var r=document.createRange(),sel=getSelection();r.selectNodeContents(el);sel.removeAllRanges();sel.addRange(r);done(${JSON.stringify(b.copyFailed)},false);});});});})();`;
+  return `(function(){if(!navigator.clipboard)return;document.querySelectorAll('.code-copy').forEach(function(btn){btn.hidden=false;var t;btn.addEventListener('click',function(){var el=btn.closest('.code').querySelector('code');var msg=btn.querySelector('.code-msg');var done=function(text,ok){msg.textContent=text;btn.classList.toggle('done',ok);btn.classList.toggle('fail',!ok);clearTimeout(t);t=setTimeout(function(){msg.textContent='';btn.classList.remove('done','fail');},2000);};navigator.clipboard.writeText(el.textContent).then(function(){done(${JSON.stringify(b.copied)},true);},function(){var r=document.createRange(),sel=getSelection();r.selectNodeContents(el);sel.removeAllRanges();sel.addRange(r);done(${JSON.stringify(b.copyFailed)},false);});});});})();`;
 }
 
 function blogCta(lang) {
