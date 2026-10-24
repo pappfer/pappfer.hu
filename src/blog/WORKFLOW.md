@@ -129,14 +129,14 @@ Ferencnek ezt add át, röviden:
 3. a bizonytalan pontokat (ellentmondó források, amit nem tudtál ellenőrizni);
 4. **kérdést a saját tapasztalatáról**, ha a megbízásban nem volt, és a cikk
    erősebb lenne vele;
-5. a LinkedIn- és a /dev/null-poszt szövegét és a megosztási kép URL-jét
-   (6. pont).
+5. a LinkedIn-, a /dev/null- és az X-poszt szövegét és a megosztási kép
+   URL-jét (6. pont).
 
 ## 6. Közösségi posztok
 
-Ferenc minden cikket két helyen oszt meg, **mindkettőn angolul**: LinkedInen és a
-[/dev/null](https://dev-null.sh/)-en (GitHub-alapú fejlesztői közösségi oldal).
-A két poszt szövegét **minden cikk végén** add át a válaszban, akkor is, ha a
+Ferenc minden cikket három helyen oszt meg, **mindenhol angolul**: LinkedInen, a
+[/dev/null](https://dev-null.sh/)-en (GitHub-alapú fejlesztői közösségi oldal) és
+X-en. A posztok szövegét **minden cikk végén** add át a válaszban, akkor is, ha a
 cikk csak magyarul jelent meg (ilyenkor a magyar cikkre linkelj, és a posztban
 jelezd, hogy magyar nyelvű). A posztok nem kerülnek a repóba, és ugyanaz a
 `STYLE.md` hang érvényes rájuk: első személy, konkrétumok, nincs reklámszöveg.
@@ -147,8 +147,28 @@ jelezd, hogy magyar nyelvű). A posztok nem kerülnek a repóba, és ugyanaz a
 - **/dev/null:** egyszerű szöveg, legfeljebb **280 karakter** a linkkel együtt.
   Egy konkrét állítás vagy buktató a cikkből, utána a link. Hashtag és emoji
   nincs.
+- **X:** ugyanaz a szöveg, mint a /dev/null-posztban, csak a saját linkjével.
 
-**Kép.** Mindkét oldal a link előnézetéből mutatja a cikk megosztási képét
+**A link formája.** Mindhárom posztban a link a végén, **külön sorban, előtte
+egy üres sorral** áll, így Ferenc egy az egyben bemásolhatja. Minden platform
+**saját `?ref=` paramétert** kap:
+
+- LinkedIn: `https://pappfer.hu/en/blog/<slug>/?ref=linkedin`
+- /dev/null: `https://pappfer.hu/en/blog/<slug>/?ref=devnull`
+- X: `https://pappfer.hu/en/blog/<slug>/?ref=x`
+
+Ennek oka, hogy a platformok URL-enként tárolják a link előnézetét. Ha egy
+címet egyszer üresen kértek le (például élesítés előtt, amikor még 404 volt),
+akkor napokig kép nélkül mutatják, és ezt kézzel nem lehet frissíteni. Az X-en
+a Vite+ cikknél pontosan ez történt. A cikkben lévő `canonical` link miatt a
+paraméter SEO-ban nem árt. Ha a kártya mégsem jelenik meg, Ferenc törölje a
+posztot, és tegye ki újra egy másik értékkel (pl. `?ref=x2`). Ezt is mondd el
+neki, ha a kártyáról kérdez.
+
+A posztokat Ferenc **csak élesítés után** teszi ki. Előnézeti linket soha ne
+adj át megosztásra.
+
+**Kép.** Mindhárom oldal a link előnézetéből mutatja a cikk megosztási képét
 (`src/og/en-blog-<slug>.jpg`, élesben
 `https://pappfer.hu/img/og/en-blog-<slug>.jpg`, 1200×630). Ezért:
 
