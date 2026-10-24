@@ -679,8 +679,6 @@ const cssGlossary = `
 
 const cssBlog = `
 .lp-hero .post-meta{margin-top:-.25rem}
-.post-meta a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}
-.post-meta a:hover{color:var(--accent)}
 .post-section{padding-top:1rem}
 .post-body{max-width:720px;color:var(--text-secondary);line-height:1.8}
 .post-body>*+*{margin-top:1.15rem}
@@ -716,6 +714,8 @@ const cssBlog = `
 // Article list: the blog index and the homepage's latest-articles section.
 const cssPostList = `
 .post-meta{font-size:.9rem;color:var(--text-muted)}
+.post-meta a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}
+.post-meta a:hover{color:var(--accent)}
 .post-list{display:grid;gap:0;max-width:720px}
 .post-card{padding:1.5rem 0;border-top:1px solid var(--border)}
 .post-card:last-child{border-bottom:1px solid var(--border)}
@@ -1321,7 +1321,7 @@ ${hasBlog(lang) ? `<!-- LATEST ARTICLES -->
 </div>
 <div class="post-list">
 ${latestPosts(lang).map(c => `<article class="post-card">
-<p class="post-meta"><time datetime="${c.date}">${formatDate(lang, c.date)}</time> · ${escapeHtml(c.kicker)}</p>
+<p class="post-meta"><time datetime="${c.date}">${formatDate(lang, c.date)}</time> · <a href="${categoryPath(lang, c.category)}">${escapeHtml(c.kicker)}</a></p>
 <h3><a href="${c.path}">${mdInline(c.title)}</a></h3>
 <p>${escapeHtml(c.description)}</p>
 </article>`).join('')}
@@ -2370,7 +2370,7 @@ function postCards(lang, list) {
   return list.map(p => {
     const c = p.langs[lang];
     return `<article class="post-card">
-<p class="post-meta"><time datetime="${c.date}">${formatDate(lang, c.date)}</time> · ${escapeHtml(c.kicker)}</p>
+<p class="post-meta"><time datetime="${c.date}">${formatDate(lang, c.date)}</time> · <a href="${categoryPath(lang, c.category)}">${escapeHtml(c.kicker)}</a></p>
 <h2><a href="${postPath(lang, p)}">${mdInline(c.title)}</a></h2>
 <p>${escapeHtml(c.description)}</p>
 </article>`;
