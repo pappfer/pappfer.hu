@@ -127,21 +127,36 @@ Ferencnek ezt add át, röviden:
 3. a bizonytalan pontokat (ellentmondó források, amit nem tudtál ellenőrizni);
 4. **kérdést a saját tapasztalatáról**, ha a megbízásban nem volt, és a cikk
    erősebb lenne vele;
-5. a közösségimédia-posztok szövegét (6. pont).
+5. a LinkedIn- és a /dev/null-poszt szövegét és a megosztási kép URL-jét
+   (6. pont).
 
 ## 6. Közösségi posztok
 
-A posztokat a válaszban adod át, nem kerülnek a repóba. Ugyanaz a `STYLE.md` hang
-érvényes rájuk.
+Ferenc minden cikket két helyen oszt meg, **mindkettőn angolul**: LinkedInen és a
+[/dev/null](https://dev-null.sh/)-en (GitHub-alapú fejlesztői közösségi oldal).
+A két poszt szövegét **minden cikk végén** add át a válaszban, akkor is, ha a
+cikk csak magyarul jelent meg (ilyenkor a magyar cikkre linkelj, és a posztban
+jelezd, hogy magyar nyelvű). A posztok nem kerülnek a repóba, és ugyanaz a
+`STYLE.md` hang érvényes rájuk: első személy, konkrétumok, nincs reklámszöveg.
 
-- **LinkedIn, angol** — a megjelenés napján; **LinkedIn, magyar** — másnap reggel.
-  Az első két sor magában is érthető legyen (a többi a „továbbiak” mögé kerül).
-  3–8 rövid bekezdés, a cikk legfontosabb gyakorlati tanulsága, a link a végén.
-  Legfeljebb 3 hashtag, emoji nincs.
-- **X, angol** — egy poszt, legfeljebb 280 karakter a linkkel együtt (a link 23
-  karakternek számít).
-- Megosztás előtt a LinkedIn Post Inspectorban érdemes frissíteni az előnézetet:
-  https://www.linkedin.com/post-inspector/
+- **LinkedIn:** az első két sor magában is érthető legyen (a többi a
+  „…továbbiak” mögé kerül). 3–8 rövid bekezdés, a cikk legfontosabb gyakorlati
+  tanulsága, a link a végén. Legfeljebb 3 hashtag, emoji nincs.
+- **/dev/null:** egyszerű szöveg, legfeljebb **280 karakter** a linkkel együtt.
+  Egy konkrét állítás vagy buktató a cikkből, utána a link. Hashtag és emoji
+  nincs.
+
+**Kép.** Mindkét oldal a link előnézetéből mutatja a cikk megosztási képét
+(`src/og/en-blog-<slug>.jpg`, élesben
+`https://pappfer.hu/img/og/en-blog-<slug>.jpg`, 1200×630). Ezért:
+
+1. A 4. lépés után **nézd meg a képet** (nyisd meg a fájlt): olvasható-e a cím,
+   nem lóg-e ki vagy nem törik-e csúnyán, jó-e a `kicker`. Ha nem, rövidítsd a
+   `title`-t, és generáld újra.
+2. A válaszban add meg a kép URL-jét is, hogy Ferenc külön fel tudja tölteni, ha
+   az előnézet nem jelenik meg.
+3. Élesítés után a LinkedIn Post Inspectorban frissítsd az előnézetet, mielőtt
+   Ferenc megosztja: https://www.linkedin.com/post-inspector/
 
 ## 7. Élesítés
 

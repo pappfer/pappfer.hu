@@ -10,7 +10,9 @@ Az owner cikket kér erről: $ARGUMENTS
    fájlt. Ezek az egyetlen forrásai a szabályoknak, ez a skill csak elindítja őket.
 2. Kövesd a `WORKFLOW.md` lépéseit sorban: kutatás, megírás, önellenőrzés,
    megosztási kép, build, ellenőrzések, `draft/<slug>` branch és előnézet.
-3. Az 5. lépés végén állj meg, és add át az előnézetet az ownernek. A masterre
+3. Az 5. lépés végén állj meg, és add át az előnézetet az ownernek, a
+   LinkedIn- és a /dev/null-poszt angol szövegével és a megosztási kép URL-jével
+   együtt (6. pont). A masterre
    csak akkor kerül, ha ő kifejezetten jóváhagyta.
 
 Magyarul válaszolj.

@@ -130,6 +130,28 @@ magyar legyen: ige előre, kevés főnév, kevés szenvedő szerkezet. Ha egy mo
 fordításnak hangzik, írd újra úgy, ahogy egy magyar fejlesztő mondaná a
 kollégájának.
 
+### Ferenc javításaiból
+
+Ezeket Ferenc maga javította ki egy kész cikkben. Minden új cikknél tartsd be
+őket, és ha újabbat kér, írd ide a tanulságot (rosszat → jót,
+egy sorban az okkal), hogy a következő cikk már ne kövesse el ugyanazt.
+
+- **„licensz”, nem „licenc”:** licensz, licenszdíj, MIT-licenszes. A szótári
+  alak helyett azt írjuk, amit Ferenc ténylegesen használ.
+- **Kérdő cím kérdőjellel:** „Miért most?”, nem „Miért most”.
+- **„jó eséllyel”, nem „valószínűleg”:** „amiket jó eséllyel most is használsz”.
+  A „valószínűleg” írott, hivatalos szó; Ferenc beszélt nyelven fogalmaz.
+- **Közvetlen utasítás a személytelen felszólítás helyett:** „a lint-figyelmeztetések
+  is buktassák a buildet” helyett „kapcsold be X-et, hogy a build a
+  figyelmeztetéseken is elbukjon”. Ha egy mondatot élőszóban senki nem mondana
+  így egy kollégának, írd át.
+- **Köznapi fordulat a merev helyett:** „nem sok minden változik”, nem „kevés
+  minden változik”; „a `@vite`-hoz nem kell hozzányúlni”, nem „a `@vite` marad,
+  ami volt”.
+- **A magyar szöveg ne az angol mondatainak sorrendjét kövesse.** Írás után
+  olvasd végig úgy, mintha nem láttad volna az angolt: ahol megakad a szem, ott
+  fordításszag van.
+
 ## 4. Cikktípusok
 
 | Típus | Mikor | Terjedelem | Kötelező elem |
@@ -214,6 +236,7 @@ kérdésekkel. Ami nem megy át, azt átírja, nem csak jelzi:
 3. Keress rá a 3. pont szavaira és fordulataira mindkét nyelven. Hány
    gondolatjel van?
 4. Olvasd fel magadban a magyar szöveget: hangzik-e valahol fordításnak?
+   Menj végig a „Ferenc javításaiból” listán is (3. pont).
 5. Van-e állítás forrás nélkül, vagy erősebben, mint a forrás?
 6. Kitalált-e a szöveg bármilyen személyes élményt, ügyfelet, számot?
 7. Ha Ferenc hangosan felolvasná egy ügyfélnek, szégyellné-e valamelyik mondatot?
