@@ -158,6 +158,16 @@ const blogIndexPath = (lang) => `/${lang}/${blogMeta[lang].slug}/`;
 const postPath = (lang, post) => `${blogIndexPath(lang)}${post.langs[lang].slug}/`;
 const latestPosts = (lang) => posts.filter(p => p.langs[lang]).slice(0, 3).map(p => ({ ...p.langs[lang], path: postPath(lang, p) }));
 const hasBlog = (lang) => Boolean(blogMeta[lang]) && posts.some(p => p.langs[lang]);
+// Category pages (/<lang>/blog/<category slug>/) exist for every category that
+// has an article in that language.
+const categoryPath = (lang, id) => `${blogIndexPath(lang)}${blogMeta[lang].categories[id].slug}/`;
+const categoryPosts = (lang, id) => posts.filter(p => p.langs[lang]?.category === id);
+const blogCategories = (lang) => Object.keys(blogMeta[lang].categories).filter(id => categoryPosts(lang, id).length);
+// Articles and categories share the /blog/ namespace.
+BLOG_LANGS.forEach(lang => blogCategories(lang).forEach(id => {
+  const clash = posts.find(p => p.langs[lang]?.slug === blogMeta[lang].categories[id].slug);
+  if (clash) throw new Error(`${lang}: the article slug "${clash.langs[lang].slug}" is also a category slug`);
+}));
 // Articles whose front matter lists a service page id in `related:` are linked
 // from that page. A language without its own version (DE) gets the English one,
 // flagged with `inEnglish`.
@@ -235,7 +245,7 @@ LANGUAGES.forEach(lang => {
 });
 posts.forEach(post => {
   Object.keys(post.langs).forEach(lang => {
-    const { html, ...source } = post.langs[lang];
+    const { html, category, ...source } = post.langs[lang];
     LASTMOD[postPath(lang, post)] = trackLastmod(postPath(lang, post), source);
   });
 });
@@ -247,6 +257,13 @@ BLOG_LANGS.forEach(lang => {
     indexLabels,
     posts.filter(p => p.langs[lang]).map(p => [p.langs[lang].slug, p.langs[lang].title, p.langs[lang].description, p.langs[lang].date])
   ]);
+  blogCategories(lang).forEach(id => {
+    LASTMOD[categoryPath(lang, id)] = trackLastmod(categoryPath(lang, id), [
+      blogMeta[lang].categories[id],
+      blogCategories(lang).map(c => [c, categoryPosts(lang, c).length]),
+      categoryPosts(lang, id).map(p => [p.langs[lang].slug, p.langs[lang].title, p.langs[lang].description, p.langs[lang].date])
+    ]);
+  });
 });
 
 // IndexNow: the key is public by design — it is served as /<key>.txt so the
@@ -709,6 +726,16 @@ const cssPostList = `
 .post-all{margin-top:1.5rem;font-weight:600}
 `;
 
+// Category links above the blog's article lists.
+const cssBlogFilter = `
+.blog-filter{display:flex;flex-wrap:wrap;gap:.5rem;max-width:720px;margin-bottom:1.75rem}
+.blog-filter a{display:inline-flex;align-items:center;gap:.4rem;min-height:36px;padding:.3rem .85rem;border:1px solid var(--border);border-radius:999px;font-size:.9rem;font-weight:500;color:var(--text-secondary);transition:color .2s ease-out,border-color .2s ease-out}
+.blog-filter a:hover{color:var(--accent);border-color:var(--accent)}
+.blog-filter a[aria-current]{background:var(--accent-subtle);border-color:var(--accent);color:var(--accent)}
+.blog-filter span{font-size:.8rem;color:var(--text-muted)}
+.blog-filter a[aria-current] span{color:inherit}
+`;
+
 const cssTail = `
 /* Focus styles */
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
@@ -888,7 +915,7 @@ const CSS = {
   home: minifyCss(cssBase + cssHome + cssSearch + cssPostList + cssTail),
   landing: minifyCss(cssBase + cssLanding + cssTail),
   glossary: minifyCss(cssBase + cssLanding + cssSearch + cssGlossary + cssTail),
-  blog: minifyCss(cssBase + cssLanding + cssBlog + cssPostList + cssTail)
+  blog: minifyCss(cssBase + cssLanding + cssBlog + cssPostList + cssBlogFilter + cssTail)
 };
 const minJs = js
   .replace(/^\s*\/\/.*$/gm, '')
@@ -2035,9 +2062,17 @@ function loadPosts() {
     const meta = {};
     fm[1].split('\n').forEach(l => {
       const kv = l.match(/^(\w+):\s*(.*)$/);
-      if (kv) meta[kv[1]] = kv[2];
+      if (!kv) return;
+      meta[kv[1]] = kv[2];
+      // The kicker above the title is the category's name in this language
+      // (meta.json), set where the line sits so the lastmod hash keeps its order.
+      if (kv[1] === 'category') {
+        const cat = blogMeta[lang].categories[kv[2]];
+        if (!cat) throw new Error(`${file}: unknown category "${kv[2]}" (see src/blog/meta.json)`);
+        meta.kicker = cat.name;
+      }
     });
-    ['slug', 'date', 'title', 'metaTitle', 'description', 'kicker'].forEach(k => {
+    ['slug', 'date', 'title', 'metaTitle', 'description', 'category'].forEach(k => {
       if (!meta[k]) throw new Error(`${file}: front matter needs "${k}"`);
     });
     byId[id] = byId[id] || { id, langs: {} };
@@ -2216,6 +2251,7 @@ function generateBlogPost(lang, post) {
     "publisher": {"@id":"https://pappfer.hu/#ferenc-papp"},
     "isPartOf": {"@id": `https://pappfer.hu${blogIndexPath(lang)}#blog`},
     "image": {"@type":"ImageObject","url":ogImage,"width":1200,"height":630},
+    "articleSection": p.kicker,
     "wordCount": p.md.split(/\s+/).length
   };
   if (p.keywords) article.keywords = p.keywords;
@@ -2227,7 +2263,8 @@ function generateBlogPost(lang, post) {
     "itemListElement": [
       {"@type":"ListItem","position":1,"name":lab.home,"item":`https://pappfer.hu/${lang}/`},
       {"@type":"ListItem","position":2,"name":b.h1,"item":`https://pappfer.hu${blogIndexPath(lang)}`},
-      {"@type":"ListItem","position":3,"name":p.title,"item":url}
+      {"@type":"ListItem","position":3,"name":b.categories[p.category].h1,"item":`https://pappfer.hu${categoryPath(lang, p.category)}`},
+      {"@type":"ListItem","position":4,"name":p.title,"item":url}
     ]
   };
 
@@ -2236,7 +2273,7 @@ function generateBlogPost(lang, post) {
   const main = `<article>
 <header class="lp-hero">
 <div class="lp-inner">
-<nav class="lp-crumbs" aria-label="Breadcrumb"><a href="/${lang}/">${lab.home}</a> › <a href="${blogIndexPath(lang)}">${b.h1}</a></nav>
+<nav class="lp-crumbs" aria-label="Breadcrumb"><a href="/${lang}/">${lab.home}</a> › <a href="${blogIndexPath(lang)}">${b.h1}</a> › <a href="${categoryPath(lang, p.category)}">${b.categories[p.category].h1}</a></nav>
 <p class="lp-kicker">${escapeHtml(p.kicker)}</p>
 <h1>${mdInline(p.title)}</h1>
 <p class="post-meta">${b.published} <time datetime="${p.date}">${formatDate(lang, p.date)}</time>${updatedLine} · <a href="/${lang}/#about">${name}</a></p>
@@ -2302,15 +2339,6 @@ function generateBlogIndex(lang) {
     ]
   };
 
-  const items = list.map(p => {
-    const c = p.langs[lang];
-    return `<article class="post-card">
-<p class="post-meta"><time datetime="${c.date}">${formatDate(lang, c.date)}</time> · ${escapeHtml(c.kicker)}</p>
-<h2><a href="${postPath(lang, p)}">${mdInline(c.title)}</a></h2>
-<p>${escapeHtml(c.description)}</p>
-</article>`;
-  }).join('');
-
   const main = `<section class="lp-hero">
 <div class="lp-inner">
 <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="/${lang}/">${lab.home}</a> › ${b.h1}</nav>
@@ -2320,8 +2348,9 @@ function generateBlogIndex(lang) {
 </div>
 </section>
 <section class="section lp-section">
+${blogFilter(lang, null)}
 <div class="lp-inner post-list">
-${items}
+${postCards(lang, list)}
 </div>
 </section>
 ${blogCta(lang)}`;
@@ -2333,6 +2362,97 @@ ${blogCta(lang)}`;
     ogImageAlt: `${b.h1} — ${name}`,
     alternates,
     schemas: [blog, breadcrumb],
+    main
+  });
+}
+
+function postCards(lang, list) {
+  return list.map(p => {
+    const c = p.langs[lang];
+    return `<article class="post-card">
+<p class="post-meta"><time datetime="${c.date}">${formatDate(lang, c.date)}</time> · ${escapeHtml(c.kicker)}</p>
+<h2><a href="${postPath(lang, p)}">${mdInline(c.title)}</a></h2>
+<p>${escapeHtml(c.description)}</p>
+</article>`;
+  }).join('');
+}
+
+// Category links above the article list: plain links to real pages, so the
+// filter works without JavaScript and every category is crawlable. Hidden
+// while there is only one category to choose from.
+function blogFilter(lang, current) {
+  const b = blogMeta[lang];
+  const cats = blogCategories(lang);
+  if (cats.length < 2) return '';
+  const link = (href, label, count, active) =>
+    `<a href="${href}"${active ? ' aria-current="page"' : ''}>${label} <span>${count}</span></a>`;
+  return `<nav class="lp-inner blog-filter" aria-label="${b.filterLabel}">
+${link(blogIndexPath(lang), b.all, posts.filter(p => p.langs[lang]).length, !current)}
+${cats.map(id => link(categoryPath(lang, id), b.categories[id].h1, categoryPosts(lang, id).length, id === current)).join('')}
+</nav>`;
+}
+
+function generateBlogCategory(lang, id) {
+  const b = blogMeta[lang];
+  const cat = b.categories[id];
+  const lab = landing.labels[lang];
+  const urlPath = categoryPath(lang, id);
+  const url = `https://pappfer.hu${urlPath}`;
+  const name = lang === 'hu' ? 'Papp Ferenc' : 'Ferenc Papp';
+  const list = categoryPosts(lang, id);
+  const alternates = {};
+  BLOG_LANGS.filter(l => categoryPosts(l, id).length).forEach(l => { alternates[l] = categoryPath(l, id); });
+
+  const page = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${url}#page`,
+    "name": cat.h1,
+    "description": cat.metaDescription,
+    "url": url,
+    "inLanguage": lang,
+    "author": {"@id":"https://pappfer.hu/#ferenc-papp"},
+    "isPartOf": {"@id": `https://pappfer.hu${blogIndexPath(lang)}#blog`},
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": list.length,
+      "itemListElement": list.map((p, i) => ({"@type":"ListItem","position":i + 1,"url":`https://pappfer.hu${postPath(lang, p)}`,"name":p.langs[lang].title}))
+    }
+  };
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${url}#breadcrumb`,
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":lab.home,"item":`https://pappfer.hu/${lang}/`},
+      {"@type":"ListItem","position":2,"name":b.h1,"item":`https://pappfer.hu${blogIndexPath(lang)}`},
+      {"@type":"ListItem","position":3,"name":cat.h1,"item":url}
+    ]
+  };
+
+  const main = `<section class="lp-hero">
+<div class="lp-inner">
+<nav class="lp-crumbs" aria-label="Breadcrumb"><a href="/${lang}/">${lab.home}</a> › <a href="${blogIndexPath(lang)}">${b.h1}</a> › ${cat.h1}</nav>
+<p class="lp-kicker">${b.h1}</p>
+<h1>${cat.h1}</h1>
+<p class="lp-lead">${cat.lead}</p>
+</div>
+</section>
+<section class="section lp-section">
+${blogFilter(lang, id)}
+<div class="lp-inner post-list">
+${postCards(lang, list)}
+</div>
+</section>
+${blogCta(lang)}`;
+
+  return blogPage(lang, {
+    path: urlPath,
+    metaTitle: cat.metaTitle,
+    description: cat.metaDescription,
+    ogImageAlt: `${cat.h1} — ${name}`,
+    alternates,
+    schemas: [page, breadcrumb],
     main
   });
 }
@@ -2460,6 +2580,11 @@ ${links}
   const indexAlternates = {};
   BLOG_LANGS.forEach(l => { indexAlternates[l] = blogIndexPath(l); });
   BLOG_LANGS.forEach(l => blogUrls.push(blogEntry(indexAlternates, l, '0.6')));
+  Object.keys(blogMeta[BLOG_LANGS[0]].categories).forEach(id => {
+    const alternates = {};
+    BLOG_LANGS.filter(l => categoryPosts(l, id).length).forEach(l => { alternates[l] = categoryPath(l, id); });
+    Object.keys(alternates).forEach(l => blogUrls.push(blogEntry(alternates, l, '0.5')));
+  });
   posts.forEach(post => {
     const alternates = {};
     BLOG_LANGS.filter(l => post.langs[l]).forEach(l => { alternates[l] = postPath(l, post); });
@@ -2564,7 +2689,7 @@ Ferenc Papp (Hungarian name order: Papp Ferenc; online handle: pappfer) is a fre
 - [Portfolio (German)](https://pappfer.hu/de/): vollständiges deutschsprachiges Profil
 ${LANGUAGES.map(l => `- [${glossary.meta[l].h1} (${LANGUAGE_NAMES[l]})](https://pappfer.hu/${l}/${glossary.meta[l].slug}/): ${glossary.meta[l].metaDescription}`).join('\n')}
 ${BLOG_LANGS.map(l => `- [${blogMeta[l].h1} (${LANGUAGE_NAMES[l]})](https://pappfer.hu${blogIndexPath(l)}): ${blogMeta[l].metaDescription}`).join('\n')}
-- [Full site content](https://pappfer.hu/llms-full.txt): every page of the site, all three languages, as one plain-text document
+${BLOG_LANGS.flatMap(l => blogCategories(l).map(id => `- [${blogMeta[l].categories[id].h1} (${LANGUAGE_NAMES[l]})](https://pappfer.hu${categoryPath(l, id)}): ${blogMeta[l].categories[id].metaDescription}\n`)).join('')}- [Full site content](https://pappfer.hu/llms-full.txt): every page of the site, all three languages, as one plain-text document
 - [Résumé (JSON Resume)](https://pappfer.hu/resume.json): machine-readable CV in JSON Resume format
 ${HAS_RESUME_PDF ? '- [Résumé (PDF, English)](https://pappfer.hu/resume.pdf): printable CV\n' : ''}${HAS_RESUME_HU_PDF ? '- [Résumé (PDF, Hungarian)](https://pappfer.hu/resume-hu.pdf): nyomtatható önéletrajz\n' : ''}
 ${LANGUAGES.map(l => `## Service pages (${LANGUAGE_NAMES[l]})
@@ -2760,6 +2885,12 @@ BLOG_LANGS.forEach(lang => {
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, 'index.html'), generateBlogIndex(lang));
   console.log(`  ✓ ${blogIndexPath(lang).slice(1)}index.html`);
+  blogCategories(lang).forEach(id => {
+    const catDir = path.join(DIST, categoryPath(lang, id));
+    fs.mkdirSync(catDir, { recursive: true });
+    fs.writeFileSync(path.join(catDir, 'index.html'), generateBlogCategory(lang, id));
+    console.log(`  ✓ ${categoryPath(lang, id).slice(1)}index.html`);
+  });
   posts.filter(post => post.langs[lang]).forEach(post => {
     const postDir = path.join(DIST, postPath(lang, post));
     fs.mkdirSync(postDir, { recursive: true });

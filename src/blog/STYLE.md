@@ -138,7 +138,10 @@ egy sorban az okkal), hogy a következő cikk már ne kövesse el ugyanazt.
 
 - **„licensz”, nem „licenc”:** licensz, licenszdíj, MIT-licenszes. A szótári
   alak helyett azt írjuk, amit Ferenc ténylegesen használ.
-- **Kérdő cím kérdőjellel:** „Miért most?”, nem „Miért most”.
+- **Kérdő cím kérdőjellel:** minden cím, ami kérdőszóval kezdődik (mit, miért,
+  mikor, hogyan, kinek…), kérdőjelet kap: „Miért most?”, „Mit vált ki?”,
+  „Mikor várnék még vele?”. Az angol címeknél csak akkor, ha tényleg kérdés
+  („What it replaces” nem az).
 - **„jó eséllyel”, nem „valószínűleg”:** „amiket jó eséllyel most is használsz”.
   A „valószínűleg” írott, hivatalos szó; Ferenc beszélt nyelven fogalmaz.
 - **Közvetlen utasítás a személytelen felszólítás helyett:** „a lint-figyelmeztetések
@@ -217,9 +220,13 @@ Ne erőltesd: ha egy link nem segít az olvasónak, ne legyen ott.
 - **`metaTitle`**: a keresőnek, ~60 karakter, a végén `| Ferenc Papp` /
   `| Papp Ferenc`.
 - **`description`**: 140–160 karakter, a lényeg és hogy mit kap az olvasó.
-- **`kicker`**: egy-két szavas műfajcímke a cím fölött (Security advisory /
-  Biztonsági figyelmeztetés, How-to / Útmutató, Case study / Esettanulmány,
-  Opinion / Vélemény).
+- **`category`**: a cikk műfaja, a 4. pont típusai szerint: `security`
+  (biztonsági gyorsreagálás), `how-to` (útmutató), `case-study`
+  (esettanulmány), `opinion` (vélemény). A cím fölötti címke (kicker) és a
+  kategóriaoldal ebből jön; a neveket és a kategóriaoldalak szövegét a
+  `src/blog/meta.json` tartalmazza. Új kategória csak akkor kell, ha egyik sem
+  illik: ilyenkor mindkét nyelven vedd fel a `meta.json`-be (név, slug, H1,
+  metaTitle, 140–160 karakteres metaDescription, lead), ugyanebben a hangban.
 - **`slug`**: rövid, angol vagy a téma saját neve, dátum nélkül, kötőjellel
   (`php2shell`, `laravel-12-upgrade`). **Egyszer élesítve soha nem változik.**
   A HU slug lehet ugyanaz, mint az EN, ha a téma neve nemzetközi.

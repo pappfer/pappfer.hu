@@ -60,8 +60,12 @@
     "date": "2026-09-12"
   },
   "/en/blog/": {
-    "hash": "1718d51e3c9005d2",
-    "date": "2026-10-23"
+    "hash": "da461c4ba0d0f6e9",
+    "date": "2026-10-24"
+  },
+  "/en/blog/case-studies/": {
+    "hash": "8540e4d10f043ea9",
+    "date": "2026-10-24"
   },
   "/en/blog/llm-guardrails-woocommerce/": {
     "hash": "9d34b3b75e2c3920",
@@ -70,6 +74,10 @@
   "/en/blog/php2shell/": {
     "hash": "8223564c697e7747",
     "date": "2026-10-23"
+  },
+  "/en/blog/security/": {
+    "hash": "af3327d09401ab50",
+    "date": "2026-10-24"
   },
   "/en/laravel-developer/": {
     "hash": "aa43c7731d18ab12",
@@ -116,8 +124,16 @@
     "date": "2026-09-12"
   },
   "/hu/blog/": {
-    "hash": "bd83e4a86709596d",
-    "date": "2026-10-23"
+    "hash": "8f3692c8b327df2d",
+    "date": "2026-10-24"
+  },
+  "/hu/blog/biztonsag/": {
+    "hash": "5a755be7484e8c31",
+    "date": "2026-10-24"
+  },
+  "/hu/blog/esettanulmanyok/": {
+    "hash": "366a979d5eb00770",
+    "date": "2026-10-24"
   },
   "/hu/blog/llm-guardrails-woocommerce/": {
     "hash": "01fa554be761cfbc",

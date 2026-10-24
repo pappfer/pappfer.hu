@@ -2,7 +2,7 @@
 slug: php2shell
 date: 2026-10-21
 updated: 2026-10-23
-kicker: Security advisory
+category: security
 keywords: PHP, PHP2Shell, CVE-2026-109618, CVE-2026-109619, CVE-2026-115560, PHP-FPM, Laravel, WordPress, remote code execution
 title: PHP2Shell: an urgent checklist for every PHP server
 metaTitle: PHP2Shell: how to check and patch your PHP server | Ferenc Papp

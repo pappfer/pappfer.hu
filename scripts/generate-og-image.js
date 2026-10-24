@@ -140,14 +140,16 @@ function buildServiceCard(content, lang, photo) {
 }
 
 // Front matter of src/blog/<id>.<lang>.md, mapped to the fields the card uses.
+// The kicker is the category's name in src/blog/meta.json, as on the page.
 function blogCards() {
+  const blogMeta = JSON.parse(fs.readFileSync(path.join(blogDir, 'meta.json'), 'utf8'));
   return fs.readdirSync(blogDir).flatMap(file => {
     const m = file.match(/^.+\.([a-z]{2})\.md$/);
     const fm = m && fs.readFileSync(path.join(blogDir, file), 'utf8').match(/^---\n([\s\S]*?)\n---/);
     if (!fm) return [];
     const meta = {};
     fm[1].split('\n').forEach(l => { const kv = l.match(/^(\w+):\s*(.*)$/); if (kv) meta[kv[1]] = kv[2]; });
-    return [{ lang: m[1], file: `${m[1]}-blog-${meta.slug}.jpg`, content: { kicker: meta.kicker, h1: meta.title } }];
+    return [{ lang: m[1], file: `${m[1]}-blog-${meta.slug}.jpg`, content: { kicker: blogMeta[m[1]].categories[meta.category].name, h1: meta.title } }];
   });
 }
 

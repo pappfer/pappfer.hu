@@ -2,7 +2,7 @@
 slug: php2shell
 date: 2026-10-21
 updated: 2026-10-23
-kicker: Biztonsági figyelmeztetés
+category: security
 keywords: PHP, PHP2Shell, CVE-2026-109618, CVE-2026-109619, CVE-2026-115560, PHP-FPM, Laravel, WordPress, távoli kódfuttatás
 title: PHP2Shell: azonnali teendők minden PHP-szerveren
 metaTitle: PHP2Shell: így ellenőrizd és javítsd a PHP-szervert | Papp Ferenc

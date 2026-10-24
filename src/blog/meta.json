@@ -16,7 +16,43 @@
     "homeTitle": "Latest articles",
     "copy": "Copy",
     "copied": "Copied",
-    "copyFailed": "Press Ctrl+C"
+    "copyFailed": "Press Ctrl+C",
+    "filterLabel": "Article categories",
+    "all": "All articles",
+    "categories": {
+      "security": {
+        "name": "Security advisory",
+        "slug": "security",
+        "h1": "Security advisories",
+        "metaTitle": "PHP and Laravel security advisories | Ferenc Papp",
+        "metaDescription": "Security advisories for PHP, Laravel and the servers they run on: what the hole is, who it affects, and exactly what to patch or switch off today.",
+        "lead": "When a serious hole turns up in PHP, Laravel or the stack around them, I write down what it is, who it affects and what to do about it today, with commands you can run and sources you can check."
+      },
+      "how-to": {
+        "name": "How-to",
+        "slug": "how-to",
+        "h1": "How-to guides",
+        "metaTitle": "How-to guides for PHP, Laravel and AI | Ferenc Papp",
+        "metaDescription": "Step-by-step guides for PHP, Laravel, Vue, React and AI integration work, with commands and code that were run before they were written down.",
+        "lead": "Step-by-step guides for jobs that come up in real projects, with the commands, the code and the places where it usually goes wrong."
+      },
+      "case-study": {
+        "name": "Case study",
+        "slug": "case-studies",
+        "h1": "Case studies",
+        "metaTitle": "Case studies: Laravel, Python and AI projects | Ferenc Papp",
+        "metaDescription": "Case studies from projects Ferenc Papp built: the problem, the decisions behind the solution, what went wrong along the way and what the result was.",
+        "lead": "Projects I built, written up honestly: what the problem was, why I chose the solution I did, what went wrong on the way, and what came out of it."
+      },
+      "opinion": {
+        "name": "Opinion",
+        "slug": "opinion",
+        "h1": "Opinion",
+        "metaTitle": "Opinion: tools and decisions in web development | Ferenc Papp",
+        "metaDescription": "Where Ferenc Papp stands on web development tools, frameworks and AI: what he uses in new projects, what he would wait with, and the reasons why.",
+        "lead": "Where I stand on tools, frameworks and the decisions around them: what I use in new projects, what I'd wait with, and why."
+      }
+    }
   },
   "hu": {
     "slug": "blog",
@@ -35,6 +71,42 @@
     "homeTitle": "Legfrissebb cikkek",
     "copy": "Másolás",
     "copied": "Másolva",
-    "copyFailed": "Nyomj Ctrl+C-t"
+    "copyFailed": "Nyomj Ctrl+C-t",
+    "filterLabel": "Cikkek kategóriák szerint",
+    "all": "Összes cikk",
+    "categories": {
+      "security": {
+        "name": "Biztonsági figyelmeztetés",
+        "slug": "biztonsag",
+        "h1": "Biztonsági figyelmeztetések",
+        "metaTitle": "PHP és Laravel biztonsági figyelmeztetések | Papp Ferenc",
+        "metaDescription": "Biztonsági figyelmeztetések PHP-hoz, Laravelhez és a szerverekhez, amiken futnak: mi a hiba, kit érint, és pontosan mit kell ma frissíteni vagy kikapcsolni.",
+        "lead": "Ha komoly hiba bukkan fel a PHP-ban, a Laravelben vagy a körülöttük lévő rendszerekben, leírom, mi az, kit érint, és mit kell vele ma csinálni: lefuttatható parancsokkal és ellenőrizhető forrásokkal."
+      },
+      "how-to": {
+        "name": "Útmutató",
+        "slug": "utmutatok",
+        "h1": "Útmutatók",
+        "metaTitle": "Útmutatók PHP-hoz, Laravelhez és AI-hoz | Papp Ferenc",
+        "metaDescription": "Lépésről lépésre útmutatók PHP-, Laravel-, Vue-, React- és AI-integrációs feladatokhoz, olyan parancsokkal és kóddal, amiket leírás előtt ki is próbáltam.",
+        "lead": "Lépésről lépésre útmutatók olyan feladatokhoz, amik éles projektekben előjönnek: parancsokkal, kóddal, és azokkal a pontokkal, ahol általában elcsúszik."
+      },
+      "case-study": {
+        "name": "Esettanulmány",
+        "slug": "esettanulmanyok",
+        "h1": "Esettanulmányok",
+        "metaTitle": "Esettanulmányok: Laravel, Python és AI projektek | Papp Ferenc",
+        "metaDescription": "Esettanulmányok Papp Ferenc projektjeiből: mi volt a probléma, miért ezt a megoldást választotta, mi csúszott el közben, és mi lett az eredmény.",
+        "lead": "Projektek, amiket én építettem, őszintén leírva: mi volt a gond, miért pont így oldottam meg, mi csúszott el közben, és mi lett belőle."
+      },
+      "opinion": {
+        "name": "Vélemény",
+        "slug": "velemeny",
+        "h1": "Vélemények",
+        "metaTitle": "Vélemény: eszközök és döntések a webfejlesztésben | Papp Ferenc",
+        "metaDescription": "Papp Ferenc véleménye webfejlesztési eszközökről, keretrendszerekről és AI-ról: mit használ új projektekben, mivel várna még, és miért.",
+        "lead": "Mit gondolok eszközökről, keretrendszerekről és a körülöttük hozott döntésekről: mit használok új projektekben, mivel várnék még, és miért."
+      }
+    }
   }
 }

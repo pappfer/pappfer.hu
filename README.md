@@ -74,7 +74,7 @@ All translatable content lives in three JSON files. Edit them, then run `npm run
 - `src/landing.json` — the service landing pages (9 per language). Adding a page means adding one entry plus its id in `PAGE_ORDER` and `LANDING_ICONS` in `build.js`.
 - `src/glossary.json` — the AI & LLM glossary: per-language page meta plus categories of terms. Each term has a stable `id` that becomes its anchor (`/hu/ai-szotar/#rag`) and its `@id` in the `DefinedTermSet` schema, so **never rename an id** — you would break every link and citation pointing at that definition.
 
-After a content change, build locally so `src/lastmod.json` is updated in the same commit, and re-run `npm run generate-og` if a page's `h1` or `kicker` changed.
+After a content change, build locally so `src/lastmod.json` is updated in the same commit, and re-run `npm run generate-og` if a page's `h1` or `kicker` (for an article: its `title` or `category`) changed.
 
 ## Deployment (Cloudflare Pages)
 

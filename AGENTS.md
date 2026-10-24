@@ -461,7 +461,14 @@ published under his name and must read as his own writing. Articles go to a
 never changes once live, and an article without its share card fails the build.
 Articles can embed WebP images from `src/blog/img/` with
 `![alt](file.webp "caption")` on a line of its own (rules in `WORKFLOW.md`).
-An optional `related: python, ai` front-matter line (service-page ids from
+Each article has a `category:` (`security`, `how-to`, `case-study`,
+`opinion`); the names and the category pages' copy live in
+`src/blog/meta.json`. Every category with an article gets an indexed page at
+`/<lang>/blog/<category slug>/` (CollectionPage + ItemList JSON-LD, sitemap,
+llms.txt), the blog index and category pages link them as filter chips (plain
+links, no JS), and the article breadcrumb runs through its category. Category
+slugs share the `/blog/` namespace with article slugs; the build fails on a
+clash. An optional `related: python, ai` front-matter line (service-page ids from
 `src/landing.json`) lists the article under "From the blog" on those service
 pages; DE pages, which have no articles, link the English version. Cloudflare
 truncates the preview alias to 28 characters, so a long `draft/<slug>` branch

@@ -39,7 +39,7 @@ slug). Front matter, utána markdown:
 ---
 slug: laravel-12-upgrade
 date: 2026-11-03
-kicker: How-to
+category: how-to
 keywords: Laravel, Laravel 12, upgrade, PHP 8.4
 title: …
 metaTitle: … | Ferenc Papp
@@ -48,7 +48,9 @@ description: …
 Nyitó bekezdés…
 ```
 
-- Kötelező: `slug`, `date`, `title`, `metaTitle`, `description`, `kicker`.
+- Kötelező: `slug`, `date`, `title`, `metaTitle`, `description`, `category`
+  (`security`, `how-to`, `case-study`, `opinion`; lásd `STYLE.md` 8. pont).
+  Ugyanaz a kategória kerül mindkét nyelvű változatba.
   Opcionális: `keywords`, `updated` (lásd 7. pont), `related` (szolgáltatásoldalak
   azonosítói a `src/landing.json`-ből, pl. `related: python, ai`: a cikk ezeken az
   oldalakon „A blogból” blokkban jelenik meg; a német oldalak az angol változatra
@@ -88,7 +90,7 @@ node build.js
 ```
 
 A build hibával leáll, ha egy cikkhez nincs megosztási kép
-(`src/og/<lang>-blog-<slug>.jpg`). A kép a cikk `kicker`-éből és `title`-jéből
+(`src/og/<lang>-blog-<slug>.jpg`). A kép a cikk kategóriájának nevéből és a `title`-jéből
 készül, ezért ha bármelyik változik, generáld újra.
 
 Ellenőrizd:
@@ -151,7 +153,7 @@ jelezd, hogy magyar nyelvű). A posztok nem kerülnek a repóba, és ugyanaz a
 `https://pappfer.hu/img/og/en-blog-<slug>.jpg`, 1200×630). Ezért:
 
 1. A 4. lépés után **nézd meg a képet** (nyisd meg a fájlt): olvasható-e a cím,
-   nem lóg-e ki vagy nem törik-e csúnyán, jó-e a `kicker`. Ha nem, rövidítsd a
+   nem lóg-e ki vagy nem törik-e csúnyán, jó-e a kategória. Ha nem, rövidítsd a
    `title`-t, és generáld újra.
 2. A válaszban add meg a kép URL-jét is, hogy Ferenc külön fel tudja tölteni, ha
    az előnézet nem jelenik meg.
