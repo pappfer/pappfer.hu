@@ -21,6 +21,8 @@ Egy esemény feltöltése két lépésből áll, és ez a szétválasztás a pro
 1. Kitölti a minimumot (fotó, név, leírás, dátum, ár), és megnyomja az „SEO generálás” gombot. A backend elküldi a modellnek a szöveget és az 1280 pixelesre kicsinyített plakátot. Visszakapja a SEO-címet, a meta leírást, a rövid leírást, a slugot, a kategóriákat, a címkéket, és ha a szövegben vagy a plakáton talált, a dátumot és az időtartamot.
 2. Minden generált értéket átírhat. A WordPressbe csak akkor kerül fel bármi, amikor a „Feltöltés” gombra bök: ekkor az app átméretezi és feltölti a képet, és létrehozza a terméket a Yoast- és ACF-mezőkkel együtt.
 
+![Az eseményfeltöltő telefonos képernyője: az AI által generált SEO-cím, meta leírás, rövid leírás és slug szerkeszthető mezőkben](llm-guardrails-woocommerce-review.webp "Az ellenőrző lépés: az „AI által kitöltve” rész minden mezője átírható, mielőtt bármi felkerülne.")
+
 Ha a modell épp nem érhető el, az űrlap akkor is működik, a SEO-mezőket kézzel is ki lehet tölteni. Az az AI-funkció, ami miatt egy kisvállalkozás nem tud publikálni, többet árt, mint amennyit használ.
 
 ## Hat feladat, amit a kód vett vissza
@@ -42,6 +44,8 @@ Mindegyik hiba legalább egyszer élesben is megjelent, mielőtt kijavítottam. 
 ## Miben jó a modell?
 
 Mindezek ellenére a munka nagyját továbbra is a modell végzi, és jól. A stúdió hangján írja meg a meta leírást és a rövid leírást, leolvassa a plakátról a dátumot és az időpontot (egy valódi napközis tábor plakátjáról helyesen olvasta le, hogy „8:00–16:00”), és kijavítja az elírásokat. A javításokat listában adja vissza („hibás → javított”), és az eredeti szövegben csak ezeket a cseréket hajtom végre, így a megfogalmazás az övé marad.
+
+![Állapotüzenet a modell helyesírási javításaival](llm-guardrails-woocommerce-corrections.webp "A javítások listában jönnek vissza, és csak ezek a cserék kerülnek a szövegbe.")
 
 A modell kiválasztása kevesebbet számított, mint a korlátok. Ugyanazokon a valódi termékeken összehasonlítottam a `gpt-6-luna`-t és a `gpt-6.1-sol`-t: a kategória-enum mellett mindkettő ugyanazokat a helyes kategóriákat és dátumokat adta. A nagyobb modell másfél-kétszer hosszabb leírásokat írt, és kétszer is oda nem illő címkét tett hozzá, így maradt a kisebb. A backend az Anthropic API-ját is támogatja, a váltáshoz egyetlen környezeti változót kell átírni.
 

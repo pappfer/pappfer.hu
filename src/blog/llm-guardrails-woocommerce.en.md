@@ -21,6 +21,8 @@ Uploading an event takes two steps, and that split is the most important design 
 1. She fills in the minimum (photo, name, description, date, price) and taps "SEO generálás". The backend sends the text, plus the poster downscaled to 1280 px, to the model, and gets back the SEO title, meta description, short description, slug, categories, tags, and any date and duration it found in the text or on the poster.
 2. Every generated field shows up as an editable input. Nothing reaches WordPress until she taps "Feltöltés": then the image is resized and uploaded, and the product is created with its Yoast and ACF fields.
 
+![Phone screen of the event uploader: AI-generated SEO title, meta description, short description and slug in editable fields](llm-guardrails-woocommerce-review.webp "The review step. Everything under „AI által kitöltve” (filled in by AI) can still be edited before anything is uploaded.")
+
 If the model is down, the form still works and the SEO fields can be typed by hand. An AI feature that can stop a small business from publishing is a liability.
 
 ## Six jobs code took back from the model
@@ -42,6 +44,8 @@ Each of these reached the live site at least once before it was fixed. That's th
 ## What the model is good at
 
 The model still does most of the work, and does it well. It writes the meta description and short description in the studio's voice, reads the date and opening hours off a poster (on a real kids' day-camp poster it read "8:00–16:00" correctly), and fixes typos. The typo fixes come back as a list ("hibás → javított"), and only those exact replacements are applied to the original text, so the wording stays hers.
+
+![Status message listing the spelling fixes the model made](llm-guardrails-woocommerce-corrections.webp "Typo fixes come back as a list, and only those replacements are applied.")
 
 Model choice mattered less than the guardrails. I compared `gpt-6-luna` and `gpt-6.1-sol` on the same real products, and with the category enum in place both returned identical, valid categories and dates. The bigger model wrote descriptions one and a half to two times longer and twice added an off-topic tag, so the smaller one stayed. The backend also supports Anthropic's API; switching is one environment variable.
 

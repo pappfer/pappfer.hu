@@ -676,7 +676,7 @@ const cssBlog = `
 .post-body li+li{margin-top:.4rem}
 .post-body figure{margin:2rem 0}
 .post-body figure img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--border)}
-.post-body figure.post-fig--tall{max-width:340px;margin-left:auto;margin-right:auto}
+.post-body figure.post-fig--narrow{max-width:340px;margin-left:auto;margin-right:auto}
 .post-body figcaption{margin-top:.6rem;font-size:.9rem;line-height:1.5;text-align:center}
 .post-body code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em;padding:.1em .35em;border-radius:4px;background:var(--bg-tertiary);color:var(--text-primary);overflow-wrap:anywhere}
 .post-body .code{--c-bg:#0d1117;--c-field:#161b22;--c-line:#30363d;--c-text:#e6edf3;--c-com:#8b949e;border:1px solid #1f2430;border-radius:var(--radius);background:var(--c-bg);color:var(--c-text);overflow:hidden}
@@ -1968,8 +1968,9 @@ function articleFigure(alt, file, caption) {
   if (!/\.webp$/.test(file) || file.includes('/') || !fs.existsSync(src)) throw new Error(`blog image ${file}: must be a .webp file in src/blog/img/`);
   const size = webpSize(src);
   if (!size) throw new Error(`blog image ${file}: not a readable WebP file`);
-  const tall = size.h > size.w * 1.3 ? ' class="post-fig--tall"' : '';
-  return `<figure${tall}><img src="/img/blog/${file}" width="${size.w}" height="${size.h}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async">`
+  // Portrait images and phone-width screenshots (≤ 800 px, i.e. 2x of a phone viewport) stay narrow instead of being upscaled
+  const narrow = size.h > size.w * 1.3 || size.w <= 800 ? ' class="post-fig--narrow"' : '';
+  return `<figure${narrow}><img src="/img/blog/${file}" width="${size.w}" height="${size.h}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async">`
     + (caption ? `<figcaption>${mdInline(caption)}</figcaption>` : '') + '</figure>';
 }
 

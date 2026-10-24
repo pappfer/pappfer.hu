@@ -67,7 +67,8 @@ Nyitó bekezdés…
   szöveg kötelező, és azt írja le, ami a képen látszik; a képaláírás opcionális,
   benne `**félkövér**` és `` `kód` `` használható. A build a fájlból olvassa ki a
   méretet; ha a fájl hiányzik, nem WebP vagy nincs alt szöveg, a build leáll. Az
-  álló képek (telefonos képernyőkép) keskenyebb, középre igazított keretet kapnak.
+  álló és a legfeljebb 800 px széles képek (telefonos képernyőkép) keskenyebb,
+  középre igazított keretet kapnak.
   Képernyőképen ne legyen személyes adat (vásárló, utalvány kedvezményezettje),
   belső URL, bejelentkezés vagy üzleti szám (foglalások, bevétel), hacsak Ferenc
   kifejezetten nem kéri.
