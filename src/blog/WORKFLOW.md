@@ -160,7 +160,7 @@ egy üres sorral** áll, így Ferenc egy az egyben bemásolhatja. Minden platfor
 Ennek oka, hogy a platformok URL-enként tárolják a link előnézetét. Ha egy
 címet egyszer üresen kértek le (például élesítés előtt, amikor még 404 volt),
 akkor napokig kép nélkül mutatják, és ezt kézzel nem lehet frissíteni. Az X-en
-a Vite+ cikknél pontosan ez történt. A cikkben lévő `canonical` link miatt a
+a Vite+ cikk linkje így jelent meg kép nélkül. A cikkben lévő `canonical` link miatt a
 paraméter SEO-ban nem árt. Ha a kártya mégsem jelenik meg, Ferenc törölje a
 posztot, és tegye ki újra egy másik értékkel (pl. `?ref=x2`). Ezt is mondd el
 neki, ha a kártyáról kérdez.
