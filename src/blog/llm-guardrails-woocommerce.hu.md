@@ -19,7 +19,7 @@ A technológia szándékosan unalmas: Vue 3 PWA a Cloudflare Pagesen, [FastAPI](
 Egy esemény feltöltése két lépésből áll, és ez a szétválasztás a projekt legfontosabb döntése:
 
 1. Kitölti a minimumot (fotó, név, leírás, dátum, ár), és megnyomja az „AI generálás ✨” gombot. A backend elküldi a modellnek a szöveget és az 1280 pixelesre kicsinyített plakátot. Visszakapja a SEO-címet, a meta leírást, a rövid leírást, a slugot, a kategóriákat, a címkéket, és ha a szövegben vagy a plakáton talált, a dátumot és az időtartamot.
-2. Minden generált értéket átírhat. A WordPressbe csak akkor kerül fel bármi, amikor a „Feltöltés” gombra bök: ekkor az app átméretezi és feltölti a képet, és létrehozza a terméket a Yoast- és ACF-mezőkkel együtt.
+2. Minden generált értéket átírhat. A WordPressbe csak akkor kerül fel bármi, amikor a „Közzététel” vagy a „Feltöltés piszkozatként” gombra bök: ekkor az app átméretezi és feltölti a képet, és létrehozza a terméket a Yoast- és ACF-mezőkkel együtt.
 
 ![Az eseményfeltöltő telefonos képernyője: az AI által generált SEO-cím, meta leírás, rövid leírás és slug szerkeszthető mezőkben](llm-guardrails-woocommerce-review.webp "Az ellenőrző lépés: az „AI által kitöltve” rész minden mezője átírható, mielőtt bármi felkerülne.")
 

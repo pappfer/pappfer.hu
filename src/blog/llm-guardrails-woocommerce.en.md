@@ -19,7 +19,7 @@ The stack is deliberately boring: a Vue 3 PWA on Cloudflare Pages, a [FastAPI](/
 Uploading an event takes two steps, and that split is the most important design decision in the project:
 
 1. She fills in the minimum (photo, name, description, date, price) and taps "AI generálás ✨". The backend sends the text, plus the poster downscaled to 1280 px, to the model, and gets back the SEO title, meta description, short description, slug, categories, tags, and any date and duration it found in the text or on the poster.
-2. Every generated field shows up as an editable input. Nothing reaches WordPress until she taps "Feltöltés": then the image is resized and uploaded, and the product is created with its Yoast and ACF fields.
+2. Every generated field shows up as an editable input. Nothing reaches WordPress until she taps "Közzététel" or "Feltöltés piszkozatként" (publish, or upload as a draft): then the image is resized and uploaded, and the product is created with its Yoast and ACF fields.
 
 ![Phone screen of the event uploader: AI-generated SEO title, meta description, short description and slug in editable fields](llm-guardrails-woocommerce-review.webp "The review step. Everything under „AI által kitöltve” (filled in by AI) can still be edited before anything is uploaded.")
 
