@@ -674,6 +674,10 @@ const cssBlog = `
 .post-body a:hover{color:var(--accent-hover)}
 .post-body ul,.post-body ol{padding-left:1.4rem}
 .post-body li+li{margin-top:.4rem}
+.post-body figure{margin:2rem 0}
+.post-body figure img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--border)}
+.post-body figure.post-fig--tall{max-width:340px;margin-left:auto;margin-right:auto}
+.post-body figcaption{margin-top:.6rem;font-size:.9rem;line-height:1.5;text-align:center}
 .post-body code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em;padding:.1em .35em;border-radius:4px;background:var(--bg-tertiary);color:var(--text-primary);overflow-wrap:anywhere}
 .post-body .code{--c-bg:#0d1117;--c-field:#161b22;--c-line:#30363d;--c-text:#e6edf3;--c-com:#8b949e;border:1px solid #1f2430;border-radius:var(--radius);background:var(--c-bg);color:var(--c-text);overflow:hidden}
 [data-theme="dark"] .post-body .code{--c-bg:#1a2030;--c-field:#232c40;--c-line:#3a4660;border-color:#323d54}
@@ -1655,7 +1659,7 @@ function generateSearchIndex(lang) {
 
   posts.filter(post => post.langs[lang]).forEach(post => {
     const c = post.langs[lang];
-    docs.push({ k: 'page', t: c.title, s: c.kicker, u: postPath(lang, post), x: `${c.description} ${c.md.replace(/\]\([^)]*\)/g, ' ').replace(/[`*#[]/g, ' ')}` });
+    docs.push({ k: 'page', t: c.title, s: c.kicker, u: postPath(lang, post), x: `${c.description} ${c.md.replace(/!\[([^\]]*)\]\([^)]*\)/g, ' $1 ').replace(/\]\([^)]*\)/g, ' ').replace(/[`*#[]/g, ' ')}` });
   });
 
   docs.push({
@@ -1941,6 +1945,34 @@ function highlight(code, lang) {
   return out + escapeHtml(plain);
 }
 
+// Article images: `![alt](file.webp "caption")` on a line of its own, files in
+// src/blog/img/, served from /img/blog/. WebP only (convert with cwebp); the size
+// is read from the file so the <img> gets width/height and the layout doesn't
+// shift. Portrait images (phone screenshots) get a narrower, centred frame.
+// (Function declarations only: loadPosts() runs near the top of the file.)
+function blogImgDir() { return path.join(BLOG_DIR, 'img'); }
+
+function webpSize(file) {
+  const b = fs.readFileSync(file);
+  if (b.toString('ascii', 0, 4) !== 'RIFF' || b.toString('ascii', 8, 12) !== 'WEBP') return null;
+  const chunk = b.toString('ascii', 12, 16);
+  if (chunk === 'VP8X') return { w: 1 + b.readUIntLE(24, 3), h: 1 + b.readUIntLE(27, 3) };
+  if (chunk === 'VP8L') { const v = b.readUInt32LE(21); return { w: 1 + (v & 0x3fff), h: 1 + ((v >> 14) & 0x3fff) }; }
+  if (chunk === 'VP8 ') return { w: b.readUInt16LE(26) & 0x3fff, h: b.readUInt16LE(28) & 0x3fff };
+  return null;
+}
+
+function articleFigure(alt, file, caption) {
+  const src = path.join(blogImgDir(), file);
+  if (!alt.trim()) throw new Error(`blog image ${file}: alt text is required`);
+  if (!/\.webp$/.test(file) || file.includes('/') || !fs.existsSync(src)) throw new Error(`blog image ${file}: must be a .webp file in src/blog/img/`);
+  const size = webpSize(src);
+  if (!size) throw new Error(`blog image ${file}: not a readable WebP file`);
+  const tall = size.h > size.w * 1.3 ? ' class="post-fig--tall"' : '';
+  return `<figure${tall}><img src="/img/blog/${file}" width="${size.w}" height="${size.h}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async">`
+    + (caption ? `<figcaption>${mdInline(caption)}</figcaption>` : '') + '</figure>';
+}
+
 function markdownToHtml(md, lang) {
   const lines = md.split('\n');
   const out = [];
@@ -1963,6 +1995,8 @@ function markdownToHtml(md, lang) {
           .replace(/>([ \t]+)</g, (_, ws) => `>${ws.replace(/ /g, '&#32;').replace(/\t/g, '&#9;')}<`)}</code></pre></div>`);
       continue;
     }
+    const image = line.trim().match(/^!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)$/);
+    if (image) { out.push(articleFigure(image[1], image[2], image[3])); i++; continue; }
     const heading = line.match(/^(#{2,4}) (.+)$/);
     if (heading) {
       const level = heading[1].length;
@@ -1981,7 +2015,7 @@ function markdownToHtml(md, lang) {
       continue;
     }
     const para = [];
-    for (; i < lines.length && lines[i].trim() && !/^(```|#{2,4} |- |\d+\. |---+$)/.test(lines[i]); i++) para.push(lines[i]);
+    for (; i < lines.length && lines[i].trim() && !/^(```|#{2,4} |- |\d+\. |---+$|!\[)/.test(lines[i]); i++) para.push(lines[i]);
     out.push(`<p>${mdInline(para.join(' '))}</p>`);
   }
   // minHtml also collapses `> <`, which would glue "</strong> <code>" together.
@@ -2674,7 +2708,8 @@ function generateLlmsFull() {
       out.push(`Last modified: ${LASTMOD[postPath(lang, post)]}`);
       out.push('');
       // One level down, so the article's own ## headings nest under its title.
-      out.push(c.md.replace(/^(#{2,3}) /gm, '#$1 '));
+      out.push(c.md.replace(/^(#{2,3}) /gm, '#$1 ')
+        .replace(/^!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)$/gm, (_, alt, file, cap) => `[Image: ${cap || alt}](https://pappfer.hu/img/blog/${file})`));
     });
   });
 
@@ -2800,6 +2835,14 @@ if (fs.existsSync(OG_DIR)) {
   const cards = fs.readdirSync(OG_DIR).filter(f => f.endsWith('.jpg'));
   cards.forEach(f => fs.copyFileSync(path.join(OG_DIR, f), path.join(DIST, 'img', 'og', f)));
   if (cards.length) console.log(`  ✓ dist/img/og/ (${cards.length} per-page share cards)`);
+}
+
+// Article images (src/blog/img/, see articleFigure)
+if (fs.existsSync(blogImgDir())) {
+  const imgs = fs.readdirSync(blogImgDir()).filter(f => f.endsWith('.webp'));
+  fs.mkdirSync(path.join(DIST, 'img', 'blog'), { recursive: true });
+  imgs.forEach(f => fs.copyFileSync(path.join(blogImgDir(), f), path.join(DIST, 'img', 'blog', f)));
+  if (imgs.length) console.log(`  ✓ dist/img/blog/ (${imgs.length} article images)`);
 }
 
 staticAssets.forEach(({ src, dest }) => {

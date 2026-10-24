@@ -58,7 +58,19 @@ Nyitó bekezdés…
   változik**.
 - Támogatott markdown: `##`–`####` címek, bekezdés, `**félkövér**`, `*dőlt*`,
   `` `kód` ``, linkek, számozott és pontozott lista, kódblokk nyelvvel
-  (```` ```bash ````), `---`. Táblázat, kép, HTML nincs.
+  (```` ```bash ````), `---`, kép (lásd lent). Táblázat és HTML nincs.
+- **Kép:** külön sorban `![alt szöveg](fajlnev.webp "Képaláírás")`. A fájl a
+  `src/blog/img/` mappába kerül (élesben `/img/blog/`), neve a cikk slugjával
+  kezdődik (`<slug>-<mit-mutat>.webp`), és a két nyelv ugyanazt a fájlt használja,
+  ha a képen nincs nyelvfüggő szöveg. **Csak WebP**, legfeljebb 1600 px szélesen:
+  `cwebp -q 82 -resize 1080 0 be.png -o src/blog/img/<slug>-x.webp`. Az alt
+  szöveg kötelező, és azt írja le, ami a képen látszik; a képaláírás opcionális,
+  benne `**félkövér**` és `` `kód` `` használható. A build a fájlból olvassa ki a
+  méretet; ha a fájl hiányzik, nem WebP vagy nincs alt szöveg, a build leáll. Az
+  álló képek (telefonos képernyőkép) keskenyebb, középre igazított keretet kapnak.
+  Képernyőképen ne legyen személyes adat (vásárló, utalvány kedvezményezettje),
+  belső URL, bejelentkezés vagy üzleti szám (foglalások, bevétel), hacsak Ferenc
+  kifejezetten nem kéri.
 - A `##` címekből horgony lesz, ezért legyenek rövidek és stabilak.
 
 ## 3. Megírás és önellenőrzés

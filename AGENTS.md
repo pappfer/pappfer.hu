@@ -459,6 +459,8 @@ the sitemap, llms.txt and search on its own. When the owner asks for an article
 published under his name and must read as his own writing. Articles go to a
 `draft/<slug>` branch for his review first, never straight to master. A slug
 never changes once live, and an article without its share card fails the build.
+Articles can embed WebP images from `src/blog/img/` with
+`![alt](file.webp "caption")` on a line of its own (rules in `WORKFLOW.md`).
 An optional `related: python, ai` front-matter line (service-page ids from
 `src/landing.json`) lists the article under "From the blog" on those service
 pages; DE pages, which have no articles, link the English version. Cloudflare
