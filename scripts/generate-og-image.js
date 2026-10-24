@@ -45,6 +45,7 @@ const outputPath = path.join(rootDir, 'src', 'og-image.jpg');
 const ogDir = path.join(rootDir, 'src', 'og');
 const blogDir = path.join(rootDir, 'src', 'blog');
 const profileImagePath = path.join(rootDir, 'src', 'pappfer.webp');
+const coverDir = path.join(blogDir, 'cover');
 
 const WIDTH = 1200;
 const HEIGHT = 630;
@@ -79,6 +80,13 @@ const SHARED_STYLES = `
     object-fit:cover;border:4px solid rgba(52,211,153,.35);
     box-shadow:0 20px 60px rgba(0,0,0,.45);
   }
+  .cover{
+    flex-shrink:0;width:230px;height:230px;border-radius:44px;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(160deg,#232842 0%,#181b29 100%);
+    border:2px solid rgba(52,211,153,.35);box-shadow:0 20px 60px rgba(0,0,0,.45);
+  }
+  .cover img{width:170px;height:170px;object-fit:contain}
   .url{font-size:28px;font-weight:500;color:#8a8aaa;margin-top:26px}
 `;
 
@@ -121,7 +129,16 @@ function headingSize(text) {
   return 78;
 }
 
-function buildServiceCard(content, lang, photo) {
+// An article's card shows its topic instead of the photo when
+// src/blog/cover/<slug>.svg exists (the project's logo, recoloured for the dark
+// card where needed).
+function loadCoverDataUri(slug) {
+  const file = path.join(coverDir, `${slug}.svg`);
+  if (!fs.existsSync(file)) return '';
+  return `data:image/svg+xml;base64,${fs.readFileSync(file).toString('base64')}`;
+}
+
+function buildServiceCard(content, lang, photo, cover) {
   return page(`
   .photo{width:230px;height:230px}
   .kicker{font-size:27px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#34d399}
@@ -129,7 +146,7 @@ function buildServiceCard(content, lang, photo) {
   .byline{font-size:30px;font-weight:600;color:#c9c9dd;margin-top:30px}
   .url{margin-top:10px}
 `, `
-  ${photo ? `<img class="photo" src="${photo}" alt="">` : ''}
+  ${cover ? `<div class="cover"><img src="${cover}" alt=""></div>` : photo ? `<img class="photo" src="${photo}" alt="">` : ''}
   <div class="text">
     <div class="kicker">${escapeHtml(content.kicker)}</div>
     <div class="h1">${escapeHtml(content.h1)}</div>
@@ -149,7 +166,7 @@ function blogCards() {
     if (!fm) return [];
     const meta = {};
     fm[1].split('\n').forEach(l => { const kv = l.match(/^(\w+):\s*(.*)$/); if (kv) meta[kv[1]] = kv[2]; });
-    return [{ lang: m[1], file: `${m[1]}-blog-${meta.slug}.jpg`, content: { kicker: blogMeta[m[1]].categories[meta.category].name, h1: meta.title } }];
+    return [{ lang: m[1], file: `${m[1]}-blog-${meta.slug}.jpg`, cover: loadCoverDataUri(meta.slug), content: { kicker: blogMeta[m[1]].categories[meta.category].name, h1: meta.title } }];
   });
 }
 
@@ -192,7 +209,7 @@ async function main() {
 
     fs.mkdirSync(ogDir, { recursive: true });
     for (const card of blogCards()) {
-      await shoot(tab, buildServiceCard(card.content, card.lang, photo), path.join(ogDir, card.file));
+      await shoot(tab, buildServiceCard(card.content, card.lang, photo, card.cover), path.join(ogDir, card.file));
     }
     if (blogOnly) return;
     for (const lang of LANGUAGES) {

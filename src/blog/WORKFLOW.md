@@ -89,6 +89,14 @@ CHROME_PATH=/usr/bin/google-chrome npm run generate-og -- --blog-only
 node build.js
 ```
 
+**Témakép.** A megosztási képen Ferenc fotója helyett a cikk témája látszik:
+`src/blog/cover/<slug>.svg`, általában a projekt hivatalos logója (Vite+, PHP,
+WooCommerce…), a projekt saját oldaláról vagy a
+[Simple Icons](https://simpleicons.org/)-ból. A logót a sötét kártyához
+igazítsd: a fekete részeket színezd fehérre, a széles logóknál vágd szorosra a
+`viewBox`-ot, hogy kitöltse a keretet. Generálás után nézd meg a képet. Ha nincs
+SVG, a kártya Ferenc fotójával készül, ezért új cikknél mindig legyen.
+
 A build hibával leáll, ha egy cikkhez nincs megosztási kép
 (`src/og/<lang>-blog-<slug>.jpg`). A kép a cikk kategóriájának nevéből és a `title`-jéből
 készül, ezért ha bármelyik változik, generáld újra.
@@ -164,6 +172,12 @@ a Vite+ cikk linkje így jelent meg kép nélkül. A cikkben lévő `canonical` 
 paraméter SEO-ban nem árt. Ha a kártya mégsem jelenik meg, Ferenc törölje a
 posztot, és tegye ki újra egy másik értékkel (pl. `?ref=x2`). Ezt is mondd el
 neki, ha a kártyáról kérdez.
+
+**Bemásolható formában add át.** A posztok szövege sima szöveg legyen a
+válaszban: **ne idézetként** (`>`), mert a terminálban függőleges csíkkal jelenik
+meg, és Ferencnek másolás után törölnie kell. Kódblokkba se tedd. Mindegyik elé
+egy rövid címsor kerül (LinkedIn, /dev/null, X), és a szöveg utána, sima
+bekezdésekben.
 
 A posztokat Ferenc **csak élesítés után** teszi ki. Előnézeti linket soha ne
 adj át megosztásra.
